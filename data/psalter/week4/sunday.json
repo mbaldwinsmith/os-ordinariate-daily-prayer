@@ -1,54 +1,54 @@
 {
-  "verified": false,
+  "verified": true,
   "officeOfReadings": {
     "psalmody": [
       {
         "type": "psalm",
-        "ref": "Ps 48"
+        "ref": "Ps 24"
       },
       {
         "type": "psalm",
-        "ref": "Ps 49"
+        "ref": "Ps 66:2-12"
       },
       {
         "type": "psalm",
-        "ref": "Ps 50"
+        "ref": "Ps 66:13-20"
       }
     ]
   },
   "lauds": {
-    "shortReading": {
-      "ref": "2 Tm 2:8, 11-13",
-      "verified": false
-    },
     "psalmody": [
       {
         "type": "psalm",
-        "ref": "Ps 44"
+        "ref": "Ps 118"
       },
       {
         "type": "canticle",
-        "fixedId": "benedicite"
+        "scriptureRef": "Dn 3:52-57"
       },
       {
         "type": "psalm",
-        "ref": "Ps 45"
+        "ref": "Ps 150"
       }
-    ]
+    ],
+    "shortReading": {
+      "ref": "2 Tm 2:8, 11-13",
+      "verified": false
+    }
   },
   "daytimePrayer": {
     "psalmody": [
       {
         "type": "psalm",
-        "ref": "Ps 119:169-176"
+        "ref": "Ps 23"
       },
       {
         "type": "psalm",
-        "ref": "Ps 51"
+        "ref": "Ps 76:2-7"
       },
       {
         "type": "psalm",
-        "ref": "Ps 52"
+        "ref": "Ps 76:8-13"
       }
     ],
     "shortReading": {
@@ -57,36 +57,39 @@
     }
   },
   "vespers": {
-    "shortReading": {
-      "ref": "Heb 12:22-24",
-      "verified": false
-    },
     "psalmody": [
       {
         "type": "psalm",
-        "ref": "Ps 46"
+        "ref": "Ps 110:1-5, 7"
       },
       {
         "type": "psalm",
-        "ref": "Ps 47"
+        "ref": "Ps 112"
       },
       {
         "type": "canticle",
-        "scriptureRef": "Phil 2:6-11",
-        "name": "Canticle of Philippians"
-      }
-    ]
-  },
-  "compline": {
-    "psalmody": [
-      {
-        "type": "psalm",
-        "ref": "Ps 91"
+        "scriptureRef": "Rv 19:1-7"
       }
     ],
     "shortReading": {
-      "ref": "Rv 22:4-5",
+      "ref": "Heb 12:22-24",
       "verified": false
     }
+  },
+  "firstVespers": {
+    "psalmody": [
+      {
+        "type": "psalm",
+        "ref": "Ps 122"
+      },
+      {
+        "type": "psalm",
+        "ref": "Ps 130"
+      },
+      {
+        "type": "canticle",
+        "scriptureRef": "Phil 2:6-11"
+      }
+    ]
   }
 }

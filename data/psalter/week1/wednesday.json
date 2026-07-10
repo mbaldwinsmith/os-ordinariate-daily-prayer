@@ -1,55 +1,54 @@
 {
-  "verified": false,
+  "verified": true,
   "officeOfReadings": {
     "psalmody": [
       {
         "type": "psalm",
-        "ref": "Ps 32"
+        "ref": "Ps 18:2-7"
       },
       {
         "type": "psalm",
-        "ref": "Ps 33"
+        "ref": "Ps 18:8-20"
       },
       {
         "type": "psalm",
-        "ref": "Ps 34"
+        "ref": "Ps 18:21-30"
       }
     ]
   },
   "lauds": {
-    "shortReading": {
-      "ref": "Tb 4:15-16, 18-19",
-      "verified": false
-    },
     "psalmody": [
       {
         "type": "psalm",
-        "ref": "Ps 28"
+        "ref": "Ps 36"
       },
       {
         "type": "canticle",
-        "scriptureRef": "Is 45:15-25",
-        "name": "Canticle of Isaiah"
+        "scriptureRef": "Jdt 16:2-3, 13-15"
       },
       {
         "type": "psalm",
-        "ref": "Ps 29"
+        "ref": "Ps 47"
       }
-    ]
+    ],
+    "shortReading": {
+      "ref": "Tb 4:15-16, 18-19",
+      "verified": false
+    }
   },
   "daytimePrayer": {
     "psalmody": [
       {
         "type": "psalm",
-        "ref": "Ps 119:25-32"
+        "ref": "Ps 119:9-16"
       },
       {
         "type": "psalm",
-        "ref": "Ps 35"
+        "ref": "Ps 17:1-9"
       },
       {
         "type": "psalm",
-        "ref": "Ps 36"
+        "ref": "Ps 17:9-15"
       }
     ],
     "shortReading": {
@@ -58,35 +57,22 @@
     }
   },
   "vespers": {
-    "shortReading": {
-      "ref": "Jas 1:19-25",
-      "verified": false
-    },
     "psalmody": [
       {
         "type": "psalm",
-        "ref": "Ps 30"
+        "ref": "Ps 27:1-6"
       },
       {
         "type": "psalm",
-        "ref": "Ps 31"
+        "ref": "Ps 27:7-14"
       },
       {
         "type": "canticle",
-        "scriptureRef": "Phil 2:6-11",
-        "name": "Canticle of Philippians"
-      }
-    ]
-  },
-  "compline": {
-    "psalmody": [
-      {
-        "type": "psalm",
-        "ref": "Ps 31:1-6"
+        "scriptureRef": "Col 1:12-20"
       }
     ],
     "shortReading": {
-      "ref": "Eph 4:26-27",
+      "ref": "Jas 1:19-25",
       "verified": false
     }
   }

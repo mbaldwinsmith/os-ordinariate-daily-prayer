@@ -186,6 +186,30 @@ verse and stored without the clause suffix (for example `Am 5:8, 9b` becomes
 `Am 5:8-9`). Discontiguous and cross-chapter references use the comma-separated syntax
 documented above.
 
+## Canonical psalter structure
+
+`canonical-psalter-skeleton.json` is the single structural source for the four-week
+psalter. `scripts/generate-psalter-skeleton.mjs` normalizes its references into the
+project conventions and generates `data/psalter/week1` through `week4`; direct edits to
+those generated assignments are rejected by `npm run diff:psalter`.
+
+Psalmody arrays are ordered liturgical slots: Lauds is psalm, Old Testament canticle,
+psalm; Vespers is psalm, psalm, New Testament canticle. Sunday stores both First and
+Second Vespers. Saturday Vespers resolves to the following Sunday's First Vespers.
+Compline is stored once as a seven-day cycle in `data/psalter/compline.json`, together
+with the default invitatory Psalm 95 and its permitted alternatives (100, 67, and 24).
+The four canonical seasonal Office-of-Readings forks select their strong-season branch
+outside Ordinary Time. Sunday Second Vespers substitutes `1 Pt 2:21-24` for the usual
+Revelation canticle during Lent.
+
+Canonical source references containing verse-part suffixes (`a`/`b`/`c`) are expanded
+to whole Coverdale/DRC verses, since both local text datasets have whole-verse keys.
+Discontiguous psalm selections use the same comma-separated convention as Scripture,
+for example `Ps 110:1-5, 7`.
+Where the canonical table and the Coverdale source segment a psalm differently at a
+range endpoint, the canonical reference remains the structural identifier and the
+renderer includes every locally keyed Coverdale verse falling within that selection.
+
 ## Antiphons
 
 TASKS.md Phase 9 originally omitted antiphons entirely for MVP, for lack of a usable

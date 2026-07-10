@@ -1,55 +1,54 @@
 {
-  "verified": false,
+  "verified": true,
   "officeOfReadings": {
     "psalmody": [
       {
         "type": "psalm",
-        "ref": "Ps 21"
+        "ref": "Ps 89:39-46"
       },
       {
         "type": "psalm",
-        "ref": "Ps 22"
+        "ref": "Ps 89:47-53"
       },
       {
         "type": "psalm",
-        "ref": "Ps 23"
+        "ref": "Ps 90"
       }
     ]
   },
   "lauds": {
-    "shortReading": {
-      "ref": "1 Pt 4:8-11",
-      "verified": false
-    },
     "psalmody": [
       {
         "type": "psalm",
-        "ref": "Ps 17"
+        "ref": "Ps 87"
       },
       {
         "type": "canticle",
-        "scriptureRef": "Jdt 16:2-3, 13-15",
-        "name": "Canticle of Judith"
+        "scriptureRef": "Is 40:10-17"
       },
       {
         "type": "psalm",
-        "ref": "Ps 18"
+        "ref": "Ps 99"
       }
-    ]
+    ],
+    "shortReading": {
+      "ref": "1 Pt 4:8-11",
+      "verified": false
+    }
   },
   "daytimePrayer": {
     "psalmody": [
       {
         "type": "psalm",
-        "ref": "Ps 119:145-152"
+        "ref": "Ps 119:113-120"
       },
       {
         "type": "psalm",
-        "ref": "Ps 24"
+        "ref": "Ps 79:1-5, 8-11, 13"
       },
       {
         "type": "psalm",
-        "ref": "Ps 25"
+        "ref": "Ps 80"
       }
     ],
     "shortReading": {
@@ -58,35 +57,22 @@
     }
   },
   "vespers": {
-    "shortReading": {
-      "ref": "1 Pt 3:8-12",
-      "verified": false
-    },
     "psalmody": [
       {
         "type": "psalm",
-        "ref": "Ps 19"
+        "ref": "Ps 132:1-10"
       },
       {
         "type": "psalm",
-        "ref": "Ps 20"
+        "ref": "Ps 132:11-18"
       },
       {
         "type": "canticle",
-        "scriptureRef": "Rv 11:17-18, 12:10-12",
-        "name": "Canticle of Revelation (the Kingdom)"
-      }
-    ]
-  },
-  "compline": {
-    "psalmody": [
-      {
-        "type": "psalm",
-        "ref": "Ps 16"
+        "scriptureRef": "Rv 11:17-18, 12:10-12"
       }
     ],
     "shortReading": {
-      "ref": "1 Thes 5:23",
+      "ref": "1 Pt 3:8-12",
       "verified": false
     }
   }

@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { getOfficeDay } from './calendar';
 import { resolveDay } from './office';
 import { resolveScriptureRef } from './scripture';
+import compline from '../data/psalter/compline.json';
 
 interface ReadingRef {
   ref: string;
@@ -12,8 +13,7 @@ interface PsalterFile {
   officeOfReadings: { shortReading?: ReadingRef };
   lauds: { shortReading?: ReadingRef };
   daytimePrayer: { shortReading?: ReadingRef };
-  vespers: { shortReading?: ReadingRef };
-  compline: { shortReading?: ReadingRef };
+  vespers?: { shortReading?: ReadingRef };
 }
 
 const files = import.meta.glob<PsalterFile>('../data/psalter/week*/*.json', {
@@ -28,32 +28,31 @@ function resolveDate(date: Date) {
 }
 
 describe('short readings', () => {
-  it('populates all four applicable Hours across all 28 ferial psalter days', () => {
+  it('populates ferial short readings and the separate weekly Compline cycle', () => {
     expect(Object.keys(files)).toHaveLength(28);
     for (const file of Object.values(files)) {
       expect(file.officeOfReadings.shortReading).toBeUndefined();
-      for (const hourName of ['lauds', 'daytimePrayer', 'vespers', 'compline'] as const) {
+      for (const hourName of ['lauds', 'daytimePrayer'] as const) {
         const reading = file[hourName].shortReading;
         expect(reading, `${hourName} short reading`).toBeDefined();
         expect(reading?.verified).toBe(false);
         expect(() => resolveScriptureRef(reading!.ref)).not.toThrow();
         expect(Object.keys(resolveScriptureRef(reading!.ref).verses).length).toBeGreaterThan(0);
       }
+      if (file.vespers) expect(file.vespers.shortReading).toBeDefined();
     }
+    for (const hour of Object.values(compline.days)) expect(hour.shortReading.verified).toBe(true);
   });
 
   it('uses the same fixed Compline reading for a weekday in every psalter week', () => {
-    const mondayReadings = Object.entries(files)
-      .filter(([path]) => path.endsWith('/monday.json'))
-      .map(([, file]) => file.compline.shortReading?.ref);
-    expect(mondayReadings).toHaveLength(4);
-    expect(new Set(mondayReadings)).toEqual(new Set(['1 Thes 5:9-10']));
+    expect(compline.days.monday.shortReading.ref).toBe('1 Thes 5:9-10');
   });
 
   it('never assigns an ordinary Gospel reading', () => {
     const refs = Object.values(files).flatMap((file) =>
-      [file.lauds, file.daytimePrayer, file.vespers, file.compline].map((hour) => hour.shortReading!.ref),
+      [file.lauds, file.daytimePrayer, file.vespers].filter((hour) => hour).map((hour) => hour!.shortReading!.ref),
     );
+    refs.push(...Object.values(compline.days).map((hour) => hour.shortReading.ref));
     expect(refs.some((ref) => /^(Mt|Mk|Lk|Jn) /.test(ref))).toBe(false);
   });
 

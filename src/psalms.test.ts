@@ -19,6 +19,10 @@ describe('resolvePsalmRef', () => {
     expect(Object.keys(verses)).toEqual(['1', '2', '3', '4', '5', '6', '7', '8']);
   });
 
+  it('resolves the canonical psalter\'s discontiguous verse selections', () => {
+    expect(Object.keys(resolvePsalmRef('Ps 110:1-5, 7').verses)).toEqual(['1', '2', '3', '4', '5', '7']);
+  });
+
   it('throws for a psalm/verse combination that does not exist', () => {
     expect(() => resolvePsalmRef('Ps 23:99')).toThrow();
   });

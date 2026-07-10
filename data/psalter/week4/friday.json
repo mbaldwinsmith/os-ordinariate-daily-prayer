@@ -1,55 +1,72 @@
 {
-  "verified": false,
+  "verified": true,
   "officeOfReadings": {
-    "psalmody": [
-      {
-        "type": "psalm",
-        "ref": "Ps 95"
-      },
-      {
-        "type": "psalm",
-        "ref": "Ps 96"
-      },
-      {
-        "type": "psalm",
-        "ref": "Ps 97"
-      }
-    ]
+    "strongSeasons": {
+      "psalmody": [
+        {
+          "type": "psalm",
+          "ref": "Ps 78:1-16"
+        },
+        {
+          "type": "psalm",
+          "ref": "Ps 78:17-31"
+        },
+        {
+          "type": "psalm",
+          "ref": "Ps 78:32-39"
+        }
+      ]
+    },
+    "ordinaryTime": {
+      "psalmody": [
+        {
+          "type": "psalm",
+          "ref": "Ps 55:2-10"
+        },
+        {
+          "type": "psalm",
+          "ref": "Ps 55:10-15"
+        },
+        {
+          "type": "psalm",
+          "ref": "Ps 55:17-24"
+        }
+      ]
+    }
   },
   "lauds": {
-    "shortReading": {
-      "ref": "Gal 2:16, 19-20",
-      "verified": false
-    },
     "psalmody": [
       {
         "type": "psalm",
-        "ref": "Ps 91"
+        "ref": "Ps 51"
       },
       {
         "type": "canticle",
-        "scriptureRef": "1 Sm 2:1-10",
-        "name": "Canticle of Hannah"
+        "scriptureRef": "Tb 13:8-11, 13-15"
       },
       {
         "type": "psalm",
-        "ref": "Ps 92"
+        "ref": "Ps 147:12-20"
       }
-    ]
+    ],
+    "shortReading": {
+      "ref": "Gal 2:16, 19-20",
+      "verified": false
+    }
   },
   "daytimePrayer": {
     "psalmody": [
       {
         "type": "psalm",
-        "ref": "Ps 119:33-40"
+        "ref": "Ps 119:161-168"
       },
       {
         "type": "psalm",
-        "ref": "Ps 98"
+        "ref": "Ps 133"
       },
       {
         "type": "psalm",
-        "ref": "Ps 99"
+        "ref": "Ps 140:2-9, 13-14"
       }
     ],
     "shortReading": {
@@ -58,35 +75,22 @@
     }
   },
   "vespers": {
-    "shortReading": {
-      "ref": "Rom 8:1-2, 10-11",
-      "verified": false
-    },
     "psalmody": [
       {
         "type": "psalm",
-        "ref": "Ps 93"
+        "ref": "Ps 145:1-13"
       },
       {
         "type": "psalm",
-        "ref": "Ps 94"
+        "ref": "Ps 145:13-21"
       },
       {
         "type": "canticle",
-        "scriptureRef": "Col 1:12-20",
-        "name": "Canticle of Colossians"
-      }
-    ]
-  },
-  "compline": {
-    "psalmody": [
-      {
-        "type": "psalm",
-        "ref": "Ps 88"
+        "scriptureRef": "Rv 15:3-4"
       }
     ],
     "shortReading": {
-      "ref": "Jer 14:9",
+      "ref": "Rom 8:1-2, 10-11",
       "verified": false
     }
   }

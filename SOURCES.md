@@ -117,7 +117,23 @@ Provenance, licensing, and known gaps for the two public-domain texts this app u
 
 ## Four-week psalter skeleton (which psalms/canticles fall on which day/hour)
 
-- **Status: UNVERIFIED, best-effort reconstruction.** The standard reference for this
+**Current canonical source:** Fr. Felix Just, S.J., “The Liturgy of the Hours:
+Psalter for the Four-Week Cycle,”
+`https://catholic-resources.org/LoH/Psalter-Hours.html`, page last updated
+2024-11-13 and transcribed 2026-07-10 into `canonical-psalter-skeleton.json`.
+The dataset contains factual structural assignments and references only, not
+copyrighted liturgical prose. It is the generator and CI diff target.
+
+All generated days are now `"verified": true` except Week IV Thursday. Its Office of
+Readings assignment (Psalm 44) duplicates Week II Thursday in the source table. This is
+plausible but remains `"verified": false` pending a human check against a printed
+breviary or Universalis. The pre-correction generator is preserved in Git history; the
+Phase 13 canonical diff showed broad genuine assignment mismatches, not isolated errors.
+
+The paragraphs below describe the superseded Phase 5 reconstruction and are retained as
+historical provenance for what was previously deployed.
+
+- **Superseded status: UNVERIFIED, best-effort reconstruction.** The standard reference for this
   (e.g. `catholic-resources.org/LoH/Psalter-Index.html`) is not reachable from this
   session's network sandbox - same restriction as the Psalter text and canticles above -
   and no GitHub-hosted structural index turned up either. User-approved tradeoff: proceed

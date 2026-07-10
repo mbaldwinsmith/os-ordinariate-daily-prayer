@@ -1,30 +1,26 @@
 {
-  "verified": false,
+  "verified": true,
   "officeOfReadings": {
     "psalmody": [
       {
         "type": "psalm",
-        "ref": "Ps 5"
+        "ref": "Ps 1"
       },
       {
         "type": "psalm",
-        "ref": "Ps 6"
+        "ref": "Ps 2"
       },
       {
         "type": "psalm",
-        "ref": "Ps 7"
+        "ref": "Ps 3"
       }
     ]
   },
   "lauds": {
-    "shortReading": {
-      "ref": "Rv 7:9-12",
-      "verified": false
-    },
     "psalmody": [
       {
         "type": "psalm",
-        "ref": "Ps 1"
+        "ref": "Ps 63:2-9"
       },
       {
         "type": "canticle",
@@ -32,23 +28,27 @@
       },
       {
         "type": "psalm",
-        "ref": "Ps 2"
+        "ref": "Ps 149"
       }
-    ]
+    ],
+    "shortReading": {
+      "ref": "Rv 7:9-12",
+      "verified": false
+    }
   },
   "daytimePrayer": {
     "psalmody": [
       {
         "type": "psalm",
-        "ref": "Ps 119:1-8"
+        "ref": "Ps 118:1-9"
       },
       {
         "type": "psalm",
-        "ref": "Ps 8"
+        "ref": "Ps 118:10-18"
       },
       {
         "type": "psalm",
-        "ref": "Ps 9"
+        "ref": "Ps 118:19-29"
       }
     ],
     "shortReading": {
@@ -57,36 +57,39 @@
     }
   },
   "vespers": {
-    "shortReading": {
-      "ref": "2 Cor 1:3-7",
-      "verified": false
-    },
     "psalmody": [
       {
         "type": "psalm",
-        "ref": "Ps 3"
+        "ref": "Ps 110:1-5, 7"
       },
       {
         "type": "psalm",
-        "ref": "Ps 4"
+        "ref": "Ps 114"
       },
       {
         "type": "canticle",
-        "scriptureRef": "Eph 1:3-10",
-        "name": "Canticle of Ephesians"
-      }
-    ]
-  },
-  "compline": {
-    "psalmody": [
-      {
-        "type": "psalm",
-        "ref": "Ps 91"
+        "scriptureRef": "Rv 19:1-7"
       }
     ],
     "shortReading": {
-      "ref": "Rv 22:4-5",
+      "ref": "2 Cor 1:3-7",
       "verified": false
     }
+  },
+  "firstVespers": {
+    "psalmody": [
+      {
+        "type": "psalm",
+        "ref": "Ps 141:1-9"
+      },
+      {
+        "type": "psalm",
+        "ref": "Ps 142"
+      },
+      {
+        "type": "canticle",
+        "scriptureRef": "Phil 2:6-11"
+      }
+    ]
   }
 }

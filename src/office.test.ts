@@ -47,8 +47,8 @@ describe('resolveDay', () => {
   });
 
   it('uses Benedicite (not a scripture canticle) as the Sunday Lauds canticle', () => {
-    // 2024-01-14 is a Sunday.
-    const day = resolveDayOrThrow(new Date(2024, 0, 14));
+    // 2024-01-21 is a Week III Sunday, whose canonical canticle is the full Benedicite.
+    const day = resolveDayOrThrow(new Date(2024, 0, 21));
     const canticleItem = day.lauds.psalmody.find((item) => item.type === 'canticle');
     expect(canticleItem).toMatchObject({ type: 'canticle', name: expect.stringContaining('Benedicite') });
     expect(canticleItem && Object.values(canticleItem.verses).length).toBeGreaterThan(30);
@@ -62,9 +62,33 @@ describe('resolveDay', () => {
     expect(canticleItem && Object.values(canticleItem.verses).every((text) => text.length > 0)).toBe(true);
   });
 
-  it('flags every generated skeleton day as unverified', () => {
+  it('marks canonical days verified except the documented Week IV Thursday uncertainty', () => {
     const day = resolveDayOrThrow(new Date(2024, 0, 14));
-    expect(day.verified).toBe(false);
+    expect(day.verified).toBe(true);
+    expect(resolveDayOrThrow(new Date(2024, 1, 1)).verified).toBe(false);
+  });
+
+  it('preserves Lauds and Vespers slot order from the canonical table', () => {
+    const day = resolveDayOrThrow(new Date(2024, 0, 15));
+    expect(day.lauds.psalmody.map((item) => item.type)).toEqual(['psalm', 'canticle', 'psalm']);
+    expect(day.vespers.psalmody.map((item) => item.type)).toEqual(['psalm', 'psalm', 'canticle']);
+  });
+
+  it('uses the following Sunday\'s First Vespers on Saturday evening', () => {
+    const saturday = resolveDayOrThrow(new Date(2024, 0, 20));
+    expect(saturday.vespers.psalmody.slice(0, 2).map((item) => item.ref)).toEqual(['Ps 113', 'Ps 116:10-19']);
+  });
+
+  it('selects strong-season Office psalmody and the Lenten Sunday canticle', () => {
+    const lentSaturday = resolveDayOrThrow(new Date(2024, 1, 24));
+    expect(lentSaturday.officeOfReadings.psalmody[0].ref).toBe('Ps 105:1-15');
+    const lentSunday = resolveDayOrThrow(new Date(2024, 1, 25));
+    expect(lentSunday.vespers.psalmody.at(-1)?.ref).toBe('1 Pt 2:21-24');
+  });
+
+  it('uses one weekly Compline cycle regardless of psalter week', () => {
+    expect(resolveDayOrThrow(new Date(2024, 0, 15)).compline.psalmody.map((item) => item.ref))
+      .toEqual(resolveDayOrThrow(new Date(2024, 1, 5)).compline.psalmody.map((item) => item.ref));
   });
 
   it('resolves the Easter octave via its Phase 8 proper override, not the (nonexistent) skeleton', () => {

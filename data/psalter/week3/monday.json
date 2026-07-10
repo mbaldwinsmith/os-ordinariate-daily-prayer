@@ -1,55 +1,54 @@
 {
-  "verified": false,
+  "verified": true,
   "officeOfReadings": {
     "psalmody": [
       {
         "type": "psalm",
-        "ref": "Ps 144"
+        "ref": "Ps 50:1-6"
       },
       {
         "type": "psalm",
-        "ref": "Ps 145"
+        "ref": "Ps 50:7-15"
       },
       {
         "type": "psalm",
-        "ref": "Ps 146"
+        "ref": "Ps 50:16-23"
       }
     ]
   },
   "lauds": {
-    "shortReading": {
-      "ref": "Jas 2:12-17",
-      "verified": false
-    },
     "psalmody": [
       {
         "type": "psalm",
-        "ref": "Ps 140"
+        "ref": "Ps 84"
       },
       {
         "type": "canticle",
-        "scriptureRef": "Is 45:15-25",
-        "name": "Canticle of Isaiah"
+        "scriptureRef": "Is 2:2-5"
       },
       {
         "type": "psalm",
-        "ref": "Ps 141"
+        "ref": "Ps 96"
       }
-    ]
+    ],
+    "shortReading": {
+      "ref": "Jas 2:12-17",
+      "verified": false
+    }
   },
   "daytimePrayer": {
     "psalmody": [
       {
         "type": "psalm",
-        "ref": "Ps 119:121-128"
+        "ref": "Ps 119:89-96"
       },
       {
         "type": "psalm",
-        "ref": "Ps 147"
+        "ref": "Ps 71:1-13"
       },
       {
         "type": "psalm",
-        "ref": "Ps 148"
+        "ref": "Ps 71:14-24"
       }
     ],
     "shortReading": {
@@ -58,35 +57,22 @@
     }
   },
   "vespers": {
-    "shortReading": {
-      "ref": "Jas 4:11-12",
-      "verified": false
-    },
     "psalmody": [
       {
         "type": "psalm",
-        "ref": "Ps 142"
+        "ref": "Ps 123"
       },
       {
         "type": "psalm",
-        "ref": "Ps 143"
+        "ref": "Ps 124"
       },
       {
         "type": "canticle",
-        "scriptureRef": "Phil 2:6-11",
-        "name": "Canticle of Philippians"
-      }
-    ]
-  },
-  "compline": {
-    "psalmody": [
-      {
-        "type": "psalm",
-        "ref": "Ps 86"
+        "scriptureRef": "Eph 1:3-10"
       }
     ],
     "shortReading": {
-      "ref": "1 Thes 5:9-10",
+      "ref": "Jas 4:11-12",
       "verified": false
     }
   }

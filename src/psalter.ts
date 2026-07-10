@@ -3,7 +3,8 @@
 // SOURCES.md for the important caveat that this skeleton is an
 // unverified best-effort reconstruction, not a transcription of the
 // official assignment.
-import type { DayOfWeek, PsalterWeek } from './calendar';
+import complineData from '../data/psalter/compline.json';
+import type { DayOfWeek, PsalterWeek, Season } from './calendar';
 
 export type PsalmodyItem =
   | { type: 'psalm'; ref: string }
@@ -15,18 +16,18 @@ export interface ShortReadingRef {
   verified: boolean;
 }
 
-interface PsalterHour {
+export interface PsalterHour {
   psalmody: PsalmodyItem[];
   shortReading?: ShortReadingRef;
 }
 
 export interface PsalterDay {
   verified: boolean;
-  officeOfReadings: PsalterHour;
+  officeOfReadings: PsalterHour | { ordinaryTime: PsalterHour; strongSeasons: PsalterHour };
   lauds: PsalterHour;
   daytimePrayer: PsalterHour;
-  vespers: PsalterHour;
-  compline: PsalterHour;
+  vespers?: PsalterHour;
+  firstVespers?: PsalterHour;
 }
 
 const files = import.meta.glob<PsalterDay>('../data/psalter/week*/*.json', { eager: true, import: 'default' });
@@ -45,4 +46,14 @@ export function resolvePsalterDay(psalterWeek: PsalterWeek, dayOfWeek: DayOfWeek
   const day = skeleton.get(`${psalterWeek}:${dayOfWeek}`);
   if (!day) throw new Error(`No psalter skeleton file for week ${psalterWeek} ${dayOfWeek}`);
   return day;
+}
+
+const compline = complineData as { invitatory: { default: string; alternatives: string[] }; days: Record<DayOfWeek, PsalterHour> };
+
+export function resolveCompline(dayOfWeek: DayOfWeek): PsalterHour { return compline.days[dayOfWeek]; }
+export function resolveInvitatoryPsalmody() { return compline.invitatory; }
+
+export function selectOfficeOfReadings(day: PsalterDay, season: Season): PsalterHour {
+  if ('psalmody' in day.officeOfReadings) return day.officeOfReadings;
+  return season === 'ordinaryTime' ? day.officeOfReadings.ordinaryTime : day.officeOfReadings.strongSeasons;
 }

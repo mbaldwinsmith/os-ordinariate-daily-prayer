@@ -1,55 +1,54 @@
 {
-  "verified": false,
+  "verified": true,
   "officeOfReadings": {
     "psalmody": [
       {
         "type": "psalm",
-        "ref": "Ps 106"
+        "ref": "Ps 44:2-9"
       },
       {
         "type": "psalm",
-        "ref": "Ps 107"
+        "ref": "Ps 44:10-17"
       },
       {
         "type": "psalm",
-        "ref": "Ps 108"
+        "ref": "Ps 44:18-27"
       }
     ]
   },
   "lauds": {
-    "shortReading": {
-      "ref": "Rom 14:12-13, 17-19",
-      "verified": false
-    },
     "psalmody": [
       {
         "type": "psalm",
-        "ref": "Ps 102"
+        "ref": "Ps 80"
       },
       {
         "type": "canticle",
-        "scriptureRef": "Tb 13:1-8",
-        "name": "Canticle of Tobit"
+        "scriptureRef": "Is 12:1-6"
       },
       {
         "type": "psalm",
-        "ref": "Ps 103"
+        "ref": "Ps 81"
       }
-    ]
+    ],
+    "shortReading": {
+      "ref": "Rom 14:12-13, 17-19",
+      "verified": false
+    }
   },
   "daytimePrayer": {
     "psalmody": [
       {
         "type": "psalm",
-        "ref": "Ps 119:89-96"
+        "ref": "Ps 119:65-72"
       },
       {
         "type": "psalm",
-        "ref": "Ps 110"
+        "ref": "Ps 56:2-7, 9-14"
       },
       {
         "type": "psalm",
-        "ref": "Ps 111"
+        "ref": "Ps 57"
       }
     ],
     "shortReading": {
@@ -58,35 +57,22 @@
     }
   },
   "vespers": {
-    "shortReading": {
-      "ref": "1 Pt 1:18-23",
-      "verified": false
-    },
     "psalmody": [
       {
         "type": "psalm",
-        "ref": "Ps 104"
+        "ref": "Ps 72:2-11"
       },
       {
         "type": "psalm",
-        "ref": "Ps 105"
+        "ref": "Ps 72:12-19"
       },
       {
         "type": "canticle",
-        "scriptureRef": "1 Pt 2:21-24",
-        "name": "Canticle of Peter"
-      }
-    ]
-  },
-  "compline": {
-    "psalmody": [
-      {
-        "type": "psalm",
-        "ref": "Ps 16"
+        "scriptureRef": "Rv 11:17-18, 12:10-12"
       }
     ],
     "shortReading": {
-      "ref": "1 Thes 5:23",
+      "ref": "1 Pt 1:18-23",
       "verified": false
     }
   }

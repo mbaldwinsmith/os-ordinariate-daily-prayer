@@ -1,96 +1,76 @@
 {
-  "verified": false,
+  "verified": true,
   "officeOfReadings": {
-    "psalmody": [
-      {
-        "type": "psalm",
-        "ref": "Ps 104"
-      },
-      {
-        "type": "psalm",
-        "ref": "Ps 105"
-      },
-      {
-        "type": "psalm",
-        "ref": "Ps 106"
-      }
-    ]
+    "strongSeasons": {
+      "psalmody": [
+        {
+          "type": "psalm",
+          "ref": "Ps 78:40-51"
+        },
+        {
+          "type": "psalm",
+          "ref": "Ps 78:52-64"
+        },
+        {
+          "type": "psalm",
+          "ref": "Ps 78:65-72"
+        }
+      ]
+    },
+    "ordinaryTime": {
+      "psalmody": [
+        {
+          "type": "psalm",
+          "ref": "Ps 50:1-6"
+        },
+        {
+          "type": "psalm",
+          "ref": "Ps 50:7-15"
+        },
+        {
+          "type": "psalm",
+          "ref": "Ps 50:16-23"
+        }
+      ]
+    }
   },
   "lauds": {
-    "shortReading": {
-      "ref": "2 Pt 3:13-15",
-      "verified": false
-    },
     "psalmody": [
       {
         "type": "psalm",
-        "ref": "Ps 100"
+        "ref": "Ps 92"
       },
       {
         "type": "canticle",
-        "scriptureRef": "Dt 32:1-12",
-        "name": "Canticle of Moses (Deuteronomy)"
+        "scriptureRef": "Ez 36:24-28"
       },
       {
         "type": "psalm",
-        "ref": "Ps 101"
+        "ref": "Ps 8"
       }
-    ]
+    ],
+    "shortReading": {
+      "ref": "2 Pt 3:13-15",
+      "verified": false
+    }
   },
   "daytimePrayer": {
     "psalmody": [
       {
         "type": "psalm",
-        "ref": "Ps 119:41-48"
+        "ref": "Ps 119:169-176"
       },
       {
         "type": "psalm",
-        "ref": "Ps 107"
+        "ref": "Ps 45:2-10"
       },
       {
         "type": "psalm",
-        "ref": "Ps 108"
+        "ref": "Ps 45:11-18"
       }
     ],
     "shortReading": {
       "ref": "Rom 15:5-7",
-      "verified": false
-    }
-  },
-  "vespers": {
-    "shortReading": {
-      "ref": "Heb 12:22-24",
-      "verified": false
-    },
-    "psalmody": [
-      {
-        "type": "psalm",
-        "ref": "Ps 102"
-      },
-      {
-        "type": "psalm",
-        "ref": "Ps 103"
-      },
-      {
-        "type": "canticle",
-        "scriptureRef": "Rv 4:11, 5:9-10, 5:12",
-        "name": "Canticle of Revelation (the Lamb)"
-      }
-    ]
-  },
-  "compline": {
-    "psalmody": [
-      {
-        "type": "psalm",
-        "ref": "Ps 4"
-      },
-      {
-        "type": "psalm",
-        "ref": "Ps 134"
-      }
-    ],
-    "shortReading": {
-      "ref": "Dt 6:4-7",
       "verified": false
     }
   }

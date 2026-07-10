@@ -1,55 +1,54 @@
 {
-  "verified": false,
+  "verified": true,
   "officeOfReadings": {
     "psalmody": [
       {
         "type": "psalm",
-        "ref": "Ps 97"
+        "ref": "Ps 39:2-7"
       },
       {
         "type": "psalm",
-        "ref": "Ps 98"
+        "ref": "Ps 39:8-14"
       },
       {
         "type": "psalm",
-        "ref": "Ps 99"
+        "ref": "Ps 52"
       }
     ]
   },
   "lauds": {
-    "shortReading": {
-      "ref": "Rom 8:35-39",
-      "verified": false
-    },
     "psalmody": [
       {
         "type": "psalm",
-        "ref": "Ps 93"
+        "ref": "Ps 77"
       },
       {
         "type": "canticle",
-        "scriptureRef": "1 Chr 29:10-13",
-        "name": "Canticle of David"
+        "scriptureRef": "1 Sam 2:1-10"
       },
       {
         "type": "psalm",
-        "ref": "Ps 94"
+        "ref": "Ps 97"
       }
-    ]
+    ],
+    "shortReading": {
+      "ref": "Rom 8:35-39",
+      "verified": false
+    }
   },
   "daytimePrayer": {
     "psalmody": [
       {
         "type": "psalm",
-        "ref": "Ps 119:81-88"
+        "ref": "Ps 119:57-64"
       },
       {
         "type": "psalm",
-        "ref": "Ps 100"
+        "ref": "Ps 55:2-12"
       },
       {
         "type": "psalm",
-        "ref": "Ps 101"
+        "ref": "Ps 55:13-15, 17-24"
       }
     ],
     "shortReading": {
@@ -58,35 +57,22 @@
     }
   },
   "vespers": {
-    "shortReading": {
-      "ref": "1 Pt 5:5-11",
-      "verified": false
-    },
     "psalmody": [
       {
         "type": "psalm",
-        "ref": "Ps 95"
+        "ref": "Ps 62"
       },
       {
         "type": "psalm",
-        "ref": "Ps 96"
+        "ref": "Ps 67"
       },
       {
         "type": "canticle",
-        "scriptureRef": "1 Tm 3:16",
-        "name": "Canticle of Timothy"
-      }
-    ]
-  },
-  "compline": {
-    "psalmody": [
-      {
-        "type": "psalm",
-        "ref": "Ps 31:1-6"
+        "scriptureRef": "Col 1:12-20"
       }
     ],
     "shortReading": {
-      "ref": "Eph 4:26-27",
+      "ref": "1 Pt 5:5-11",
       "verified": false
     }
   }

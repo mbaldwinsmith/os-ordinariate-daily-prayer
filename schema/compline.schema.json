@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://os-ordinariate-daily-prayer/schema/compline.schema.json",
+  "type": "object",
+  "required": ["invitatory", "days"],
+  "additionalProperties": false,
+  "properties": {
+    "invitatory": {
+      "type": "object",
+      "required": ["default", "alternatives"],
+      "additionalProperties": false,
+      "properties": {
+        "default": { "type": "string" },
+        "alternatives": { "type": "array", "minItems": 1, "items": { "type": "string" } }
+      }
+    },
+    "days": {
+      "type": "object",
+      "required": ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"],
+      "additionalProperties": false,
+      "properties": {
+        "sunday": { "$ref": "#/$defs/hour" }, "monday": { "$ref": "#/$defs/hour" },
+        "tuesday": { "$ref": "#/$defs/hour" }, "wednesday": { "$ref": "#/$defs/hour" },
+        "thursday": { "$ref": "#/$defs/hour" }, "friday": { "$ref": "#/$defs/hour" },
+        "saturday": { "$ref": "#/$defs/hour" }
+      }
+    }
+  },
+  "$defs": {
+    "hour": {
+      "type": "object", "required": ["psalmody", "shortReading"], "additionalProperties": false,
+      "properties": {
+        "psalmody": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["type", "ref"],
+            "additionalProperties": false,
+            "properties": { "type": { "const": "psalm" }, "ref": { "type": "string" } }
+          }
+        },
+        "shortReading": { "type": "object", "required": ["ref", "verified"], "additionalProperties": false, "properties": { "ref": { "type": "string" }, "verified": { "const": true } } }
+      }
+    }
+  }
+}

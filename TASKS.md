@@ -341,7 +341,7 @@ Dimittis remain the Hours' Gospel canticles.
 - [x] Add schema and unit tests covering all 28 ferial days, proper precedence, fallback
       behaviour, reference resolution, and the absence of an invented ordinary Gospel
       reading
-- [ ] Extend the production-browser smoke test across representative ferial, seasonal,
+- [x] Extend the production-browser smoke test across representative ferial, seasonal,
       solemnity, and saint dates, checking all four applicable Hours and zero runtime errors
 
 ---
@@ -429,26 +429,26 @@ text), so the canonical dataset can be committed to the repo freely.
 
 ### 13.1 — Adopt the canonical dataset
 
-- [ ] Commit `canonical-psalter-skeleton.json` to the repo (suggested location:
+- [x] Commit `canonical-psalter-skeleton.json` to the repo (suggested location:
       `data/canonical/`), and record its provenance in `SOURCES.md`: source URL,
       compiler (Fr. Felix Just, S.J.), page-last-updated date, transcription date,
       and the fact that it captures structural assignments only, no copyrighted text
-- [ ] Record the one known uncertainty in `SOURCES.md`: Week 4 Thursday's Office of
+- [x] Record the one known uncertainty in `SOURCES.md`: Week 4 Thursday's Office of
       Readings (Ps 44) duplicates Week 2 Thursday in the source table — plausible
       but unconfirmed; do not mark that single day verified until spot-checked
       against a printed breviary or the Universalis app (a human task, since this
       requires a second independent source)
-- [ ] Commit `diff-psalter.mjs` to `scripts/` and add an npm script
+- [x] Commit `diff-psalter.mjs` to `scripts/` and add an npm script
       (`npm run diff:psalter`)
 
 ### 13.2 — First diff run & schema adaptation
 
-- [ ] Run the diff script once and triage the output into three buckets:
+- [x] Run the diff script once and triage the output into three buckets:
       (a) unextractable hours — the script guessed the generated schema's field
       names and may have guessed wrong; fix `HOUR_KEY_CANDIDATES` /
       `REF_FIELD_CANDIDATES` in the script until zero hours are unextractable,
       (b) missing files/hours, (c) genuine content mismatches
-- [ ] Re-run until the report reflects only genuine content mismatches, then commit
+- [x] Re-run until the report reflects only genuine content mismatches, then commit
       the raw report output (or a summary) to the repo as a record of the
       pre-correction state — useful honesty artifact given the app is already
       deployed
@@ -459,62 +459,62 @@ These are schema/model changes, not just data corrections. Each was invisible to
 original generator and at least one is the likely cause of the observed Lauds
 mismatch:
 
-- [ ] **Lauds slot order**: model Morning Prayer as psalm → OT canticle → psalm
+- [x] **Lauds slot order**: model Morning Prayer as psalm → OT canticle → psalm
       (the canticle sits BETWEEN the psalms). Verify the schema and renderer both
       preserve slot order rather than treating psalmody as an unordered list
-- [ ] **Vespers slot order**: psalm → psalm → NT canticle. Same order-preservation
+- [x] **Vespers slot order**: psalm → psalm → NT canticle. Same order-preservation
       requirement
-- [ ] **EP-I / EP-II**: Saturday evening is First Evening Prayer of the following
+- [x] **EP-I / EP-II**: Saturday evening is First Evening Prayer of the following
       Sunday, with its own psalms; Sunday has two distinct Vespers entries.
       Restructure the six Saturday files (and Sunday files) accordingly, and update
       the day-resolution logic in `src/office.ts` so a request for Saturday Vespers
       resolves to the following Sunday's EP-I
-- [ ] **Seasonal Office of Readings forks**: Sat wk1, Sat wk2, Fri wk4, Sat wk4 each
+- [x] **Seasonal Office of Readings forks**: Sat wk1, Sat wk2, Fri wk4, Sat wk4 each
       need two psalm sets (Advent/Christmas/Lent/Easter vs. Ordinary Time, per
       GILH 130). Extend the psalter-day schema to model the fork and the resolver
       to pick the right branch from the calendar engine's season output
-- [ ] **Lent NT-canticle substitution**: Sunday EP-II uses 1 Pet 2:21-24 in place of
+- [x] **Lent NT-canticle substitution**: Sunday EP-II uses 1 Pet 2:21-24 in place of
       Rev 19:1-7 during Lent, all four weeks. Model and resolve this
-- [ ] **Compline is a one-week cycle**: restructure Night Prayer data as a 7-day
+- [x] **Compline is a one-week cycle**: restructure Night Prayer data as a 7-day
       cycle (with Saturday's Compline following EP-I of Sunday), not a 4-week one.
       Remove any duplicated per-week Compline data
-- [ ] **Ps 119 divisions**: replace the generator's mechanical 22×8-verse division
+- [x] **Ps 119 divisions**: replace the generator's mechanical 22×8-verse division
       with the actual assignments (specific sections on specific days, interleaved
       with other psalms; some days use none). Update `resolvePsalmRef`/tests that
       encoded the mechanical assumption — the existing Phase 6 test asserting the
       even division is now known-wrong and should be replaced, not appeased
-- [ ] **Invitatory alternatives**: model Ps 95 as default with Ps 100/67/24 as
+- [x] **Invitatory alternatives**: model Ps 95 as default with Ps 100/67/24 as
       permitted alternatives (rendering can stay Ps 95-only for now, but the data
       shouldn't preclude the alternatives)
 
 ### 13.4 — Regenerate, don't patch
 
-- [ ] Rewrite `scripts/generate-psalter-skeleton.mjs` to generate the 28-day
+- [x] Rewrite `scripts/generate-psalter-skeleton.mjs` to generate the 28-day
       skeleton FROM `canonical-psalter-skeleton.json` rather than from its own
       internal reconstruction — the canonical file becomes the single source of
       truth and the old reconstruction logic is deleted
-- [ ] Map the canonical file's reference format (`Ps 110:1-5, 7`) onto the app's
+- [x] Map the canonical file's reference format (`Ps 110:1-5, 7`) onto the app's
       CONVENTIONS.md reference format in one documented normalisation function,
       shared between the generator and the diff script so they can't drift
-- [ ] Regenerate all 28 day files; confirm `npm run diff:psalter` reports zero
+- [x] Regenerate all 28 day files; confirm `npm run diff:psalter` reports zero
       mismatches
-- [ ] Flip `"verified": true` on all regenerated files EXCEPT Week 4 Thursday
+- [x] Flip `"verified": true` on all regenerated files EXCEPT Week 4 Thursday
       (pending the human spot-check in 13.1); remove the corresponding UI warning
       for verified days
-- [ ] Update `SOURCES.md`: the psalter skeleton's status changes from "unverified
+- [x] Update `SOURCES.md`: the psalter skeleton's status changes from "unverified
       reconstruction" to "generated from canonical structural source", with the
       Week 4 Thursday exception noted
 
 ### 13.5 — Regression protection
 
-- [ ] Wire `npm run diff:psalter` into `.github/workflows/ci.yml` alongside the
+- [x] Wire `npm run diff:psalter` into `.github/workflows/ci.yml` alongside the
       schema validator, so any future edit to the psalter data that diverges from
       the canonical file fails CI
-- [ ] Add unit tests for each structural gap closed in 13.3 (EP-I resolution,
+- [x] Add unit tests for each structural gap closed in 13.3 (EP-I resolution,
       seasonal fork selection, Lent canticle substitution, Compline weekly cycle,
       Lauds/Vespers slot order) — these encode the liturgical rules independently
       of the data files
-- [ ] Re-run the production-browser smoke test (the one open Phase 10 checkbox)
+- [x] Re-run the production-browser smoke test (the one open Phase 10 checkbox)
       across dates chosen to exercise the new logic: an Ordinary Time Saturday
       (seasonal fork, ordinary branch), a Lent Saturday (strong-season branch),
       a Lent Sunday (EP-II canticle substitution), and a plain ferial day

@@ -1,55 +1,54 @@
 {
-  "verified": false,
+  "verified": true,
   "officeOfReadings": {
     "psalmody": [
       {
         "type": "psalm",
-        "ref": "Ps 12"
+        "ref": "Ps 89:2-19"
       },
       {
         "type": "psalm",
-        "ref": "Ps 13"
+        "ref": "Ps 89:20-30"
       },
       {
         "type": "psalm",
-        "ref": "Ps 14"
+        "ref": "Ps 89:31-38"
       }
     ]
   },
   "lauds": {
-    "shortReading": {
-      "ref": "Jb 1:21, 2:10",
-      "verified": false
-    },
     "psalmody": [
       {
         "type": "psalm",
-        "ref": "Ps 8"
+        "ref": "Ps 86"
       },
       {
         "type": "canticle",
-        "scriptureRef": "Tb 13:1-8",
-        "name": "Canticle of Tobit"
+        "scriptureRef": "Is 33:13-16"
       },
       {
         "type": "psalm",
-        "ref": "Ps 9"
+        "ref": "Ps 98"
       }
-    ]
+    ],
+    "shortReading": {
+      "ref": "Jb 1:21, 2:10",
+      "verified": false
+    }
   },
   "daytimePrayer": {
     "psalmody": [
       {
         "type": "psalm",
-        "ref": "Ps 119:137-144"
+        "ref": "Ps 119:105-112"
       },
       {
         "type": "psalm",
-        "ref": "Ps 15"
+        "ref": "Ps 70"
       },
       {
         "type": "psalm",
-        "ref": "Ps 16"
+        "ref": "Ps 75"
       }
     ],
     "shortReading": {
@@ -58,35 +57,22 @@
     }
   },
   "vespers": {
-    "shortReading": {
-      "ref": "Eph 3:17-21",
-      "verified": false
-    },
     "psalmody": [
       {
         "type": "psalm",
-        "ref": "Ps 10"
+        "ref": "Ps 126"
       },
       {
         "type": "psalm",
-        "ref": "Ps 11"
+        "ref": "Ps 127"
       },
       {
         "type": "canticle",
-        "scriptureRef": "1 Pt 2:21-24",
-        "name": "Canticle of Peter"
-      }
-    ]
-  },
-  "compline": {
-    "psalmody": [
-      {
-        "type": "psalm",
-        "ref": "Ps 31:1-6"
+        "scriptureRef": "Col 1:12-20"
       }
     ],
     "shortReading": {
-      "ref": "Eph 4:26-27",
+      "ref": "Eph 3:17-21",
       "verified": false
     }
   }

@@ -11,7 +11,7 @@
 // on a full proper override instead - see TASKS.md Phase 8.
 import fixedCanticles from '../data/texts/fixedCanticles.json';
 import type { OfficeDay } from './calendar';
-import { resolvePsalterDay, type PsalmodyItem } from './psalter';
+import { resolveCompline, resolvePsalterDay, selectOfficeOfReadings, type PsalmodyItem, type PsalterHour } from './psalter';
 import { resolvePsalmRef } from './psalms';
 import { resolveOfficeOfReadings } from './officeOfReadings';
 import { resolveProperEntry, type HourName } from './proper';
@@ -101,11 +101,23 @@ export function resolveDay(day: OfficeDay): DayView | null {
   if (!skeleton && !HOUR_NAMES.every((hourName) => proper?.hours?.[hourName])) return null;
 
   const readingsDay = resolveOfficeOfReadings(day);
+  const nextWeek = day.psalterWeek === 'easter' ? 'easter' : ((day.psalterWeek % 4) + 1) as 1 | 2 | 3 | 4;
+  const nextSunday = day.dayOfWeek === 'saturday' ? resolvePsalterDay(nextWeek, 'sunday') : null;
+  const ferialHours: Partial<Record<HourName, PsalterHour>> = skeleton ? {
+    officeOfReadings: selectOfficeOfReadings(skeleton, day.season),
+    lauds: skeleton.lauds,
+    daytimePrayer: skeleton.daytimePrayer,
+    vespers: day.dayOfWeek === 'saturday' ? nextSunday?.firstVespers : skeleton.vespers,
+    compline: resolveCompline(day.dayOfWeek),
+  } : {};
+  if (day.season === 'lent' && day.dayOfWeek === 'sunday' && ferialHours.vespers) {
+    ferialHours.vespers = { ...ferialHours.vespers, psalmody: ferialHours.vespers.psalmody.map((item, index, all) => index === all.length - 1 ? { type: 'canticle', scriptureRef: '1 Pt 2:21-24' } : item) };
+  }
 
   const hourViews = Object.fromEntries(
     HOUR_NAMES.map((hourName) => {
-      const psalmody = proper?.hours?.[hourName]?.psalmody ?? skeleton?.[hourName].psalmody;
-      const shortReading = proper?.hours?.[hourName]?.shortReading ?? skeleton?.[hourName].shortReading;
+      const psalmody = proper?.hours?.[hourName]?.psalmody ?? ferialHours[hourName]?.psalmody;
+      const shortReading = proper?.hours?.[hourName]?.shortReading ?? ferialHours[hourName]?.shortReading;
       return [hourName, resolveHour(psalmody!, hourName, shortReading)];
     }),
   ) as Record<HourName, HourView>;

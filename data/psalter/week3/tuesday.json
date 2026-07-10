@@ -1,55 +1,54 @@
 {
-  "verified": false,
+  "verified": true,
   "officeOfReadings": {
     "psalmody": [
       {
         "type": "psalm",
-        "ref": "Ps 3"
+        "ref": "Ps 68:2-11"
       },
       {
         "type": "psalm",
-        "ref": "Ps 4"
+        "ref": "Ps 68:12-24"
       },
       {
         "type": "psalm",
-        "ref": "Ps 5"
+        "ref": "Ps 68:25-36"
       }
     ]
   },
   "lauds": {
-    "shortReading": {
-      "ref": "1 Jn 4:12-15",
-      "verified": false
-    },
     "psalmody": [
       {
         "type": "psalm",
-        "ref": "Ps 149"
+        "ref": "Ps 85"
       },
       {
         "type": "canticle",
-        "scriptureRef": "1 Chr 29:10-13",
-        "name": "Canticle of David"
+        "scriptureRef": "Is 26:1-4, 7-9, 12"
       },
       {
         "type": "psalm",
-        "ref": "Ps 150"
+        "ref": "Ps 67"
       }
-    ]
+    ],
+    "shortReading": {
+      "ref": "1 Jn 4:12-15",
+      "verified": false
+    }
   },
   "daytimePrayer": {
     "psalmody": [
       {
         "type": "psalm",
-        "ref": "Ps 119:129-136"
+        "ref": "Ps 119:97-104"
       },
       {
         "type": "psalm",
-        "ref": "Ps 6"
+        "ref": "Ps 74:1-12"
       },
       {
         "type": "psalm",
-        "ref": "Ps 7"
+        "ref": "Ps 74:13-23"
       }
     ],
     "shortReading": {
@@ -58,35 +57,22 @@
     }
   },
   "vespers": {
-    "shortReading": {
-      "ref": "Rom 12:9-12",
-      "verified": false
-    },
     "psalmody": [
       {
         "type": "psalm",
-        "ref": "Ps 1"
+        "ref": "Ps 125"
       },
       {
         "type": "psalm",
-        "ref": "Ps 2"
+        "ref": "Ps 131"
       },
       {
         "type": "canticle",
-        "scriptureRef": "1 Tm 3:16",
-        "name": "Canticle of Timothy"
-      }
-    ]
-  },
-  "compline": {
-    "psalmody": [
-      {
-        "type": "psalm",
-        "ref": "Ps 143:1-11"
+        "scriptureRef": "Rv 4:11, 5:9, 10, 12"
       }
     ],
     "shortReading": {
-      "ref": "1 Pt 5:8-9",
+      "ref": "Rom 12:9-12",
       "verified": false
     }
   }

@@ -28,6 +28,7 @@ const validators = {
   fixedCanticles: loadSchema('fixed-canticles.schema.json'),
   bookAbbreviations: loadSchema('book-abbreviations.schema.json'),
   psalterDay: loadSchema('psalter-day.schema.json'),
+  compline: loadSchema('compline.schema.json'),
   officeOfReadingsDay: loadSchema('office-of-readings-day.schema.json'),
   proper: loadSchema('proper.schema.json'),
   invitatoryAntiphons: loadSchema('invitatory-antiphons.schema.json'),
@@ -94,6 +95,7 @@ const KNOWN_SCRIPTURE_GAPS = new Set(
 );
 
 const singleFileTargets = [
+  [join(dataDir, 'psalter', 'compline.json'), validators.compline, {}],
   [join(dataDir, 'texts', 'douay-rheims-challoner.json'), validators.scripture, { ignoredErrorPaths: KNOWN_SCRIPTURE_GAPS }],
   [join(dataDir, 'texts', 'coverdale-psalter.json'), validators.psalms, {}],
   [join(dataDir, 'texts', 'fixedCanticles.json'), validators.fixedCanticles, {}],
@@ -108,6 +110,7 @@ for (const [path, validate, options] of singleFileTargets) {
 }
 
 for (const path of findJsonFiles(join(dataDir, 'psalter'))) {
+  if (path === join(dataDir, 'psalter', 'compline.json')) continue;
   validateFile(path, validators.psalterDay);
 }
 

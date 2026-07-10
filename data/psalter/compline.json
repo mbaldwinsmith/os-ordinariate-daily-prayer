@@ -1,0 +1,104 @@
+{
+  "invitatory": {
+    "default": "Ps 95",
+    "alternatives": [
+      "Ps 100",
+      "Ps 67",
+      "Ps 24"
+    ]
+  },
+  "days": {
+    "sunday": {
+      "psalmody": [
+        {
+          "type": "psalm",
+          "ref": "Ps 91"
+        }
+      ],
+      "shortReading": {
+        "ref": "Rv 22:4-5",
+        "verified": true
+      }
+    },
+    "monday": {
+      "psalmody": [
+        {
+          "type": "psalm",
+          "ref": "Ps 86"
+        }
+      ],
+      "shortReading": {
+        "ref": "1 Thes 5:9-10",
+        "verified": true
+      }
+    },
+    "tuesday": {
+      "psalmody": [
+        {
+          "type": "psalm",
+          "ref": "Ps 143:1-11"
+        }
+      ],
+      "shortReading": {
+        "ref": "1 Pt 5:8-9",
+        "verified": true
+      }
+    },
+    "wednesday": {
+      "psalmody": [
+        {
+          "type": "psalm",
+          "ref": "Ps 31:2-6"
+        },
+        {
+          "type": "psalm",
+          "ref": "Ps 130"
+        }
+      ],
+      "shortReading": {
+        "ref": "Eph 4:26-27",
+        "verified": true
+      }
+    },
+    "thursday": {
+      "psalmody": [
+        {
+          "type": "psalm",
+          "ref": "Ps 16"
+        }
+      ],
+      "shortReading": {
+        "ref": "1 Thes 5:23",
+        "verified": true
+      }
+    },
+    "friday": {
+      "psalmody": [
+        {
+          "type": "psalm",
+          "ref": "Ps 88"
+        }
+      ],
+      "shortReading": {
+        "ref": "Jer 14:9",
+        "verified": true
+      }
+    },
+    "saturday": {
+      "psalmody": [
+        {
+          "type": "psalm",
+          "ref": "Ps 4"
+        },
+        {
+          "type": "psalm",
+          "ref": "Ps 134"
+        }
+      ],
+      "shortReading": {
+        "ref": "Dt 6:4-7",
+        "verified": true
+      }
+    }
+  }
+}

@@ -4,18 +4,31 @@
   "title": "One day of the four-week psalter (data/psalter/weekN/<day>.json)",
   "description": "Hour -> ordered psalmody, for the five Hours this app implements (see CONVENTIONS.md: Daytime Prayer is one combined midday hour, not separate Terce/Sext/None). The fixed Gospel canticles (Benedictus at Lauds, Magnificat at Vespers, Nunc Dimittis at Compline) are hour-invariant and NOT stored here - see src/office.ts, which attaches them regardless of day. Only the variable Old/New Testament canticle (at Lauds/Vespers) appears in a day's own psalmody.",
   "type": "object",
-  "required": ["officeOfReadings", "lauds", "daytimePrayer", "vespers", "compline", "verified"],
+  "required": ["officeOfReadings", "lauds", "daytimePrayer", "verified"],
   "additionalProperties": false,
   "properties": {
     "verified": {
       "type": "boolean",
       "description": "false = a best-effort reconstruction pending cross-check against an authoritative breviary index (see SOURCES.md); true once confirmed."
     },
-    "officeOfReadings": { "$ref": "#/$defs/hour" },
+    "officeOfReadings": {
+      "oneOf": [
+        { "$ref": "#/$defs/hour" },
+        {
+          "type": "object",
+          "required": ["ordinaryTime", "strongSeasons"],
+          "additionalProperties": false,
+          "properties": {
+            "ordinaryTime": { "$ref": "#/$defs/hour" },
+            "strongSeasons": { "$ref": "#/$defs/hour" }
+          }
+        }
+      ]
+    },
     "lauds": { "$ref": "#/$defs/hour" },
     "daytimePrayer": { "$ref": "#/$defs/hour" },
     "vespers": { "$ref": "#/$defs/hour" },
-    "compline": { "$ref": "#/$defs/hour" }
+    "firstVespers": { "$ref": "#/$defs/hour" }
   },
   "$defs": {
     "hour": {
@@ -52,7 +65,7 @@
             "ref": {
               "type": "string",
               "description": "e.g. 'Ps 23' or 'Ps 119:1-8' - see CONVENTIONS.md",
-              "pattern": "^Ps [0-9]{1,3}(:[0-9]{1,3}(-[0-9]{1,3})?)?$"
+              "pattern": "^Ps [0-9]{1,3}(:[0-9]{1,3}(-[0-9]{1,3})?(, [0-9]{1,3}(-[0-9]{1,3})?)*)?$"
             }
           }
         },

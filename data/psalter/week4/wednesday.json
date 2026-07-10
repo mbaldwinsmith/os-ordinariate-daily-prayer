@@ -1,55 +1,54 @@
 {
-  "verified": false,
+  "verified": true,
   "officeOfReadings": {
     "psalmody": [
       {
         "type": "psalm",
-        "ref": "Ps 76"
+        "ref": "Ps 103:1-7"
       },
       {
         "type": "psalm",
-        "ref": "Ps 77"
+        "ref": "Ps 103:8-16"
       },
       {
         "type": "psalm",
-        "ref": "Ps 78"
+        "ref": "Ps 103:17-22"
       }
     ]
   },
   "lauds": {
-    "shortReading": {
-      "ref": "Dt 4:39-40",
-      "verified": false
-    },
     "psalmody": [
       {
         "type": "psalm",
-        "ref": "Ps 72"
+        "ref": "Ps 108"
       },
       {
         "type": "canticle",
-        "scriptureRef": "Jdt 16:2-3, 13-15",
-        "name": "Canticle of Judith"
+        "scriptureRef": "Is 61:10-62:5"
       },
       {
         "type": "psalm",
-        "ref": "Ps 73"
+        "ref": "Ps 146"
       }
-    ]
+    ],
+    "shortReading": {
+      "ref": "Dt 4:39-40",
+      "verified": false
+    }
   },
   "daytimePrayer": {
     "psalmody": [
       {
         "type": "psalm",
-        "ref": "Ps 119:17-24"
+        "ref": "Ps 119:145-152"
       },
       {
         "type": "psalm",
-        "ref": "Ps 79"
+        "ref": "Ps 94:1-11"
       },
       {
         "type": "psalm",
-        "ref": "Ps 80"
+        "ref": "Ps 94:12-23"
       }
     ],
     "shortReading": {
@@ -58,35 +57,22 @@
     }
   },
   "vespers": {
-    "shortReading": {
-      "ref": "1 Jn 2:3-6",
-      "verified": false
-    },
     "psalmody": [
       {
         "type": "psalm",
-        "ref": "Ps 74"
+        "ref": "Ps 139:1-12"
       },
       {
         "type": "psalm",
-        "ref": "Ps 75"
+        "ref": "Ps 139:13-18, 23-24"
       },
       {
         "type": "canticle",
-        "scriptureRef": "Rv 11:17-18, 12:10-12",
-        "name": "Canticle of Revelation (the Kingdom)"
-      }
-    ]
-  },
-  "compline": {
-    "psalmody": [
-      {
-        "type": "psalm",
-        "ref": "Ps 31:1-6"
+        "scriptureRef": "Col 1:12-20"
       }
     ],
     "shortReading": {
-      "ref": "Eph 4:26-27",
+      "ref": "1 Jn 2:3-6",
       "verified": false
     }
   }

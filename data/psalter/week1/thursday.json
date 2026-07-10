@@ -1,55 +1,54 @@
 {
-  "verified": false,
+  "verified": true,
   "officeOfReadings": {
     "psalmody": [
       {
         "type": "psalm",
-        "ref": "Ps 41"
+        "ref": "Ps 18:31-35"
       },
       {
         "type": "psalm",
-        "ref": "Ps 42"
+        "ref": "Ps 18:36-46"
       },
       {
         "type": "psalm",
-        "ref": "Ps 43"
+        "ref": "Ps 18:47-51"
       }
     ]
   },
   "lauds": {
-    "shortReading": {
-      "ref": "Is 66:1-2",
-      "verified": false
-    },
     "psalmody": [
       {
         "type": "psalm",
-        "ref": "Ps 37"
+        "ref": "Ps 57"
       },
       {
         "type": "canticle",
-        "scriptureRef": "1 Chr 29:10-13",
-        "name": "Canticle of David"
+        "scriptureRef": "Jer 31:10-14"
       },
       {
         "type": "psalm",
-        "ref": "Ps 38"
+        "ref": "Ps 48"
       }
-    ]
+    ],
+    "shortReading": {
+      "ref": "Is 66:1-2",
+      "verified": false
+    }
   },
   "daytimePrayer": {
     "psalmody": [
       {
         "type": "psalm",
-        "ref": "Ps 119:33-40"
+        "ref": "Ps 119:17-24"
       },
       {
         "type": "psalm",
-        "ref": "Ps 44"
+        "ref": "Ps 25:1-11"
       },
       {
         "type": "psalm",
-        "ref": "Ps 45"
+        "ref": "Ps 25:12-22"
       }
     ],
     "shortReading": {
@@ -58,35 +57,22 @@
     }
   },
   "vespers": {
-    "shortReading": {
-      "ref": "1 Pt 1:6-9",
-      "verified": false
-    },
     "psalmody": [
       {
         "type": "psalm",
-        "ref": "Ps 39"
+        "ref": "Ps 30"
       },
       {
         "type": "psalm",
-        "ref": "Ps 40"
+        "ref": "Ps 32"
       },
       {
         "type": "canticle",
-        "scriptureRef": "1 Tm 3:16",
-        "name": "Canticle of Timothy"
-      }
-    ]
-  },
-  "compline": {
-    "psalmody": [
-      {
-        "type": "psalm",
-        "ref": "Ps 16"
+        "scriptureRef": "Rv 11:17-18, 12:10-12"
       }
     ],
     "shortReading": {
-      "ref": "1 Thes 5:23",
+      "ref": "1 Pt 1:6-9",
       "verified": false
     }
   }

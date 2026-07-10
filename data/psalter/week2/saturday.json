@@ -1,96 +1,76 @@
 {
-  "verified": false,
+  "verified": true,
   "officeOfReadings": {
-    "psalmody": [
-      {
-        "type": "psalm",
-        "ref": "Ps 126"
-      },
-      {
-        "type": "psalm",
-        "ref": "Ps 127"
-      },
-      {
-        "type": "psalm",
-        "ref": "Ps 128"
-      }
-    ]
+    "strongSeasons": {
+      "psalmody": [
+        {
+          "type": "psalm",
+          "ref": "Ps 106:1-18"
+        },
+        {
+          "type": "psalm",
+          "ref": "Ps 106:19-33"
+        },
+        {
+          "type": "psalm",
+          "ref": "Ps 106:34-48"
+        }
+      ]
+    },
+    "ordinaryTime": {
+      "psalmody": [
+        {
+          "type": "psalm",
+          "ref": "Ps 136:1-9"
+        },
+        {
+          "type": "psalm",
+          "ref": "Ps 136:10-15"
+        },
+        {
+          "type": "psalm",
+          "ref": "Ps 136:16-26"
+        }
+      ]
+    }
   },
   "lauds": {
-    "shortReading": {
-      "ref": "Rom 12:13-21",
-      "verified": false
-    },
     "psalmody": [
       {
         "type": "psalm",
-        "ref": "Ps 122"
+        "ref": "Ps 92"
       },
       {
         "type": "canticle",
-        "scriptureRef": "Ex 15:1-13, 17-18",
-        "name": "Canticle of Moses"
+        "scriptureRef": "Dt 32:1-12"
       },
       {
         "type": "psalm",
-        "ref": "Ps 123"
+        "ref": "Ps 8"
       }
-    ]
+    ],
+    "shortReading": {
+      "ref": "Rom 12:13-21",
+      "verified": false
+    }
   },
   "daytimePrayer": {
     "psalmody": [
       {
         "type": "psalm",
-        "ref": "Ps 119:105-112"
+        "ref": "Ps 119:81-88"
       },
       {
         "type": "psalm",
-        "ref": "Ps 129"
+        "ref": "Ps 61"
       },
       {
         "type": "psalm",
-        "ref": "Ps 130"
+        "ref": "Ps 64"
       }
     ],
     "shortReading": {
       "ref": "1 Kgs 2:2-3",
-      "verified": false
-    }
-  },
-  "vespers": {
-    "shortReading": {
-      "ref": "2 Thes 2:13-14",
-      "verified": false
-    },
-    "psalmody": [
-      {
-        "type": "psalm",
-        "ref": "Ps 124"
-      },
-      {
-        "type": "psalm",
-        "ref": "Ps 125"
-      },
-      {
-        "type": "canticle",
-        "scriptureRef": "Eph 1:3-10",
-        "name": "Canticle of Ephesians"
-      }
-    ]
-  },
-  "compline": {
-    "psalmody": [
-      {
-        "type": "psalm",
-        "ref": "Ps 4"
-      },
-      {
-        "type": "psalm",
-        "ref": "Ps 134"
-      }
-    ],
-    "shortReading": {
-      "ref": "Dt 6:4-7",
       "verified": false
     }
   }

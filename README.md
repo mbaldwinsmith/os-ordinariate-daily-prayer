@@ -21,7 +21,9 @@ sourced (see `TASKS.md`, Phase 1).
 
 ## Status
 
-Early scaffolding — see `TASKS.md` for the phased build-out plan.
+Deployed offline-capable MVP. Canonical psalter verification is complete; Office of
+Readings verification and incremental proper/second-reading coverage remain ongoing.
+See `TASKS.md` for the phased plan.
 
 ## Development
 

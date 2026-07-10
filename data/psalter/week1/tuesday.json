@@ -1,55 +1,54 @@
 {
-  "verified": false,
+  "verified": true,
   "officeOfReadings": {
     "psalmody": [
       {
         "type": "psalm",
-        "ref": "Ps 23"
+        "ref": "Ps 10:1-11"
       },
+      {
+        "type": "psalm",
+        "ref": "Ps 10:12-18"
+      },
+      {
+        "type": "psalm",
+        "ref": "Ps 12"
+      }
+    ]
+  },
+  "lauds": {
+    "psalmody": [
       {
         "type": "psalm",
         "ref": "Ps 24"
       },
       {
+        "type": "canticle",
+        "scriptureRef": "Tb 13:1-8"
+      },
+      {
         "type": "psalm",
-        "ref": "Ps 25"
+        "ref": "Ps 33"
       }
-    ]
-  },
-  "lauds": {
+    ],
     "shortReading": {
       "ref": "Rom 13:11-14",
       "verified": false
-    },
-    "psalmody": [
-      {
-        "type": "psalm",
-        "ref": "Ps 19"
-      },
-      {
-        "type": "canticle",
-        "scriptureRef": "Dt 32:1-12",
-        "name": "Canticle of Moses (Deuteronomy)"
-      },
-      {
-        "type": "psalm",
-        "ref": "Ps 20"
-      }
-    ]
+    }
   },
   "daytimePrayer": {
     "psalmody": [
       {
         "type": "psalm",
-        "ref": "Ps 119:17-24"
+        "ref": "Ps 119:1-8"
       },
       {
         "type": "psalm",
-        "ref": "Ps 26"
+        "ref": "Ps 13"
       },
       {
         "type": "psalm",
-        "ref": "Ps 27"
+        "ref": "Ps 14"
       }
     ],
     "shortReading": {
@@ -58,35 +57,22 @@
     }
   },
   "vespers": {
-    "shortReading": {
-      "ref": "1 Jn 3:1-3",
-      "verified": false
-    },
     "psalmody": [
       {
         "type": "psalm",
-        "ref": "Ps 21"
+        "ref": "Ps 20"
       },
       {
         "type": "psalm",
-        "ref": "Ps 22"
+        "ref": "Ps 21:2-8, 14"
       },
       {
         "type": "canticle",
-        "scriptureRef": "Rv 4:11, 5:9-10, 5:12",
-        "name": "Canticle of Revelation (the Lamb)"
-      }
-    ]
-  },
-  "compline": {
-    "psalmody": [
-      {
-        "type": "psalm",
-        "ref": "Ps 143:1-11"
+        "scriptureRef": "Rv 4:11, 5:9, 10, 12"
       }
     ],
     "shortReading": {
-      "ref": "1 Pt 5:8-9",
+      "ref": "1 Jn 3:1-3",
       "verified": false
     }
   }
