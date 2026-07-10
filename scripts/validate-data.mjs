@@ -34,6 +34,7 @@ const validators = {
   invitatoryAntiphons: loadSchema('invitatory-antiphons.schema.json'),
   oAntiphons: loadSchema('o-antiphons.schema.json'),
   marianAntiphons: loadSchema('marian-antiphons.schema.json'),
+  prayerBookPrayers: loadSchema('prayer-book-prayers.schema.json'),
 };
 
 /** Recursively finds .json files under a directory (empty array if the directory is absent). */
@@ -103,7 +104,29 @@ const singleFileTargets = [
   [join(dataDir, 'texts', 'invitatoryAntiphons.json'), validators.invitatoryAntiphons, {}],
   [join(dataDir, 'texts', 'oAntiphons.json'), validators.oAntiphons, {}],
   [join(dataDir, 'texts', 'marianAntiphons.json'), validators.marianAntiphons, {}],
+  [join(dataDir, 'texts', 'prayerBookPrayers.json'), validators.prayerBookPrayers, {}],
 ];
+
+const prayerBookPath = join(dataDir, 'texts', 'prayerBookPrayers.json');
+if (existsSync(prayerBookPath)) {
+  const prayerBook = JSON.parse(readFileSync(prayerBookPath, 'utf8'));
+  for (const [id, item] of Object.entries(prayerBook.items)) {
+    checked += 1;
+    if (!item.text && !item.responses) {
+      failures += 1;
+      console.error(`\nINVALID: ${prayerBookPath}\n  items.${id} must contain text or responses`);
+    }
+  }
+  for (const [hour, ids] of Object.entries(prayerBook.assignments)) {
+    for (const id of ids) {
+      checked += 1;
+      if (!prayerBook.items[id]) {
+        failures += 1;
+        console.error(`\nINVALID: ${prayerBookPath}\n  assignments.${hour} refers to unknown prayer id "${id}"`);
+      }
+    }
+  }
+}
 
 for (const [path, validate, options] of singleFileTargets) {
   if (existsSync(path)) validateFile(path, validate, options);

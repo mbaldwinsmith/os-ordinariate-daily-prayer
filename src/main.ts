@@ -2,6 +2,8 @@ import './style.css';
 import { getOfficeDay, type DayOfWeek } from './calendar';
 import { resolveDay, type DayView, type HourView, type ReadingsView } from './office';
 import { getTheme, setTheme, watchSystemTheme } from './theme';
+import { resolvePrayerBook, type PrayerBookItem } from './prayerBook';
+import { getPrayerBookPreference, setPrayerBookPreference } from './prayerBookPreference';
 
 const DAY_LABELS: Record<DayOfWeek, string> = {
   sunday: 'Sun', monday: 'Mon', tuesday: 'Tue', wednesday: 'Wed',
@@ -65,7 +67,19 @@ function renderReadings(readings: ReadingsView | null): string {
     </section>${patristic}`;
 }
 
-function renderHour(label: string, hour: HourView, day: DayView): string {
+function renderPrayerBookItem(item: PrayerBookItem): string {
+  const content = item.responses
+    ? `<div class="responses">${item.responses.map(({ leader, people }) => `<p><span class="speaker">V.</span>${leader}</p><p><span class="speaker">R.</span>${people}</p>`).join('')}</div>`
+    : `<p>${item.text}</p>`;
+  return `<section class="prayer-book-item"><h4>${item.title}</h4>${content}</section>`;
+}
+
+function renderPrayerBook(hour: HourKey, dayOfWeek: DayOfWeek): string {
+  if (!getPrayerBookPreference()) return '';
+  return `<section class="text-section prayer-book"><p class="eyebrow">Prayer Book prayers</p><p class="supplement-note">Anglican-patrimony supplement; not the appointed Roman intercessions.</p>${resolvePrayerBook(hour, dayOfWeek).map(renderPrayerBookItem).join('')}</section>`;
+}
+
+function renderHour(label: string, hour: HourView, day: DayView, dayOfWeek: DayOfWeek): string {
   const invitatory =
     selectedHour === 'officeOfReadings'
       ? `<section class="text-section antiphon"><p class="eyebrow">Invitatory antiphon</p><p>${day.invitatory.firstLine}<br/>${day.invitatory.secondLine}</p></section>`
@@ -86,7 +100,7 @@ function renderHour(label: string, hour: HourView, day: DayView): string {
       : '';
   return `<article class="office"><header class="office-heading"><p class="eyebrow">The Daily Office</p><h2>${label}</h2></header>
     ${invitatory}${hour.psalmody.map(renderPsalmodyItem).join('')}
-    ${selectedHour === 'officeOfReadings' ? renderReadings(day.readings) : shortReading}${oAntiphon}${gospelCanticle}${complineAntiphon}
+    ${selectedHour === 'officeOfReadings' ? renderReadings(day.readings) : shortReading}${oAntiphon}${gospelCanticle}${complineAntiphon}${renderPrayerBook(selectedHour, dayOfWeek)}
   </article>`;
 }
 
@@ -110,12 +124,13 @@ function renderImpl(date: Date): void {
   const hourTabs = HOURS.map(([key, label]) => `<button role="tab" data-hour="${key}" aria-selected="${key === selectedHour}" aria-controls="office-panel">${label}</button>`).join('');
   const dayContent = day
     ? `${day.verified ? '' : '<aside class="source-warning">This psalter assignment is an unverified best-effort reconstruction. See SOURCES.md.</aside>'}
-       <div id="office-panel" role="tabpanel">${renderHour(activeLabel, day[selectedHour], day)}</div>`
+       <div id="office-panel" role="tabpanel">${renderHour(activeLabel, day[selectedHour], day, officeDay.dayOfWeek)}</div>`
     : '<p role="alert" class="notice">This day is not populated yet.</p>';
 
   document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <header class="site-header"><div><p class="site-kicker">Coverdale · Douay-Rheims</p><h1>Ordinariate Daily Prayer</h1></div>
       <div class="header-actions">
+        <label class="prayer-book-toggle"><input id="prayer-book-toggle" type="checkbox" ${getPrayerBookPreference() ? 'checked' : ''}/><span>Prayer Book prayers</span></label>
         <button id="theme-toggle" class="quiet-button icon-button" type="button" aria-label="Switch to ${getTheme() === 'dark' ? 'light' : 'dark'} theme" aria-pressed="${getTheme() === 'dark'}">${getTheme() === 'dark' ? '🌛' : '🌞'}</button>
         <button id="today-button" class="quiet-button">Today</button>
       </div></header>
@@ -138,6 +153,10 @@ function renderImpl(date: Date): void {
   document.querySelector<HTMLInputElement>('#date-picker')!.addEventListener('change', (event) => render(parseDateKey((event.target as HTMLInputElement).value)));
   document.querySelector('#theme-toggle')!.addEventListener('click', () => {
     setTheme(getTheme() === 'dark' ? 'light' : 'dark');
+    render(date);
+  });
+  document.querySelector<HTMLInputElement>('#prayer-book-toggle')!.addEventListener('change', (event) => {
+    setPrayerBookPreference((event.target as HTMLInputElement).checked);
     render(date);
   });
   document.querySelector('#today-button')!.addEventListener('click', () => render(new Date()));

@@ -559,6 +559,124 @@ fully is a much larger transcription job than the psalter, so sequence it:
       once found — the canonical psalter file already provides verified Compline
       short readings as a starting point
 
+---
+
+## Phase 15 — Optional Prayer Book Prayers & Intercessions
+
+Add a clearly identified Anglican-patrimony prayer layer drawn from the 1662 Book of
+Common Prayer and other authorised/public-domain Prayer Book sources where the 1662 book
+has no corresponding Hour. This is a devotional supplement to the app's Roman
+five-Hour structure, not a claim that the texts are the appointed `preces` of the modern
+Liturgy of the Hours.
+
+The feature is **enabled by default** for new users, with a persistent setting allowing
+the user to opt out. Existing users should receive the enabled default unless they have
+already stored an explicit preference; do not infer a preference from unrelated saved
+settings.
+
+### 15.1 — Fix scope and provenance before transcription
+
+- [x] Define the exact prayer sequence proposed for each Hour, distinguishing fixed
+      material, the variable Collect of the Day, and weekday-specific use of the Litany
+- [x] Use the 1662 BCP Morning and Evening Prayer as the primary source for the Lesser
+      Litany, Lord's Prayer, Suffrages, morning/evening collects, Prayer for the Clergy
+      and People, Prayer of St John Chrysostom, and the Grace
+- [x] Identify an authoritative, legally reusable source for material assigned to Office
+      of Readings, Daytime Prayer, and Compline, since those Hours do not exist as such in
+      the 1662 BCP; prefer authorised Ordinariate/older public-domain Prayer Book sources
+      and do not invent bridging prayers silently
+- [x] Decide whether the prayers for the Sovereign and Royal Family are included,
+      optional, modernised, or omitted; document the decision and its jurisdictional
+      implications rather than hard-coding an unstated Church of England assumption
+- [x] Record exact editions, URLs/repositories, page or section references, licensing,
+      transcription date, textual normalisations, and verification status in `SOURCES.md`
+- [x] Document in `CONVENTIONS.md` that this layer is Anglican-patrimony devotional
+      supplementation, not the Roman Liturgy of the Hours' appointed intercession cycle
+
+### 15.2 — Define the data model
+
+- [x] Add a schema-validated Prayer Book prayer dataset under `data/texts/` or a dedicated
+      `data/prayers/` directory; keep reusable prayer texts separate from their Hour/day
+      assignments
+- [x] Give every prayer a stable identifier, display title, source reference, text,
+      verification flag, and provenance key; model versicle/response material
+      structurally rather than flattening it into an undifferentiated paragraph
+- [x] Model the Collect of the Day as a resolver reference, not duplicated prose in every
+      daily file; define how proper, seasonal, Sunday, memorial, and ferial precedence
+      works and how absence is surfaced
+- [x] Model the Litany independently from ordinary daily prayers so it can be assigned on
+      its appointed days without being mistaken for a short intercession set
+- [x] Extend `scripts/validate-data.mjs` with schema and semantic checks for duplicate
+      identifiers, missing assignments, unresolved collect keys, and unverified texts
+- [x] Add a deterministic generation/diff step if any Hour assignments are generated
+      from a canonical table, and wire it into CI
+
+### 15.3 — Resolve the five-Hour supplement
+
+- [x] Add a resolver that returns Prayer Book material separately from psalmody,
+      Scripture readings, Gospel canticles, and future Roman `preces`
+- [x] Attach the agreed morning Suffrages and collects to Lauds in their correct order
+- [x] Attach the agreed evening Suffrages and collects to Vespers in their correct order
+- [x] Resolve Office of Readings, Daytime Prayer, and Compline only from the sources and
+      scope decisions completed in 15.1; use an explicit empty result where no authorised
+      supplement has been selected
+- [x] Implement the Litany's appointed-day rule, including its relationship to Lauds and
+      any calendar rank/season exceptions established by the selected source
+- [x] Ensure proper overrides and the Collect of the Day do not replace or duplicate the
+      fixed morning/evening collects accidentally
+- [x] Keep the Prayer Book layer independent of a future implementation of official Roman
+      intercessions so the two can later coexist, be selected, or be displayed separately
+
+### 15.4 — User preference and persistence
+
+- [x] Add a clearly labelled setting such as “Include Prayer Book prayers and
+      intercessions,” defaulting to enabled when no explicit preference exists
+- [x] Persist the explicit boolean preference locally and restore it before the first
+      render to avoid a flash of enabled content for users who opted out
+- [x] Provide an accessible checkbox or switch with explanatory copy stating that these
+      are Anglican-patrimony supplements rather than the appointed Roman intercessions
+- [x] When disabled, remove the whole supplementary section cleanly without leaving empty
+      headings, spacing, navigation targets, or misleading completion indicators
+- [x] Ensure clearing site data predictably restores the enabled default, while app and
+      service-worker upgrades preserve an existing explicit opt-out
+- [x] Keep the preference device-local and offline-capable; it must not require an
+      account, network request, or analytics event
+
+### 15.5 — Rendering and interaction design
+
+- [x] Render the supplement in its liturgical position after the Gospel canticle at
+      Lauds/Vespers and in the source-supported position at the other Hours
+- [x] Preserve versicle/response semantics and typography, including accessible speaker
+      labels that do not rely on colour alone
+- [x] Visually identify the section as “Prayer Book prayers” or equivalent and expose a
+      concise source/provenance note without interrupting prayer flow
+- [x] Display verification warnings using the existing warning language and components;
+      never hide an unverified transcription merely because the feature is enabled by
+      default
+- [x] Decide whether the Litany is collapsed, linked, or rendered in full, and test the
+      choice on narrow mobile screens given its length
+- [x] Confirm print styles and offline rendering include the section only when the user
+      has enabled it
+
+### 15.6 — Tests and verification
+
+- [x] Add unit tests for the default-enabled state, explicit opt-out, preference restore,
+      and reset-to-default behaviour
+- [x] Add resolver tests for Lauds, Vespers, every sourced minor Hour, the variable
+      Collect of the Day, a proper celebration, and appointed Litany days
+- [x] Add tests proving that disabling the layer does not change calendar resolution,
+      psalmody, readings, canticles, antiphons, or verification state of the underlying
+      Office
+- [x] Add schema/content tests covering every prayer identifier and assignment, including
+      the absence of silently composed placeholder prose
+- [x] Run the full local pipeline: `npm run validate:data`, `npm run diff:psalter`,
+      `npx tsc --noEmit`, `npx vitest run`, and `npm run build`
+- [x] Run a production-browser smoke test with zero console/page errors across a ferial
+      weekday, Sunday, solemnity, appointed Litany day, and Compline; verify enabled and
+      opted-out states at desktop and mobile widths
+- [x] Open a PR for the phase, merge automatically once the single CI check is green, and
+      perform the documented post-merge branch reset ritual
+
 
 ---
 

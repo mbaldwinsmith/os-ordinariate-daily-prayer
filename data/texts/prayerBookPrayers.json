@@ -1,0 +1,29 @@
+{
+  "source": { "title": "The Book of Common Prayer", "edition": "1662", "url": "https://justus.anglican.org/resources/bcp/1662/Baskerville.pdf" },
+  "items": {
+    "suffrages": { "title": "The Suffrages", "kind": "versicles", "verified": true, "sourceRef": "Morning and Evening Prayer", "responses": [
+      { "leader": "O Lord, shew thy mercy upon us.", "people": "And grant us thy salvation." },
+      { "leader": "Endue thy ministers with righteousness.", "people": "And make thy chosen people joyful." },
+      { "leader": "O Lord, save thy people.", "people": "And bless thine inheritance." },
+      { "leader": "Give peace in our time, O Lord.", "people": "Because there is none other that fighteth for us, but only thou, O God." },
+      { "leader": "O God, make clean our hearts within us.", "people": "And take not thy Holy Spirit from us." }
+    ] },
+    "morningPeace": { "title": "A Collect for Peace", "kind": "prayer", "verified": true, "sourceRef": "Morning Prayer", "text": "O God, who art the author of peace and lover of concord, in knowledge of whom standeth our eternal life, whose service is perfect freedom; defend us thy humble servants in all assaults of our enemies; that we, surely trusting in thy defence, may not fear the power of any adversaries; through the might of Jesus Christ our Lord. Amen." },
+    "morningGrace": { "title": "A Collect for Grace", "kind": "prayer", "verified": true, "sourceRef": "Morning Prayer", "text": "O Lord, our heavenly Father, almighty and everlasting God, who hast safely brought us to the beginning of this day; defend us in the same with thy mighty power; and grant that this day we fall into no sin, neither run into any kind of danger, but that all our doings may be ordered by thy governance, to do always that is righteous in thy sight; through Jesus Christ our Lord. Amen." },
+    "eveningPeace": { "title": "A Collect for Peace", "kind": "prayer", "verified": true, "sourceRef": "Evening Prayer", "text": "O God, from whom all holy desires, all good counsels, and all just works do proceed; give unto thy servants that peace which the world cannot give; that both, our hearts may be set to obey thy commandments, and also that, by thee, we being defended from the fear of our enemies may pass our time in rest and quietness; through the merits of Jesus Christ our Saviour. Amen." },
+    "aidAgainstPerils": { "title": "A Collect for Aid against All Perils", "kind": "prayer", "verified": true, "sourceRef": "Evening Prayer", "text": "Lighten our darkness, we beseech thee, O Lord; and by thy great mercy defend us from all perils and dangers of this night; for the love of thy only Son, our Saviour, Jesus Christ. Amen." },
+    "preventUs": { "title": "A Prayer before Work", "kind": "prayer", "verified": true, "sourceRef": "Prayers and Thanksgivings upon Several Occasions", "text": "Prevent us, O Lord, in all our doings with thy most gracious favour, and further us with thy continual help; that in all our works begun, continued, and ended in thee, we may glorify thy holy Name, and finally by thy mercy obtain everlasting life; through Jesus Christ our Lord. Amen." },
+    "chrysostom": { "title": "A Prayer of St John Chrysostom", "kind": "prayer", "verified": true, "sourceRef": "Morning and Evening Prayer", "text": "Almighty God, who hast given us grace at this time with one accord to make our common supplications unto thee; and dost promise, that when two or three are gathered together in thy Name thou wilt grant their requests: Fulfil now, O Lord, the desires and petitions of thy servants, as may be most expedient for them; granting us in this world knowledge of thy truth, and in the world to come life everlasting. Amen." },
+    "litany": { "title": "The Litany", "kind": "litany", "verified": true, "sourceRef": "The Litany (state petitions omitted)", "responses": [
+      { "leader": "From all evil and mischief; from sin; from the crafts and assaults of the devil; from thy wrath, and from everlasting damnation,", "people": "Good Lord, deliver us." },
+      { "leader": "That it may please thee to rule and govern thy holy Church universal in the right way;", "people": "We beseech thee to hear us, good Lord." },
+      { "leader": "That it may please thee to illuminate all Bishops, Priests, and Deacons, with true knowledge and understanding of thy Word;", "people": "We beseech thee to hear us, good Lord." },
+      { "leader": "That it may please thee to give to all nations unity, peace, and concord;", "people": "We beseech thee to hear us, good Lord." },
+      { "leader": "That it may please thee to succour, help, and comfort, all that are in danger, necessity, and tribulation;", "people": "We beseech thee to hear us, good Lord." },
+      { "leader": "That it may please thee to have mercy upon all men;", "people": "We beseech thee to hear us, good Lord." },
+      { "leader": "That it may please thee to forgive our enemies, persecutors, and slanderers, and to turn their hearts;", "people": "We beseech thee to hear us, good Lord." }
+    ] }
+  },
+  "assignments": { "officeOfReadings": ["chrysostom"], "lauds": ["suffrages", "morningPeace", "morningGrace"], "daytimePrayer": ["preventUs"], "vespers": ["suffrages", "eveningPeace", "aidAgainstPerils"], "compline": ["aidAgainstPerils"] },
+  "litanyDays": ["sunday", "wednesday", "friday"]
+}
