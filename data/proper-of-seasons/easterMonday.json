@@ -1,0 +1,82 @@
+{
+  "key": "easterMonday",
+  "verified": false,
+  "name": "Monday within the Octave of Easter",
+  "firstReading": {
+    "ref": "Acts 1"
+  },
+  "hours": {
+    "officeOfReadings": {
+      "psalmody": [
+        {
+          "type": "psalm",
+          "ref": "Ps 2"
+        },
+        {
+          "type": "psalm",
+          "ref": "Ps 8"
+        },
+        {
+          "type": "psalm",
+          "ref": "Ps 19"
+        }
+      ]
+    },
+    "lauds": {
+      "psalmody": [
+        {
+          "type": "psalm",
+          "ref": "Ps 5"
+        },
+        {
+          "type": "canticle",
+          "scriptureRef": "1 Chr 29:10-13"
+        },
+        {
+          "type": "psalm",
+          "ref": "Ps 29"
+        }
+      ]
+    },
+    "daytimePrayer": {
+      "psalmody": [
+        {
+          "type": "psalm",
+          "ref": "Ps 119:153-160"
+        },
+        {
+          "type": "psalm",
+          "ref": "Ps 20"
+        },
+        {
+          "type": "psalm",
+          "ref": "Ps 21"
+        }
+      ]
+    },
+    "vespers": {
+      "psalmody": [
+        {
+          "type": "psalm",
+          "ref": "Ps 24"
+        },
+        {
+          "type": "psalm",
+          "ref": "Ps 47"
+        },
+        {
+          "type": "canticle",
+          "scriptureRef": "Col 1:12-20"
+        }
+      ]
+    },
+    "compline": {
+      "psalmody": [
+        {
+          "type": "psalm",
+          "ref": "Ps 86"
+        }
+      ]
+    }
+  }
+}

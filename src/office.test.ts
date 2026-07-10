@@ -4,7 +4,7 @@ import { resolveDay } from './office';
 
 function resolveDayOrThrow(date: Date) {
   const day = resolveDay(getOfficeDay(date));
-  if (!day) throw new Error('expected a resolved day (not the Easter octave)');
+  if (!day) throw new Error('expected a resolved day');
   return day;
 }
 
@@ -58,10 +58,20 @@ describe('resolveDay', () => {
     expect(day.verified).toBe(false);
   });
 
-  it('returns null for the Easter octave, which is out of scope for the Phase 5 skeleton', () => {
+  it('resolves the Easter octave via its Phase 8 proper override, not the (nonexistent) skeleton', () => {
     // Easter Sunday 2024.
-    const day = resolveDay(getOfficeDay(new Date(2024, 2, 31)));
-    expect(day).toBeNull();
+    const day = resolveDayOrThrow(new Date(2024, 2, 31));
+    expect(day.lauds.psalmody.length).toBeGreaterThan(0);
+    const psalm118 = day.officeOfReadings.psalmody.find((item) => item.type === 'psalm' && item.ref === 'Ps 118');
+    expect(psalm118).toBeDefined();
+    // Compline still follows the ferial weekday cycle, per src/office.ts.
+    expect(day.compline.psalmody).toMatchObject([{ type: 'psalm', ref: 'Ps 91' }]);
+  });
+
+  it('uses the Easter proper override for every day of the octave, including Divine Mercy Sunday', () => {
+    // Divine Mercy Sunday 2024 (2nd Sunday of Easter).
+    const day = resolveDayOrThrow(new Date(2024, 3, 7));
+    expect(day.lauds.psalmody.length).toBeGreaterThan(0);
   });
 
   it('resolves Office of Readings scripture text for Year I Ordinary Time, with no patristic reading', () => {
@@ -101,5 +111,22 @@ describe('resolveDay', () => {
     const day = resolveDayOrThrow(new Date(2024, 1, 14)); // Ash Wednesday 2024
     expect(day.readings).not.toBeNull();
     expect(day.readings?.scriptureReading.ref).toBe('Jl 2');
+  });
+
+  it('resolves the Phase 8 proper first reading for Easter Sunday, using the ferial psalter fallback for the Hours nowhere', () => {
+    const day = resolveDayOrThrow(new Date(2024, 2, 31)); // Easter Sunday 2024.
+    expect(day.readings?.scriptureReading.ref).toBe('1 Cor 15');
+  });
+
+  it('resolves a moveable-solemnity proper first reading, falling back to the ferial psalter for the Hours', () => {
+    const day = resolveDayOrThrow(new Date(2024, 4, 9)); // Ascension 2024.
+    expect(day.readings?.scriptureReading.ref).toBe('Eph 1');
+    // No hours override for this one - the ferial skeleton still renders.
+    expect(day.lauds.psalmody.length).toBeGreaterThan(0);
+  });
+
+  it('resolves a fixed-date proper-of-saints first reading', () => {
+    const day = resolveDayOrThrow(new Date(2024, 7, 15)); // The Assumption.
+    expect(day.readings?.scriptureReading.ref).toBe('Rv 12');
   });
 });

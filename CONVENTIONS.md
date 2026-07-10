@@ -137,10 +137,16 @@ live under `schema/` and are enforced by `npm run validate:data` (wired into CI)
   looked up by day-of-week rather than by romcal's key, because that key is even less
   stable there (an occasional commemoration can occupy the Saturday). `proper-of-seasons`
   is for moveable/seasonal overrides; `proper-of-saints` is for fixed-date solemnities/
-  feasts/memorials - only `proper-of-seasons` is populated so far (Phase 7); Phase 8
-  populates `proper-of-saints` and wires the day-resolution function to check both before
-  falling back to the ferial psalter/weekN, beyond what `src/officeOfReadings.ts` already
-  does for its own narrower purpose.
+  feasts/memorials. Phase 8 wires `src/proper.ts` (shared by `src/office.ts` and
+  `src/officeOfReadings.ts`) to check both before falling back to the ferial psalter/
+  weekN, and populates `proper-of-saints` for the first time. A `hours` object (see
+  `schema/proper.schema.json`) can override some or all of the five Hours' psalmody for a
+  celebration; anything not listed there falls back to the ferial psalter skeleton, which
+  is why most solemnities only carry a `firstReading` override and let the ferial
+  psalmody stand. The one exception is the Easter octave (`easter` through
+  `divineMercySunday`): the four-week psalter skeleton has no entry at all for
+  `psalterWeek: 'easter'` (see `src/psalter.ts`), so those 8 days need a full `hours`
+  override covering every Hour, not a partial one.
 
 ## Canticle identifiers
 
