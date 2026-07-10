@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://os-ordinariate-daily-prayer/schema/psalms.schema.json",
+  "title": "Coverdale Psalter text file (data/texts/coverdale-psalter.json)",
+  "type": "object",
+  "required": ["translation", "source", "psalms"],
+  "additionalProperties": false,
+  "properties": {
+    "translation": { "type": "string", "minLength": 1 },
+    "source": {
+      "type": "object",
+      "required": ["repo", "commit", "file"],
+      "additionalProperties": false,
+      "properties": {
+        "repo": { "type": "string", "format": "uri" },
+        "commit": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
+        "file": { "type": "string", "minLength": 1 },
+        "note": { "type": "string" }
+      }
+    },
+    "gloriaPatri": { "type": ["string", "null"] },
+    "psalmCount": { "type": "integer", "minimum": 0, "maximum": 150 },
+    "verseCount": { "type": "integer", "minimum": 0 },
+    "missing": {
+      "type": "array",
+      "items": { "type": "integer", "minimum": 1, "maximum": 150 }
+    },
+    "psalms": {
+      "type": "object",
+      "propertyNames": { "pattern": "^(150|1[0-4][0-9]|[1-9][0-9]?)$" },
+      "additionalProperties": {
+        "type": "object",
+        "description": "Verse number (as a string key) -> verse text",
+        "minProperties": 1,
+        "propertyNames": { "pattern": "^[0-9]+$" },
+        "additionalProperties": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}

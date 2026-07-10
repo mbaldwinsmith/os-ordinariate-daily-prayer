@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://os-ordinariate-daily-prayer/schema/office-of-readings-day.schema.json",
+  "title": "One day's Office of Readings (data/office-of-readings/<yearI|yearII>/<season>/weekN/<day>.json)",
+  "type": "object",
+  "required": ["scriptureReading"],
+  "additionalProperties": false,
+  "properties": {
+    "scriptureReading": {
+      "type": "object",
+      "required": ["ref"],
+      "additionalProperties": false,
+      "properties": {
+        "ref": { "type": "string", "minLength": 1, "description": "See CONVENTIONS.md reference syntax" },
+        "title": { "type": "string" }
+      }
+    },
+    "patristicReading": {
+      "description": "Nullable: Phase 7 allows omitting the second reading as an MVP fallback (Douay-Rheims has no patristic texts) - see TASKS.md Phase 7.",
+      "type": ["object", "null"],
+      "required": ["title"],
+      "additionalProperties": false,
+      "properties": {
+        "title": { "type": "string", "minLength": 1 },
+        "sourceRef": { "type": "string", "description": "Free-text citation, e.g. 'St Augustine, Confessions, Bk 1' - not a scripture reference" }
+      }
+    }
+  }
+}

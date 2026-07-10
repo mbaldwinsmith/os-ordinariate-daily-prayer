@@ -4,6 +4,16 @@ Reference and data-key conventions for this project, fixed before any further tr
 so all later data entry is consistent. See `SOURCES.md` for where the underlying texts come
 from.
 
+## The five Hours
+
+This app implements five Hours per day: Office of Readings, Lauds, Daytime Prayer, Vespers,
+Compline. **Daytime Prayer is a single combined midday hour**, not the full Terce/Sext/None
+of the monastic/clerical observance - this matches how most laity actually pray the modern
+Liturgy of the Hours, and it matches Anglican patrimony's simpler daily-office pattern (the
+BCP has no separate Terce/Sext/None). This was an explicit decision (user-confirmed), not a
+default assumed to save effort - it fixes the hour keys used throughout `schema/` and
+`data/psalter/`.
+
 ## Psalm numbering
 
 All psalms and the four fixed canticles in this app come from the **Coverdale Psalter (BCP
@@ -95,8 +105,25 @@ for O(1) reference lookup without a parsing step at render time:
 { "psalms": { "23": { "1": "The Lord is my shepherd...", "2": "..." } } }
 ```
 
-This is an interim shape for Phase 1 acquisition scripts; Phase 3 finalizes the full schema
-(including how proper/override data and antiphons attach) and may reshape this.
+Full JSON Schemas for every data file shape (including the ones below, not yet populated)
+live under `schema/` and are enforced by `npm run validate:data` (wired into CI).
+
+## Data file layout for later phases
+
+- `data/psalter/week<N>/<day>.json` (`N` 1-4, `day` a lowercase weekday name): one file per
+  day of the four-week psalter. See `schema/psalter-day.schema.json` - Phase 5 populates
+  these.
+- `data/office-of-readings/<yearI|yearII>/<season>/week<N>/<day>.json`: one file per day.
+  `season` is one of `advent`/`christmas`/`ordinaryTime`/`lent`/`easter` (no `triduum` -
+  the Triduum's Office of Readings is always proper, handled under `proper-of-seasons/`
+  instead). See `schema/office-of-readings-day.schema.json` - Phase 7 populates these.
+- `data/proper-of-seasons/<celebrationKey>.json` and `data/proper-of-saints/<celebrationKey>.json`:
+  one file per overridden celebration, filename matching the same `key` used inside the
+  file and matching romcal's own celebration key (e.g. `assumption.json`, `holyThursday.json`)
+  so the day-resolution function can look an override up directly by key rather than
+  scanning a directory. `proper-of-seasons` is for moveable/seasonal overrides (Ash
+  Wednesday, Holy Week, etc.); `proper-of-saints` is for fixed-date solemnities/feasts/
+  memorials. See `schema/proper.schema.json` - Phase 8 populates these.
 
 ## Canticle identifiers
 

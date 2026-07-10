@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://os-ordinariate-daily-prayer/schema/psalter-day.schema.json",
+  "title": "One day of the four-week psalter (data/psalter/weekN/<day>.json)",
+  "description": "Hour -> psalm ids + canticle id, for the five Hours this app implements (see CONVENTIONS.md: Daytime Prayer is one combined midday hour, not separate Terce/Sext/None).",
+  "type": "object",
+  "required": ["officeOfReadings", "lauds", "daytimePrayer", "vespers", "compline"],
+  "additionalProperties": false,
+  "properties": {
+    "officeOfReadings": { "$ref": "#/$defs/hour" },
+    "lauds": { "$ref": "#/$defs/hour" },
+    "daytimePrayer": { "$ref": "#/$defs/hour" },
+    "vespers": { "$ref": "#/$defs/hour" },
+    "compline": { "$ref": "#/$defs/hour" }
+  },
+  "$defs": {
+    "hour": {
+      "type": "object",
+      "required": ["psalms"],
+      "additionalProperties": false,
+      "properties": {
+        "psalms": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/psalmRef" }
+        },
+        "canticle": { "$ref": "#/$defs/canticleRef" }
+      }
+    },
+    "psalmRef": {
+      "type": "string",
+      "description": "e.g. 'Ps 23' or 'Ps 119:1-8' - see CONVENTIONS.md",
+      "pattern": "^Ps [0-9]{1,3}(:[0-9]{1,3}(-[0-9]{1,3})?)?$"
+    },
+    "canticleRef": {
+      "type": "object",
+      "oneOf": [
+        {
+          "title": "A fixed canticle (Benedictus/Magnificat/Nunc Dimittis/Benedicite)",
+          "required": ["fixedId"],
+          "additionalProperties": false,
+          "properties": {
+            "fixedId": {
+              "enum": ["benedictus", "magnificat", "nuncDimittis", "benedicite"]
+            }
+          }
+        },
+        {
+          "title": "A variable Old/New Testament canticle sourced from the DRC text",
+          "required": ["scriptureRef"],
+          "additionalProperties": false,
+          "properties": {
+            "scriptureRef": { "type": "string", "minLength": 1 }
+          }
+        }
+      ]
+    }
+  }
+}

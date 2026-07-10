@@ -12,10 +12,12 @@ Provenance, licensing, and known gaps for the two public-domain texts this app u
   repository's own compilation/tooling is MIT-licensed; the Bible text itself is public
   domain independent of that license.
 - **Ingestion script**: `scripts/fetch-douay-rheims.mjs` → `data/texts/douay-rheims-challoner.json`
-  (37,255 verses across 78 books — the 73-book Catholic canon plus a 5-book apocryphal
-  appendix the Vulgate traditionally carries: Prayer of Manasses, I/II Esdras, an
-  "Additional Psalm" [151], and Laodiceans. None of the appendix is used by the Roman Rite
-  lectionary this app implements).
+  (35,817 verses across 73 books — the Catholic canon only. The source dataset also carries
+  a 5-book Vulgate apocryphal appendix - Prayer of Manasses, I/II Esdras, an "Additional
+  Psalm" [151], and Laodiceans - which the ingestion script deliberately excludes: none of
+  it is used by the Roman Rite lectionary this app implements, and in this particular
+  source every verse in that appendix is empty anyway, so keeping it would just be dead,
+  invalid-per-schema placeholder data).
 - **Normalization note**: the scrollmapper dataset normalizes book names/numbering to a
   common scheme shared across its ~140 translations for cross-referencing, so it uses
   "I Samuel"/"I Kings"/"II Kings" rather than the traditional Douay "1 Kings"/"3 Kings"/
@@ -23,8 +25,21 @@ Provenance, licensing, and known gaps for the two public-domain texts this app u
   Canticles"/"Ecclesiasticus"/"Apocalypse". This affects internal storage keys only (see
   `CONVENTIONS.md`); citation headers shown to users in Phase 10 can still say "a reading
   from the book of Ecclesiasticus" etc. if that's the desired lectionary style.
-- **Verification status**: not yet spot-checked verse-by-verse against a second source.
-  Flagged for the accuracy pass in Phase 7/Phase 6-equivalent for scripture readings.
+- **Known gap - 12 empty verses within the Catholic canon**: `schema/scripture.schema.json`
+  requires non-empty verse text, and validating the ingested file against it turned up 12
+  verses that are empty strings in the upstream source. Every one of them is the *last*
+  verse of its chapter or book, which looks like a systematic off-by-one truncation bug in
+  however scrollmapper originally built `DRC.json`, not a random gap:
+  `2 Sm 13:39`, `1 Kgs 17:19`, `Ps 150:6`, `Prv 30:29`, `Sir 29:35`, `Is 46:13`, `Bar 6:37`,
+  `Jn 11:57`, `2 Cor 1:24`, `1 Thes 4:18`, `2 Thes 2:17`, `3 Jn 1:15`. `scripts/validate-data.mjs`
+  treats exactly these 12 references as a documented, non-fatal warning (not a build
+  failure) so CI doesn't block on a known, narrow, already-tracked issue - but it still
+  fails on any *other* empty verse, to catch new regressions. These 12 need their correct
+  Challoner-revision wording sourced and patched in during Phase 7 (do not fill them in
+  from memory - the whole point of tracking this here is to source them properly).
+- **Verification status**: not yet spot-checked verse-by-verse against a second source
+  beyond the empty-verse check above. Flagged for the accuracy pass in Phase 7/Phase
+  6-equivalent for scripture readings.
 
 ## Coverdale Psalter (psalms, fixed canticles)
 

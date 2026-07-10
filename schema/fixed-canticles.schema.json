@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://os-ordinariate-daily-prayer/schema/fixed-canticles.schema.json",
+  "title": "Fixed canticles file (data/texts/fixedCanticles.json)",
+  "description": "The four fixed canticles: Benedictus (Lauds), Magnificat (Vespers), Nunc Dimittis (Compline), Benedicite (an alternative Lauds canticle). See CONVENTIONS.md.",
+  "type": "object",
+  "required": ["benedictus", "magnificat", "nuncDimittis", "benedicite"],
+  "additionalProperties": false,
+  "properties": {
+    "benedictus": { "$ref": "#/$defs/canticle" },
+    "magnificat": { "$ref": "#/$defs/canticle" },
+    "nuncDimittis": { "$ref": "#/$defs/canticle" },
+    "benedicite": { "$ref": "#/$defs/canticle" }
+  },
+  "$defs": {
+    "canticle": {
+      "type": "object",
+      "required": ["name", "scriptureRef", "verses"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "scriptureRef": { "type": "string", "minLength": 1 },
+        "verses": {
+          "type": "object",
+          "minProperties": 1,
+          "propertyNames": { "pattern": "^[0-9]+$" },
+          "additionalProperties": { "type": "string", "minLength": 1 }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://os-ordinariate-daily-prayer/schema/scripture.schema.json",
+  "title": "Scripture text file (e.g. data/texts/douay-rheims-challoner.json)",
+  "type": "object",
+  "required": ["translation", "source", "books"],
+  "additionalProperties": false,
+  "properties": {
+    "translation": { "type": "string", "minLength": 1 },
+    "source": {
+      "type": "object",
+      "required": ["repo", "commit", "file"],
+      "additionalProperties": false,
+      "properties": {
+        "repo": { "type": "string", "format": "uri" },
+        "commit": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
+        "file": { "type": "string", "minLength": 1 },
+        "note": { "type": "string" }
+      }
+    },
+    "bookCount": { "type": "integer", "minimum": 1 },
+    "verseCount": { "type": "integer", "minimum": 1 },
+    "books": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "object",
+        "description": "Chapter number (as a string key) -> verse map",
+        "minProperties": 1,
+        "propertyNames": { "pattern": "^[0-9]+$" },
+        "additionalProperties": {
+          "type": "object",
+          "description": "Verse number (as a string key) -> verse text",
+          "minProperties": 1,
+          "propertyNames": { "pattern": "^[0-9]+$" },
+          "additionalProperties": { "type": "string", "minLength": 1 }
+        }
+      }
+    }
+  }
+}

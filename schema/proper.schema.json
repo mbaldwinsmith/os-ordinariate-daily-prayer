@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://os-ordinariate-daily-prayer/schema/proper.schema.json",
+  "title": "Proper-of-seasons / proper-of-saints override (data/proper-of-{seasons,saints}/**/*.json)",
+  "description": "A partial or full override of a day's normal psalter-cycle contents for a solemnity/feast/memorial or a seasonal proper. The day-resolution function checks these before falling back to the ferial psalter/weekN - see TASKS.md Phase 8.",
+  "type": "object",
+  "required": ["key"],
+  "additionalProperties": false,
+  "properties": {
+    "key": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Matches romcal's celebration key for the day, e.g. 'assumption'"
+    },
+    "name": { "type": "string", "minLength": 1 },
+    "hours": {
+      "description": "Only the Hours actually overridden need to be present; anything omitted falls back to the ferial psalter.",
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": false,
+      "properties": {
+        "officeOfReadings": { "$ref": "#/$defs/hour" },
+        "lauds": { "$ref": "#/$defs/hour" },
+        "daytimePrayer": { "$ref": "#/$defs/hour" },
+        "vespers": { "$ref": "#/$defs/hour" },
+        "compline": { "$ref": "#/$defs/hour" }
+      }
+    },
+    "secondReading": {
+      "description": "Overrides the Office of Readings' patristic/hagiographic second reading only - see schema/office-of-readings-day.schema.json for the shape.",
+      "type": ["object", "null"],
+      "required": ["title"],
+      "additionalProperties": false,
+      "properties": {
+        "title": { "type": "string", "minLength": 1 },
+        "sourceRef": { "type": "string" }
+      }
+    }
+  },
+  "$defs": {
+    "hour": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": false,
+      "properties": {
+        "psalms": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^Ps [0-9]{1,3}(:[0-9]{1,3}(-[0-9]{1,3})?)?$"
+          }
+        },
+        "canticle": {
+          "type": "object",
+          "oneOf": [
+            {
+              "required": ["fixedId"],
+              "additionalProperties": false,
+              "properties": {
+                "fixedId": {
+                  "enum": ["benedictus", "magnificat", "nuncDimittis", "benedicite"]
+                }
+              }
+            },
+            {
+              "required": ["scriptureRef"],
+              "additionalProperties": false,
+              "properties": {
+                "scriptureRef": { "type": "string", "minLength": 1 }
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

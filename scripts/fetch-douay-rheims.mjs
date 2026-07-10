@@ -11,6 +11,14 @@ const SOURCE_COMMIT = '16db66f83c1232146b356a255159b5327398d4dc';
 const SOURCE_URL = `https://raw.githubusercontent.com/scrollmapper/bible_databases/${SOURCE_COMMIT}/formats/json/DRC.json`;
 const OUTPUT_PATH = fileURLToPath(new URL('../data/texts/douay-rheims-challoner.json', import.meta.url));
 
+// The Vulgate appendix the DRC dataset carries alongside the 73-book Catholic
+// canon - none of it is used by the Roman Rite lectionary this app
+// implements (see SOURCES.md), and every verse in it is empty in this
+// particular source anyway (an upstream transcription gap, not just an
+// omission we're choosing to make). Dropped entirely rather than kept as
+// dead, invalid-per-schema placeholder data.
+const EXCLUDED_APOCRYPHA = new Set(['Prayer of Manasses', 'I Esdras', 'II Esdras', 'Additional Psalm', 'Laodiceans']);
+
 async function main() {
   const response = await fetch(SOURCE_URL);
   if (!response.ok) {
@@ -23,6 +31,7 @@ async function main() {
   let verseCount = 0;
 
   for (const book of source.books) {
+    if (EXCLUDED_APOCRYPHA.has(book.name)) continue;
     const chapters = {};
     for (const chapter of book.chapters) {
       const verses = {};

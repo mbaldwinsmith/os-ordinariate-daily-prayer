@@ -85,16 +85,33 @@ Babel-transpiled CJS build) instead: `resolve.mainFields: ['browser', 'main', 'm
 
 ## Phase 3 — Data Model & Schema
 
-- [ ] Finalise JSON schema for `psalter/weekN/day.json` (hour to psalm ids + canticle id)
-- [ ] Finalise JSON schema for `texts/scripture.json` (reference to Douay-Rheims text)
-- [ ] Finalise JSON schema for `texts/psalms.json` (psalm id/verse-range to Coverdale text)
-- [ ] Finalise JSON schema for `texts/fixedCanticles.json` (the four fixed canticles:
-      Benedictus, Magnificat, Nunc Dimittis, Benedicite)
-- [ ] Finalise JSON schema for `office-of-readings/yearI/` and `yearII/` (season to week to
-      day to { patristic reading ref/title, scripture reading ref })
-- [ ] Finalise JSON schema for `proper-of-seasons/` and `proper-of-saints/` overrides
-- [ ] Write a schema validation script that runs in CI to catch malformed data files
-      before merge
+- [x] Finalise JSON schema for `psalter/weekN/day.json` (hour to psalm ids + canticle id) —
+      `schema/psalter-day.schema.json`; also required deciding the Midday Hour question
+      flagged below (combined Daytime Prayer, not Terce/Sext/None - see CONVENTIONS.md)
+- [x] Finalise JSON schema for `texts/scripture.json` (reference to Douay-Rheims text) —
+      `schema/scripture.schema.json`, validates the actual `data/texts/douay-rheims-challoner.json`
+      (file renamed from the generic `scripture.json` in TASKS.md's original wording for
+      clarity now that Phase 1 built it)
+- [x] Finalise JSON schema for `texts/psalms.json` (psalm id/verse-range to Coverdale text) —
+      `schema/psalms.schema.json`, validates `data/texts/coverdale-psalter.json`
+- [x] Finalise JSON schema for `texts/fixedCanticles.json` (the four fixed canticles:
+      Benedictus, Magnificat, Nunc Dimittis, Benedicite) — `schema/fixed-canticles.schema.json`
+      (the data file itself doesn't exist yet - Phase 4 populates it)
+- [x] Finalise JSON schema for `office-of-readings/yearI/` and `yearII/` (season to week to
+      day to { patristic reading ref/title, scripture reading ref }) —
+      `schema/office-of-readings-day.schema.json`; directory path convention documented in
+      CONVENTIONS.md
+- [x] Finalise JSON schema for `proper-of-seasons/` and `proper-of-saints/` overrides —
+      `schema/proper.schema.json` (also added the missing `data/proper-of-saints/` directory,
+      which Phase 0 had omitted)
+- [x] Write a schema validation script that runs in CI to catch malformed data files
+      before merge — `scripts/validate-data.mjs` (`npm run validate:data`), wired into a new
+      `.github/workflows/ci.yml` alongside `npm test` and `npm run build`. Running it against
+      the real Phase 1 data caught a genuine upstream data defect: 1,450 empty verses in the
+      DRC dataset. 1,438 were in the unused apocryphal appendix (now excluded from ingestion
+      entirely); the remaining 12 are real gaps in canonical books, documented in
+      `SOURCES.md` and tracked as an explicit non-fatal allowlist in the validator so CI
+      stays green without hiding the problem.
 
 ---
 
