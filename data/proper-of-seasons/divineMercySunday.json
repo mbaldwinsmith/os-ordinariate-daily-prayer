@@ -1,0 +1,82 @@
+{
+  "key": "divineMercySunday",
+  "verified": false,
+  "name": "Divine Mercy Sunday (2nd Sunday of Easter)",
+  "firstReading": {
+    "ref": "Jn 20"
+  },
+  "hours": {
+    "officeOfReadings": {
+      "psalmody": [
+        {
+          "type": "psalm",
+          "ref": "Ps 118"
+        },
+        {
+          "type": "psalm",
+          "ref": "Ps 145"
+        },
+        {
+          "type": "psalm",
+          "ref": "Ps 150"
+        }
+      ]
+    },
+    "lauds": {
+      "psalmody": [
+        {
+          "type": "psalm",
+          "ref": "Ps 93"
+        },
+        {
+          "type": "canticle",
+          "fixedId": "benedicite"
+        },
+        {
+          "type": "psalm",
+          "ref": "Ps 150"
+        }
+      ]
+    },
+    "daytimePrayer": {
+      "psalmody": [
+        {
+          "type": "psalm",
+          "ref": "Ps 119:33-40"
+        },
+        {
+          "type": "psalm",
+          "ref": "Ps 133"
+        },
+        {
+          "type": "psalm",
+          "ref": "Ps 135"
+        }
+      ]
+    },
+    "vespers": {
+      "psalmody": [
+        {
+          "type": "psalm",
+          "ref": "Ps 122"
+        },
+        {
+          "type": "psalm",
+          "ref": "Ps 133"
+        },
+        {
+          "type": "canticle",
+          "scriptureRef": "Col 1:12-20"
+        }
+      ]
+    },
+    "compline": {
+      "psalmody": [
+        {
+          "type": "psalm",
+          "ref": "Ps 91"
+        }
+      ]
+    }
+  }
+}

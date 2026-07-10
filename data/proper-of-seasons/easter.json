@@ -1,0 +1,83 @@
+{
+  "key": "easter",
+  "verified": false,
+  "name": "Easter Sunday",
+  "firstReading": {
+    "ref": "1 Cor 15"
+  },
+  "hours": {
+    "officeOfReadings": {
+      "psalmody": [
+        {
+          "type": "psalm",
+          "ref": "Ps 118"
+        },
+        {
+          "type": "psalm",
+          "ref": "Ps 145"
+        },
+        {
+          "type": "psalm",
+          "ref": "Ps 66"
+        }
+      ]
+    },
+    "lauds": {
+      "psalmody": [
+        {
+          "type": "psalm",
+          "ref": "Ps 118"
+        },
+        {
+          "type": "canticle",
+          "scriptureRef": "Ex 15:1-13, 17-18",
+          "name": "Canticle of Moses"
+        },
+        {
+          "type": "psalm",
+          "ref": "Ps 150"
+        }
+      ]
+    },
+    "daytimePrayer": {
+      "psalmody": [
+        {
+          "type": "psalm",
+          "ref": "Ps 119:145-152"
+        },
+        {
+          "type": "psalm",
+          "ref": "Ps 122"
+        },
+        {
+          "type": "psalm",
+          "ref": "Ps 124"
+        }
+      ]
+    },
+    "vespers": {
+      "psalmody": [
+        {
+          "type": "psalm",
+          "ref": "Ps 110"
+        },
+        {
+          "type": "psalm",
+          "ref": "Ps 118"
+        },
+        {
+          "type": "canticle",
+          "scriptureRef": "Eph 1:3-10"
+        }
+      ]
+    },
+    "compline": {
+      "psalmody": [
+        {
+          "type": "psalm",
+          "ref": "Ps 91"
+        }
+      ]
+    }
+  }
+}

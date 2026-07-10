@@ -1,0 +1,82 @@
+{
+  "key": "easterThursday",
+  "verified": false,
+  "name": "Thursday within the Octave of Easter",
+  "firstReading": {
+    "ref": "Acts 4"
+  },
+  "hours": {
+    "officeOfReadings": {
+      "psalmody": [
+        {
+          "type": "psalm",
+          "ref": "Ps 89"
+        },
+        {
+          "type": "psalm",
+          "ref": "Ps 105"
+        },
+        {
+          "type": "psalm",
+          "ref": "Ps 111"
+        }
+      ]
+    },
+    "lauds": {
+      "psalmody": [
+        {
+          "type": "psalm",
+          "ref": "Ps 30"
+        },
+        {
+          "type": "canticle",
+          "scriptureRef": "Dt 32:1-12"
+        },
+        {
+          "type": "psalm",
+          "ref": "Ps 146"
+        }
+      ]
+    },
+    "daytimePrayer": {
+      "psalmody": [
+        {
+          "type": "psalm",
+          "ref": "Ps 121"
+        },
+        {
+          "type": "psalm",
+          "ref": "Ps 123"
+        },
+        {
+          "type": "psalm",
+          "ref": "Ps 125"
+        }
+      ]
+    },
+    "vespers": {
+      "psalmody": [
+        {
+          "type": "psalm",
+          "ref": "Ps 114"
+        },
+        {
+          "type": "psalm",
+          "ref": "Ps 115"
+        },
+        {
+          "type": "canticle",
+          "scriptureRef": "Rv 4:11, 5:9-10, 5:12"
+        }
+      ]
+    },
+    "compline": {
+      "psalmody": [
+        {
+          "type": "psalm",
+          "ref": "Ps 16"
+        }
+      ]
+    }
+  }
+}

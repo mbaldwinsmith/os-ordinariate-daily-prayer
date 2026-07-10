@@ -92,7 +92,7 @@ function render(date: Date): void {
         ${renderHour('Vespers', day.vespers)}
         ${renderHour('Compline', day.compline)}
       `
-    : '<p role="alert">The Easter octave\'s special psalter isn\'t implemented yet (Phase 5 scope is the four-week skeleton only).</p>';
+    : '<p role="alert">This day isn\'t populated yet - see TASKS.md.</p>';
 
   document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <h1>Ordinariate Daily Prayer</h1>

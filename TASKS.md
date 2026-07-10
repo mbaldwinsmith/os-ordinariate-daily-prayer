@@ -238,15 +238,22 @@ Babel-transpiled CJS build) instead: `resolve.mainFields: ['browser', 'main', 'm
 
 ## Phase 8 — Proper of Seasons & Proper of Saints (overrides)
 
-- [ ] Identify every solemnity/major feast that overrides the ferial psalter across the
+- [x] Identify every solemnity/major feast that overrides the ferial psalter across the
       year (fixed dates + moveable dates via romcal)
-- [ ] For each, populate proper psalms/antiphons/readings where they differ from the
-      ferial cycle
-- [ ] Wire override logic into the day-resolution function: check proper-of-seasons and
-      proper-of-saints before falling back to psalter/weekN
-- [ ] Treat as ongoing/incremental; do not block MVP launch on full coverage — a sensible
+- [x] For each, populate proper psalms/antiphons/readings where they differ from the
+      ferial cycle — done for a representative set (see below); the rest is ongoing.
+- [x] Wire override logic into the day-resolution function: check proper-of-seasons and
+      proper-of-saints before falling back to psalter/weekN (src/proper.ts, used by
+      src/office.ts and src/officeOfReadings.ts)
+- [x] Treat as ongoing/incremental; do not block MVP launch on full coverage — a sensible
       fallback (ferial psalter) should always render even if a feast's proper text isn't
       yet populated
+
+Populated this phase: the Easter octave (full Hours override, since psalterWeek 'easter'
+has no skeleton entry at all - the one true gap Phase 8 needed to close), 6 other moveable
+solemnities and 7 fixed-date solemnities (first-reading-only overrides, data/proper-of-saints/
+populated for the first time). All ~180 remaining memorials/feasts, and full Hours coverage
+for the 13 non-Easter-octave solemnities above, remain future incremental work.
 
 ---
 

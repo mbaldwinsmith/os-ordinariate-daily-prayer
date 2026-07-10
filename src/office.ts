@@ -3,15 +3,23 @@
 // the fixed Gospel canticle that's prayed there every day regardless of
 // the skeleton (Benedictus/Magnificat/Nunc Dimittis - see CONVENTIONS.md
 // for why Benedicite doesn't work the same way).
+//
+// A proper-of-seasons/proper-of-saints override (src/proper.ts) takes
+// precedence hour-by-hour over the skeleton when present - this is how a
+// solemnity's own psalmody replaces the ferial one. The Easter octave has
+// no skeleton entry at all (psalterWeek 'easter'), so it relies entirely
+// on a full proper override instead - see TASKS.md Phase 8.
 import fixedCanticles from '../data/texts/fixedCanticles.json';
 import type { OfficeDay } from './calendar';
 import { resolvePsalterDay, type PsalmodyItem } from './psalter';
 import { resolvePsalmRef } from './psalms';
 import { resolveOfficeOfReadings } from './officeOfReadings';
+import { resolveProperEntry, type HourName } from './proper';
 import { resolveScriptureRef } from './scripture';
 
 type GospelCanticleId = 'benedictus' | 'magnificat' | 'nuncDimittis';
-type HourName = 'officeOfReadings' | 'lauds' | 'daytimePrayer' | 'vespers' | 'compline';
+
+const HOUR_NAMES: HourName[] = ['officeOfReadings', 'lauds', 'daytimePrayer', 'vespers', 'compline'];
 
 export type ResolvedPsalmodyItem =
   | { type: 'psalm'; ref: string; verses: Record<string, string> }
@@ -58,20 +66,29 @@ function resolveHour(psalmody: PsalmodyItem[], hourName: HourName): HourView {
   };
 }
 
-/** Returns null for the Easter octave (psalterWeek 'easter') - its special psalter isn't part of the Phase 5 skeleton. */
+/**
+ * Returns null only when there's neither a skeleton entry nor a full proper
+ * override for every hour - in practice, just an unpopulated corner of the
+ * Easter octave (psalterWeek 'easter' with no matching proper override yet).
+ */
 export function resolveDay(day: OfficeDay): DayView | null {
+  const proper = resolveProperEntry(day);
   const skeleton = resolvePsalterDay(day.psalterWeek, day.dayOfWeek);
-  if (!skeleton) return null;
+
+  if (!skeleton && !HOUR_NAMES.every((hourName) => proper?.hours?.[hourName])) return null;
 
   const readingsDay = resolveOfficeOfReadings(day);
 
+  const hourViews = Object.fromEntries(
+    HOUR_NAMES.map((hourName) => {
+      const psalmody = proper?.hours?.[hourName]?.psalmody ?? skeleton?.[hourName].psalmody;
+      return [hourName, resolveHour(psalmody!, hourName)];
+    }),
+  ) as Record<HourName, HourView>;
+
   return {
-    verified: skeleton.verified,
-    officeOfReadings: resolveHour(skeleton.officeOfReadings.psalmody, 'officeOfReadings'),
-    lauds: resolveHour(skeleton.lauds.psalmody, 'lauds'),
-    daytimePrayer: resolveHour(skeleton.daytimePrayer.psalmody, 'daytimePrayer'),
-    vespers: resolveHour(skeleton.vespers.psalmody, 'vespers'),
-    compline: resolveHour(skeleton.compline.psalmody, 'compline'),
+    verified: skeleton?.verified ?? proper!.verified,
+    ...hourViews,
     readings: readingsDay && {
       verified: readingsDay.verified,
       scriptureReading: {
