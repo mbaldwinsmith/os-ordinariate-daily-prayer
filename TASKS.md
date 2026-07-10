@@ -410,6 +410,156 @@ Dimittis remain the Hours' Gospel canticles.
       (remaining solemnities/memorials, patristic second readings, antiphons if the scope
       decision in Phase 9 is ever revisited)
 
+# TASKS.md addendum — Phase 13: Psalter Verification & Correction
+
+Append to the existing TASKS.md. Context: a user-observed mismatch between the app's
+Lauds psalms and the Universalis app confirmed that the Phase 5 psalter skeleton
+(generated without an authoritative index, all files `"verified": false`) diverges
+from the real four-week psalter. An authoritative structural source has now been
+identified and transcribed: Fr. Felix Just, S.J.'s hour-by-hour Four-Week Psalter
+table (catholic-resources.org/LoH/Psalter-Hours.html), captured as
+`canonical-psalter-skeleton.json`, with a diff script `diff-psalter.mjs`.
+
+Psalm-to-day/hour assignments are factual liturgical structure (not copyrightable
+text), so the canonical dataset can be committed to the repo freely.
+
+---
+
+## Phase 13 — Psalter Verification & Correction
+
+### 13.1 — Adopt the canonical dataset
+
+- [ ] Commit `canonical-psalter-skeleton.json` to the repo (suggested location:
+      `data/canonical/`), and record its provenance in `SOURCES.md`: source URL,
+      compiler (Fr. Felix Just, S.J.), page-last-updated date, transcription date,
+      and the fact that it captures structural assignments only, no copyrighted text
+- [ ] Record the one known uncertainty in `SOURCES.md`: Week 4 Thursday's Office of
+      Readings (Ps 44) duplicates Week 2 Thursday in the source table — plausible
+      but unconfirmed; do not mark that single day verified until spot-checked
+      against a printed breviary or the Universalis app (a human task, since this
+      requires a second independent source)
+- [ ] Commit `diff-psalter.mjs` to `scripts/` and add an npm script
+      (`npm run diff:psalter`)
+
+### 13.2 — First diff run & schema adaptation
+
+- [ ] Run the diff script once and triage the output into three buckets:
+      (a) unextractable hours — the script guessed the generated schema's field
+      names and may have guessed wrong; fix `HOUR_KEY_CANDIDATES` /
+      `REF_FIELD_CANDIDATES` in the script until zero hours are unextractable,
+      (b) missing files/hours, (c) genuine content mismatches
+- [ ] Re-run until the report reflects only genuine content mismatches, then commit
+      the raw report output (or a summary) to the repo as a record of the
+      pre-correction state — useful honesty artifact given the app is already
+      deployed
+
+### 13.3 — Close the structural gaps the canonical data exposes
+
+These are schema/model changes, not just data corrections. Each was invisible to the
+original generator and at least one is the likely cause of the observed Lauds
+mismatch:
+
+- [ ] **Lauds slot order**: model Morning Prayer as psalm → OT canticle → psalm
+      (the canticle sits BETWEEN the psalms). Verify the schema and renderer both
+      preserve slot order rather than treating psalmody as an unordered list
+- [ ] **Vespers slot order**: psalm → psalm → NT canticle. Same order-preservation
+      requirement
+- [ ] **EP-I / EP-II**: Saturday evening is First Evening Prayer of the following
+      Sunday, with its own psalms; Sunday has two distinct Vespers entries.
+      Restructure the six Saturday files (and Sunday files) accordingly, and update
+      the day-resolution logic in `src/office.ts` so a request for Saturday Vespers
+      resolves to the following Sunday's EP-I
+- [ ] **Seasonal Office of Readings forks**: Sat wk1, Sat wk2, Fri wk4, Sat wk4 each
+      need two psalm sets (Advent/Christmas/Lent/Easter vs. Ordinary Time, per
+      GILH 130). Extend the psalter-day schema to model the fork and the resolver
+      to pick the right branch from the calendar engine's season output
+- [ ] **Lent NT-canticle substitution**: Sunday EP-II uses 1 Pet 2:21-24 in place of
+      Rev 19:1-7 during Lent, all four weeks. Model and resolve this
+- [ ] **Compline is a one-week cycle**: restructure Night Prayer data as a 7-day
+      cycle (with Saturday's Compline following EP-I of Sunday), not a 4-week one.
+      Remove any duplicated per-week Compline data
+- [ ] **Ps 119 divisions**: replace the generator's mechanical 22×8-verse division
+      with the actual assignments (specific sections on specific days, interleaved
+      with other psalms; some days use none). Update `resolvePsalmRef`/tests that
+      encoded the mechanical assumption — the existing Phase 6 test asserting the
+      even division is now known-wrong and should be replaced, not appeased
+- [ ] **Invitatory alternatives**: model Ps 95 as default with Ps 100/67/24 as
+      permitted alternatives (rendering can stay Ps 95-only for now, but the data
+      shouldn't preclude the alternatives)
+
+### 13.4 — Regenerate, don't patch
+
+- [ ] Rewrite `scripts/generate-psalter-skeleton.mjs` to generate the 28-day
+      skeleton FROM `canonical-psalter-skeleton.json` rather than from its own
+      internal reconstruction — the canonical file becomes the single source of
+      truth and the old reconstruction logic is deleted
+- [ ] Map the canonical file's reference format (`Ps 110:1-5, 7`) onto the app's
+      CONVENTIONS.md reference format in one documented normalisation function,
+      shared between the generator and the diff script so they can't drift
+- [ ] Regenerate all 28 day files; confirm `npm run diff:psalter` reports zero
+      mismatches
+- [ ] Flip `"verified": true` on all regenerated files EXCEPT Week 4 Thursday
+      (pending the human spot-check in 13.1); remove the corresponding UI warning
+      for verified days
+- [ ] Update `SOURCES.md`: the psalter skeleton's status changes from "unverified
+      reconstruction" to "generated from canonical structural source", with the
+      Week 4 Thursday exception noted
+
+### 13.5 — Regression protection
+
+- [ ] Wire `npm run diff:psalter` into `.github/workflows/ci.yml` alongside the
+      schema validator, so any future edit to the psalter data that diverges from
+      the canonical file fails CI
+- [ ] Add unit tests for each structural gap closed in 13.3 (EP-I resolution,
+      seasonal fork selection, Lent canticle substitution, Compline weekly cycle,
+      Lauds/Vespers slot order) — these encode the liturgical rules independently
+      of the data files
+- [ ] Re-run the production-browser smoke test (the one open Phase 10 checkbox)
+      across dates chosen to exercise the new logic: an Ordinary Time Saturday
+      (seasonal fork, ordinary branch), a Lent Saturday (strong-season branch),
+      a Lent Sunday (EP-II canticle substitution), and a plain ferial day
+
+### 13.6 — Human verification pass (not automatable)
+
+- [ ] Spot-check Week 4 Thursday Office of Readings against a printed breviary or
+      Universalis; flip its `verified` flag accordingly
+- [ ] Compare one full day per week (4 days total) hour-by-hour against the
+      Universalis app as an end-to-end sanity check that the original mismatch is
+      gone — structural agreement, not textual (translations legitimately differ:
+      Coverdale/DRC here vs. Grail/Jerusalem there)
+- [ ] Log any residual discrepancies as issues rather than fixing ad hoc, so each
+      fix goes through the canonical file + regeneration path
+
+---
+
+## Phase 14 — Office of Readings Verification (successor to the same problem)
+
+The Phase 7 Office of Readings cycle has the identical defect one layer up: a
+real-scripture but unverified week-to-book reconstruction, all files
+`"verified": false`. The psalter fix (Phase 13) does not touch this. Closing it
+fully is a much larger transcription job than the psalter, so sequence it:
+
+- [ ] Identify an authoritative structural source for the two-year Office of
+      Readings lectionary cycle (candidates: Fr. Just's related pages at
+      catholic-resources.org/LoH, a published breviary's lectionary tables, or the
+      Breviarium open-source library's data files as a secondary witness) and
+      record it in `SOURCES.md`
+- [ ] Transcribe it into a canonical dataset (`canonical-office-of-readings.json`
+      or per-season files) in the same spirit as Phase 13.1 — references only,
+      no copyrighted text
+- [ ] Write/extend a diff script for the OoR files against the canonical dataset
+- [ ] Regenerate the OoR data from the canonical source, replacing the
+      continuous-chapter reconstruction; flip `verified` flags; update the UI
+      warnings and `SOURCES.md`
+- [ ] Wire into CI as with the psalter
+- [ ] If no single complete structural source can be found, fall back to
+      incremental verification (Ordinary Time first, seasons after), keeping
+      per-file `verified` flags honest about exactly which days are checked
+- [ ] Revisit short readings (the Phase 10 follow-up) against the same source
+      once found — the canonical psalter file already provides verified Compline
+      short readings as a starting point
+
+
 ---
 
 ## Notes / Open Questions to Resolve Early
