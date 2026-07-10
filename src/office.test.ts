@@ -75,9 +75,31 @@ describe('resolveDay', () => {
     expect(day.readings?.patristicReading).toBeNull();
   });
 
-  it('returns null readings for Year II, which is not populated yet', () => {
+  it('resolves Office of Readings scripture text for Year II Ordinary Time too', () => {
     // 2024-01-14: also 2nd Sunday of Ordinary Time, but an even (Year II) year.
+    const officeDay = getOfficeDay(new Date(2024, 0, 14));
+    expect(officeDay.officeYear).toBe('II');
     const day = resolveDayOrThrow(new Date(2024, 0, 14));
-    expect(day.readings).toBeNull();
+    expect(day.readings).not.toBeNull();
+    expect(Object.values(day.readings!.scriptureReading.verses).length).toBeGreaterThan(0);
+  });
+
+  it('resolves proper Office of Readings content for the Triduum by celebration key', () => {
+    // Good Friday 2024.
+    const day = resolveDayOrThrow(new Date(2024, 2, 29));
+    expect(day.readings).not.toBeNull();
+    expect(day.readings?.scriptureReading.ref).toBe('Is 52');
+  });
+
+  it('resolves proper Office of Readings content for Christmas Day', () => {
+    const day = resolveDayOrThrow(new Date(2024, 11, 25));
+    expect(day.readings).not.toBeNull();
+    expect(day.readings?.scriptureReading.ref).toBe('Is 9');
+  });
+
+  it('resolves proper Office of Readings content for the Ash-Wednesday stub by day-of-week', () => {
+    const day = resolveDayOrThrow(new Date(2024, 1, 14)); // Ash Wednesday 2024
+    expect(day.readings).not.toBeNull();
+    expect(day.readings?.scriptureReading.ref).toBe('Jl 2');
   });
 });

@@ -4,15 +4,29 @@
   "title": "Proper-of-seasons / proper-of-saints override (data/proper-of-{seasons,saints}/**/*.json)",
   "description": "A partial or full override of a day's normal psalter-cycle contents for a solemnity/feast/memorial or a seasonal proper. The day-resolution function checks these before falling back to the ferial psalter/weekN - see TASKS.md Phase 8.",
   "type": "object",
-  "required": ["key"],
+  "required": ["key", "verified"],
   "additionalProperties": false,
   "properties": {
     "key": {
       "type": "string",
       "minLength": 1,
-      "description": "Matches romcal's celebration key for the day, e.g. 'assumption'"
+      "description": "Matches romcal's celebration key for the day, e.g. 'assumption'. See CONVENTIONS.md for cases (ferias an optional memorial might occupy) where this key isn't stable year to year."
+    },
+    "verified": {
+      "type": "boolean",
+      "description": "false = a best-effort reconstruction pending cross-check against an authoritative source (see SOURCES.md); true once confirmed."
     },
     "name": { "type": "string", "minLength": 1 },
+    "firstReading": {
+      "description": "Overrides the Office of Readings' scripture (first) reading - see schema/office-of-readings-day.schema.json's scriptureReading for the shape.",
+      "type": "object",
+      "required": ["ref"],
+      "additionalProperties": false,
+      "properties": {
+        "ref": { "type": "string", "minLength": 1 },
+        "title": { "type": "string" }
+      }
+    },
     "hours": {
       "description": "Only the Hours actually overridden need to be present; anything omitted falls back to the ferial psalter.",
       "type": "object",

@@ -132,20 +132,32 @@ if (existsSync(bookAbbreviationsPath) && existsSync(drcPath)) {
   }
 
   const scriptureRefPattern = /^([A-Za-z0-9 ]+?) (\d+)(?::(\d+)(?:-(\d+))?)?$/;
-  for (const path of findJsonFiles(join(dataDir, 'office-of-readings'))) {
+
+  function checkScriptureRef(path, fieldPath, ref) {
     checked += 1;
-    const { scriptureReading } = JSON.parse(readFileSync(path, 'utf8'));
-    const match = scriptureReading?.ref?.match(scriptureRefPattern);
+    const match = ref?.match(scriptureRefPattern);
     if (!match) {
       failures += 1;
-      console.error(`\nINVALID: ${path}\n  scriptureReading.ref "${scriptureReading?.ref}" doesn't match the expected reference syntax`);
-      continue;
+      console.error(`\nINVALID: ${path}\n  ${fieldPath} "${ref}" doesn't match the expected reference syntax`);
+      return;
     }
     const [, abbrev, chapter] = match;
     const book = bookAbbreviations[abbrev];
     if (!book || !drc.books[book]?.[chapter]) {
       failures += 1;
-      console.error(`\nINVALID: ${path}\n  scriptureReading.ref "${scriptureReading.ref}" does not resolve in the DRC text`);
+      console.error(`\nINVALID: ${path}\n  ${fieldPath} "${ref}" does not resolve in the DRC text`);
+    }
+  }
+
+  for (const path of findJsonFiles(join(dataDir, 'office-of-readings'))) {
+    const { scriptureReading } = JSON.parse(readFileSync(path, 'utf8'));
+    checkScriptureRef(path, 'scriptureReading.ref', scriptureReading?.ref);
+  }
+
+  for (const dir of ['proper-of-seasons', 'proper-of-saints']) {
+    for (const path of findJsonFiles(join(dataDir, dir))) {
+      const { firstReading } = JSON.parse(readFileSync(path, 'utf8'));
+      if (firstReading) checkScriptureRef(path, 'firstReading.ref', firstReading.ref);
     }
   }
 }
