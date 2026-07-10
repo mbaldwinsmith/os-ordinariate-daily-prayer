@@ -1,7 +1,7 @@
 // Cache-first service worker. All content is static/bundled at build time,
 // so once an asset is cached it is served from cache and only re-fetched
 // on a cache-name bump (see CACHE_NAME below).
-const CACHE_NAME = 'ordinariate-daily-prayer-v1';
+const CACHE_NAME = 'ordinariate-daily-prayer-v2';
 
 const APP_SHELL = [
   './',
@@ -10,11 +10,32 @@ const APP_SHELL = [
   './icons/icon.svg',
   './icons/icon-192.png',
   './icons/icon-512.png',
+  './icons/icon-maskable-512.png',
 ];
+
+// The built JS/CSS bundle filenames are content-hashed by Vite, so they
+// can't be hardcoded above - they change every build. Instead, fetch the
+// built index.html at install time and pull the actual asset URLs it
+// references out of it, so the whole app (including the several-MB bundle
+// carrying every psalm and scripture reading) is guaranteed to be cached
+// before this service worker activates, rather than only opportunistically
+// after whichever requests happen to succeed first (the old behaviour -
+// see the fetch handler below, which still does this as a fallback for
+// anything this misses).
+async function discoverBuildAssets() {
+  const response = await fetch('./index.html');
+  const html = await response.text();
+  return [...html.matchAll(/(?:src|href)="(\.\/assets\/[^"]+)"/g)].map((match) => match[1]);
+}
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.addAll(APP_SHELL)).then(() => self.skipWaiting()),
+    (async () => {
+      const cache = await caches.open(CACHE_NAME);
+      const buildAssets = await discoverBuildAssets();
+      await cache.addAll([...APP_SHELL, ...buildAssets]);
+      await self.skipWaiting();
+    })(),
   );
 });
 

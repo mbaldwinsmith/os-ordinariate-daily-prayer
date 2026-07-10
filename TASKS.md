@@ -333,12 +333,40 @@ Dimittis remain the Hours' Gospel canticles.
 
 ## Phase 11 — PWA & Offline
 
-- [ ] Service worker: cache all static JSON/text assets on install for full offline use
-- [ ] Test full offline functionality (airplane mode) across the year boundary (Year I/II
-      flip) and season boundaries
-- [ ] Add to home screen / manifest icons / splash screens
-- [ ] Confirm bundle size is reasonable (full Douay-Rheims + Coverdale text is not small,
-      consider lazy-loading per-day text vs. bundling everything at build time)
+- [x] Service worker: cache all static JSON/text assets on install for full offline use —
+      all liturgical text is bundled into the JS build at compile time (see the bundle-size
+      note below), so "cache every asset" reduces to caching the build's own JS/CSS output;
+      `public/sw.js` now discovers the actual content-hashed asset URLs from the built
+      `index.html` at install time and precaches them via `cache.addAll` (previously it only
+      opportunistically cached whatever a user happened to fetch, so a device could go
+      offline before ever loading, say, the Easter octave's data and find it missing)
+- [x] Test full offline functionality (airplane mode) across the year boundary (Year I/II
+      flip) and season boundaries — verified with a real browser against a build actually
+      served once, then had its HTTP server shut down entirely (not just a simulated
+      "offline" network condition, which behaved inconsistently under headless-browser
+      automation in this environment): reloading and navigating to Dec 31/Jan 1 (Year I/II
+      flip), Ash Wednesday, Easter Sunday, and the 1st Sunday of Advent all rendered
+      correctly with zero console/request errors
+- [x] Add to home screen / manifest icons / splash screens — `manifest.webmanifest` has
+      192/512 "any" icons plus a 512 maskable icon (safe-zone padding confirmed visually);
+      Chrome's own installability check (`Page.getInstallabilityErrors`) reports zero issues
+      other than the incognito-context restriction Playwright's default browser context
+      trips (a Chrome policy, not an app defect). Bespoke per-device iOS splash-screen
+      images were *not* generated - modern iOS (16.4+) synthesizes a splash screen from the
+      manifest/apple-touch-icon automatically, and hand-drawing the older per-device
+      `apple-touch-startup-image` set is disproportionate effort for this app's scope
+- [x] Confirm bundle size is reasonable (full Douay-Rheims + Coverdale text is not small,
+      consider lazy-loading per-day text vs. bundling everything at build time) — decided to
+      keep bundling everything rather than lazy-loading per-day text: this app's whole point
+      is working fully offline from first load (including dates a user has never visited
+      before), which lazy-loading would undermine unless the service worker eagerly
+      precached every lazy chunk anyway - at which point lazy-loading buys nothing but
+      complexity. Total payload (~5.8MB, dominated by the ~5MB Douay-Rheims-Challoner text)
+      is reasonable for a book-length reference text cached once and reused daily. Instead,
+      split the build via `vite.config.ts`'s `manualChunks` into separate cache-friendly
+      chunks (app code, romcal, the DRC text, the rest of the liturgical data), so a future
+      app-code change doesn't force re-downloading the ~5MB Bible text - only the small,
+      frequently-changing app chunk gets a new content hash.
 
 ---
 
