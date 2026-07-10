@@ -1,13 +1,14 @@
-# os-ordinariate-daily-prayer
+# personal-daily-prayer
 
-A static, offline-first, GitHub Pages Progressive Web App implementing the current
-(post-1970) four-week Liturgy of the Hours, suitable for use in the Personal Ordinariate
-of Our Lady of Walsingham.
+An unofficial, offline-first personal prayer rule published as a GitHub Pages Progressive
+Web App. It draws on the structure of the post-1970 Roman Liturgy of the Hours and on
+Anglican patrimony, but it is not an authorised liturgical book or an approved edition of
+the Divine Office.
 
 ## Scope
 
-- The current Roman Rite Liturgy of the Hours (Office of Readings, Lauds, Daytime Prayer,
-  Vespers, Compline) across its four-week psalter cycle.
+- A personal five-Hour prayer pattern—Office of Readings, Lauds, Daytime Prayer, Vespers,
+  and Compline—using the current Roman four-week psalter as its structural basis.
 - **Coverdale Psalter** (Book of Common Prayer, 1662) for psalms and the fixed canticles
   (Benedictus, Magnificat, Nunc Dimittis, Benedicite) — public domain.
 - **Douay-Rheims-Challoner** (1899 revision) for scripture readings and variable
@@ -15,6 +16,15 @@ of Our Lady of Walsingham.
 - Calendar, season, and psalter-week logic via [romcal](https://github.com/romcal/romcal).
 - No runtime API calls — all texts and calendar logic are bundled at build time so the
   app works fully offline once installed.
+- Optional Prayer Book prayers provide an explicitly devotional Anglican-patrimony layer;
+  they are not presented as the Roman Liturgy of the Hours' appointed intercessions.
+
+## Status and authority
+
+This project is made for personal devotion. It is not published or authorised by the Holy
+See, an episcopal conference, the Personal Ordinariate of Our Lady of Walsingham, or the
+Church of England. Verification flags and sourcing notes describe textual confidence;
+they do not constitute ecclesiastical approval.
 
 Exact editions used and their provenance will be documented in `SOURCES.md` as texts are
 sourced (see `TASKS.md`, Phase 1).

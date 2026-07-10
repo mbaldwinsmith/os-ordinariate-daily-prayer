@@ -1,7 +1,7 @@
-# TASKS.md — Current Liturgy of the Hours PWA (Coverdale/Douay-Rheims edition)
+# TASKS.md — Personal Daily Prayer PWA (Coverdale/Douay-Rheims edition)
 
-A static, offline-first, GitHub Pages PWA implementing the current (post-1970) four-week
-Liturgy of the Hours, using the **Coverdale Psalter** (BCP 1662, public domain) for psalms
+A static, offline-first, GitHub Pages PWA implementing an unofficial personal prayer rule
+based on the current post-1970 four-week Liturgy of the Hours, using the **Coverdale Psalter** (BCP 1662, public domain) for psalms
 and fixed canticles, and the **Douay-Rheims-Challoner** (1899, public domain) for scripture
 readings and variable canticles. Calendar/season logic via **romcal**. No runtime API calls.
 
@@ -397,7 +397,7 @@ Dimittis remain the Hours' Gospel canticles.
 - [x] Deploy to GitHub Pages — `.github/workflows/deploy.yml` runs on every push to `main`
       and has completed successfully for every merge so far, including this phase's own
       commit (confirmed via the Actions API); the repo is public with Pages enabled and
-      `homepage` set to `https://mbaldwinsmith.github.io/os-ordinariate-daily-prayer/`.
+      `homepage` set to `https://mbaldwinsmith.github.io/personal-daily-prayer/`.
       Not independently browser-verified from this session, though - this sandbox's
       outbound network policy blocks `*.github.io` generally (confirmed via the proxy's own
       status log, unrelated to this repo), so a human visit to confirm the live site

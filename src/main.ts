@@ -128,7 +128,7 @@ function renderImpl(date: Date): void {
     : '<p role="alert" class="notice">This day is not populated yet.</p>';
 
   document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-    <header class="site-header"><div><p class="site-kicker">Coverdale · Douay-Rheims</p><h1>Ordinariate Daily Prayer</h1></div>
+    <header class="site-header"><div><p class="site-kicker">Unofficial personal prayer rule</p><h1>Personal Daily Prayer</h1></div>
       <div class="header-actions">
         <label class="prayer-book-toggle"><input id="prayer-book-toggle" type="checkbox" ${getPrayerBookPreference() ? 'checked' : ''}/><span>Prayer Book prayers</span></label>
         <button id="theme-toggle" class="quiet-button icon-button" type="button" aria-label="Switch to ${getTheme() === 'dark' ? 'light' : 'dark'} theme" aria-pressed="${getTheme() === 'dark'}">${getTheme() === 'dark' ? '🌛' : '🌞'}</button>
@@ -148,7 +148,7 @@ function renderImpl(date: Date): void {
       <nav class="hour-tabs" role="tablist" aria-label="Hours of prayer">${hourTabs}</nav>
       ${dayContent}
     </main>
-    <footer>Texts: Coverdale Psalter and Douay-Rheims-Challoner Bible.</footer>`;
+    <footer><strong>For personal devotion.</strong> This is not an authorised liturgical book.<br/>Texts: Coverdale Psalter and Douay-Rheims-Challoner Bible.</footer>`;
 
   document.querySelector<HTMLInputElement>('#date-picker')!.addEventListener('change', (event) => render(parseDateKey((event.target as HTMLInputElement).value)));
   document.querySelector('#theme-toggle')!.addEventListener('click', () => {

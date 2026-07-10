@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://os-ordinariate-daily-prayer/schema/invitatory-antiphons.schema.json",
+  "$id": "https://personal-daily-prayer/schema/invitatory-antiphons.schema.json",
   "title": "Invitatory antiphon cycle (data/texts/invitatoryAntiphons.json)",
   "description": "The antiphon said before the Venite/Jubilate at the start of the day's first Hour. Resolved by src/invitatory.ts: a specific celebration override, else a season default, else a weekday-group default. See CONVENTIONS.md.",
   "type": "object",

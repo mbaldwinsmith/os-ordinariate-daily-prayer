@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://os-ordinariate-daily-prayer/schema/compline.schema.json",
+  "$id": "https://personal-daily-prayer/schema/compline.schema.json",
   "type": "object",
   "required": ["invitatory", "days"],
   "additionalProperties": false,

@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://os-ordinariate-daily-prayer/schema/office-of-readings-day.schema.json",
+  "$id": "https://personal-daily-prayer/schema/office-of-readings-day.schema.json",
   "title": "One day's Office of Readings (data/office-of-readings/<yearI|yearII>/<season>/weekN/<day>.json)",
   "type": "object",
   "required": ["scriptureReading", "verified"],

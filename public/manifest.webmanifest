@@ -1,7 +1,7 @@
 {
-  "name": "Ordinariate Daily Prayer",
+  "name": "Personal Daily Prayer",
   "short_name": "Daily Prayer",
-  "description": "Offline-first Daily Office app for the Personal Ordinariate of Our Lady of Walsingham, using the Coverdale Psalter and Douay-Rheims-Challoner readings.",
+  "description": "An unofficial, offline-first personal prayer rule drawing on the Roman Liturgy of the Hours and Anglican patrimony.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

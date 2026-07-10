@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://os-ordinariate-daily-prayer/schema/psalter-day.schema.json",
+  "$id": "https://personal-daily-prayer/schema/psalter-day.schema.json",
   "title": "One day of the four-week psalter (data/psalter/weekN/<day>.json)",
   "description": "Hour -> ordered psalmody, for the five Hours this app implements (see CONVENTIONS.md: Daytime Prayer is one combined midday hour, not separate Terce/Sext/None). The fixed Gospel canticles (Benedictus at Lauds, Magnificat at Vespers, Nunc Dimittis at Compline) are hour-invariant and NOT stored here - see src/office.ts, which attaches them regardless of day. Only the variable Old/New Testament canticle (at Lauds/Vespers) appears in a day's own psalmody.",
   "type": "object",

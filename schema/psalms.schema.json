@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://os-ordinariate-daily-prayer/schema/psalms.schema.json",
+  "$id": "https://personal-daily-prayer/schema/psalms.schema.json",
   "title": "Coverdale Psalter text file (data/texts/coverdale-psalter.json)",
   "type": "object",
   "required": ["translation", "source", "psalms"],

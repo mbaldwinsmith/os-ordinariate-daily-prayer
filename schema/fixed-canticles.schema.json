@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://os-ordinariate-daily-prayer/schema/fixed-canticles.schema.json",
+  "$id": "https://personal-daily-prayer/schema/fixed-canticles.schema.json",
   "title": "Fixed canticles file (data/texts/fixedCanticles.json)",
   "description": "The four fixed canticles: Benedictus (Lauds), Magnificat (Vespers), Nunc Dimittis (Compline), Benedicite (an alternative Lauds canticle). See CONVENTIONS.md.",
   "type": "object",

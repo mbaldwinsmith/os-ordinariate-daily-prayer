@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://os-ordinariate-daily-prayer/schema/book-abbreviations.schema.json",
+  "$id": "https://personal-daily-prayer/schema/book-abbreviations.schema.json",
   "title": "Book abbreviation -> full book name (data/texts/book-abbreviations.json)",
   "description": "Matches the table in CONVENTIONS.md; values must be keys of data/texts/douay-rheims-challoner.json's books object (checked by scripts/validate-data.mjs, not by this schema alone).",
   "type": "object",

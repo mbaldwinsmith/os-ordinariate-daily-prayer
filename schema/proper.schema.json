@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://os-ordinariate-daily-prayer/schema/proper.schema.json",
+  "$id": "https://personal-daily-prayer/schema/proper.schema.json",
   "title": "Proper-of-seasons / proper-of-saints override (data/proper-of-{seasons,saints}/**/*.json)",
   "description": "A partial or full override of a day's normal psalter-cycle contents for a solemnity/feast/memorial or a seasonal proper. The day-resolution function checks these before falling back to the ferial psalter/weekN - see TASKS.md Phase 8.",
   "type": "object",

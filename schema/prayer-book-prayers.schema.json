@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://os-ordinariate-daily-prayer/schema/prayer-book-prayers.schema.json",
+  "$id": "https://personal-daily-prayer/schema/prayer-book-prayers.schema.json",
   "type": "object",
   "required": ["source", "items", "assignments", "litanyDays"],
   "additionalProperties": false,
