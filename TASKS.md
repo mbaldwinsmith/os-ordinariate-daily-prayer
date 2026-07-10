@@ -291,6 +291,44 @@ Psalm, fixed canticle, variable biblical canticle, and Office of Readings texts 
 full with verse-level typography. Liturgical metadata and sourcing warnings remain visible
 without interrupting the prayer text.
 
+### Phase 10 follow-up — Short Scripture readings at each Hour
+
+The ordinary Roman Liturgy of the Hours assigns a short Scripture reading after the
+psalmody at Lauds, Daytime Prayer, Vespers, and Compline. These are not daily Gospel
+readings: the Gospels are ordinarily reserved for Mass, apart from the optional extended
+vigil on Sundays and solemnities (GILH 73, 144). The Benedictus, Magnificat, and Nunc
+Dimittis remain the Hours' Gospel canticles.
+
+- [~] Identify and document a verified, legally usable source for the appointed short
+      readings; record its edition, provenance, public-domain/licensing status, and any
+      transcription caveats in `SOURCES.md` before populating data — references were
+      cross-sourced from a page-referenced breviary dataset and published Divine Office
+      pages, but the underlying approved printed edition remains unreachable; assignments
+      are therefore explicitly `"verified": false`, and only factual citations (not source
+      prose) are retained
+- [x] Extend the psalter-day and proper schemas to model a short-reading reference for
+      Lauds, Daytime Prayer, Vespers, and Compline, keeping Office of Readings' longer
+      first and second readings structurally distinct
+- [x] Decide and document in `CONVENTIONS.md` how seasonal, Sunday, solemnity, feast, and
+      saint-specific short readings override the four-week ferial cycle
+- [x] Populate the complete four-week ferial short-reading cycle for all four applicable
+      Hours, marking every unverified assignment `"verified": false` rather than silently
+      reconstructing or guessing it
+- [x] Populate Proper of Seasons and representative Proper of Saints overrides, with a
+      reliable ferial fallback wherever a proper short reading is not yet available —
+      Christmas, sourced Easter-octave Hours, and the Assumption are populated; coverage
+      remains incremental and unavailable Easter Daytime readings stay visibly absent
+- [x] Resolve every short-reading reference through the existing Douay-Rheims-Challoner
+      text, including discontinuous or cross-chapter references where required
+- [x] Render the short reading after psalmody and before the Gospel canticle at Lauds and
+      Vespers, and in the corresponding liturgical position at Daytime Prayer and Compline;
+      include the reference, verse text, and visible verification warning where applicable
+- [x] Add schema and unit tests covering all 28 ferial days, proper precedence, fallback
+      behaviour, reference resolution, and the absence of an invented ordinary Gospel
+      reading
+- [ ] Extend the production-browser smoke test across representative ferial, seasonal,
+      solemnity, and saint dates, checking all four applicable Hours and zero runtime errors
+
 ---
 
 ## Phase 11 — PWA & Offline

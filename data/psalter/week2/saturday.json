@@ -17,6 +17,10 @@
     ]
   },
   "lauds": {
+    "shortReading": {
+      "ref": "Rom 12:13-21",
+      "verified": false
+    },
     "psalmody": [
       {
         "type": "psalm",
@@ -47,9 +51,17 @@
         "type": "psalm",
         "ref": "Ps 130"
       }
-    ]
+    ],
+    "shortReading": {
+      "ref": "1 Kgs 2:2-3",
+      "verified": false
+    }
   },
   "vespers": {
+    "shortReading": {
+      "ref": "2 Thes 2:13-14",
+      "verified": false
+    },
     "psalmody": [
       {
         "type": "psalm",
@@ -76,6 +88,10 @@
         "type": "psalm",
         "ref": "Ps 134"
       }
-    ]
+    ],
+    "shortReading": {
+      "ref": "Dt 6:4-7",
+      "verified": false
+    }
   }
 }

@@ -36,7 +36,11 @@
           "type": "psalm",
           "ref": "Ps 149"
         }
-      ]
+      ],
+      "shortReading": {
+        "ref": "Acts 13:30-33",
+        "verified": false
+      }
     },
     "daytimePrayer": {
       "psalmody": [
@@ -68,7 +72,11 @@
           "type": "canticle",
           "scriptureRef": "Phil 2:6-11"
         }
-      ]
+      ],
+      "shortReading": {
+        "ref": "1 Pt 2:4-5",
+        "verified": false
+      }
     },
     "compline": {
       "psalmody": [
@@ -76,7 +84,11 @@
           "type": "psalm",
           "ref": "Ps 143:1-11"
         }
-      ]
+      ],
+      "shortReading": {
+        "ref": "1 Pt 5:8-9",
+        "verified": false
+      }
     }
   }
 }

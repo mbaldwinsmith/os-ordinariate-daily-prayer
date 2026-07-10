@@ -170,3 +170,18 @@ like the other three - see `schema/psalter-day.schema.json`.
 
 Other variable Old/New Testament canticles used at Lauds/Vespers are sourced as ordinary
 scripture excerpts via the reference syntax above, not given special ids.
+
+## Short readings at the Hours
+
+Lauds, Daytime Prayer, Vespers, and Compline each carry a `shortReading` after the
+psalmody. Office of Readings keeps its separate long first/second-reading model. A proper
+may override a short reading independently of psalmody; otherwise resolution falls back
+to the four-week ferial assignment. The app does not insert ordinary Gospel readings:
+the Benedictus, Magnificat, and Nunc Dimittis are Gospel canticles, while the Gospels are
+normally reserved for Mass (GILH 144).
+
+Source references sometimes select only part of a verse (`a`/`b`). Because the DRC JSON
+is keyed at whole-verse granularity, these are deliberately expanded to the complete
+verse and stored without the clause suffix (for example `Am 5:8, 9b` becomes
+`Am 5:8-9`). Discontiguous and cross-chapter references use the comma-separated syntax
+documented above.

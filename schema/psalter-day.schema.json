@@ -27,7 +27,17 @@
           "type": "array",
           "minItems": 1,
           "items": { "$ref": "#/$defs/psalmodyItem" }
-        }
+        },
+        "shortReading": { "$ref": "#/$defs/shortReading" }
+      }
+    },
+    "shortReading": {
+      "type": "object",
+      "required": ["ref", "verified"],
+      "additionalProperties": false,
+      "properties": {
+        "ref": { "type": "string", "minLength": 1 },
+        "verified": { "type": "boolean" }
       }
     },
     "psalmodyItem": {

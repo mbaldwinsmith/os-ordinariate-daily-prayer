@@ -282,3 +282,28 @@ Provenance, licensing, and known gaps for the two public-domain texts this app u
 - **Future work**: antiphons may be added later if they are sourced from an appropriate
   public-domain text, or if original non-official devotional antiphons are intentionally
   designed, labelled, and documented before use.
+
+## Short Scripture reading assignments (Phase 10 follow-up)
+
+- **Lauds and Vespers reference assignments**: factual citations transcribed from the
+  four-week psalter JSON in `rosangmin-code/divine-office` at commit
+  `4919f89575594db6330d39a054ac2937ec4ffd33`. That project records page numbers against a
+  Mongolian Catholic breviary transcription. No Mongolian prose is copied into this app.
+- **Daytime Prayer reference assignments**: factual `READING` citations from the 28
+  published `ord-w0N-<day>-dp2-current` Midday Prayer pages at `divineoffice.org`, one for
+  every day of the four-week psalter. Only citations were retained.
+- **Representative proper overrides**: Christmas and the Easter octave use the same
+  page-referenced seasonal dataset. The Assumption uses the factual citations from the
+  published Divine Office pages for Morning Prayer, Midday Prayer, and Evening Prayer II
+  (`Is 61:10`, `Rv 12:1`, and `1 Cor 15:22-23`). Proper coverage remains incremental;
+  anything absent falls back to the ferial assignment where a four-week psalter exists.
+- **Compline reference assignments**: factual citations from
+  `rosangmin-code/divine-office/src/data/loth/ordinarium/compline.json` at the commit above.
+- **Displayed text**: every citation resolves locally into the public-domain
+  Douay-Rheims-Challoner dataset already documented in this file; no source translation
+  from either assignment index is redistributed.
+- **Verification status**: every assignment is `"verified": false`. The GitHub dataset is
+  page-referenced and the Divine Office pages agree with known breviary placements, but
+  the underlying approved printed edition was not independently reachable for a
+  line-by-line check. Clause-level `a`/`b` references are expanded to whole DRC verses as
+  documented in `CONVENTIONS.md`.

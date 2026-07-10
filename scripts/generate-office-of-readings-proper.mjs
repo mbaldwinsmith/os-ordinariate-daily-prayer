@@ -93,10 +93,41 @@ const SAINT_ENTRIES = [
   { key: 'annunciation', name: 'The Annunciation of the Lord', ref: 'Lk 1' },
   { key: 'birthOfJohnTheBaptist', name: 'The Birth of Saint John the Baptist', ref: 'Is 49' },
   { key: 'peterAndPaulApostles', name: 'Saints Peter and Paul, Apostles', ref: '2 Tm 4' },
-  { key: 'assumption', name: 'The Assumption of the Blessed Virgin Mary', ref: 'Rv 12' },
+  {
+    key: 'assumption',
+    name: 'The Assumption of the Blessed Virgin Mary',
+    ref: 'Rv 12',
+    shortReadings: { lauds: 'Is 61:10', daytimePrayer: 'Rv 12:1', vespers: '1 Cor 15:22-23' },
+  },
   { key: 'allSaints', name: 'All Saints', ref: 'Rv 7' },
   { key: 'immaculateConception', name: 'The Immaculate Conception of the Blessed Virgin Mary', ref: 'Gn 3' },
 ];
+
+const sr = (ref) => ({ ref, verified: false });
+
+// Representative proper short readings from the same page-referenced source
+// used for the ferial cycle. These override the ferial short reading without
+// replacing psalmody. Coverage remains deliberately incremental; see SOURCES.md.
+const PROPER_SHORT_READINGS = {
+  christmas: { lauds: 'Heb 1:1-4', vespers: '1 Jn 1:1-3' },
+};
+
+const EASTER_OCTAVE_SHORT_READINGS = {
+  easter: { lauds: 'Acts 10:40-43', vespers: 'Heb 10:12-14' },
+  easterMonday: { lauds: 'Rom 10:8-10', vespers: 'Heb 8:1-3' },
+  easterTuesday: { lauds: 'Acts 13:30-33', vespers: '1 Pt 2:4-5' },
+  easterWednesday: { lauds: 'Rom 6:8-11', vespers: 'Heb 7:24-27' },
+  easterThursday: { lauds: 'Rom 8:10-11', vespers: '1 Pt 3:18, 22' },
+  easterFriday: { lauds: 'Acts 5:30-32', vespers: 'Heb 5:8-10' },
+  easterSaturday: { lauds: 'Rom 14:7-9' },
+  divineMercySunday: { vespers: 'Col 1:2-6' },
+};
+
+const COMPLINE_SHORT_READINGS = {
+  sunday: 'Rv 22:4-5', monday: '1 Thes 5:9-10', tuesday: '1 Pt 5:8-9',
+  wednesday: 'Eph 4:26-27', thursday: '1 Thes 5:23', friday: 'Jer 14:9',
+  saturday: 'Dt 6:4-7',
+};
 
 // Compline is a fixed weekly cycle in the real breviary, independent of the
 // psalter week/season - so instead of inventing new Compline psalms for the
@@ -239,11 +270,17 @@ async function main() {
   await mkdir(SAINTS_OUTPUT_DIR, { recursive: true });
 
   for (const { key, name, ref } of ENTRIES) {
+    const shortReadings = PROPER_SHORT_READINGS[key];
     const content = {
       key,
       verified: false,
       name,
       firstReading: { ref },
+      ...(shortReadings && {
+        hours: Object.fromEntries(
+          Object.entries(shortReadings).map(([hourName, readingRef]) => [hourName, { shortReading: sr(readingRef) }]),
+        ),
+      }),
     };
     await writeFile(`${OUTPUT_DIR}/${key}.json`, JSON.stringify(content, null, 2) + '\n');
   }
@@ -258,23 +295,41 @@ async function main() {
     await writeFile(`${OUTPUT_DIR}/${key}.json`, JSON.stringify(content, null, 2) + '\n');
   }
 
-  for (const { key, name, ref } of SAINT_ENTRIES) {
+  for (const { key, name, ref, shortReadings } of SAINT_ENTRIES) {
     const content = {
       key,
       verified: false,
       name,
       firstReading: { ref },
+      ...(shortReadings && {
+        hours: Object.fromEntries(
+          Object.entries(shortReadings).map(([hourName, readingRef]) => [hourName, { shortReading: sr(readingRef) }]),
+        ),
+      }),
     };
     await writeFile(`${SAINTS_OUTPUT_DIR}/${key}.json`, JSON.stringify(content, null, 2) + '\n');
   }
 
   for (const { key, name, dayOfWeek, firstReading, hours } of EASTER_OCTAVE_ENTRIES) {
+    const shortReadings = EASTER_OCTAVE_SHORT_READINGS[key] ?? {};
+    const hoursWithReadings = Object.fromEntries(
+      Object.entries(hours).map(([hourName, hour]) => [
+        hourName,
+        { ...hour, ...(shortReadings[hourName] && { shortReading: sr(shortReadings[hourName]) }) },
+      ]),
+    );
     const content = {
       key,
       verified: false,
       name,
       firstReading,
-      hours: { ...hours, compline: { psalmody: OCTAVE_COMPLINE[dayOfWeek] } },
+      hours: {
+        ...hoursWithReadings,
+        compline: {
+          psalmody: OCTAVE_COMPLINE[dayOfWeek],
+          shortReading: sr(COMPLINE_SHORT_READINGS[dayOfWeek]),
+        },
+      },
     };
     await writeFile(`${OUTPUT_DIR}/${key}.json`, JSON.stringify(content, null, 2) + '\n');
   }

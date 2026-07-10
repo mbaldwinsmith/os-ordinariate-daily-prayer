@@ -36,7 +36,11 @@
           "type": "psalm",
           "ref": "Ps 29"
         }
-      ]
+      ],
+      "shortReading": {
+        "ref": "Rom 10:8-10",
+        "verified": false
+      }
     },
     "daytimePrayer": {
       "psalmody": [
@@ -68,7 +72,11 @@
           "type": "canticle",
           "scriptureRef": "Col 1:12-20"
         }
-      ]
+      ],
+      "shortReading": {
+        "ref": "Heb 8:1-3",
+        "verified": false
+      }
     },
     "compline": {
       "psalmody": [
@@ -76,7 +84,11 @@
           "type": "psalm",
           "ref": "Ps 86"
         }
-      ]
+      ],
+      "shortReading": {
+        "ref": "1 Thes 5:9-10",
+        "verified": false
+      }
     }
   }
 }

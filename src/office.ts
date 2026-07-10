@@ -27,6 +27,7 @@ export type ResolvedPsalmodyItem =
 
 export interface HourView {
   psalmody: ResolvedPsalmodyItem[];
+  shortReading: ({ ref: string; verified: boolean; verses: Record<string, string> }) | null;
   gospelCanticle: (typeof fixedCanticles)[GospelCanticleId] | null;
 }
 
@@ -70,10 +71,11 @@ function resolvePsalmody(psalmody: PsalmodyItem[]): ResolvedPsalmodyItem[] {
   });
 }
 
-function resolveHour(psalmody: PsalmodyItem[], hourName: HourName): HourView {
+function resolveHour(psalmody: PsalmodyItem[], hourName: HourName, reading?: { ref: string; verified: boolean }): HourView {
   const gospelId = GOSPEL_CANTICLE_BY_HOUR[hourName];
   return {
     psalmody: resolvePsalmody(psalmody),
+    shortReading: reading ? { ...reading, ...resolveScriptureRef(reading.ref) } : null,
     gospelCanticle: gospelId ? fixedCanticles[gospelId] : null,
   };
 }
@@ -94,7 +96,8 @@ export function resolveDay(day: OfficeDay): DayView | null {
   const hourViews = Object.fromEntries(
     HOUR_NAMES.map((hourName) => {
       const psalmody = proper?.hours?.[hourName]?.psalmody ?? skeleton?.[hourName].psalmody;
-      return [hourName, resolveHour(psalmody!, hourName)];
+      const shortReading = proper?.hours?.[hourName]?.shortReading ?? skeleton?.[hourName].shortReading;
+      return [hourName, resolveHour(psalmody!, hourName, shortReading)];
     }),
   ) as Record<HourName, HourView>;
 

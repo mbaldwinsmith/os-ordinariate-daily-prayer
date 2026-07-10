@@ -4,5 +4,25 @@
   "name": "The Assumption of the Blessed Virgin Mary",
   "firstReading": {
     "ref": "Rv 12"
+  },
+  "hours": {
+    "lauds": {
+      "shortReading": {
+        "ref": "Is 61:10",
+        "verified": false
+      }
+    },
+    "daytimePrayer": {
+      "shortReading": {
+        "ref": "Rv 12:1",
+        "verified": false
+      }
+    },
+    "vespers": {
+      "shortReading": {
+        "ref": "1 Cor 15:22-23",
+        "verified": false
+      }
+    }
   }
 }

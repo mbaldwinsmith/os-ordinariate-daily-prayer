@@ -64,12 +64,15 @@ function renderReadings(readings: ReadingsView | null): string {
 }
 
 function renderHour(label: string, hour: HourView, readings: ReadingsView | null): string {
+  const shortReading = hour.shortReading
+    ? `<section class="text-section short-reading"><p class="eyebrow">Short reading</p><h3>${hour.shortReading.ref}</h3>${hour.shortReading.verified ? '' : '<p class="verification-note">Assignment awaiting verification against an authoritative breviary.</p>'}${renderVerses(hour.shortReading.verses)}</section>`
+    : selectedHour === 'officeOfReadings' ? '' : '<p class="notice">No short reading is available for this Hour yet.</p>';
   const gospelCanticle = hour.gospelCanticle
     ? `<section class="text-section gospel-canticle"><p class="eyebrow">Gospel canticle</p><h3>${hour.gospelCanticle.name}</h3><p class="reference">${hour.gospelCanticle.scriptureRef}</p>${renderVerses(hour.gospelCanticle.verses)}</section>`
     : '';
   return `<article class="office"><header class="office-heading"><p class="eyebrow">The Daily Office</p><h2>${label}</h2></header>
     ${hour.psalmody.map(renderPsalmodyItem).join('')}
-    ${selectedHour === 'officeOfReadings' ? renderReadings(readings) : ''}${gospelCanticle}
+    ${selectedHour === 'officeOfReadings' ? renderReadings(readings) : shortReading}${gospelCanticle}
   </article>`;
 }
 

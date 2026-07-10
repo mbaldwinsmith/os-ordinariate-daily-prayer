@@ -10,13 +10,23 @@ export type PsalmodyItem =
   | { type: 'canticle'; scriptureRef: string; name?: string }
   | { type: 'canticle'; fixedId: 'benedicite' };
 
+export interface ShortReadingRef {
+  ref: string;
+  verified: boolean;
+}
+
+interface PsalterHour {
+  psalmody: PsalmodyItem[];
+  shortReading?: ShortReadingRef;
+}
+
 export interface PsalterDay {
   verified: boolean;
-  officeOfReadings: { psalmody: PsalmodyItem[] };
-  lauds: { psalmody: PsalmodyItem[] };
-  daytimePrayer: { psalmody: PsalmodyItem[] };
-  vespers: { psalmody: PsalmodyItem[] };
-  compline: { psalmody: PsalmodyItem[] };
+  officeOfReadings: PsalterHour;
+  lauds: PsalterHour;
+  daytimePrayer: PsalterHour;
+  vespers: PsalterHour;
+  compline: PsalterHour;
 }
 
 const files = import.meta.glob<PsalterDay>('../data/psalter/week*/*.json', { eager: true, import: 'default' });

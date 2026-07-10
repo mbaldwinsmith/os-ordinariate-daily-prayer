@@ -68,7 +68,11 @@
           "type": "canticle",
           "scriptureRef": "Col 1:12-20"
         }
-      ]
+      ],
+      "shortReading": {
+        "ref": "Col 1:2-6",
+        "verified": false
+      }
     },
     "compline": {
       "psalmody": [
@@ -76,7 +80,11 @@
           "type": "psalm",
           "ref": "Ps 91"
         }
-      ]
+      ],
+      "shortReading": {
+        "ref": "Rv 22:4-5",
+        "verified": false
+      }
     }
   }
 }

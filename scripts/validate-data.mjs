@@ -131,7 +131,7 @@ if (existsSync(bookAbbreviationsPath) && existsSync(drcPath)) {
     }
   }
 
-  const scriptureRefPattern = /^([A-Za-z0-9 ]+?) (\d+)(?::(\d+)(?:-(\d+))?)?$/;
+  const scriptureRefPattern = /^([A-Za-z0-9 ]+?) (\d+)(?::(.+))?$/;
 
   function checkScriptureRef(path, fieldPath, ref) {
     checked += 1;
@@ -154,10 +154,22 @@ if (existsSync(bookAbbreviationsPath) && existsSync(drcPath)) {
     checkScriptureRef(path, 'scriptureReading.ref', scriptureReading?.ref);
   }
 
+  for (const path of findJsonFiles(join(dataDir, 'psalter'))) {
+    const day = JSON.parse(readFileSync(path, 'utf8'));
+    for (const [hourName, hour] of Object.entries(day)) {
+      if (hourName !== 'verified' && hour.shortReading) {
+        checkScriptureRef(path, `${hourName}.shortReading.ref`, hour.shortReading.ref);
+      }
+    }
+  }
+
   for (const dir of ['proper-of-seasons', 'proper-of-saints']) {
     for (const path of findJsonFiles(join(dataDir, dir))) {
-      const { firstReading } = JSON.parse(readFileSync(path, 'utf8'));
+      const { firstReading, hours } = JSON.parse(readFileSync(path, 'utf8'));
       if (firstReading) checkScriptureRef(path, 'firstReading.ref', firstReading.ref);
+      for (const [hourName, hour] of Object.entries(hours ?? {})) {
+        if (hour.shortReading) checkScriptureRef(path, `hours.${hourName}.shortReading.ref`, hour.shortReading.ref);
+      }
     }
   }
 }

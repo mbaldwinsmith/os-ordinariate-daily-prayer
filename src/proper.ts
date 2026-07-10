@@ -4,7 +4,7 @@
 // Octave, which has no psalter-skeleton entry at all - see TASKS.md
 // Phase 8 and CONVENTIONS.md).
 import type { DayOfWeek, OfficeDay } from './calendar';
-import type { PsalmodyItem } from './psalter';
+import type { PsalmodyItem, ShortReadingRef } from './psalter';
 
 export type HourName = 'officeOfReadings' | 'lauds' | 'daytimePrayer' | 'vespers' | 'compline';
 
@@ -14,7 +14,7 @@ export interface ProperEntry {
   name?: string;
   firstReading?: { ref: string; title?: string };
   secondReading?: { title: string; sourceRef?: string } | null;
-  hours?: Partial<Record<HourName, { psalmody: PsalmodyItem[] }>>;
+  hours?: Partial<Record<HourName, { psalmody?: PsalmodyItem[]; shortReading?: ShortReadingRef }>>;
 }
 
 const seasonFiles = import.meta.glob<ProperEntry>('../data/proper-of-seasons/*.json', {

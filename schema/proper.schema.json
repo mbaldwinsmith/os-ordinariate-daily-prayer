@@ -54,7 +54,7 @@
   "$defs": {
     "hour": {
       "type": "object",
-      "required": ["psalmody"],
+      "minProperties": 1,
       "additionalProperties": false,
       "properties": {
         "psalmody": {
@@ -93,7 +93,17 @@
               }
             ]
           }
-        }
+        },
+        "shortReading": { "$ref": "#/$defs/shortReading" }
+      }
+    },
+    "shortReading": {
+      "type": "object",
+      "required": ["ref", "verified"],
+      "additionalProperties": false,
+      "properties": {
+        "ref": { "type": "string", "minLength": 1 },
+        "verified": { "type": "boolean" }
       }
     }
   }

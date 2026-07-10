@@ -36,7 +36,11 @@
           "type": "psalm",
           "ref": "Ps 150"
         }
-      ]
+      ],
+      "shortReading": {
+        "ref": "Rom 14:7-9",
+        "verified": false
+      }
     },
     "daytimePrayer": {
       "psalmody": [
@@ -80,7 +84,11 @@
           "type": "psalm",
           "ref": "Ps 134"
         }
-      ]
+      ],
+      "shortReading": {
+        "ref": "Dt 6:4-7",
+        "verified": false
+      }
     }
   }
 }
