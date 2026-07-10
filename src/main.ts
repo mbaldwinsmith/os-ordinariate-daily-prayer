@@ -88,7 +88,7 @@ function renderWeekNav(selected: Date): string {
   return `<nav class="week-nav" aria-label="Select a day">${buttons}</nav>`;
 }
 
-function render(date: Date): void {
+function renderImpl(date: Date): void {
   const officeDay = getOfficeDay(date);
   const day = resolveDay(officeDay);
   const activeLabel = HOURS.find(([key]) => key === selectedHour)![1];
@@ -126,6 +126,19 @@ function render(date: Date): void {
     selectedHour = button.dataset.hour as HourKey;
     render(date);
   }));
+}
+
+// Cross-fades the previous view into the next one (day/hour navigation) using
+// the View Transitions API where supported. Falls back to an instant swap on
+// unsupported browsers and whenever the user prefers reduced motion - this is
+// a progressive enhancement, not something any rendering logic depends on.
+function render(date: Date): void {
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reducedMotion || typeof document.startViewTransition !== 'function') {
+    renderImpl(date);
+    return;
+  }
+  document.startViewTransition(() => renderImpl(date));
 }
 
 render(new Date());

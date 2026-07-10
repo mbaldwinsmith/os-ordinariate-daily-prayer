@@ -58,4 +58,29 @@ button:focus-visible, input:focus-visible { outline: 3px solid #c99954; outline-
   .hour-tabs button { font-size: .58rem; }
   .text-section, .office-heading { padding: 1.25rem; }
 }
-@media (prefers-reduced-motion: no-preference) { .office { animation: reveal .2s ease-out; } @keyframes reveal { from { opacity: .4; transform: translateY(3px); } } }
+
+/* Micro-interactions: hover/press feedback on every interactive control.
+   Purely presentational, independent of the render-driven view transitions
+   below (these fire on live DOM, not on a re-render). */
+.quiet-button, .arrow-button, .day-button, .hour-tabs button {
+  transition: background-color .15s ease, color .15s ease, box-shadow .15s ease, transform .1s ease;
+}
+.quiet-button:hover, .arrow-button:hover { background: var(--accent-soft); box-shadow: 0 .15rem .4rem rgba(123, 30, 43, .12); }
+.day-button:hover:not([aria-current=date]) { background: var(--accent-soft); color: var(--accent); }
+.hour-tabs button:hover:not([aria-selected=true]) { color: var(--ink); }
+.quiet-button:active, .arrow-button:active, .day-button:active, .hour-tabs button:active { transform: scale(.95); }
+input[type=date] { transition: border-color .15s ease, box-shadow .15s ease; }
+input[type=date]:hover { border-color: var(--accent); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .office, .day-heading, .source-warning { animation: reveal .28s ease-out; }
+  @keyframes reveal { from { opacity: .4; transform: translateY(4px); } }
+
+  /* Cross-fade day/hour navigation via the View Transitions API (see
+     src/main.ts). Slightly quicker and flatter than the browser default so
+     it reads as a calm settle rather than a slideshow dissolve. */
+  ::view-transition-old(root), ::view-transition-new(root) { animation-duration: .22s; animation-timing-function: ease-out; }
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
+}
