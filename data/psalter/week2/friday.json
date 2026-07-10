@@ -1,0 +1,77 @@
+{
+  "verified": false,
+  "officeOfReadings": {
+    "psalmody": [
+      {
+        "type": "psalm",
+        "ref": "Ps 116"
+      },
+      {
+        "type": "psalm",
+        "ref": "Ps 117"
+      },
+      {
+        "type": "psalm",
+        "ref": "Ps 118"
+      }
+    ]
+  },
+  "lauds": {
+    "psalmody": [
+      {
+        "type": "psalm",
+        "ref": "Ps 112"
+      },
+      {
+        "type": "canticle",
+        "scriptureRef": "Jdt 16:2-3, 13-15",
+        "name": "Canticle of Judith"
+      },
+      {
+        "type": "psalm",
+        "ref": "Ps 113"
+      }
+    ]
+  },
+  "daytimePrayer": {
+    "psalmody": [
+      {
+        "type": "psalm",
+        "ref": "Ps 119:97-104"
+      },
+      {
+        "type": "psalm",
+        "ref": "Ps 120"
+      },
+      {
+        "type": "psalm",
+        "ref": "Ps 121"
+      }
+    ]
+  },
+  "vespers": {
+    "psalmody": [
+      {
+        "type": "psalm",
+        "ref": "Ps 114"
+      },
+      {
+        "type": "psalm",
+        "ref": "Ps 115"
+      },
+      {
+        "type": "canticle",
+        "scriptureRef": "Rv 11:17-18, 12:10-12",
+        "name": "Canticle of Revelation (the Kingdom)"
+      }
+    ]
+  },
+  "compline": {
+    "psalmody": [
+      {
+        "type": "psalm",
+        "ref": "Ps 88"
+      }
+    ]
+  }
+}

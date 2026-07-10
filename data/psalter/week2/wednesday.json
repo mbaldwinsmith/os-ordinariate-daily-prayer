@@ -1,0 +1,77 @@
+{
+  "verified": false,
+  "officeOfReadings": {
+    "psalmody": [
+      {
+        "type": "psalm",
+        "ref": "Ps 97"
+      },
+      {
+        "type": "psalm",
+        "ref": "Ps 98"
+      },
+      {
+        "type": "psalm",
+        "ref": "Ps 99"
+      }
+    ]
+  },
+  "lauds": {
+    "psalmody": [
+      {
+        "type": "psalm",
+        "ref": "Ps 93"
+      },
+      {
+        "type": "canticle",
+        "scriptureRef": "1 Chr 29:10-13",
+        "name": "Canticle of David"
+      },
+      {
+        "type": "psalm",
+        "ref": "Ps 94"
+      }
+    ]
+  },
+  "daytimePrayer": {
+    "psalmody": [
+      {
+        "type": "psalm",
+        "ref": "Ps 119:81-88"
+      },
+      {
+        "type": "psalm",
+        "ref": "Ps 100"
+      },
+      {
+        "type": "psalm",
+        "ref": "Ps 101"
+      }
+    ]
+  },
+  "vespers": {
+    "psalmody": [
+      {
+        "type": "psalm",
+        "ref": "Ps 95"
+      },
+      {
+        "type": "psalm",
+        "ref": "Ps 96"
+      },
+      {
+        "type": "canticle",
+        "scriptureRef": "1 Tm 3:16",
+        "name": "Canticle of Timothy"
+      }
+    ]
+  },
+  "compline": {
+    "psalmody": [
+      {
+        "type": "psalm",
+        "ref": "Ps 31:1-6"
+      }
+    ]
+  }
+}

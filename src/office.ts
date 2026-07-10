@@ -1,43 +1,55 @@
-// Resolves a day into hour-by-hour content: which canticle belongs at each
-// of Lauds/Vespers/Compline, and its actual text. This is a Phase 4 proof
-// that the render pipeline works end-to-end (calendar -> hour -> canticle
-// text) - the psalms below are placeholders. The real 28-day psalter
-// skeleton (data/psalter/weekN/<day>.json, schema/psalter-day.schema.json)
-// is Phase 5's job, not this one's.
+// Resolves a day into hour-by-hour content: the psalmody from the
+// four-week skeleton (src/psalter.ts) plus, for Lauds/Vespers/Compline,
+// the fixed Gospel canticle that's prayed there every day regardless of
+// the skeleton (Benedictus/Magnificat/Nunc Dimittis - see CONVENTIONS.md
+// for why Benedicite doesn't work the same way).
 import fixedCanticles from '../data/texts/fixedCanticles.json';
 import type { OfficeDay } from './calendar';
+import { resolvePsalterDay, type PsalmodyItem } from './psalter';
 
-type CanticleId = keyof typeof fixedCanticles;
+type GospelCanticleId = 'benedictus' | 'magnificat' | 'nuncDimittis';
+type HourName = 'officeOfReadings' | 'lauds' | 'daytimePrayer' | 'vespers' | 'compline';
 
 export interface HourView {
-  psalms: string[];
-  canticle: {
-    name: string;
-    scriptureRef: string;
-    verses: Record<string, string>;
-  };
+  psalmody: PsalmodyItem[];
+  gospelCanticle: (typeof fixedCanticles)[GospelCanticleId] | null;
 }
 
 export interface DayView {
+  /** false = this day's skeleton content is an unverified reconstruction - see SOURCES.md. */
+  verified: boolean;
+  officeOfReadings: HourView;
   lauds: HourView;
+  daytimePrayer: HourView;
   vespers: HourView;
   compline: HourView;
 }
 
-const PLACEHOLDER_PSALMS = ['Ps 1'];
+const GOSPEL_CANTICLE_BY_HOUR: Partial<Record<HourName, GospelCanticleId>> = {
+  lauds: 'benedictus',
+  vespers: 'magnificat',
+  compline: 'nuncDimittis',
+};
 
-function resolveHour(canticleId: CanticleId): HourView {
+function resolveHour(psalmody: PsalmodyItem[], hourName: HourName): HourView {
+  const gospelId = GOSPEL_CANTICLE_BY_HOUR[hourName];
   return {
-    psalms: PLACEHOLDER_PSALMS,
-    canticle: fixedCanticles[canticleId],
+    psalmody,
+    gospelCanticle: gospelId ? fixedCanticles[gospelId] : null,
   };
 }
 
-/** Lauds always closes with the Benedictus, Vespers with the Magnificat, Compline with the Nunc Dimittis. */
-export function resolveDay(_day: OfficeDay): DayView {
+/** Returns null for the Easter octave (psalterWeek 'easter') - its special psalter isn't part of the Phase 5 skeleton. */
+export function resolveDay(day: OfficeDay): DayView | null {
+  const skeleton = resolvePsalterDay(day.psalterWeek, day.dayOfWeek);
+  if (!skeleton) return null;
+
   return {
-    lauds: resolveHour('benedictus'),
-    vespers: resolveHour('magnificat'),
-    compline: resolveHour('nuncDimittis'),
+    verified: skeleton.verified,
+    officeOfReadings: resolveHour(skeleton.officeOfReadings.psalmody, 'officeOfReadings'),
+    lauds: resolveHour(skeleton.lauds.psalmody, 'lauds'),
+    daytimePrayer: resolveHour(skeleton.daytimePrayer.psalmody, 'daytimePrayer'),
+    vespers: resolveHour(skeleton.vespers.psalmody, 'vespers'),
+    compline: resolveHour(skeleton.compline.psalmody, 'compline'),
   };
 }

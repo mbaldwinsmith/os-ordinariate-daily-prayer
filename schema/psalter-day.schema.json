@@ -2,11 +2,15 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://os-ordinariate-daily-prayer/schema/psalter-day.schema.json",
   "title": "One day of the four-week psalter (data/psalter/weekN/<day>.json)",
-  "description": "Hour -> psalm ids + canticle id, for the five Hours this app implements (see CONVENTIONS.md: Daytime Prayer is one combined midday hour, not separate Terce/Sext/None).",
+  "description": "Hour -> ordered psalmody, for the five Hours this app implements (see CONVENTIONS.md: Daytime Prayer is one combined midday hour, not separate Terce/Sext/None). The fixed Gospel canticles (Benedictus at Lauds, Magnificat at Vespers, Nunc Dimittis at Compline) are hour-invariant and NOT stored here - see src/office.ts, which attaches them regardless of day. Only the variable Old/New Testament canticle (at Lauds/Vespers) appears in a day's own psalmody.",
   "type": "object",
-  "required": ["officeOfReadings", "lauds", "daytimePrayer", "vespers", "compline"],
+  "required": ["officeOfReadings", "lauds", "daytimePrayer", "vespers", "compline", "verified"],
   "additionalProperties": false,
   "properties": {
+    "verified": {
+      "type": "boolean",
+      "description": "false = a best-effort reconstruction pending cross-check against an authoritative breviary index (see SOURCES.md); true once confirmed."
+    },
     "officeOfReadings": { "$ref": "#/$defs/hour" },
     "lauds": { "$ref": "#/$defs/hour" },
     "daytimePrayer": { "$ref": "#/$defs/hour" },
@@ -16,40 +20,49 @@
   "$defs": {
     "hour": {
       "type": "object",
-      "required": ["psalms"],
+      "required": ["psalmody"],
       "additionalProperties": false,
       "properties": {
-        "psalms": {
+        "psalmody": {
           "type": "array",
-          "items": { "$ref": "#/$defs/psalmRef" }
-        },
-        "canticle": { "$ref": "#/$defs/canticleRef" }
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/psalmodyItem" }
+        }
       }
     },
-    "psalmRef": {
-      "type": "string",
-      "description": "e.g. 'Ps 23' or 'Ps 119:1-8' - see CONVENTIONS.md",
-      "pattern": "^Ps [0-9]{1,3}(:[0-9]{1,3}(-[0-9]{1,3})?)?$"
-    },
-    "canticleRef": {
+    "psalmodyItem": {
       "type": "object",
       "oneOf": [
         {
-          "title": "A fixed canticle (Benedictus/Magnificat/Nunc Dimittis/Benedicite)",
-          "required": ["fixedId"],
+          "title": "A psalm (or portion of one)",
+          "required": ["type", "ref"],
           "additionalProperties": false,
           "properties": {
-            "fixedId": {
-              "enum": ["benedictus", "magnificat", "nuncDimittis", "benedicite"]
+            "type": { "const": "psalm" },
+            "ref": {
+              "type": "string",
+              "description": "e.g. 'Ps 23' or 'Ps 119:1-8' - see CONVENTIONS.md",
+              "pattern": "^Ps [0-9]{1,3}(:[0-9]{1,3}(-[0-9]{1,3})?)?$"
             }
           }
         },
         {
           "title": "A variable Old/New Testament canticle sourced from the DRC text",
-          "required": ["scriptureRef"],
+          "required": ["type", "scriptureRef"],
           "additionalProperties": false,
           "properties": {
-            "scriptureRef": { "type": "string", "minLength": 1 }
+            "type": { "const": "canticle" },
+            "scriptureRef": { "type": "string", "minLength": 1 },
+            "name": { "type": "string", "description": "e.g. 'Canticle of Moses' - optional display label" }
+          }
+        },
+        {
+          "title": "Benedicite used as the Sunday Lauds canticle - unlike Benedictus/Magnificat/Nunc Dimittis, it is NOT prayed every day, so (despite being one of the 'four fixed canticles') it slots in here rather than being hour-invariant like the other three",
+          "required": ["type", "fixedId"],
+          "additionalProperties": false,
+          "properties": {
+            "type": { "const": "canticle" },
+            "fixedId": { "const": "benedicite" }
           }
         }
       ]

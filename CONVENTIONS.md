@@ -135,5 +135,15 @@ Psalter-adjacent rather than sliced out of the DRC text:
 - `nuncDimittis` (Song of Simeon, Lk 2:29-32)
 - `benedicite` (Song of the Three Young Men / Benedicite Omnia Opera)
 
-Variable Old Testament canticles used at Lauds are sourced as ordinary scripture excerpts via
-the reference syntax above, not given special ids.
+**Benedictus/Magnificat/Nunc Dimittis are hour-invariant** - prayed at the end of every
+Lauds/Vespers/Compline respectively regardless of the day, so `src/office.ts` attaches them
+directly and they never appear in a day's own `data/psalter/` file. **Benedicite is
+different**: despite being grouped with the other three as one of the "four fixed
+canticles" (it's fixed *text*, not composed fresh), it is NOT prayed daily - it's the
+Sunday Lauds canticle specifically, standing in the same slot that an ordinary weekday's
+variable Old Testament canticle would occupy. So it's referenced from within a day's own
+psalmody (`{ "type": "canticle", "fixedId": "benedicite" }`), not hour-invariantly attached
+like the other three - see `schema/psalter-day.schema.json`.
+
+Other variable Old/New Testament canticles used at Lauds/Vespers are sourced as ordinary
+scripture excerpts via the reference syntax above, not given special ids.

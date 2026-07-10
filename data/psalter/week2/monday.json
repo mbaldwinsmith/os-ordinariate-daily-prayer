@@ -1,0 +1,77 @@
+{
+  "verified": false,
+  "officeOfReadings": {
+    "psalmody": [
+      {
+        "type": "psalm",
+        "ref": "Ps 78"
+      },
+      {
+        "type": "psalm",
+        "ref": "Ps 79"
+      },
+      {
+        "type": "psalm",
+        "ref": "Ps 80"
+      }
+    ]
+  },
+  "lauds": {
+    "psalmody": [
+      {
+        "type": "psalm",
+        "ref": "Ps 74"
+      },
+      {
+        "type": "canticle",
+        "scriptureRef": "Dt 32:1-12",
+        "name": "Canticle of Moses (Deuteronomy)"
+      },
+      {
+        "type": "psalm",
+        "ref": "Ps 75"
+      }
+    ]
+  },
+  "daytimePrayer": {
+    "psalmody": [
+      {
+        "type": "psalm",
+        "ref": "Ps 119:65-72"
+      },
+      {
+        "type": "psalm",
+        "ref": "Ps 81"
+      },
+      {
+        "type": "psalm",
+        "ref": "Ps 82"
+      }
+    ]
+  },
+  "vespers": {
+    "psalmody": [
+      {
+        "type": "psalm",
+        "ref": "Ps 76"
+      },
+      {
+        "type": "psalm",
+        "ref": "Ps 77"
+      },
+      {
+        "type": "canticle",
+        "scriptureRef": "Rv 4:11, 5:9-10, 5:12",
+        "name": "Canticle of Revelation (the Lamb)"
+      }
+    ]
+  },
+  "compline": {
+    "psalmody": [
+      {
+        "type": "psalm",
+        "ref": "Ps 86"
+      }
+    ]
+  }
+}
