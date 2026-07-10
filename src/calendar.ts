@@ -9,10 +9,14 @@ export type Rank = 'solemnity' | 'feast' | 'memorial' | 'optionalMemorial' | 'we
 export type PsalterWeek = 1 | 2 | 3 | 4 | 'easter';
 export type OfficeYear = 'I' | 'II';
 export type SundayCycle = 'A' | 'B' | 'C';
+export type DayOfWeek = 'sunday' | 'monday' | 'tuesday' | 'wednesday' | 'thursday' | 'friday' | 'saturday';
+
+const DAYS_OF_WEEK: DayOfWeek[] = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
 
 export interface OfficeDay {
   /** Local calendar date, YYYY-MM-DD. */
   date: string;
+  dayOfWeek: DayOfWeek;
   /** romcal's celebration name for the day (a saint's feast, "2nd Sunday of Advent", etc). */
   celebrationName: string;
   season: Season;
@@ -153,6 +157,7 @@ export function getOfficeDay(date: Date): OfficeDay {
 
   return {
     date: dateKey,
+    dayOfWeek: DAYS_OF_WEEK[date.getDay()],
     celebrationName: entry.name,
     season,
     weekOfSeason: season === 'christmas' || season === 'triduum' ? null : findWeekOfSeason(date, entry),

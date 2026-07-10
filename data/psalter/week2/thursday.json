@@ -1,0 +1,77 @@
+{
+  "verified": false,
+  "officeOfReadings": {
+    "psalmody": [
+      {
+        "type": "psalm",
+        "ref": "Ps 106"
+      },
+      {
+        "type": "psalm",
+        "ref": "Ps 107"
+      },
+      {
+        "type": "psalm",
+        "ref": "Ps 108"
+      }
+    ]
+  },
+  "lauds": {
+    "psalmody": [
+      {
+        "type": "psalm",
+        "ref": "Ps 102"
+      },
+      {
+        "type": "canticle",
+        "scriptureRef": "Tb 13:1-8",
+        "name": "Canticle of Tobit"
+      },
+      {
+        "type": "psalm",
+        "ref": "Ps 103"
+      }
+    ]
+  },
+  "daytimePrayer": {
+    "psalmody": [
+      {
+        "type": "psalm",
+        "ref": "Ps 119:89-96"
+      },
+      {
+        "type": "psalm",
+        "ref": "Ps 110"
+      },
+      {
+        "type": "psalm",
+        "ref": "Ps 111"
+      }
+    ]
+  },
+  "vespers": {
+    "psalmody": [
+      {
+        "type": "psalm",
+        "ref": "Ps 104"
+      },
+      {
+        "type": "psalm",
+        "ref": "Ps 105"
+      },
+      {
+        "type": "canticle",
+        "scriptureRef": "1 Pt 2:21-24",
+        "name": "Canticle of Peter"
+      }
+    ]
+  },
+  "compline": {
+    "psalmody": [
+      {
+        "type": "psalm",
+        "ref": "Ps 16"
+      }
+    ]
+  }
+}

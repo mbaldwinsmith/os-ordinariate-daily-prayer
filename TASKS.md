@@ -136,13 +136,24 @@ Babel-transpiled CJS build) instead: `resolve.mainFields: ['browser', 'main', 'm
 
 ## Phase 5 — Psalter Skeleton (structure before content)
 
-- [ ] Build the full 28-day (4 week x 7 day) skeleton JSON with correct hour structure
-      per day, psalm-number placeholders only (no text yet)
-- [ ] Confirm the skeleton against an authoritative structural reference for the current
+- [x] Build the full 28-day (4 week x 7 day) skeleton JSON with correct hour structure
+      per day, psalm-number placeholders only (no text yet) — `scripts/generate-psalter-skeleton.mjs`
+      → `data/psalter/week{1,2,3,4}/*.json`; also fixed a real gap this surfaced in the
+      Phase 3 schema (Lauds/Vespers need two distinct canticle slots - a variable OT/NT
+      canticle plus the fixed Gospel canticle - not one, see `schema/psalter-day.schema.json`
+      and `src/office.ts`)
+- [~] Confirm the skeleton against an authoritative structural reference for the current
       four-week psalter (which psalms fall on which day/hour) — cross-check against a
-      published breviary index or similar
-- [ ] Render the full 28-day skeleton in the UI with placeholders, confirm navigation
-      (today / arbitrary date / week view) works before any real psalm text is added
+      published breviary index or similar — NOT DONE: no GitHub-reachable index exists in
+      this session's network sandbox (same limitation as Phases 1/4); every generated file
+      is marked `"verified": false` and surfaces a visible warning in the UI rather than
+      silently presenting the reconstruction as authoritative. See `SOURCES.md` for exactly
+      which parts are solid vs. still need checking. This is Phase 6's remaining job.
+- [x] Render the full 28-day skeleton in the UI with placeholders, confirm navigation
+      (today / arbitrary date / week view) works before any real psalm text is added —
+      `src/main.ts`; verified via a real browser smoke test: today's view, week-nav clicks,
+      and date-picker jumps (including to Ash Wednesday, confirming psalter week 4) all
+      render correctly with zero console errors
 
 ---
 
