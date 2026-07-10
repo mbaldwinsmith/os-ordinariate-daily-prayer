@@ -188,27 +188,45 @@ Babel-transpiled CJS build) instead: `resolve.mainFields: ['browser', 'main', 'm
 ## Phase 7 — Office of Readings (biggest data-entry phase — sequence deliberately)
 
 - [x] Build Year I / Ordinary Time first (most-used, most days), week by week —
-      `scripts/generate-office-of-readings.mjs` → 238 files (34 weeks x 7 days). Same
-      caveat as the Phase 5 psalter skeleton: no GitHub-reachable lectionary index exists
-      in this session's network sandbox, so this is a real-scripture but unverified
-      week-to-book reconstruction (user-approved), not a transcription of the official
-      assignment. Every file is `"verified": false`. See `SOURCES.md`.
-- [ ] Build Year II / Ordinary Time — deliberately deferred (user-scoped this pass to
-      Year I only)
-- [ ] Build Year I & II / Advent — deferred
-- [ ] Build Year I & II / Christmas season — deferred
-- [ ] Build Year I & II / Lent — deferred
-- [ ] Build Year I & II / Triduum + Easter Octave — deferred
-- [ ] Build Year I & II / Easter season — deferred
+      `scripts/generate-office-of-readings.mjs` → 238 files (34 weeks x 7 days, later
+      regenerated with an improved continuous-chapter algorithm, see below). Same caveat as
+      the Phase 5 psalter skeleton: no GitHub-reachable lectionary index exists in this
+      session's network sandbox, so this is a real-scripture but unverified week-to-book
+      reconstruction (user-approved), not a transcription of the official assignment.
+      Every file is `"verified": false`. See `SOURCES.md`.
+- [x] Build Year II / Ordinary Time — 238 more files, a deliberately different book list
+      from Year I (remaining OT books + the full NT) so the two-year cycle isn't a repeat
+- [x] Build Year I & II / Advent — 28 files/year (4 weeks); Isaiah (Year I) vs. minor
+      prophets + Romans (Year II)
+- [x] Build Year I & II / Christmas season — proper-based, not week-based (Christmas has no
+      week number - see `CONVENTIONS.md`); `scripts/generate-office-of-readings-proper.mjs`
+      → 19 `data/proper-of-seasons/*.json` files keyed by romcal's celebration key, not
+      split by year (matches `schema/proper.schema.json`, which has no year concept)
+- [x] Build Year I & II / Lent — 35 files/year for the 5 numbered weeks (Deuteronomy/
+      Jeremiah vs. II Corinthians/Hebrews); the 4-day Ash-Wednesday-to-Saturday stub before
+      the numbered weeks begin is proper-based like Christmas, keyed by day-of-week rather
+      than romcal key (that key isn't stable there either - see `SOURCES.md`)
+- [x] Build Year I & II / Triduum + Easter Octave — Triduum done as 3 proper files
+      (`holyThursday`/`goodFriday`/`holySaturday`; Good Friday = Isaiah 52, Holy Thursday =
+      Exodus 12, Holy Saturday = Lamentations 3). Easter Octave still open: it needs the
+      psalter skeleton's `psalterWeek: 'easter'` case, which Phase 5 didn't build either -
+      genuinely out of scope for this pass, not overlooked
+- [x] Build Year I & II / Easter season — 49 files/year for weeks 1-7 (Acts + I John +
+      Revelation vs. Acts + I Peter + Revelation - Acts appears both years deliberately,
+      it's the standard Easter reading in real practice)
 - [x] For each: scripture reading resolves via reference into `texts/scripture.json`,
       extending that file incrementally rather than bundling the whole Bible up front —
       `src/scripture.ts` (`resolveScriptureRef`), wired into `src/office.ts`/`src/main.ts`
-      and verified with a real browser smoke test rendering full reading text (e.g.
-      Exodus 1) for a Year I date. Extracted the book-abbreviation table out of
-      `CONVENTIONS.md` into a schema-validated `data/texts/book-abbreviations.json` so the
-      generator and the runtime resolver can't drift apart; `scripts/validate-data.mjs` now
-      also cross-checks that every generated `scriptureReading.ref` actually resolves in
-      the DRC text, not just that the JSON is schema-shaped
+      via `src/officeOfReadings.ts` (which dispatches between the week-based files and the
+      proper-based ones). Verified with a real browser smoke test across both years and
+      every season - Ordinary Time, Advent, Christmas, the Ash-Wednesday stub, the Triduum,
+      and Easter all render real, thematically correct scripture text (e.g. Isaiah 52 on
+      Good Friday, Exodus 12 on Holy Thursday) with zero console errors. Extracted the
+      book-abbreviation table out of `CONVENTIONS.md` into a schema-validated
+      `data/texts/book-abbreviations.json` so the generators and the runtime resolver can't
+      drift apart; `scripts/validate-data.mjs` now also cross-checks that every generated
+      `scriptureReading.ref`/`firstReading.ref` actually resolves in the DRC text, not just
+      that the JSON is schema-shaped
 - [x] Patristic/hagiographic second readings: decide sourcing separately — Douay-Rheims
       doesn't cover these; identify a public-domain source (e.g. early Church Fathers
       texts) or, as a pragmatic MVP fallback, omit second readings initially and note as

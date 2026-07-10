@@ -19,6 +19,14 @@ export interface OfficeDay {
   dayOfWeek: DayOfWeek;
   /** romcal's celebration name for the day (a saint's feast, "2nd Sunday of Advent", etc). */
   celebrationName: string;
+  /**
+   * romcal's own stable celebration key (e.g. "christmas", "holyThursday",
+   * "saintStephenTheFirstMartyr"). Reliable for high-ranking days (nothing
+   * displaces a solemnity/feast/Triduum day); NOT reliable for ferias that
+   * an optional memorial or commemoration might be occupying instead - see
+   * CONVENTIONS.md before using this to look up proper-of-seasons/-saints.
+   */
+  celebrationKey: string;
   season: Season;
   /**
    * null for the Christmas season, the Triduum, and the handful of days
@@ -37,6 +45,7 @@ interface RomcalEntry {
   moment: string;
   type: string;
   name: string;
+  key: string;
   data: {
     season: { key: string; value: string };
     meta: {
@@ -159,6 +168,7 @@ export function getOfficeDay(date: Date): OfficeDay {
     date: dateKey,
     dayOfWeek: DAYS_OF_WEEK[date.getDay()],
     celebrationName: entry.name,
+    celebrationKey: entry.key,
     season,
     weekOfSeason: season === 'christmas' || season === 'triduum' ? null : findWeekOfSeason(date, entry),
     rank,

@@ -116,17 +116,31 @@ live under `schema/` and are enforced by `npm run validate:data` (wired into CI)
 - `data/psalter/week<N>/<day>.json` (`N` 1-4, `day` a lowercase weekday name): one file per
   day of the four-week psalter. See `schema/psalter-day.schema.json` - Phase 5 populates
   these.
-- `data/office-of-readings/<yearI|yearII>/<season>/week<N>/<day>.json`: one file per day.
-  `season` is one of `advent`/`christmas`/`ordinaryTime`/`lent`/`easter` (no `triduum` -
-  the Triduum's Office of Readings is always proper, handled under `proper-of-seasons/`
-  instead). See `schema/office-of-readings-day.schema.json` - Phase 7 populates these.
-- `data/proper-of-seasons/<celebrationKey>.json` and `data/proper-of-saints/<celebrationKey>.json`:
-  one file per overridden celebration, filename matching the same `key` used inside the
-  file and matching romcal's own celebration key (e.g. `assumption.json`, `holyThursday.json`)
-  so the day-resolution function can look an override up directly by key rather than
-  scanning a directory. `proper-of-seasons` is for moveable/seasonal overrides (Ash
-  Wednesday, Holy Week, etc.); `proper-of-saints` is for fixed-date solemnities/feasts/
-  memorials. See `schema/proper.schema.json` - Phase 8 populates these.
+- `data/office-of-readings/<yearI|yearII>/<season>/week<N>/<day>.json`: one file per day,
+  for the seasons that actually have a numbered week: `ordinaryTime`, `advent`, `lent`
+  (only its 5 numbered weeks - see below), and `easter`. **Not** `christmas` or
+  `triduum` - both have no week number at all (`weekOfSeason` is always `null` for them -
+  see `src/calendar.ts`), so their Office of Readings content lives under
+  `proper-of-seasons/` instead, like the Triduum always did. See
+  `schema/office-of-readings-day.schema.json`; `src/officeOfReadings.ts` dispatches between
+  the two sources.
+- `data/proper-of-seasons/<key>.json` and `data/proper-of-saints/<key>.json`: one file per
+  overridden celebration/date, filename matching the `key` field inside the file. For the
+  Triduum (`holyThursday`/`goodFriday`/`holySaturday`) and Christmas season days, `key`
+  matches romcal's own celebration key directly - reliable for these since nothing of
+  lower rank displaces them, **except** a handful of low-rank Christmas-season ferias
+  (the "before/after Epiphany" days) that an optional memorial can occasionally occupy
+  instead; those days' Office of Readings just isn't populated in years where that
+  happens, rather than resolving to the wrong content. For the four days between Ash
+  Wednesday and the first Sunday of Lent, `key` is a synthetic identifier
+  (`ashWednesday`/`thursdayAfterAshWednesday`/`fridayAfterAshWednesday`/`saturdayAfterAshWednesday`)
+  looked up by day-of-week rather than by romcal's key, because that key is even less
+  stable there (an occasional commemoration can occupy the Saturday). `proper-of-seasons`
+  is for moveable/seasonal overrides; `proper-of-saints` is for fixed-date solemnities/
+  feasts/memorials - only `proper-of-seasons` is populated so far (Phase 7); Phase 8
+  populates `proper-of-saints` and wires the day-resolution function to check both before
+  falling back to the ferial psalter/weekN, beyond what `src/officeOfReadings.ts` already
+  does for its own narrower purpose.
 
 ## Canticle identifiers
 

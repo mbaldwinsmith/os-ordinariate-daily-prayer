@@ -21,13 +21,27 @@ describe('resolveScriptureRef', () => {
     expect(() => resolveScriptureRef('Xyz 1')).toThrow();
   });
 
-  it('resolves every scripture reference the Year I Ordinary Time generator produced', async () => {
+  it('resolves every week-based Office of Readings scripture reference generated so far', () => {
     const files = import.meta.glob<{ scriptureReading: { ref: string } }>(
       '../data/office-of-readings/**/week*/*.json',
       { eager: true, import: 'default' },
     );
     const refs = Object.values(files).map((f) => f.scriptureReading.ref);
-    expect(refs.length).toBe(238);
+    expect(refs.length).toBe(700); // (34 + 4 + 5 + 7) weeks x 2 years x 7 days
+    for (const ref of refs) {
+      expect(() => resolveScriptureRef(ref)).not.toThrow();
+    }
+  });
+
+  it('resolves every proper (Triduum/Christmas/Ash-Wednesday-stub) first-reading reference', () => {
+    const files = import.meta.glob<{ firstReading?: { ref: string } }>('../data/proper-of-seasons/*.json', {
+      eager: true,
+      import: 'default',
+    });
+    const refs = Object.values(files)
+      .map((f) => f.firstReading?.ref)
+      .filter((ref): ref is string => Boolean(ref));
+    expect(refs.length).toBeGreaterThan(0);
     for (const ref of refs) {
       expect(() => resolveScriptureRef(ref)).not.toThrow();
     }
