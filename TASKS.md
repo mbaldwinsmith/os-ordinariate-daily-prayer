@@ -117,12 +117,20 @@ Babel-transpiled CJS build) instead: `resolve.mainFields: ['browser', 'main', 'm
 
 ## Phase 4 — Fixed Canticles (small, do early — unblocks daily rendering)
 
-- [ ] Transcribe full Benedictus (Coverdale), verify against source
-- [ ] Transcribe full Magnificat (Coverdale), verify against source
-- [ ] Transcribe full Nunc Dimittis (Coverdale), verify against source
-- [ ] Transcribe full Benedicite in full (all ~32 verses) from a verified BCP source
-- [ ] Wire these into the render pipeline so Lauds/Vespers/Compline render correctly with
-      placeholder psalms, proving the daily-rotation skeleton end-to-end
+- [~] Transcribe full Benedictus (Coverdale), verify against source — PARTIAL: sourced from
+      the 2019 ACNA BCP's traditional-language text (`blocher/dailyoffice2019`), not
+      literally 1662; same network-sandbox limitation as the Psalter (Phase 1). Not yet
+      verified line-by-line against a primary 1662 source - see `SOURCES.md`
+- [~] Transcribe full Magnificat (Coverdale), verify against source — same caveat as above
+- [~] Transcribe full Nunc Dimittis (Coverdale), verify against source — same caveat as above
+- [~] Transcribe full Benedicite in full (all ~32 verses) from a verified BCP source — same
+      caveat as above (34 verses as segmented from the source, including the Invocation and
+      Doxology; scripture reference into the DRC text unconfirmed, see `SOURCES.md`)
+- [x] Wire these into the render pipeline so Lauds/Vespers/Compline render correctly with
+      placeholder psalms, proving the daily-rotation skeleton end-to-end — `src/office.ts`
+      (`resolveDay`), wired into `src/main.ts`; verified both via `src/office.test.ts` and a
+      real browser smoke test (not just a successful build) rendering today's Lauds/Vespers/
+      Compline canticles with zero console errors
 
 ---
 

@@ -1,0 +1,84 @@
+{
+  "benedictus": {
+    "name": "Benedictus (Song of Zechariah)",
+    "scriptureRef": "Lk 1:68-79",
+    "verses": {
+      "1": "Blessed be the Lord God of Israel, * for he hath visited and redeemed his people;",
+      "2": "And hath raised up a mighty salvation for us * in the house of his servant David,",
+      "3": "As he spake by the mouth of his holy prophets, * which have been since the world began:",
+      "4": "That we should be saved from our enemies, * and from the hand of all that hate us;",
+      "5": "To perform the mercy promised to our forefathers, * and to remember his holy covenant;",
+      "6": "To perform the oath which he sware to our forefather Abraham,  that he would give us,",
+      "7": "That we being delivered out of the hand of our enemies * might serve him without fear,",
+      "8": "In holiness and righteousness before him, * all the days of our life.",
+      "9": "And thou, child, shalt be called the prophet of the Highest, * for thou shalt go before the face of the Lord to prepare his ways;",
+      "10": "To give knowledge of salvation unto his people * for the remission of their sins,",
+      "11": "Through the tender mercy of our God, * whereby the dayspring from on high hath visited us;",
+      "12": "To give light to them that sit in darkness, and in the shadow of death, * and to guide our feet into the way of peace."
+    }
+  },
+  "magnificat": {
+    "name": "Magnificat (Song of Mary)",
+    "scriptureRef": "Lk 1:46-55",
+    "verses": {
+      "1": "My soul doth magnify the Lord, * and my spirit hath rejoiced in God my Saviour.",
+      "2": "For he hath regarded * the lowliness of his handmaiden.",
+      "3": "For behold from henceforth * all generations shall call me blessed.",
+      "4": "For he that is mighty hath magnified me, * and holy is his Name.",
+      "5": "And his mercy is on them that fear him * throughout all generations.",
+      "6": "He hath showed strength with his arm; * he hath scattered the proud in the imagination of their hearts.",
+      "7": "He hath put down the mighty from their seat, * and hath exalted the humble and meek.",
+      "8": "He hath filled the hungry with good things, * and the rich he hath sent empty away.",
+      "9": "He remembering his mercy hath holpen his servant Israel, * as he promised to our forefathers, Abraham and his seed for ever."
+    }
+  },
+  "nuncDimittis": {
+    "name": "Nunc Dimittis (Song of Simeon)",
+    "scriptureRef": "Lk 2:29-32",
+    "verses": {
+      "1": "Lord, now lettest thou thy servant depart in peace, * according to thy word;",
+      "2": "For mine eyes have seen thy salvation, * which thou hast prepared before the face of all people,",
+      "3": "To be a light to lighten the Gentiles, * and to be the glory of thy people Israel."
+    }
+  },
+  "benedicite": {
+    "name": "Benedicite, omnia opera Domini (A Song of Creation)",
+    "scriptureRef": "Song of the Three Young Men 35-65 (Vulgate numbering; the Greek addition to Daniel 3 - confirm exact DRC reference during Phase 8)",
+    "verses": {
+      "1": "O all ye works of the Lord, bless ye the Lord, * praise him, and magnify him for ever.",
+      "2": "O ye angels of the Lord, bless ye the Lord, * praise him, and magnify him for ever.",
+      "3": "O ye heavens, bless ye the Lord: * praise him, and magnify him for ever.",
+      "4": "O ye waters that be above the firmament, bless ye the Lord, * praise him, and magnify him for ever.",
+      "5": "O all ye powers of the Lord, bless ye the Lord, * praise him, and magnify him for ever.",
+      "6": "O ye sun and moon, bless ye the Lord, * praise him, and magnify him for ever.",
+      "7": "O ye stars of heaven, bless ye the Lord, * praise him, and magnify him for ever.",
+      "8": "O ye showers and dew, bless ye the Lord, * praise him, and magnify him for ever.",
+      "9": "O ye winds of God, bless ye the Lord, * praise him and magnify him for ever.",
+      "10": "O ye fire and heat, bless ye the Lord, * praise him, and magnify him for ever.",
+      "11": "O ye winter and summer, bless ye the Lord, * praise him, and magnify him for ever.",
+      "12": "O ye dews and frosts, bless ye the Lord, * praise him, and magnify him for ever.",
+      "13": "O ye frost and cold, bless ye the Lord, * praise him, and magnify him for ever.",
+      "14": "O ye ice and snow, bless ye the Lord, * praise him, and magnify him for ever.",
+      "15": "O ye nights and days, bless ye the Lord, * praise him, and magnify him for ever.",
+      "16": "O ye light and darkness, bless ye the Lord, * praise him, and magnify him for ever.",
+      "17": "O ye lightnings and clouds, bless ye the Lord, * praise him, and magnify him for ever.",
+      "18": "O let the Earth bless the Lord, * praise him, and magnify him for ever.",
+      "19": "O ye mountains and hills, bless ye the Lord, * praise him, and magnify him for ever.",
+      "20": "O all ye green things upon the earth, bless ye the Lord, * praise him, and magnify him for ever.",
+      "21": "O ye wells, bless ye the Lord, * praise him, and magnify him for ever.",
+      "22": "O ye seas and floods, bless ye the Lord, * praise him, and magnify him for ever.",
+      "23": "O ye whales, and all that move in the waters, bless ye the Lord, * praise him, and magnify him for ever.",
+      "24": "O all ye fowls of the air, bless ye the Lord, * praise him, and magnify him for ever.",
+      "25": "O all ye beasts and cattle, bless ye the Lord, * praise him, and magnify him for ever.",
+      "26": "O ye children of men, bless ye the Lord, * praise him, and magnify him for ever.",
+      "27": "O let Israel bless the Lord, * praise him, and magnify him for ever.",
+      "28": "O ye priests of the Lord, bless ye the Lord, * praise him, and magnify him for ever.",
+      "29": "O ye servants of the Lord, bless ye the Lord, * praise him, and magnify him for ever.",
+      "30": "O ye spirits and souls of the righteous, bless ye the Lord, * praise him, and magnify him for ever.",
+      "31": "O ye holy and humble men of heart, bless ye the Lord, * praise him, and magnify him for ever.",
+      "32": "O Ananias, Azarias, and Misael, bless ye the Lord, * praise him, and magnify him for ever.",
+      "33": "Let us bless the Lord: the Father, the Son, and the Holy Ghost; * praise him, and magnify him for ever.",
+      "34": "In the firmament of his power, bless ye the Lord, * praise him, and magnify him for ever."
+    }
+  }
+}

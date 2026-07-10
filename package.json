@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "test": "vitest run",
     "validate:data": "node scripts/validate-data.mjs",
-    "fetch:texts": "node scripts/fetch-douay-rheims.mjs && node scripts/fetch-coverdale-psalter.mjs"
+    "fetch:texts": "node scripts/fetch-douay-rheims.mjs && node scripts/fetch-coverdale-psalter.mjs && node scripts/fetch-fixed-canticles.mjs"
   },
   "dependencies": {
     "romcal": "^1.3.0"

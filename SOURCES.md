@@ -41,7 +41,7 @@ Provenance, licensing, and known gaps for the two public-domain texts this app u
   beyond the empty-verse check above. Flagged for the accuracy pass in Phase 7/Phase
   6-equivalent for scripture readings.
 
-## Coverdale Psalter (psalms, fixed canticles)
+## Coverdale Psalter (psalms)
 
 - **Text**: the Psalter from the 1662 Book of Common Prayer (Church of England) — Miles
   Coverdale's translation as carried into the Great Bible and thence the BCP, pointed for
@@ -91,3 +91,34 @@ Spot-checked Psalms 1 and 22 against known text during ingestion (matched exactl
 formatting artifacts were stripped); the rest of Psalms 1-65 has not been individually
 verified. Full verification is Phase 6's job ("spot-check a sample of transcribed psalms
 against the source for accuracy").
+
+## Fixed canticles (Benedictus, Magnificat, Nunc Dimittis, Benedicite)
+
+- **Text**: the traditional-language canticle texts of the 2019 ACNA (Anglican Church in
+  North America) Book of Common Prayer, **not** literally the 1662 BCP text — this session's
+  network sandbox couldn't reach a primary 1662 source for these (same restriction noted
+  under the Psalter above), and no GitHub-hosted 1662-specific source turned up. The 2019
+  ACNA "traditional" track deliberately preserves historic Cranmerian/Coverdale-lineage
+  wording, and what was pulled matches known 1662 wording closely (spot-checked against the
+  Benedictus and Magnificat's well-known opening/closing lines), but it has not been
+  verified line-by-line against a genuine 1662 print and may carry small differences from
+  a later prayer-book revision. Needs a verification pass against a primary 1662 source.
+- **Acquired via**: [`blocher/dailyoffice2019`](https://github.com/blocher/dailyoffice2019),
+  commit `53e4a3a09418324b590d3f636ad9d6678b245e16`, files
+  `site/office/api/texts/{mp3,ep1,ep2,s10}_traditional.csv`. MIT-licensed.
+- **Ingestion script**: `scripts/fetch-fixed-canticles.mjs` → `data/texts/fixedCanticles.json`.
+  Editorial section-heading rows the source adds for readability (e.g. "I. The Cosmic
+  Order" within the Benedicite) are structural additions from the 2019 ACNA edition, not
+  part of the 1662 text itself, and are dropped entirely during ingestion - only the actual
+  canticle wording is kept. The one American-English spelling found (Savior) was mechanically
+  normalized to the British spelling this project's register requires (Saviour); no other
+  wording was touched.
+- **Gloria Patri**: not included per-canticle - reuses the same `gloriaPatri` string already
+  captured once in `data/texts/coverdale-psalter.json`, recited after canticles the same way
+  it's recited after psalms.
+- **Benedicite's scripture reference is unconfirmed**: it's part of the Greek addition to
+  Daniel 3 (the Song of the Three Young Men), which may or may not be present at the
+  expected reference in `data/texts/douay-rheims-challoner.json`'s `Daniel` book - needs
+  checking during Phase 8 rather than assumed now.
+- **Verification status**: not yet spot-checked verse-by-verse against a primary 1662
+  source. Flagged for the accuracy pass in Phase 4/6.
