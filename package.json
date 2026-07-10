@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "test": "vitest run",
     "validate:data": "node scripts/validate-data.mjs",
-    "fetch:texts": "node scripts/fetch-douay-rheims.mjs && node scripts/fetch-coverdale-psalter.mjs && node scripts/fetch-fixed-canticles.mjs",
+    "fetch:texts": "node scripts/fetch-douay-rheims.mjs && node scripts/fetch-coverdale-psalter.mjs && node scripts/fetch-fixed-canticles.mjs && node scripts/fetch-antiphons.mjs",
     "generate:psalter-skeleton": "node scripts/generate-psalter-skeleton.mjs",
     "generate:office-of-readings": "node scripts/generate-office-of-readings.mjs && node scripts/generate-office-of-readings-proper.mjs"
   },

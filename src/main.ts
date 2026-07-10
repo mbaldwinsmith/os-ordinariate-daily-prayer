@@ -1,6 +1,6 @@
 import './style.css';
 import { getOfficeDay, type DayOfWeek } from './calendar';
-import { resolveDay, type HourView, type ReadingsView } from './office';
+import { resolveDay, type DayView, type HourView, type ReadingsView } from './office';
 import { getTheme, setTheme, watchSystemTheme } from './theme';
 
 const DAY_LABELS: Record<DayOfWeek, string> = {
@@ -65,16 +65,28 @@ function renderReadings(readings: ReadingsView | null): string {
     </section>${patristic}`;
 }
 
-function renderHour(label: string, hour: HourView, readings: ReadingsView | null): string {
+function renderHour(label: string, hour: HourView, day: DayView): string {
+  const invitatory =
+    selectedHour === 'officeOfReadings'
+      ? `<section class="text-section antiphon"><p class="eyebrow">Invitatory antiphon</p><p>${day.invitatory.firstLine}<br/>${day.invitatory.secondLine}</p></section>`
+      : '';
+  const oAntiphon =
+    selectedHour === 'vespers' && day.oAntiphon
+      ? `<section class="text-section antiphon"><p class="eyebrow">O Antiphon</p><p>${day.oAntiphon.english}</p><p class="reference">${day.oAntiphon.citation}</p></section>`
+      : '';
   const shortReading = hour.shortReading
     ? `<section class="text-section short-reading"><p class="eyebrow">Short reading</p><h3>${hour.shortReading.ref}</h3>${hour.shortReading.verified ? '' : '<p class="verification-note">Assignment awaiting verification against an authoritative breviary.</p>'}${renderVerses(hour.shortReading.verses)}</section>`
     : selectedHour === 'officeOfReadings' ? '' : '<p class="notice">No short reading is available for this Hour yet.</p>';
   const gospelCanticle = hour.gospelCanticle
     ? `<section class="text-section gospel-canticle"><p class="eyebrow">Gospel canticle</p><h3>${hour.gospelCanticle.name}</h3><p class="reference">${hour.gospelCanticle.scriptureRef}</p>${renderVerses(hour.gospelCanticle.verses)}</section>`
     : '';
+  const complineAntiphon =
+    selectedHour === 'compline'
+      ? `<section class="text-section antiphon"><p class="eyebrow">Marian antiphon</p><h3>${day.complineAntiphon.name}</h3><p class="verification-note">Awaiting a source with clearer licensing - see SOURCES.md.</p><p>${day.complineAntiphon.english}</p></section>`
+      : '';
   return `<article class="office"><header class="office-heading"><p class="eyebrow">The Daily Office</p><h2>${label}</h2></header>
-    ${hour.psalmody.map(renderPsalmodyItem).join('')}
-    ${selectedHour === 'officeOfReadings' ? renderReadings(readings) : shortReading}${gospelCanticle}
+    ${invitatory}${hour.psalmody.map(renderPsalmodyItem).join('')}
+    ${selectedHour === 'officeOfReadings' ? renderReadings(day.readings) : shortReading}${oAntiphon}${gospelCanticle}${complineAntiphon}
   </article>`;
 }
 
@@ -98,7 +110,7 @@ function renderImpl(date: Date): void {
   const hourTabs = HOURS.map(([key, label]) => `<button role="tab" data-hour="${key}" aria-selected="${key === selectedHour}" aria-controls="office-panel">${label}</button>`).join('');
   const dayContent = day
     ? `${day.verified ? '' : '<aside class="source-warning">This psalter assignment is an unverified best-effort reconstruction. See SOURCES.md.</aside>'}
-       <div id="office-panel" role="tabpanel">${renderHour(activeLabel, day[selectedHour], day.readings)}</div>`
+       <div id="office-panel" role="tabpanel">${renderHour(activeLabel, day[selectedHour], day)}</div>`
     : '<p role="alert" class="notice">This day is not populated yet.</p>';
 
   document.querySelector<HTMLDivElement>('#app')!.innerHTML = `

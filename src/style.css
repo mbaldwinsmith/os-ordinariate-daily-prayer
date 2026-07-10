@@ -61,6 +61,8 @@ input[type=date] { width: 100%; border: 1px solid var(--rule); border-radius: .4
 .reference { margin-bottom: 1rem; color: var(--muted); font-style: italic; }
 .verification-note { margin: .35rem 0 1rem; color: var(--warn-text); font-size: .8rem; font-style: italic; }
 .short-reading { background: var(--tint-a); }
+.antiphon { background: var(--tint-b); font-style: italic; }
+.antiphon .eyebrow { font-style: normal; }
 .verses p { position: relative; margin-bottom: .7rem; padding-left: 1.6rem; line-height: 1.55; }
 .verse-number { position: absolute; left: 0; top: .2em; color: var(--accent-text); font: 600 .62rem system-ui, sans-serif; }
 .gospel-canticle { background: var(--tint-b); }

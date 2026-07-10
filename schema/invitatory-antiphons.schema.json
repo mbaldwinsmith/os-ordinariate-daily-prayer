@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://os-ordinariate-daily-prayer/schema/invitatory-antiphons.schema.json",
+  "title": "Invitatory antiphon cycle (data/texts/invitatoryAntiphons.json)",
+  "description": "The antiphon said before the Venite/Jubilate at the start of the day's first Hour. Resolved by src/invitatory.ts: a specific celebration override, else a season default, else a weekday-group default. See CONVENTIONS.md.",
+  "type": "object",
+  "required": ["weekdayGroups", "seasons", "celebrations"],
+  "additionalProperties": false,
+  "properties": {
+    "weekdayGroups": {
+      "type": "object",
+      "required": ["sunWedSat", "monThu", "tueFri"],
+      "additionalProperties": false,
+      "properties": {
+        "sunWedSat": { "$ref": "#/$defs/antiphon" },
+        "monThu": { "$ref": "#/$defs/antiphon" },
+        "tueFri": { "$ref": "#/$defs/antiphon" }
+      }
+    },
+    "seasons": {
+      "type": "object",
+      "required": ["advent", "christmasBeforeEpiphany", "christmasAfterEpiphany", "lentAndTriduum", "easter"],
+      "additionalProperties": false,
+      "properties": {
+        "advent": { "$ref": "#/$defs/antiphon" },
+        "christmasBeforeEpiphany": { "$ref": "#/$defs/antiphon" },
+        "christmasAfterEpiphany": { "$ref": "#/$defs/antiphon" },
+        "lentAndTriduum": { "$ref": "#/$defs/antiphon" },
+        "easter": { "$ref": "#/$defs/antiphon" }
+      }
+    },
+    "celebrations": {
+      "description": "Keyed by romcal's celebrationKey. Checked before the season/weekday defaults.",
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": { "$ref": "#/$defs/antiphon" }
+    }
+  },
+  "$defs": {
+    "antiphon": {
+      "type": "object",
+      "required": ["firstLine", "secondLine"],
+      "additionalProperties": false,
+      "properties": {
+        "firstLine": { "type": "string", "minLength": 1 },
+        "secondLine": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}

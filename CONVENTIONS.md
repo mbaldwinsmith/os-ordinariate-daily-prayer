@@ -185,3 +185,34 @@ is keyed at whole-verse granularity, these are deliberately expanded to the comp
 verse and stored without the clause suffix (for example `Am 5:8, 9b` becomes
 `Am 5:8-9`). Discontiguous and cross-chapter references use the comma-separated syntax
 documented above.
+
+## Antiphons
+
+TASKS.md Phase 9 originally omitted antiphons entirely for MVP, for lack of a usable
+source. Revisiting that search turned up three distinct, contained antiphon systems -
+not the full per-psalm daily antiphon cycle a Roman monastic breviary carries (no
+public-domain, appropriately-licensed source for *that* has been found), but three real,
+traditional pieces that are genuinely part of the Anglican daily office's own patrimony:
+
+- **The Invitatory antiphon** (`data/texts/invitatoryAntiphons.json`, `src/invitatory.ts`):
+  said before the Venite/Jubilate at the start of the day's first Hour. Real practice
+  says it before whichever Hour a person prays first (Office of Readings or Lauds); this
+  app always attaches it to Office of Readings specifically (the first Hour in `HOURS`'
+  own listed order) as a deliberate simplification, documented rather than hidden. A day's
+  antiphon is resolved by celebration key first (a specific solemnity/feast override),
+  then season (with the Christmas season further split at Epiphany, Jan 6, since the
+  antiphon changes there even though this app's own `Season` enum doesn't), then a
+  three-way weekday rotation as the Ordinary Time default.
+- **The "O Antiphons"** (`data/texts/oAntiphons.json`, `src/oAntiphon.ts`): attached to
+  the Magnificat at Vespers, Dec 16-23. This app follows the **Sarum/English tradition of
+  8 antiphons** (adding "O Virgo virginum" for Dec 23) rather than the Roman tradition's 7
+  (Dec 17-23) - a deliberate choice given this app's Anglican Ordinariate audience, not an
+  oversight.
+- **The four seasonal Marian antiphons** (`data/texts/marianAntiphons.json`,
+  `src/complineAntiphon.ts`): said at the end of Compline. Alma Redemptoris Mater (Advent
+  through Feb 1), Ave Regina Caelorum (Feb 2/Candlemas through Holy Saturday), Regina
+  Caeli (the Easter season), Salve Regina (Trinity Sunday through the eve of Advent).
+  Resolved against actual calendar dates, not just this app's `Season` enum, since the
+  Feb 1/2 boundary falls in the middle of what this app calls `'ordinaryTime'`. **Every
+  entry is `"verified": false`** - see SOURCES.md for why this one (unlike the other two)
+  doesn't carry the same sourcing confidence.

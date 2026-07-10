@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://os-ordinariate-daily-prayer/schema/marian-antiphons.schema.json",
+  "title": "The four seasonal Marian antiphons (data/texts/marianAntiphons.json)",
+  "description": "The seasonal antiphon said at the end of Compline: Alma Redemptoris Mater (Advent through Feb 1), Ave Regina Caelorum (Feb 2 through Holy Saturday), Regina Caeli (Easter season), Salve Regina (the rest of the year). See src/complineAntiphon.ts and SOURCES.md - all four are 'verified': false pending a source with clearer licensing than the one used to populate this file.",
+  "type": "object",
+  "required": ["almaRedemptorisMater", "aveReginaCaelorum", "reginaCaeli", "salveRegina"],
+  "additionalProperties": false,
+  "properties": {
+    "almaRedemptorisMater": { "$ref": "#/$defs/antiphon" },
+    "aveReginaCaelorum": { "$ref": "#/$defs/antiphon" },
+    "reginaCaeli": { "$ref": "#/$defs/antiphon" },
+    "salveRegina": { "$ref": "#/$defs/antiphon" }
+  },
+  "$defs": {
+    "antiphon": {
+      "type": "object",
+      "required": ["name", "english", "verified"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "english": { "type": "string", "minLength": 1 },
+        "verified": { "const": false }
+      }
+    }
+  }
+}

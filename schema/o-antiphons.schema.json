@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://os-ordinariate-daily-prayer/schema/o-antiphons.schema.json",
+  "title": "The 'O Antiphons' (data/texts/oAntiphons.json)",
+  "description": "The Advent antiphons attached to the Magnificat at Vespers on the days leading up to Christmas, keyed by day-of-December (as a string). This app follows the Sarum/English tradition of 8 antiphons (Dec 16-23, adding 'O Virgo virginum' on Dec 23) rather than the Roman tradition's 7 (Dec 17-23) - see SOURCES.md and CONVENTIONS.md.",
+  "type": "object",
+  "minProperties": 1,
+  "propertyNames": { "pattern": "^(1[6-9]|2[0-3])$" },
+  "additionalProperties": {
+    "type": "object",
+    "required": ["latin", "english", "citation"],
+    "additionalProperties": false,
+    "properties": {
+      "latin": { "type": "string", "minLength": 1 },
+      "english": { "type": "string", "minLength": 1 },
+      "hymn": { "type": "string", "minLength": 1 },
+      "citation": { "type": "string" }
+    }
+  }
+}

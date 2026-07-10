@@ -1,0 +1,100 @@
+{
+  "weekdayGroups": {
+    "sunWedSat": {
+      "firstLine": "The earth is the Lord’s for he made it:",
+      "secondLine": "O come, let us adore him."
+    },
+    "monThu": {
+      "firstLine": "Worship the Lord in the beauty of holiness:",
+      "secondLine": "O come, let us adore him."
+    },
+    "tueFri": {
+      "firstLine": "The mercy of the Lord is everlasting:",
+      "secondLine": "O come, let us adore him."
+    }
+  },
+  "seasons": {
+    "advent": {
+      "firstLine": "Our King and Savior now draws near:",
+      "secondLine": "O come, let us adore him."
+    },
+    "christmasBeforeEpiphany": {
+      "firstLine": "Alleluia, to us a child is born:",
+      "secondLine": "O come, let us adore him."
+    },
+    "christmasAfterEpiphany": {
+      "firstLine": "The Lord has shown forth his glory:",
+      "secondLine": "O come, let us adore him."
+    },
+    "lentAndTriduum": {
+      "firstLine": "The Lord is full of compassion and mercy:",
+      "secondLine": "O come, let us adore him."
+    },
+    "easter": {
+      "firstLine": "Alleluia. The Lord is risen indeed:",
+      "secondLine": "O come, let us adore him."
+    }
+  },
+  "celebrations": {
+    "presentationOfTheLord": {
+      "firstLine": "The Word was made flesh and dwelt among us:",
+      "secondLine": "O come, let us adore him."
+    },
+    "annunciation": {
+      "firstLine": "The Word was made flesh and dwelt among us:",
+      "secondLine": "O come, let us adore him."
+    },
+    "pentecostSunday": {
+      "firstLine": "Alleluia. The Spirit of the Lord renews the face of the earth:",
+      "secondLine": "O come, let us adore him."
+    },
+    "trinitySunday": {
+      "firstLine": "Father, Son, and Holy Spirit, one God:",
+      "secondLine": "O come, let us adore him."
+    },
+    "ascension": {
+      "firstLine": "Alleluia. Christ the Lord has ascended into heaven:",
+      "secondLine": "O come, let us adore him."
+    },
+    "transfiguration": {
+      "firstLine": "The Lord has shown forth his glory:",
+      "secondLine": "O come, let us adore him."
+    },
+    "allSaints": {
+      "firstLine": "The Lord is glorious in his saints:",
+      "secondLine": "O come, let us adore him."
+    },
+    "josephHusbandOfMary": {
+      "firstLine": "The Lord is glorious in his saints:",
+      "secondLine": "O come, let us adore him."
+    },
+    "peterAndPaulApostles": {
+      "firstLine": "The Lord is glorious in his saints:",
+      "secondLine": "O come, let us adore him."
+    },
+    "assumption": {
+      "firstLine": "The Lord is glorious in his saints:",
+      "secondLine": "O come, let us adore him."
+    },
+    "immaculateConception": {
+      "firstLine": "The Lord is glorious in his saints:",
+      "secondLine": "O come, let us adore him."
+    },
+    "birthOfJohnTheBaptist": {
+      "firstLine": "The Lord is glorious in his saints:",
+      "secondLine": "O come, let us adore him."
+    },
+    "corpusChristi": {
+      "firstLine": "The Lord is glorious in his saints:",
+      "secondLine": "O come, let us adore him."
+    },
+    "sacredHeartOfJesus": {
+      "firstLine": "The Lord is glorious in his saints:",
+      "secondLine": "O come, let us adore him."
+    },
+    "christTheKing": {
+      "firstLine": "The Lord is glorious in his saints:",
+      "secondLine": "O come, let us adore him."
+    }
+  }
+}

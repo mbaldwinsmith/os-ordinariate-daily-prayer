@@ -30,6 +30,9 @@ const validators = {
   psalterDay: loadSchema('psalter-day.schema.json'),
   officeOfReadingsDay: loadSchema('office-of-readings-day.schema.json'),
   proper: loadSchema('proper.schema.json'),
+  invitatoryAntiphons: loadSchema('invitatory-antiphons.schema.json'),
+  oAntiphons: loadSchema('o-antiphons.schema.json'),
+  marianAntiphons: loadSchema('marian-antiphons.schema.json'),
 };
 
 /** Recursively finds .json files under a directory (empty array if the directory is absent). */
@@ -95,6 +98,9 @@ const singleFileTargets = [
   [join(dataDir, 'texts', 'coverdale-psalter.json'), validators.psalms, {}],
   [join(dataDir, 'texts', 'fixedCanticles.json'), validators.fixedCanticles, {}],
   [join(dataDir, 'texts', 'book-abbreviations.json'), validators.bookAbbreviations, {}],
+  [join(dataDir, 'texts', 'invitatoryAntiphons.json'), validators.invitatoryAntiphons, {}],
+  [join(dataDir, 'texts', 'oAntiphons.json'), validators.oAntiphons, {}],
+  [join(dataDir, 'texts', 'marianAntiphons.json'), validators.marianAntiphons, {}],
 ];
 
 for (const [path, validate, options] of singleFileTargets) {

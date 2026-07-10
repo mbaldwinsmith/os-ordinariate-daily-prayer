@@ -270,6 +270,21 @@ for the 13 non-Easter-octave solemnities above, remain future incremental work.
       either source official/public-domain antiphons or clearly document any original
       devotional text as non-official before it is added.
 
+**Revisited post-launch**: a second search turned up three real, contained antiphon
+systems (not the full per-psalm daily cycle a Roman monastic breviary carries, for which
+no adequately-licensed source has been found) -
+
+- [x] The Invitatory antiphon (before the Venite/Jubilate at the day's first Hour) - full
+      season/weekday/solemnity-driven cycle, sourced from `blocher/dailyoffice2019` (the
+      same MIT-licensed repo already used for the fixed canticles)
+- [x] The "O Antiphons" attached to the Magnificat at Vespers, Dec 16-23 - the Sarum/
+      English 8-antiphon tradition, same source
+- [x] The four seasonal Marian antiphons said at the end of Compline - sourced from
+      `DivinumOfficium/divinum-officium`, explicitly `"verified": false` throughout since
+      that source's English-translation licensing is unclear (see SOURCES.md)
+- [x] Schema, resolver modules (`src/invitatory.ts`, `src/oAntiphon.ts`,
+      `src/complineAntiphon.ts`), rendering, tests, and docs for all three
+
 ---
 
 ## Phase 10 — Rendering & UI

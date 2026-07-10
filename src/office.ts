@@ -16,6 +16,9 @@ import { resolvePsalmRef } from './psalms';
 import { resolveOfficeOfReadings } from './officeOfReadings';
 import { resolveProperEntry, type HourName } from './proper';
 import { resolveScriptureRef } from './scripture';
+import { resolveInvitatoryAntiphon, type InvitatoryAntiphon } from './invitatory';
+import { resolveOAntiphon, type OAntiphon } from './oAntiphon';
+import { resolveMarianAntiphon, type MarianAntiphon } from './complineAntiphon';
 
 type GospelCanticleId = 'benedictus' | 'magnificat' | 'nuncDimittis';
 
@@ -47,6 +50,12 @@ export interface DayView {
   compline: HourView;
   /** null when Office of Readings content isn't populated yet for this year/season (see TASKS.md Phase 7's scope). */
   readings: ReadingsView | null;
+  /** Said before the Venite/Jubilate - this app always attaches it to Office of Readings, see CONVENTIONS.md. */
+  invitatory: InvitatoryAntiphon;
+  /** Attached to the Magnificat at Vespers, Dec 16-23 only - null every other day. */
+  oAntiphon: OAntiphon | null;
+  /** The seasonal Marian antiphon said at the end of Compline. Always "verified": false - see SOURCES.md. */
+  complineAntiphon: MarianAntiphon;
 }
 
 const GOSPEL_CANTICLE_BY_HOUR: Partial<Record<HourName, GospelCanticleId>> = {
@@ -112,5 +121,8 @@ export function resolveDay(day: OfficeDay): DayView | null {
       },
       patristicReading: readingsDay.patristicReading,
     },
+    invitatory: resolveInvitatoryAntiphon(day),
+    oAntiphon: resolveOAntiphon(day),
+    complineAntiphon: resolveMarianAntiphon(day),
   };
 }
