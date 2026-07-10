@@ -50,22 +50,36 @@ Work through phases in order. Each task should be its own commit/PR where practi
 
 ## Phase 2 — Calendar Engine (romcal integration)
 
-- [ ] Bundle `romcal` and confirm it works fully offline once built (no CDN fetch at
-      runtime)
-- [ ] Write a thin wrapper module `calendar.js` that, given a JS `Date`, returns:
+- [x] Bundle `romcal` and confirm it works fully offline once built (no CDN fetch at
+      runtime) — required a fix: see note below, romcal actually threw at runtime once
+      bundled until `vite.config.ts` was adjusted
+- [x] Write a thin wrapper module `calendar.js` (implemented as `src/calendar.ts`) that,
+      given a JS `Date`, returns:
   - liturgical season (advent, christmas, ordinary time, lent, triduum, easter)
   - week-of-season number
   - rank (solemnity, feast, memorial, optional memorial, weekday)
-  - **psalter week** (1-4) — confirm exactly how romcal exposes/derives this; if it
-    doesn't natively, derive it yourself and document the derivation logic clearly
+  - **psalter week** (1-4) — romcal exposes this directly as `data.meta.psalterWeek`;
+    used as-is, no derivation needed
   - **Office of Readings year** (I or II, odd/even calendar year rule)
-  - **Sunday Mass cycle letter** (A/B/C) — not needed for the Office itself, but cheap to
-    expose and occasionally useful for reference
-- [ ] Write unit tests for `calendar.js` against known dates (confirm psalter week resets
-      correctly at the start of Ordinary Time, confirm Year I/II boundary)
-- [ ] Decide and document how season transitions interact with the 4-week psalter cycle
+  - **Sunday Mass cycle letter** (A/B/C) — romcal exposes this directly too, as
+    `data.meta.cycle`
+- [x] Write unit tests for `calendar.js` against known dates (confirm psalter week resets
+      correctly at the start of Ordinary Time, confirm Year I/II boundary) — 10 tests in
+      `src/calendar.test.ts`, run via `npm test`
+- [x] Decide and document how season transitions interact with the 4-week psalter cycle
       (verify against a real breviary or reliable secondary source before hardcoding
-      assumptions)
+      assumptions) — spot-checked romcal's output against known breviary checkpoints
+      (2nd Sunday of Ordinary Time = Week II, Ash Wednesday = Week IV, Palm Sunday =
+      Week II, Easter Octave through Divine Mercy Sunday = special "Easter" psalter);
+      documented as code comments in `src/calendar.ts` and test descriptions
+
+**Bundler note:** romcal's dependencies `moment-range`/`moment-recur` are old UMD plugins
+that mutate a shared `moment.fn`. Vite's default module resolution (preferring romcal's
+`module` field, i.e. its raw ES6 source) broke this - the app built fine but threw
+`TypeError: Cannot set properties of undefined (setting 'recur')` at runtime in the
+browser (only caught by an actual browser smoke test, not by `tsc`/`vite build`
+succeeding). Fixed in `vite.config.ts` by preferring romcal's `main` field (its
+Babel-transpiled CJS build) instead: `resolve.mainFields: ['browser', 'main', 'module']`.
 
 ---
 
