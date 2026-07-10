@@ -26,6 +26,7 @@ const validators = {
   scripture: loadSchema('scripture.schema.json'),
   psalms: loadSchema('psalms.schema.json'),
   fixedCanticles: loadSchema('fixed-canticles.schema.json'),
+  bookAbbreviations: loadSchema('book-abbreviations.schema.json'),
   psalterDay: loadSchema('psalter-day.schema.json'),
   officeOfReadingsDay: loadSchema('office-of-readings-day.schema.json'),
   proper: loadSchema('proper.schema.json'),
@@ -93,6 +94,7 @@ const singleFileTargets = [
   [join(dataDir, 'texts', 'douay-rheims-challoner.json'), validators.scripture, { ignoredErrorPaths: KNOWN_SCRIPTURE_GAPS }],
   [join(dataDir, 'texts', 'coverdale-psalter.json'), validators.psalms, {}],
   [join(dataDir, 'texts', 'fixedCanticles.json'), validators.fixedCanticles, {}],
+  [join(dataDir, 'texts', 'book-abbreviations.json'), validators.bookAbbreviations, {}],
 ];
 
 for (const [path, validate, options] of singleFileTargets) {
@@ -110,6 +112,41 @@ for (const path of findJsonFiles(join(dataDir, 'office-of-readings'))) {
 for (const dir of ['proper-of-seasons', 'proper-of-saints']) {
   for (const path of findJsonFiles(join(dataDir, dir))) {
     validateFile(path, validators.proper);
+  }
+}
+
+// Semantic checks a JSON Schema alone can't express: cross-references
+// between data files actually resolve.
+const bookAbbreviationsPath = join(dataDir, 'texts', 'book-abbreviations.json');
+const drcPath = join(dataDir, 'texts', 'douay-rheims-challoner.json');
+if (existsSync(bookAbbreviationsPath) && existsSync(drcPath)) {
+  const bookAbbreviations = JSON.parse(readFileSync(bookAbbreviationsPath, 'utf8'));
+  const drc = JSON.parse(readFileSync(drcPath, 'utf8'));
+
+  for (const [abbrev, book] of Object.entries(bookAbbreviations)) {
+    checked += 1;
+    if (!drc.books[book]) {
+      failures += 1;
+      console.error(`\nINVALID: ${bookAbbreviationsPath}\n  "${abbrev}" -> "${book}" is not a book in ${drcPath}`);
+    }
+  }
+
+  const scriptureRefPattern = /^([A-Za-z0-9 ]+?) (\d+)(?::(\d+)(?:-(\d+))?)?$/;
+  for (const path of findJsonFiles(join(dataDir, 'office-of-readings'))) {
+    checked += 1;
+    const { scriptureReading } = JSON.parse(readFileSync(path, 'utf8'));
+    const match = scriptureReading?.ref?.match(scriptureRefPattern);
+    if (!match) {
+      failures += 1;
+      console.error(`\nINVALID: ${path}\n  scriptureReading.ref "${scriptureReading?.ref}" doesn't match the expected reference syntax`);
+      continue;
+    }
+    const [, abbrev, chapter] = match;
+    const book = bookAbbreviations[abbrev];
+    if (!book || !drc.books[book]?.[chapter]) {
+      failures += 1;
+      console.error(`\nINVALID: ${path}\n  scriptureReading.ref "${scriptureReading.ref}" does not resolve in the DRC text`);
+    }
   }
 }
 

@@ -1,6 +1,6 @@
 import './style.css';
 import { getOfficeDay, type DayOfWeek } from './calendar';
-import { resolveDay, type HourView } from './office';
+import { resolveDay, type HourView, type ReadingsView } from './office';
 
 const DAY_LABELS: Record<DayOfWeek, string> = {
   sunday: 'Sun',
@@ -49,6 +49,20 @@ function renderHour(label: string, hour: HourView): string {
   `;
 }
 
+function renderReadings(readings: ReadingsView | null): string {
+  if (!readings) {
+    return '<p><em>Office of Readings scripture/patristic readings aren\'t populated for this year/season yet - see TASKS.md Phase 7.</em></p>';
+  }
+  const scriptureText = Object.values(readings.scriptureReading.verses).join(' ');
+  const patristic = readings.patristicReading
+    ? `<p><strong>${readings.patristicReading.title}</strong><br/>${readings.patristicReading.sourceRef ?? ''}</p>`
+    : '<p><em>Second reading (patristic) intentionally omitted for now - see SOURCES.md/TASKS.md Phase 7.</em></p>';
+  return `
+    <p><strong>${readings.scriptureReading.ref}</strong><br/>${scriptureText}</p>
+    ${patristic}
+  `;
+}
+
 function renderWeekNav(selected: Date): string {
   const sunday = new Date(selected);
   sunday.setDate(selected.getDate() - selected.getDay());
@@ -72,6 +86,7 @@ function render(date: Date): void {
     ? `
         ${day.verified ? '' : '<p role="alert">⚠ This day\'s psalter content is an unverified best-effort reconstruction - see SOURCES.md.</p>'}
         ${renderHour('Office of Readings', day.officeOfReadings)}
+        ${renderReadings(day.readings)}
         ${renderHour('Lauds', day.lauds)}
         ${renderHour('Daytime Prayer', day.daytimePrayer)}
         ${renderHour('Vespers', day.vespers)}
