@@ -11,17 +11,18 @@ Work through phases in order. Each task should be its own commit/PR where practi
 
 ## Phase 0 — Repo & Project Scaffolding
 
-- [ ] Create new GitHub repo, add MIT or CC0 license for the *code* (text sources are PD in
-      their own right; state their attribution separately — see Phase 1)
-- [ ] Decide static site tooling (plain Vite + vanilla JS/TS recommended for lightness;
-      avoid a framework unless you already want one for the PWA shell)
-- [ ] Set up `npm init`, add `romcal` as the sole runtime dependency
-- [ ] Configure GitHub Pages deployment (Actions workflow: build then deploy `dist/`)
-- [ ] Add basic PWA scaffolding: `manifest.json`, service worker (cache-first, since all
+- [x] Create new GitHub repo, add MIT or CC0 license for the *code* (text sources are PD in
+      their own right; state their attribution separately — see Phase 1) — repo already
+      carries a GPLv3 license; kept as-is rather than relicensing without sign-off
+- [x] Decide static site tooling (plain Vite + vanilla JS/TS recommended for lightness;
+      avoid a framework unless you already want one for the PWA shell) — Vite + vanilla TS
+- [x] Set up `npm init`, add `romcal` as the sole runtime dependency
+- [x] Configure GitHub Pages deployment (Actions workflow: build then deploy `dist/`)
+- [x] Add basic PWA scaffolding: `manifest.json`, service worker (cache-first, since all
       content is static/bundled), app icons
-- [ ] Set up a `data/` directory convention: `data/psalter/`, `data/office-of-readings/`,
+- [x] Set up a `data/` directory convention: `data/psalter/`, `data/office-of-readings/`,
       `data/texts/`, `data/proper-of-seasons/`
-- [ ] Write a minimal `README.md` stating sources, licensing, and scope (current Roman
+- [x] Write a minimal `README.md` stating sources, licensing, and scope (current Roman
       Rite Liturgy of the Hours; Coverdale psalms; Douay-Rheims-Challoner readings)
 
 ---

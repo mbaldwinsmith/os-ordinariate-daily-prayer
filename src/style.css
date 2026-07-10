@@ -1,0 +1,24 @@
+:root {
+  color-scheme: light;
+  --color-ink: #2b1a1d;
+  --color-paper: #f6ede1;
+  --color-accent: #6b1220;
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+body {
+  margin: 0;
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
+#app {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 2rem 1.25rem;
+}
+
+h1 {
+  color: var(--color-accent);
+  font-size: 1.5rem;
+}
