@@ -269,3 +269,16 @@ Provenance, licensing, and known gaps for the two public-domain texts this app u
 - **`OfficeDay.celebrationKey`** (`src/calendar.ts`): exposes romcal's own stable celebration
   key directly, used to look up `proper-of-seasons`/`proper-of-saints` files by key rather
   than re-deriving one. See the reliability caveats above and in `CONVENTIONS.md`.
+
+## Antiphons
+
+- **MVP status: omitted entirely.** The app does not currently include antiphons for
+  psalms, canticles, Office of Readings, seasons, saints, or propers.
+- **Reason for omission**: no public-domain official antiphon source has been identified
+  and verified for this project, and the project owner chose omission for MVP rather than
+  composing original Coverdale-register antiphons. This keeps the sourced-text boundary
+  explicit instead of presenting newly written devotional text as though it were part of
+  the official Liturgy of the Hours.
+- **Future work**: antiphons may be added later if they are sourced from an appropriate
+  public-domain text, or if original non-official devotional antiphons are intentionally
+  designed, labelled, and documented before use.

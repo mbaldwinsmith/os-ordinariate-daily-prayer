@@ -259,11 +259,16 @@ for the 13 non-Easter-octave solemnities above, remain future incremental work.
 
 ## Phase 9 — Antiphons (flagged earlier as a gap)
 
-- [ ] Decide sourcing/authorship approach: write original Coverdale-register antiphons
-      vs. omit entirely for MVP
-- [ ] If writing original antiphons, draft a short style guide (tone, length, scriptural
-      allusion conventions) before starting
-- [ ] Treat as post-MVP enhancement; do not block launch
+- [x] Decide sourcing/authorship approach: omit antiphons entirely for MVP rather than
+      write original quasi-liturgical text. This keeps the app's sourced-text boundary
+      clear: psalms, canticles, and scripture are real public-domain texts; antiphons are
+      a known absent layer, not silently invented content.
+- [x] If writing original antiphons, draft a short style guide (tone, length, scriptural
+      allusion conventions) before starting — not applicable for MVP, since the chosen
+      approach is omission rather than composition.
+- [x] Treat as post-MVP enhancement; do not block launch. Future antiphon work should
+      either source official/public-domain antiphons or clearly document any original
+      devotional text as non-official before it is added.
 
 ---
 
