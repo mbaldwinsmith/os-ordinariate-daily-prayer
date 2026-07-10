@@ -3,14 +3,20 @@ import { getOfficeDay, type DayOfWeek } from './calendar';
 import { resolveDay, type HourView, type ReadingsView } from './office';
 
 const DAY_LABELS: Record<DayOfWeek, string> = {
-  sunday: 'Sun',
-  monday: 'Mon',
-  tuesday: 'Tue',
-  wednesday: 'Wed',
-  thursday: 'Thu',
-  friday: 'Fri',
-  saturday: 'Sat',
+  sunday: 'Sun', monday: 'Mon', tuesday: 'Tue', wednesday: 'Wed',
+  thursday: 'Thu', friday: 'Fri', saturday: 'Sat',
 };
+
+const HOURS = [
+  ['officeOfReadings', 'Readings'],
+  ['lauds', 'Lauds'],
+  ['daytimePrayer', 'Daytime'],
+  ['vespers', 'Vespers'],
+  ['compline', 'Compline'],
+] as const;
+type HourKey = (typeof HOURS)[number][0];
+
+let selectedHour: HourKey = 'lauds';
 
 function toDateKey(date: Date): string {
   const year = date.getFullYear();
@@ -24,107 +30,101 @@ function parseDateKey(dateKey: string): Date {
   return new Date(year, month - 1, day);
 }
 
-function renderPsalmodyItem(item: HourView['psalmody'][number]): string {
-  if (item.type === 'psalm') {
-    const text = Object.values(item.verses).join(' ');
-    return `<p><strong>${item.ref}</strong><br/>${text}</p>`;
-  }
-  if ('scriptureRef' in item) {
-    return `<p><strong>${item.name ?? 'Canticle'}</strong> (${item.scriptureRef}) <em>- text not yet resolved, see TASKS.md Phase 7</em></p>`;
-  }
-  return '<p><strong>Benedicite</strong> <em>- see below</em></p>';
+function shiftDate(date: Date, days: number): Date {
+  const shifted = new Date(date);
+  shifted.setDate(shifted.getDate() + days);
+  return shifted;
 }
 
-function renderHour(label: string, hour: HourView): string {
-  const psalmody = hour.psalmody.map(renderPsalmodyItem).join('');
+function renderVerses(verses: Record<string, string>): string {
+  return `<div class="verses">${Object.entries(verses)
+    .map(([number, text]) => `<p><span class="verse-number">${number}</span>${text}</p>`)
+    .join('')}</div>`;
+}
 
-  const gospelCanticle = hour.gospelCanticle
-    ? `<p><strong>${hour.gospelCanticle.name}</strong><br/>${hour.gospelCanticle.verses['1']}</p>`
-    : '';
-
-  return `
-    <h2>${label}</h2>
-    ${psalmody}
-    ${gospelCanticle}
-  `;
+function renderPsalmodyItem(item: HourView['psalmody'][number]): string {
+  const kind = item.type === 'psalm' ? 'Psalm' : 'Canticle';
+  const name = item.type === 'canticle' ? item.name : undefined;
+  return `<section class="text-section">
+    <header><p class="eyebrow">${kind}</p><h3>${name ?? item.ref}</h3>${name ? `<p class="reference">${item.ref}</p>` : ''}</header>
+    ${renderVerses(item.verses)}
+  </section>`;
 }
 
 function renderReadings(readings: ReadingsView | null): string {
-  if (!readings) {
-    return '<p><em>Office of Readings scripture/patristic readings aren\'t populated for this year/season yet - see TASKS.md Phase 7.</em></p>';
-  }
-  const scriptureText = Object.values(readings.scriptureReading.verses).join(' ');
+  if (!readings) return '<p class="notice">No Office of Readings text is available for this day.</p>';
   const patristic = readings.patristicReading
-    ? `<p><strong>${readings.patristicReading.title}</strong><br/>${readings.patristicReading.sourceRef ?? ''}</p>`
-    : '<p><em>Second reading (patristic) intentionally omitted for now - see SOURCES.md/TASKS.md Phase 7.</em></p>';
-  return `
-    <p><strong>${readings.scriptureReading.ref}</strong><br/>${scriptureText}</p>
-    ${patristic}
-  `;
+    ? `<section class="text-section"><p class="eyebrow">Second reading</p><h3>${readings.patristicReading.title}</h3><p>${readings.patristicReading.sourceRef ?? ''}</p></section>`
+    : '<p class="notice">The patristic second reading is intentionally omitted in this edition.</p>';
+  return `<section class="text-section">
+      <p class="eyebrow">First reading</p><h3>${readings.scriptureReading.title ?? readings.scriptureReading.ref}</h3>
+      ${readings.scriptureReading.title ? `<p class="reference">${readings.scriptureReading.ref}</p>` : ''}
+      ${renderVerses(readings.scriptureReading.verses)}
+    </section>${patristic}`;
+}
+
+function renderHour(label: string, hour: HourView, readings: ReadingsView | null): string {
+  const gospelCanticle = hour.gospelCanticle
+    ? `<section class="text-section gospel-canticle"><p class="eyebrow">Gospel canticle</p><h3>${hour.gospelCanticle.name}</h3><p class="reference">${hour.gospelCanticle.scriptureRef}</p>${renderVerses(hour.gospelCanticle.verses)}</section>`
+    : '';
+  return `<article class="office"><header class="office-heading"><p class="eyebrow">The Daily Office</p><h2>${label}</h2></header>
+    ${hour.psalmody.map(renderPsalmodyItem).join('')}
+    ${selectedHour === 'officeOfReadings' ? renderReadings(readings) : ''}${gospelCanticle}
+  </article>`;
 }
 
 function renderWeekNav(selected: Date): string {
-  const sunday = new Date(selected);
-  sunday.setDate(selected.getDate() - selected.getDay());
-
+  const sunday = shiftDate(selected, -selected.getDay());
   const buttons = Array.from({ length: 7 }, (_, offset) => {
-    const day = new Date(sunday);
-    day.setDate(sunday.getDate() + offset);
-    const dateKey = toDateKey(day);
-    const isSelected = dateKey === toDateKey(selected);
-    return `<button data-date="${dateKey}" ${isSelected ? 'aria-current="date"' : ''}>${DAY_LABELS[getOfficeDay(day).dayOfWeek]} ${day.getDate()}</button>`;
+    const day = shiftDate(sunday, offset);
+    const key = toDateKey(day);
+    return `<button class="day-button" data-date="${key}" ${key === toDateKey(selected) ? 'aria-current="date"' : ''}>
+      <span>${DAY_LABELS[getOfficeDay(day).dayOfWeek]}</span><strong>${day.getDate()}</strong>
+    </button>`;
   }).join('');
-
-  return `<nav aria-label="Week">${buttons}</nav>`;
+  return `<nav class="week-nav" aria-label="Select a day">${buttons}</nav>`;
 }
 
 function render(date: Date): void {
   const officeDay = getOfficeDay(date);
   const day = resolveDay(officeDay);
-
+  const activeLabel = HOURS.find(([key]) => key === selectedHour)![1];
+  const hourTabs = HOURS.map(([key, label]) => `<button role="tab" data-hour="${key}" aria-selected="${key === selectedHour}" aria-controls="office-panel">${label}</button>`).join('');
   const dayContent = day
-    ? `
-        ${day.verified ? '' : '<p role="alert">⚠ This day\'s psalter content is an unverified best-effort reconstruction - see SOURCES.md.</p>'}
-        ${renderHour('Office of Readings', day.officeOfReadings)}
-        ${renderReadings(day.readings)}
-        ${renderHour('Lauds', day.lauds)}
-        ${renderHour('Daytime Prayer', day.daytimePrayer)}
-        ${renderHour('Vespers', day.vespers)}
-        ${renderHour('Compline', day.compline)}
-      `
-    : '<p role="alert">This day isn\'t populated yet - see TASKS.md.</p>';
+    ? `${day.verified ? '' : '<aside class="source-warning">This psalter assignment is an unverified best-effort reconstruction. See SOURCES.md.</aside>'}
+       <div id="office-panel" role="tabpanel">${renderHour(activeLabel, day[selectedHour], day.readings)}</div>`
+    : '<p role="alert" class="notice">This day is not populated yet.</p>';
 
   document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-    <h1>Ordinariate Daily Prayer</h1>
-    <p>Scaffolding in progress — see TASKS.md for the build-out plan.</p>
-    <p>
-      <label>Date: <input type="date" id="date-picker" value="${toDateKey(date)}" /></label>
-    </p>
-    ${renderWeekNav(date)}
-    <p>
-      ${officeDay.date} — ${officeDay.celebrationName}<br/>
-      Season: ${officeDay.season}${officeDay.weekOfSeason ? `, week ${officeDay.weekOfSeason}` : ''}<br/>
-      Rank: ${officeDay.rank}<br/>
-      Psalter week: ${officeDay.psalterWeek}<br/>
-      Office of Readings: Year ${officeDay.officeYear}<br/>
-      Sunday cycle: Year ${officeDay.sundayCycle}
-    </p>
-    ${dayContent}
-  `;
+    <header class="site-header"><div><p class="site-kicker">Coverdale · Douay-Rheims</p><h1>Ordinariate Daily Prayer</h1></div>
+      <button id="today-button" class="quiet-button">Today</button></header>
+    <main>
+      <section class="date-controls" aria-label="Date navigation">
+        <button id="previous-day" class="arrow-button" aria-label="Previous day">←</button>
+        <label><span>Choose date</span><input type="date" id="date-picker" value="${toDateKey(date)}" /></label>
+        <button id="next-day" class="arrow-button" aria-label="Next day">→</button>
+      </section>
+      ${renderWeekNav(date)}
+      <header class="day-heading"><p>${new Intl.DateTimeFormat('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }).format(date)}</p>
+        <h2>${officeDay.celebrationName}</h2>
+        <div class="metadata"><span>${officeDay.season}${officeDay.weekOfSeason ? ` · Week ${officeDay.weekOfSeason}` : ''}</span><span>${officeDay.rank}</span><span>Psalter ${officeDay.psalterWeek}</span><span>Year ${officeDay.officeYear}</span></div>
+      </header>
+      <nav class="hour-tabs" role="tablist" aria-label="Hours of prayer">${hourTabs}</nav>
+      ${dayContent}
+    </main>
+    <footer>Texts: Coverdale Psalter and Douay-Rheims-Challoner Bible.</footer>`;
 
-  document.querySelector<HTMLInputElement>('#date-picker')!.addEventListener('change', (event) => {
-    render(parseDateKey((event.target as HTMLInputElement).value));
-  });
-
-  document.querySelectorAll<HTMLButtonElement>('nav[aria-label="Week"] button').forEach((button) => {
-    button.addEventListener('click', () => render(parseDateKey(button.dataset.date!)));
-  });
+  document.querySelector<HTMLInputElement>('#date-picker')!.addEventListener('change', (event) => render(parseDateKey((event.target as HTMLInputElement).value)));
+  document.querySelector('#today-button')!.addEventListener('click', () => render(new Date()));
+  document.querySelector('#previous-day')!.addEventListener('click', () => render(shiftDate(date, -1)));
+  document.querySelector('#next-day')!.addEventListener('click', () => render(shiftDate(date, 1)));
+  document.querySelectorAll<HTMLButtonElement>('[data-date]').forEach((button) => button.addEventListener('click', () => render(parseDateKey(button.dataset.date!))));
+  document.querySelectorAll<HTMLButtonElement>('[data-hour]').forEach((button) => button.addEventListener('click', () => {
+    selectedHour = button.dataset.hour as HourKey;
+    render(date);
+  }));
 }
 
 render(new Date());
 
-if ('serviceWorker' in navigator && import.meta.env.PROD) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js');
-  });
-}
+if ('serviceWorker' in navigator && import.meta.env.PROD) window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js'));

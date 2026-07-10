@@ -17,6 +17,16 @@ describe('resolveScriptureRef', () => {
     expect(Object.keys(verses)).toEqual(['1', '2', '3', '4', '5', '6', '7']);
   });
 
+  it('resolves discontinuous ranges with an implied chapter', () => {
+    const { verses } = resolveScriptureRef('Ex 15:1-3, 17-18');
+    expect(Object.keys(verses)).toEqual(['1', '2', '3', '17', '18']);
+  });
+
+  it('resolves discontinuous and cross-chapter ranges', () => {
+    const { verses } = resolveScriptureRef('1 Cor 12:31-13:2, 13:13');
+    expect(Object.keys(verses)).toEqual(['12:31', '13:1', '13:2', '13:13']);
+  });
+
   it('throws for an unknown book abbreviation', () => {
     expect(() => resolveScriptureRef('Xyz 1')).toThrow();
   });

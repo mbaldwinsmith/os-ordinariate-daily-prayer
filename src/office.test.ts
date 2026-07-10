@@ -50,7 +50,16 @@ describe('resolveDay', () => {
     // 2024-01-14 is a Sunday.
     const day = resolveDayOrThrow(new Date(2024, 0, 14));
     const canticleItem = day.lauds.psalmody.find((item) => item.type === 'canticle');
-    expect(canticleItem).toMatchObject({ type: 'canticle', fixedId: 'benedicite' });
+    expect(canticleItem).toMatchObject({ type: 'canticle', name: expect.stringContaining('Benedicite') });
+    expect(canticleItem && Object.values(canticleItem.verses).length).toBeGreaterThan(30);
+  });
+
+  it('resolves a variable biblical canticle to Douay-Rheims verse text', () => {
+    const day = resolveDayOrThrow(new Date(2024, 0, 15)); // Monday, Week II.
+    const canticleItem = day.lauds.psalmody.find((item) => item.type === 'canticle');
+    expect(canticleItem).toBeDefined();
+    expect(canticleItem && Object.values(canticleItem.verses).length).toBeGreaterThan(0);
+    expect(canticleItem && Object.values(canticleItem.verses).every((text) => text.length > 0)).toBe(true);
   });
 
   it('flags every generated skeleton day as unverified', () => {
