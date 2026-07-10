@@ -23,7 +23,7 @@ const HOUR_NAMES: HourName[] = ['officeOfReadings', 'lauds', 'daytimePrayer', 'v
 
 export type ResolvedPsalmodyItem =
   | { type: 'psalm'; ref: string; verses: Record<string, string> }
-  | Exclude<PsalmodyItem, { type: 'psalm' }>;
+  | { type: 'canticle'; ref: string; name?: string; verses: Record<string, string> };
 
 export interface HourView {
   psalmody: ResolvedPsalmodyItem[];
@@ -55,7 +55,19 @@ const GOSPEL_CANTICLE_BY_HOUR: Partial<Record<HourName, GospelCanticleId>> = {
 };
 
 function resolvePsalmody(psalmody: PsalmodyItem[]): ResolvedPsalmodyItem[] {
-  return psalmody.map((item) => (item.type === 'psalm' ? { ...item, ...resolvePsalmRef(item.ref) } : item));
+  return psalmody.map((item) => {
+    if (item.type === 'psalm') return { ...item, ...resolvePsalmRef(item.ref) };
+    if ('fixedId' in item) {
+      const canticle = fixedCanticles[item.fixedId];
+      return { type: 'canticle', ref: canticle.scriptureRef, name: canticle.name, verses: canticle.verses };
+    }
+    return {
+      type: 'canticle',
+      ref: item.scriptureRef,
+      name: item.name,
+      verses: resolveScriptureRef(item.scriptureRef).verses,
+    };
+  });
 }
 
 function resolveHour(psalmody: PsalmodyItem[], hourName: HourName): HourView {

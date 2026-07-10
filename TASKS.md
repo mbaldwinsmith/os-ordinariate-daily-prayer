@@ -274,15 +274,22 @@ for the 13 non-Easter-octave solemnities above, remain future incremental work.
 
 ## Phase 10 — Rendering & UI
 
-- [ ] Build the day-resolution function: Date -> resolved hour contents (psalm text,
+- [x] Build the day-resolution function: Date -> resolved hour contents (psalm text,
       canticle, reading text, antiphon-if-present), combining calendar.js + psalter data
       + office-of-readings data + proper overrides
-- [ ] Build hour views: Office of Readings, Lauds, Midday (or Terce/Sext/None as
+- [x] Build hour views: Office of Readings, Lauds, Midday (or Terce/Sext/None as
       preferred), Vespers, Compline
-- [ ] Build simple day/week navigation
-- [ ] Decide typography/visual design (tie in with existing Kathisma Psalter PWA visual
-      language if continuity is desired)
-- [ ] Build "today" default view plus date picker for arbitrary days
+- [x] Build simple day/week navigation
+- [x] Decide typography/visual design — a restrained breviary-inspired visual language:
+      warm paper, oxblood accents, serif reading text, compact sans-serif navigation,
+      responsive hour tabs, and accessible focus states
+- [x] Build "today" default view plus date picker for arbitrary days
+
+Phase 10 completion pass: the five offices now render as focused tabbed views rather than
+one long page; previous/next, today, date-picker, and week navigation are all available.
+Psalm, fixed canticle, variable biblical canticle, and Office of Readings texts resolve in
+full with verse-level typography. Liturgical metadata and sourcing warnings remain visible
+without interrupting the prayer text.
 
 ---
 
