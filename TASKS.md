@@ -29,19 +29,22 @@ Work through phases in order. Each task should be its own commit/PR where practi
 
 ## Phase 1 — Source Text Acquisition & Attribution
 
-- [ ] Source a clean, verified full-text Coverdale Psalter (1662 BCP) and note provenance
-      in `SOURCES.md`
-- [ ] Source a clean, verified full-text Douay-Rheims-Challoner Bible and note provenance
-      in `SOURCES.md`
-- [ ] Write `SOURCES.md` documenting exact editions used, public-domain status, and any
+- [~] Source a clean, verified full-text Coverdale Psalter (1662 BCP) and note provenance
+      in `SOURCES.md` — PARTIAL: only Psalms 1-65/150 available from a reachable source in
+      this session (network sandbox blocks eskimo.com/archive.org/justus.anglican.org); gap
+      documented in `SOURCES.md` with a plan to complete it
+- [x] Source a clean, verified full-text Douay-Rheims-Challoner Bible and note provenance
+      in `SOURCES.md` — complete, 37,255 verses/78 books
+- [x] Write `SOURCES.md` documenting exact editions used, public-domain status, and any
       transcription corrections made
-- [ ] Decide verse-numbering/reference convention up front (e.g. `Rom 1:1-7`,
+- [x] Decide verse-numbering/reference convention up front (e.g. `Rom 1:1-7`,
       `Ps 24` vs `Ps 24:1-6`) and write it down in `CONVENTIONS.md` before transcribing
       anything, so all later data entry is consistent
-- [ ] Build (or find) a script to pull the full Douay-Rheims text into a single structured
+- [x] Build (or find) a script to pull the full Douay-Rheims text into a single structured
       JSON keyed by book/chapter/verse, so later tasks can slice ranges programmatically
       rather than hand-copying every reading
-- [ ] Do the same for the Coverdale Psalter (structured JSON keyed by psalm/verse)
+- [x] Do the same for the Coverdale Psalter (structured JSON keyed by psalm/verse) — script
+      is complete and reusable; upstream data it pulls from is only 65/150 psalms (see above)
 
 ---
 
