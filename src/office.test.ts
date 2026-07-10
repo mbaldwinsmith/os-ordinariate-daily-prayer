@@ -37,6 +37,15 @@ describe('resolveDay', () => {
     expect(day.compline.psalmody.length).toBeGreaterThan(0);
   });
 
+  it('resolves psalm psalmody items to real Coverdale verse text', () => {
+    const day = resolveDayOrThrow(new Date(2024, 0, 14));
+    const psalmItem = day.officeOfReadings.psalmody.find((item) => item.type === 'psalm');
+    expect(psalmItem).toBeDefined();
+    if (psalmItem?.type !== 'psalm') throw new Error('expected a psalm item');
+    expect(Object.keys(psalmItem.verses).length).toBeGreaterThan(0);
+    expect(Object.values(psalmItem.verses).every((text) => text.length > 0)).toBe(true);
+  });
+
   it('uses Benedicite (not a scripture canticle) as the Sunday Lauds canticle', () => {
     // 2024-01-14 is a Sunday.
     const day = resolveDayOrThrow(new Date(2024, 0, 14));

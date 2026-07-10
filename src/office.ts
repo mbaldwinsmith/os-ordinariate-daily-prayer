@@ -6,12 +6,17 @@
 import fixedCanticles from '../data/texts/fixedCanticles.json';
 import type { OfficeDay } from './calendar';
 import { resolvePsalterDay, type PsalmodyItem } from './psalter';
+import { resolvePsalmRef } from './psalms';
 
 type GospelCanticleId = 'benedictus' | 'magnificat' | 'nuncDimittis';
 type HourName = 'officeOfReadings' | 'lauds' | 'daytimePrayer' | 'vespers' | 'compline';
 
+export type ResolvedPsalmodyItem =
+  | { type: 'psalm'; ref: string; verses: Record<string, string> }
+  | Exclude<PsalmodyItem, { type: 'psalm' }>;
+
 export interface HourView {
-  psalmody: PsalmodyItem[];
+  psalmody: ResolvedPsalmodyItem[];
   gospelCanticle: (typeof fixedCanticles)[GospelCanticleId] | null;
 }
 
@@ -31,10 +36,14 @@ const GOSPEL_CANTICLE_BY_HOUR: Partial<Record<HourName, GospelCanticleId>> = {
   compline: 'nuncDimittis',
 };
 
+function resolvePsalmody(psalmody: PsalmodyItem[]): ResolvedPsalmodyItem[] {
+  return psalmody.map((item) => (item.type === 'psalm' ? { ...item, ...resolvePsalmRef(item.ref) } : item));
+}
+
 function resolveHour(psalmody: PsalmodyItem[], hourName: HourName): HourView {
   const gospelId = GOSPEL_CANTICLE_BY_HOUR[hourName];
   return {
-    psalmody,
+    psalmody: resolvePsalmody(psalmody),
     gospelCanticle: gospelId ? fixedCanticles[gospelId] : null,
   };
 }

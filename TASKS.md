@@ -29,12 +29,13 @@ Work through phases in order. Each task should be its own commit/PR where practi
 
 ## Phase 1 — Source Text Acquisition & Attribution
 
-- [~] Source a clean, verified full-text Coverdale Psalter (1662 BCP) and note provenance
-      in `SOURCES.md` — PARTIAL: only Psalms 1-65/150 available from a reachable source in
-      this session (network sandbox blocks eskimo.com/archive.org/justus.anglican.org); gap
-      documented in `SOURCES.md` with a plan to complete it
+- [x] Source a clean, verified full-text Coverdale Psalter (1662 BCP) and note provenance
+      in `SOURCES.md` — complete as of Phase 6: all 150 psalms/2,507 verses, sourced from
+      `pmachapman/GoTo.Bible` (superseding the initial Psalms-1-65-only source from
+      `santeyio/st-andrews-psalter` used to get this phase moving)
 - [x] Source a clean, verified full-text Douay-Rheims-Challoner Bible and note provenance
-      in `SOURCES.md` — complete, 37,255 verses/78 books
+      in `SOURCES.md` — complete, 35,817 verses/73 books (apocryphal appendix excluded in
+      Phase 3 - see that phase's notes)
 - [x] Write `SOURCES.md` documenting exact editions used, public-domain status, and any
       transcription corrections made
 - [x] Decide verse-numbering/reference convention up front (e.g. `Rom 1:1-7`,
@@ -44,7 +45,7 @@ Work through phases in order. Each task should be its own commit/PR where practi
       JSON keyed by book/chapter/verse, so later tasks can slice ranges programmatically
       rather than hand-copying every reading
 - [x] Do the same for the Coverdale Psalter (structured JSON keyed by psalm/verse) — script
-      is complete and reusable; upstream data it pulls from is only 65/150 psalms (see above)
+      is complete and reusable; now pulls all 150 psalms (see above)
 
 ---
 
@@ -159,13 +160,28 @@ Babel-transpiled CJS build) instead: `resolve.mainFields: ['browser', 'main', 'm
 
 ## Phase 6 — Psalm Text Backfill (Coverdale)
 
-- [ ] Week 1: transcribe/verify all psalm text referenced across all 7 days x 5 hours
-- [ ] Week 2: same
-- [ ] Week 3: same
-- [ ] Week 4: same
-- [ ] Cross-check verse divisions where a single Coverdale psalm is split across multiple
-      hours (e.g. Ps 119) against your `CONVENTIONS.md` reference format
-- [ ] Spot-check a sample of transcribed psalms against the source for accuracy
+- [x] Week 1: transcribe/verify all psalm text referenced across all 7 days x 5 hours
+- [x] Week 2: same
+- [x] Week 3: same
+- [x] Week 4: same
+
+  All four weeks done together: `scripts/fetch-coverdale-psalter.mjs` now sources the
+  complete 150-psalm Coverdale Psalter (see `SOURCES.md` - superseded the Phase 1 partial
+  source), so every psalm reference the Phase 5 skeleton generates resolves. `src/psalms.ts`
+  (`resolvePsalmRef`) does the resolution, including verse-range slicing; wired into
+  `src/office.ts`/`src/main.ts` and verified with a real browser smoke test rendering full
+  psalm text for today, not just references.
+- [x] Cross-check verse divisions where a single Coverdale psalm is split across multiple
+      hours (e.g. Ps 119) against your `CONVENTIONS.md` reference format — Ps 119's 176
+      verses divide evenly into the skeleton generator's 22 eight-verse Daytime Prayer
+      sections (22 x 8 = 176 exactly, no partial section); confirmed via
+      `src/psalms.test.ts`
+- [x] Spot-check a sample of transcribed psalms against the source for accuracy —
+      Psalms 1, 22, and 51 cross-checked word-for-word against the Phase 1 source before
+      switching (see `SOURCES.md`); Psalms 100 and 150 spot-checked against well-known text.
+      The remaining ~145 psalms are not individually re-verified against a second source -
+      this is real, not-yet-closed residual risk, same category as the psalter skeleton's
+      own unverified day/hour assignment (Phase 5)
 
 ---
 

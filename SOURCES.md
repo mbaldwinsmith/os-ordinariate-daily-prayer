@@ -43,54 +43,46 @@ Provenance, licensing, and known gaps for the two public-domain texts this app u
 
 ## Coverdale Psalter (psalms)
 
-- **Text**: the Psalter from the 1662 Book of Common Prayer (Church of England) — Miles
-  Coverdale's translation as carried into the Great Bible and thence the BCP, pointed for
-  singing/recitation. Public domain.
-- **Acquired via**: [`santeyio/st-andrews-psalter`](https://github.com/santeyio/st-andrews-psalter),
-  commit `680dd72f800fe7c43a99c74fb094ec953ae33bdf`, file `src/psalms/psalms.js`. That repo
-  is a personal chant-pointing PWA project with **no declared license** for its own
-  transcription/HTML formatting. Only the underlying plain public-domain wording was
-  extracted here — all Gregorian-tone assignments and `<u>`-tag chant-pointing markup were
-  stripped by `scripts/fetch-coverdale-psalter.mjs` before anything was committed to this
-  repo, so no copyrightable expression from that project is retained.
-- **Ingestion script**: `scripts/fetch-coverdale-psalter.mjs` → `data/texts/coverdale-psalter.json`.
-
-### Known gap — INCOMPLETE, needs finishing
-
-The upstream source is itself an unfinished transcription: **only Psalms 1-65 of 150 are
-present** (977 verses), and it has no canticle text at all. This was a deliberate,
-user-approved tradeoff to get Phase 1 moving rather than block on it — see the `missing`
-array in `data/texts/coverdale-psalter.json` for the exact list (66-150).
-
-This session's network sandbox blocks direct access to the usual full-text sources for this
-psalter (`eskimo.com`, `archive.org`, `justus.anglican.org`, Project Gutenberg's full-text
-pages all rejected by the outbound proxy's allowlist) — only GitHub/npm/PyPI-style hosts are
-reachable. Completing the psalter requires one of:
-
-1. A future session with broader network access, to pull from one of the fuller sources
-   identified during research (`eskimo.com/~lhowell/bcp1662/psalter/`, an OCR'd 1662 BCP on
-   archive.org, or EEBO-TCP's TEI-XML transcription of an actual 17th-century printing).
-2. Someone pasting/uploading the missing text directly.
-3. Manual transcription from a physical or PDF copy, verse-checked against `CONVENTIONS.md`.
-
-Whichever path is used, extend `scripts/fetch-coverdale-psalter.mjs` (or add a second
-ingestion step) rather than hand-editing the generated JSON, so the pipeline stays
-reproducible.
-
-### Wording discrepancy to verify
-
-The Gloria Patri extracted from the source reads "...and to the Holy **Spirit**..."; the
-traditional 1662 wording is "...and to the Holy **Ghost**...". This may be a modernization
-introduced by the upstream project rather than the authentic 1662 text. Needs checking
-against a primary source before this ships — tracked here rather than silently "corrected"
-from memory.
-
-### Verification status
-
-Spot-checked Psalms 1 and 22 against known text during ingestion (matched exactly once
-formatting artifacts were stripped); the rest of Psalms 1-65 has not been individually
-verified. Full verification is Phase 6's job ("spot-check a sample of transcribed psalms
-against the source for accuracy").
+- **Text**: the Coverdale Psalter (Miles Coverdale's translation, 1539, as carried into the
+  Great Bible and thence every English Book of Common Prayer), standard Hebrew/Masoretic
+  numbering. Public domain (Crown Copyright applies to printing the BCP text specifically
+  in the United Kingdom - see
+  [Cambridge University Press's rights and permissions page](https://www.cambridge.org/universitypress/bibles/about/rights-and-permissions) -
+  not relevant to this project's use).
+- **Acquired via**: [`pmachapman/GoTo.Bible`](https://github.com/pmachapman/GoTo.Bible),
+  commit `4631539bf6b03cab4fe52dcb19caaa1719eac557`, file
+  `GoToBible.Providers/Texts/BCPPSALMS.txt` (LGPL-2.1-licensed repo; the bundled BCP text
+  itself is called out as public domain in the repo's own translation metadata,
+  independent of that license). Plain "`Psalm N:V  text`" format, all 150 psalms, no markup
+  to strip.
+- **Ingestion script**: `scripts/fetch-coverdale-psalter.mjs` → `data/texts/coverdale-psalter.json`
+  (2,507 verses across all 150 psalms - complete, no gaps).
+- **Superseded source**: Phase 1 initially used
+  [`santeyio/st-andrews-psalter`](https://github.com/santeyio/st-andrews-psalter), which was
+  only Psalms 1-65 of 150 (an unfinished upstream transcription) and required stripping
+  chant-pointing markup. Before switching, the two sources' wording was cross-checked
+  against each other for Psalms 1, 22, and 51: matched exactly aside from expected
+  typographic normalization (this project's `*` mediation mark vs. the new source's `:`,
+  and small-caps `LORD` vs. plain `Lord` - both just different printing conventions, not
+  wording differences) plus a handful of genuine minor textual variants consistent with
+  different BCP printings over the centuries (e.g. "He trusted in the LORD" vs. "He trusted
+  in God" at Ps 22:8). Given that, switching entirely to the new source for all 150 psalms
+  - rather than keeping a two-source hybrid - was the safer choice for internal consistency,
+  even though it means Psalms 1-65 are no longer verbatim what shipped in the Phase 1 PR.
+- **Gloria Patri wording resolved**: Phase 1 flagged "Holy Spirit" (from the old source) as
+  a possible modernization of the traditional "Holy Ghost", but didn't have primary-source
+  backing to correct it. A GitHub code search across many independent traditional-liturgy
+  sources (Anglican, Roman Breviary, and general English prayer-book texts) turned up
+  "Holy Ghost" overwhelmingly and consistently - including `dailyoffice2019`'s own
+  translation-mapping file explicitly treating "Holy Ghost" as the traditional form that
+  "Holy Spirit" modernizes. Corrected to "Holy Ghost" in `scripts/fetch-coverdale-psalter.mjs`
+  with that evidence noted, rather than left as an open discrepancy or "silently" changed
+  from memory alone.
+- **Verification status**: cross-checked against the previous source for Psalms 1, 22, and
+  51 (see above); Psalm 100 and 150 spot-checked against well-known text during ingestion.
+  The remaining ~145 psalms have not been individually verified against a second primary
+  source. Full verification remains Phase 6's job ("spot-check a sample of transcribed
+  psalms against the source for accuracy").
 
 ## Fixed canticles (Benedictus, Magnificat, Nunc Dimittis, Benedicite)
 

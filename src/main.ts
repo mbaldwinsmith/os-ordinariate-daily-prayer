@@ -24,14 +24,19 @@ function parseDateKey(dateKey: string): Date {
   return new Date(year, month - 1, day);
 }
 
+function renderPsalmodyItem(item: HourView['psalmody'][number]): string {
+  if (item.type === 'psalm') {
+    const text = Object.values(item.verses).join(' ');
+    return `<p><strong>${item.ref}</strong><br/>${text}</p>`;
+  }
+  if ('scriptureRef' in item) {
+    return `<p><strong>${item.name ?? 'Canticle'}</strong> (${item.scriptureRef}) <em>- text not yet resolved, see TASKS.md Phase 7</em></p>`;
+  }
+  return '<p><strong>Benedicite</strong> <em>- see below</em></p>';
+}
+
 function renderHour(label: string, hour: HourView): string {
-  const psalmodyText = hour.psalmody
-    .map((item) => {
-      if (item.type === 'psalm') return item.ref;
-      if ('scriptureRef' in item) return `${item.name ?? 'Canticle'} (${item.scriptureRef})`;
-      return 'Benedicite';
-    })
-    .join(', ');
+  const psalmody = hour.psalmody.map(renderPsalmodyItem).join('');
 
   const gospelCanticle = hour.gospelCanticle
     ? `<p><strong>${hour.gospelCanticle.name}</strong><br/>${hour.gospelCanticle.verses['1']}</p>`
@@ -39,7 +44,7 @@ function renderHour(label: string, hour: HourView): string {
 
   return `
     <h2>${label}</h2>
-    <p>Psalmody: ${psalmodyText}</p>
+    ${psalmody}
     ${gospelCanticle}
   `;
 }
