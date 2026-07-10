@@ -186,6 +186,23 @@ verse and stored without the clause suffix (for example `Am 5:8, 9b` becomes
 `Am 5:8-9`). Discontiguous and cross-chapter references use the comma-separated syntax
 documented above.
 
+## Prayer Book prayer supplement
+
+The optional Prayer Book layer is an Anglican-patrimony devotional supplement, not the
+appointed Roman `preces`. It is enabled when no explicit user preference exists and can
+be disabled persistently with the `includePrayerBookPrayers` local-storage preference.
+Prayer texts and assignments live in `data/texts/prayerBookPrayers.json` and resolve
+separately from the underlying Office.
+
+Lauds uses the BCP Suffrages, morning Collect for Peace, and Collect for Grace; Vespers
+uses the Suffrages, evening Collect for Peace, and Collect for Aid against All Perils.
+Office of Readings uses the Prayer of St John Chrysostom, Daytime Prayer uses “Prevent
+us, O Lord,” and Compline uses the Collect for Aid against All Perils. The abbreviated
+Litany is added to Lauds on Sundays, Wednesdays, and Fridays. Royal and state petitions
+are deliberately omitted because the application is not bound to one civil jurisdiction.
+No Collect of the Day is supplied: mapping the BCP temporal calendar onto the modern
+Roman calendar would risk presenting the wrong collect as appointed.
+
 ## Canonical psalter structure
 
 `canonical-psalter-skeleton.json` is the single structural source for the four-week

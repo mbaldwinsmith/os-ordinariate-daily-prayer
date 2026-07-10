@@ -365,3 +365,26 @@ text as though it were part of the official Liturgy of the Hours.
   the underlying approved printed edition was not independently reachable for a
   line-by-line check. Clause-level `a`/`b` references are expanded to whole DRC verses as
   documented in `CONVENTIONS.md`.
+
+## Prayer Book prayers and intercessions
+
+- **Primary text**: *The Book of Common Prayer* (1662), cross-checked against the
+  Baskerville 1762 scan preserved by the Smithsonian Libraries and the Church of
+  England's online BCP Morning and Evening Prayer implementation.
+- **Primary scan**: `https://doi.org/10.5479/sil.391524.39088006511620`, explicitly
+  identified by the Smithsonian as public domain/CC0. The convenient facsimile used for
+  page inspection is `https://justus.anglican.org/resources/bcp/1662/Baskerville.pdf`.
+- **Online witnesses**: `https://daily.commonworship.com/daily.cgi?book=bcp&today_mp=1`
+  and `?today_ep=1` for the Suffrages and fixed collects; the online implementation itself
+  has a modern copyright notice, so it is used as a checking witness rather than the
+  source of legal status for the historic text.
+- **Litany witness**: `https://www.mylectionary.com/bcp/litany`, checked against the
+  public-domain facsimile. The app carries a deliberately abbreviated selection and omits
+  petitions for the Sovereign, Royal Family, Council, nobility, and magistrates because
+  it is not jurisdiction-specific. This editorial omission is explicit in the data.
+- **Assignments**: Morning and Evening Prayer retain their native BCP positions. Office
+  of Readings, Daytime Prayer, and Compline do not exist as such in 1662; their assigned
+  prayers are a documented devotional adaptation, not an authorised BCP rubric or Roman
+  Liturgy of the Hours assignment.
+- **Verification status**: all included historic texts are `"verified": true`; no newly
+  composed prayer prose is present.
