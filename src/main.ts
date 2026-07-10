@@ -1,6 +1,7 @@
 import './style.css';
 import { getOfficeDay, type DayOfWeek } from './calendar';
 import { resolveDay, type HourView, type ReadingsView } from './office';
+import { getTheme, setTheme, watchSystemTheme } from './theme';
 
 const DAY_LABELS: Record<DayOfWeek, string> = {
   sunday: 'Sun', monday: 'Mon', tuesday: 'Tue', wednesday: 'Wed',
@@ -17,6 +18,7 @@ const HOURS = [
 type HourKey = (typeof HOURS)[number][0];
 
 let selectedHour: HourKey = 'lauds';
+let currentDate = new Date();
 
 function toDateKey(date: Date): string {
   const year = date.getFullYear();
@@ -89,6 +91,7 @@ function renderWeekNav(selected: Date): string {
 }
 
 function renderImpl(date: Date): void {
+  currentDate = date;
   const officeDay = getOfficeDay(date);
   const day = resolveDay(officeDay);
   const activeLabel = HOURS.find(([key]) => key === selectedHour)![1];
@@ -100,7 +103,10 @@ function renderImpl(date: Date): void {
 
   document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <header class="site-header"><div><p class="site-kicker">Coverdale · Douay-Rheims</p><h1>Ordinariate Daily Prayer</h1></div>
-      <button id="today-button" class="quiet-button">Today</button></header>
+      <div class="header-actions">
+        <button id="theme-toggle" class="quiet-button icon-button" type="button" aria-label="Switch to ${getTheme() === 'dark' ? 'light' : 'dark'} theme" aria-pressed="${getTheme() === 'dark'}">${getTheme() === 'dark' ? '🌛' : '🌞'}</button>
+        <button id="today-button" class="quiet-button">Today</button>
+      </div></header>
     <main>
       <section class="date-controls" aria-label="Date navigation">
         <button id="previous-day" class="arrow-button" aria-label="Previous day">←</button>
@@ -118,6 +124,10 @@ function renderImpl(date: Date): void {
     <footer>Texts: Coverdale Psalter and Douay-Rheims-Challoner Bible.</footer>`;
 
   document.querySelector<HTMLInputElement>('#date-picker')!.addEventListener('change', (event) => render(parseDateKey((event.target as HTMLInputElement).value)));
+  document.querySelector('#theme-toggle')!.addEventListener('click', () => {
+    setTheme(getTheme() === 'dark' ? 'light' : 'dark');
+    render(date);
+  });
   document.querySelector('#today-button')!.addEventListener('click', () => render(new Date()));
   document.querySelector('#previous-day')!.addEventListener('click', () => render(shiftDate(date, -1)));
   document.querySelector('#next-day')!.addEventListener('click', () => render(shiftDate(date, 1)));
@@ -142,5 +152,6 @@ function render(date: Date): void {
 }
 
 render(new Date());
+watchSystemTheme(() => render(currentDate));
 
 if ('serviceWorker' in navigator && import.meta.env.PROD) window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js'));

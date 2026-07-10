@@ -4,6 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#6b1220" />
+    <!--
+      Resolves the light/dark theme synchronously, before first paint, so the
+      page never flashes the wrong theme on load. Duplicates the two theme-
+      color hex values from src/theme.ts because this has to run before any
+      module script - see that file for the single source of truth on the
+      toggle logic itself.
+    -->
+    <script>
+      (function () {
+        var theme;
+        try {
+          var stored = localStorage.getItem('theme');
+          theme = stored === 'dark' || stored === 'light'
+            ? stored
+            : (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        } catch (e) {
+          theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.setAttribute('data-theme', theme);
+        document.querySelector('meta[name="theme-color"]').setAttribute('content', theme === 'dark' ? '#1b1512' : '#6b1220');
+      })();
+    </script>
     <meta name="description" content="Offline-first Daily Office app for the Personal Ordinariate of Our Lady of Walsingham, using the Coverdale Psalter and Douay-Rheims-Challoner readings." />
     <link rel="icon" type="image/svg+xml" href="./icons/icon.svg" />
     <link rel="apple-touch-icon" href="./icons/icon-192.png" />
