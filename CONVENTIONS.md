@@ -38,8 +38,11 @@ Format: `<Book> <chapter>:<verse>[-<verse>][, <chapter>:<verse>[-<verse>]]*`
 - Discontiguous pericope (common in Office of Readings second readings): comma-separated
   segments, e.g. `1 Cor 12:31-13:8, 13:13`
 
-Book abbreviations (used in reference strings; the canonical full names below are what's
-actually used as JSON keys in `data/texts/douay-rheims-challoner.json`, produced by
+Book abbreviations (also machine-readable at `data/texts/book-abbreviations.json`, the
+single source of truth both `scripts/generate-office-of-readings.mjs` and
+`src/scripture.ts` read from - keep that file and this table in sync if either changes;
+the canonical full names below are what's actually used as JSON keys in
+`data/texts/douay-rheims-challoner.json`, produced by
 `scripts/fetch-douay-rheims.mjs` — that source repo normalizes book names/numbering to a
 common cross-translation scheme, so e.g. it says "I Samuel"/"I Kings" rather than the
 traditional Douay "1 Kings"/"3 Kings", and "Song of Solomon"/"Sirach"/"Revelation of John"

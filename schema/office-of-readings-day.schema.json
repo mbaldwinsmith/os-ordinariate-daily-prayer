@@ -3,9 +3,13 @@
   "$id": "https://os-ordinariate-daily-prayer/schema/office-of-readings-day.schema.json",
   "title": "One day's Office of Readings (data/office-of-readings/<yearI|yearII>/<season>/weekN/<day>.json)",
   "type": "object",
-  "required": ["scriptureReading"],
+  "required": ["scriptureReading", "verified"],
   "additionalProperties": false,
   "properties": {
+    "verified": {
+      "type": "boolean",
+      "description": "false = a best-effort reconstruction pending cross-check against an authoritative lectionary index (see SOURCES.md); true once confirmed."
+    },
     "scriptureReading": {
       "type": "object",
       "required": ["ref"],

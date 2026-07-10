@@ -187,19 +187,34 @@ Babel-transpiled CJS build) instead: `resolve.mainFields: ['browser', 'main', 'm
 
 ## Phase 7 — Office of Readings (biggest data-entry phase — sequence deliberately)
 
-- [ ] Build Year I / Ordinary Time first (most-used, most days), week by week
-- [ ] Build Year II / Ordinary Time
-- [ ] Build Year I & II / Advent
-- [ ] Build Year I & II / Christmas season
-- [ ] Build Year I & II / Lent
-- [ ] Build Year I & II / Triduum + Easter Octave
-- [ ] Build Year I & II / Easter season
-- [ ] For each: scripture reading resolves via reference into `texts/scripture.json`,
-      extending that file incrementally rather than bundling the whole Bible up front
-- [ ] Patristic/hagiographic second readings: decide sourcing separately — Douay-Rheims
+- [x] Build Year I / Ordinary Time first (most-used, most days), week by week —
+      `scripts/generate-office-of-readings.mjs` → 238 files (34 weeks x 7 days). Same
+      caveat as the Phase 5 psalter skeleton: no GitHub-reachable lectionary index exists
+      in this session's network sandbox, so this is a real-scripture but unverified
+      week-to-book reconstruction (user-approved), not a transcription of the official
+      assignment. Every file is `"verified": false`. See `SOURCES.md`.
+- [ ] Build Year II / Ordinary Time — deliberately deferred (user-scoped this pass to
+      Year I only)
+- [ ] Build Year I & II / Advent — deferred
+- [ ] Build Year I & II / Christmas season — deferred
+- [ ] Build Year I & II / Lent — deferred
+- [ ] Build Year I & II / Triduum + Easter Octave — deferred
+- [ ] Build Year I & II / Easter season — deferred
+- [x] For each: scripture reading resolves via reference into `texts/scripture.json`,
+      extending that file incrementally rather than bundling the whole Bible up front —
+      `src/scripture.ts` (`resolveScriptureRef`), wired into `src/office.ts`/`src/main.ts`
+      and verified with a real browser smoke test rendering full reading text (e.g.
+      Exodus 1) for a Year I date. Extracted the book-abbreviation table out of
+      `CONVENTIONS.md` into a schema-validated `data/texts/book-abbreviations.json` so the
+      generator and the runtime resolver can't drift apart; `scripts/validate-data.mjs` now
+      also cross-checks that every generated `scriptureReading.ref` actually resolves in
+      the DRC text, not just that the JSON is schema-shaped
+- [x] Patristic/hagiographic second readings: decide sourcing separately — Douay-Rheims
       doesn't cover these; identify a public-domain source (e.g. early Church Fathers
       texts) or, as a pragmatic MVP fallback, omit second readings initially and note as
-      a known gap
+      a known gap — took the MVP fallback: `patristicReading: null` throughout, surfaced
+      visibly in the UI rather than silently blank. Sourcing a real patristic source
+      remains open for whenever Year II/the seasons are built out.
 
 ---
 

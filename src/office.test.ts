@@ -63,4 +63,21 @@ describe('resolveDay', () => {
     const day = resolveDay(getOfficeDay(new Date(2024, 2, 31)));
     expect(day).toBeNull();
   });
+
+  it('resolves Office of Readings scripture text for Year I Ordinary Time, with no patristic reading', () => {
+    // 2025-01-19: 2nd Sunday of Ordinary Time, an odd (Year I) year.
+    const officeDay = getOfficeDay(new Date(2025, 0, 19));
+    expect(officeDay.officeYear).toBe('I');
+    const day = resolveDayOrThrow(new Date(2025, 0, 19));
+    expect(day.readings).not.toBeNull();
+    expect(day.readings?.scriptureReading.ref).toMatch(/^[A-Za-z0-9 ]+ \d+$/);
+    expect(Object.values(day.readings!.scriptureReading.verses).length).toBeGreaterThan(0);
+    expect(day.readings?.patristicReading).toBeNull();
+  });
+
+  it('returns null readings for Year II, which is not populated yet', () => {
+    // 2024-01-14: also 2nd Sunday of Ordinary Time, but an even (Year II) year.
+    const day = resolveDayOrThrow(new Date(2024, 0, 14));
+    expect(day.readings).toBeNull();
+  });
 });
