@@ -32,15 +32,16 @@ describe('resolveScriptureRef', () => {
   });
 
   it('resolves every week-based Office of Readings scripture reference generated so far', () => {
-    const files = import.meta.glob<{ scriptureReading: { ref: string } }>(
+    const files = import.meta.glob<{ scriptureReading: { ref?: string; refs?: string[] } }>(
       '../data/office-of-readings/**/week*/*.json',
       { eager: true, import: 'default' },
     );
-    const refs = Object.values(files).map((f) => f.scriptureReading.ref);
-    expect(refs.length).toBe(700); // (34 + 4 + 5 + 7) weeks x 2 years x 7 days
-    for (const ref of refs) {
-      expect(() => resolveScriptureRef(ref)).not.toThrow();
-    }
+    const refs = Object.values(files).flatMap((f) => f.scriptureReading.refs ?? [f.scriptureReading.ref!]);
+    expect(Object.keys(files).length).toBe(700); // (34 + 4 + 5 + 7) weeks x 2 years x 7 days
+    const invalid = refs.filter((ref) => {
+      try { resolveScriptureRef(ref); return false; } catch { return true; }
+    });
+    expect(invalid).toEqual([]);
   });
 
   it('resolves every proper (Triduum/Christmas/Ash-Wednesday-stub) first-reading reference', () => {

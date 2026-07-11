@@ -12,10 +12,14 @@
     },
     "scriptureReading": {
       "type": "object",
-      "required": ["ref"],
       "additionalProperties": false,
+      "oneOf": [
+        { "required": ["ref"], "properties": { "ref": {} } },
+        { "required": ["refs"], "properties": { "refs": {} } }
+      ],
       "properties": {
         "ref": { "type": "string", "minLength": 1, "description": "See CONVENTIONS.md reference syntax" },
+        "refs": { "type": "array", "minItems": 2, "items": { "type": "string", "minLength": 1 }, "description": "Multiple references when one appointed reading crosses a biblical-book boundary." },
         "title": { "type": "string" }
       }
     },

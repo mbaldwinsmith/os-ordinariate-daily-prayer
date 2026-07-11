@@ -1,0 +1,2004 @@
+{
+  "source": "https://catholic-resources.org/LoH/OfficeOfReadings-Biblical.html",
+  "sourceUpdated": "2025-10-19",
+  "cycle": "one-year printed Liturgy of the Hours",
+  "entries": {
+    "advent:week1:sunday": {
+      "refs": [
+        "Is 1:1-18"
+      ],
+      "sourceLabel": "1st Sunday of Advent"
+    },
+    "advent:week1:monday": {
+      "refs": [
+        "Is 1:21-27, 2:1-5"
+      ],
+      "sourceLabel": "1st Week of Advent: Monday"
+    },
+    "advent:week1:tuesday": {
+      "refs": [
+        "Is 2:6-22, 4:2-6"
+      ],
+      "sourceLabel": "1st Week of Advent: Tuesday"
+    },
+    "advent:week1:wednesday": {
+      "refs": [
+        "Is 5:1-7"
+      ],
+      "sourceLabel": "1st Week of Advent: Wednesday"
+    },
+    "advent:week1:thursday": {
+      "refs": [
+        "Is 16:1-5, 17:4-8"
+      ],
+      "sourceLabel": "1st Week of Advent: Thursday"
+    },
+    "advent:week1:friday": {
+      "refs": [
+        "Is 19:16-25"
+      ],
+      "sourceLabel": "1st Week of Advent: Friday"
+    },
+    "advent:week1:saturday": {
+      "refs": [
+        "Is 21:6-12"
+      ],
+      "sourceLabel": "1st Week of Advent: Saturday"
+    },
+    "advent:week2:sunday": {
+      "refs": [
+        "Is 22:8-23"
+      ],
+      "sourceLabel": "2nd Sunday of Advent"
+    },
+    "advent:week2:monday": {
+      "refs": [
+        "Is 24:1-18"
+      ],
+      "sourceLabel": "2nd Week of Advent: Monday"
+    },
+    "advent:week2:tuesday": {
+      "refs": [
+        "Is 24:19-25:5"
+      ],
+      "sourceLabel": "2nd Week of Advent: Tuesday"
+    },
+    "advent:week2:wednesday": {
+      "refs": [
+        "Is 25:6-26:6"
+      ],
+      "sourceLabel": "2nd Week of Advent: Wednesday"
+    },
+    "advent:week2:thursday": {
+      "refs": [
+        "Is 26:7-21"
+      ],
+      "sourceLabel": "2nd Week of Advent: Thursday"
+    },
+    "advent:week2:friday": {
+      "refs": [
+        "Is 27:1-13"
+      ],
+      "sourceLabel": "2nd Week of Advent: Friday"
+    },
+    "advent:week2:saturday": {
+      "refs": [
+        "Is 29:1-8"
+      ],
+      "sourceLabel": "2nd Week of Advent: Saturday"
+    },
+    "advent:week3:sunday": {
+      "refs": [
+        "Is 29:13-24"
+      ],
+      "sourceLabel": "3rd Sunday of Advent"
+    },
+    "advent:week3:monday": {
+      "refs": [
+        "Is 30:18-26"
+      ],
+      "sourceLabel": "3rd Week of Advent: Monday"
+    },
+    "advent:week3:tuesday": {
+      "refs": [
+        "Is 30:27-33, 31:4-9"
+      ],
+      "sourceLabel": "3rd Week of Advent: Tuesday"
+    },
+    "advent:week3:wednesday": {
+      "refs": [
+        "Is 31:1-3, 32:1-8"
+      ],
+      "sourceLabel": "3rd Week of Advent: Wednesday"
+    },
+    "advent:week3:thursday": {
+      "refs": [
+        "Is 32:15-33:6"
+      ],
+      "sourceLabel": "3rd Week of Advent: Thursday"
+    },
+    "advent:week3:friday": {
+      "refs": [
+        "Is 33:7-24"
+      ],
+      "sourceLabel": "3rd Week of Advent: Friday"
+    },
+    "lent:week1:sunday": {
+      "refs": [
+        "Ex 5:1-6:1"
+      ],
+      "sourceLabel": "1st Sunday of Lent"
+    },
+    "lent:week1:monday": {
+      "refs": [
+        "Ex 6:2-13"
+      ],
+      "sourceLabel": "1st Week of Lent, Monday"
+    },
+    "lent:week1:tuesday": {
+      "refs": [
+        "Ex 6:29-7:25"
+      ],
+      "sourceLabel": "1st Week of Lent, Tuesday"
+    },
+    "lent:week1:wednesday": {
+      "refs": [
+        "Ex 10:21-11:10"
+      ],
+      "sourceLabel": "1st Week of Lent, Wednesday"
+    },
+    "lent:week1:thursday": {
+      "refs": [
+        "Ex 12:1-20"
+      ],
+      "sourceLabel": "1st Week of Lent, Thursday"
+    },
+    "lent:week1:friday": {
+      "refs": [
+        "Ex 12:21-36"
+      ],
+      "sourceLabel": "1st Week of Lent, Friday"
+    },
+    "lent:week1:saturday": {
+      "refs": [
+        "Ex 12:37-49, 13:11-16"
+      ],
+      "sourceLabel": "1st Week of Lent, Saturday"
+    },
+    "lent:week2:sunday": {
+      "refs": [
+        "Ex 13:17-14:9"
+      ],
+      "sourceLabel": "2nd Sunday of Lent"
+    },
+    "lent:week2:monday": {
+      "refs": [
+        "Ex 14:10-31"
+      ],
+      "sourceLabel": "2nd Week of Lent, Monday"
+    },
+    "lent:week2:tuesday": {
+      "refs": [
+        "Ex 16:1-18, 35"
+      ],
+      "sourceLabel": "2nd Week of Lent, Tuesday"
+    },
+    "lent:week2:wednesday": {
+      "refs": [
+        "Ex 17:1-16"
+      ],
+      "sourceLabel": "2nd Week of Lent, Wednesday"
+    },
+    "lent:week2:thursday": {
+      "refs": [
+        "Ex 18:13-27"
+      ],
+      "sourceLabel": "2nd Week of Lent, Thursday"
+    },
+    "lent:week2:friday": {
+      "refs": [
+        "Ex 19:1-19, 20:18-21"
+      ],
+      "sourceLabel": "2nd Week of Lent, Friday"
+    },
+    "lent:week2:saturday": {
+      "refs": [
+        "Ex 20:1-17"
+      ],
+      "sourceLabel": "2nd Week of Lent, Saturday"
+    },
+    "lent:week3:sunday": {
+      "refs": [
+        "Ex 22:20-23:9"
+      ],
+      "sourceLabel": "3rd Sunday of Lent"
+    },
+    "lent:week3:monday": {
+      "refs": [
+        "Ex 24:1-18"
+      ],
+      "sourceLabel": "3rd Week of Lent, Monday"
+    },
+    "lent:week3:tuesday": {
+      "refs": [
+        "Ex 32:1-20"
+      ],
+      "sourceLabel": "3rd Week of Lent, Tuesday"
+    },
+    "lent:week3:wednesday": {
+      "refs": [
+        "Ex 33:7-11, 18-23, 34:5-9, 29-35"
+      ],
+      "sourceLabel": "3rd Week of Lent, Wednesday"
+    },
+    "lent:week3:thursday": {
+      "refs": [
+        "Ex 34:10-28"
+      ],
+      "sourceLabel": "3rd Week of Lent, Thursday"
+    },
+    "lent:week3:friday": {
+      "refs": [
+        "Ex 35:30-36:1, 37:1-9"
+      ],
+      "sourceLabel": "3rd Week of Lent, Friday"
+    },
+    "lent:week3:saturday": {
+      "refs": [
+        "Ex 40:16-38"
+      ],
+      "sourceLabel": "3rd Week of Lent, Saturday",
+      "renderable": false
+    },
+    "lent:week4:sunday": {
+      "refs": [
+        "Lv 8:1-17, 9:22-24"
+      ],
+      "sourceLabel": "4th Sunday of Lent"
+    },
+    "lent:week4:monday": {
+      "refs": [
+        "Lv 16:2-28"
+      ],
+      "sourceLabel": "4th Week of Lent, Monday"
+    },
+    "lent:week4:tuesday": {
+      "refs": [
+        "Lv 19:1-18, 31-37"
+      ],
+      "sourceLabel": "4th Week of Lent, Tuesday"
+    },
+    "lent:week4:wednesday": {
+      "refs": [
+        "Nm 11:4-6, 10-30"
+      ],
+      "sourceLabel": "4th Week of Lent, Wednesday"
+    },
+    "lent:week4:thursday": {
+      "refs": [
+        "Nm 12:16-13:3, 17-33"
+      ],
+      "sourceLabel": "4th Week of Lent, Thursday",
+      "renderable": false
+    },
+    "lent:week4:friday": {
+      "refs": [
+        "Nm 14:1-25"
+      ],
+      "sourceLabel": "4th Week of Lent, Friday"
+    },
+    "lent:week4:saturday": {
+      "refs": [
+        "Nm 20:1-13, 21:4-9"
+      ],
+      "sourceLabel": "4th Week of Lent, Saturday"
+    },
+    "lent:week5:sunday": {
+      "refs": [
+        "Heb 1:1-2:4"
+      ],
+      "sourceLabel": "5th Sunday of Lent"
+    },
+    "lent:week5:monday": {
+      "refs": [
+        "Heb 2:5-18"
+      ],
+      "sourceLabel": "5th Week of Lent, Monday"
+    },
+    "lent:week5:tuesday": {
+      "refs": [
+        "Heb 3:1-19"
+      ],
+      "sourceLabel": "5th Week of Lent, Tuesday"
+    },
+    "lent:week5:wednesday": {
+      "refs": [
+        "Heb 6:9-20"
+      ],
+      "sourceLabel": "5th Week of Lent, Wednesday"
+    },
+    "lent:week5:thursday": {
+      "refs": [
+        "Heb 7:1-10"
+      ],
+      "sourceLabel": "5th Week of Lent, Thursday"
+    },
+    "lent:week5:friday": {
+      "refs": [
+        "Heb 7:11-28"
+      ],
+      "sourceLabel": "5th Week of Lent, Friday"
+    },
+    "lent:week5:saturday": {
+      "refs": [
+        "Heb 8:1-13"
+      ],
+      "sourceLabel": "5th Week of Lent, Saturday"
+    },
+    "easter:week2:monday": {
+      "refs": [
+        "Rv 1:1-20"
+      ],
+      "sourceLabel": "2nd Week of Easter, Monday"
+    },
+    "easter:week2:tuesday": {
+      "refs": [
+        "Rv 2:1-11"
+      ],
+      "sourceLabel": "2nd Week of Easter, Tuesday"
+    },
+    "easter:week2:wednesday": {
+      "refs": [
+        "Rv 2:12-29"
+      ],
+      "sourceLabel": "2nd Week of Easter, Wednesday"
+    },
+    "easter:week2:thursday": {
+      "refs": [
+        "Rv 3:1-22"
+      ],
+      "sourceLabel": "2nd Week of Easter, Thursday"
+    },
+    "easter:week2:friday": {
+      "refs": [
+        "Rv 4:1-11"
+      ],
+      "sourceLabel": "2nd Week of Easter, Friday"
+    },
+    "easter:week2:saturday": {
+      "refs": [
+        "Rv 5:1-14"
+      ],
+      "sourceLabel": "2nd Week of Easter, Saturday"
+    },
+    "easter:week3:sunday": {
+      "refs": [
+        "Rv 6:1-17"
+      ],
+      "sourceLabel": "3rd Sunday of Easter"
+    },
+    "easter:week3:monday": {
+      "refs": [
+        "Rv 7:1-17"
+      ],
+      "sourceLabel": "3rd Week of Easter, Monday"
+    },
+    "easter:week3:tuesday": {
+      "refs": [
+        "Rv 8:1-13"
+      ],
+      "sourceLabel": "3rd Week of Easter, Tuesday"
+    },
+    "easter:week3:wednesday": {
+      "refs": [
+        "Rv 9:1-12"
+      ],
+      "sourceLabel": "3rd Week of Easter, Wednesday"
+    },
+    "easter:week3:thursday": {
+      "refs": [
+        "Rv 9:13-21"
+      ],
+      "sourceLabel": "3rd Week of Easter, Thursday"
+    },
+    "easter:week3:friday": {
+      "refs": [
+        "Rv 10:1-11"
+      ],
+      "sourceLabel": "3rd Week of Easter, Friday"
+    },
+    "easter:week3:saturday": {
+      "refs": [
+        "Rv 11:1-19"
+      ],
+      "sourceLabel": "3rd Week of Easter, Saturday"
+    },
+    "easter:week4:sunday": {
+      "refs": [
+        "Rv 12:1-17"
+      ],
+      "sourceLabel": "4th Sunday of Easter"
+    },
+    "easter:week4:monday": {
+      "refs": [
+        "Rv 13:1-18"
+      ],
+      "sourceLabel": "4th Week of Easter, Monday"
+    },
+    "easter:week4:tuesday": {
+      "refs": [
+        "Rv 14:1-13"
+      ],
+      "sourceLabel": "4th Week of Easter, Tuesday"
+    },
+    "easter:week4:wednesday": {
+      "refs": [
+        "Rv 14:14-15:4"
+      ],
+      "sourceLabel": "4th Week of Easter, Wednesday"
+    },
+    "easter:week4:thursday": {
+      "refs": [
+        "Rv 15:5-16:21"
+      ],
+      "sourceLabel": "4th Week of Easter, Thursday"
+    },
+    "easter:week4:friday": {
+      "refs": [
+        "Rv 17:1-18"
+      ],
+      "sourceLabel": "4th Week of Easter, Friday"
+    },
+    "easter:week4:saturday": {
+      "refs": [
+        "Rv 18:1-20"
+      ],
+      "sourceLabel": "4th Week of Easter, Saturday"
+    },
+    "easter:week5:sunday": {
+      "refs": [
+        "Rv 18:21-19:10"
+      ],
+      "sourceLabel": "5th Sunday of Easter"
+    },
+    "easter:week5:monday": {
+      "refs": [
+        "Rv 19:11-21"
+      ],
+      "sourceLabel": "5th Week of Easter, Monday"
+    },
+    "easter:week5:tuesday": {
+      "refs": [
+        "Rv 20:1-15"
+      ],
+      "sourceLabel": "5th Week of Easter, Tuesday"
+    },
+    "easter:week5:wednesday": {
+      "refs": [
+        "Rv 21:1-8"
+      ],
+      "sourceLabel": "5th Week of Easter, Wednesday"
+    },
+    "easter:week5:thursday": {
+      "refs": [
+        "Rv 21:9-27"
+      ],
+      "sourceLabel": "5th Week of Easter, Thursday"
+    },
+    "easter:week5:friday": {
+      "refs": [
+        "Rv 22:1-9"
+      ],
+      "sourceLabel": "5th Week of Easter, Friday"
+    },
+    "easter:week5:saturday": {
+      "refs": [
+        "Rv 22:10-21"
+      ],
+      "sourceLabel": "5th Week of Easter, Saturday"
+    },
+    "easter:week6:sunday": {
+      "refs": [
+        "1 Jn 1:1-10"
+      ],
+      "sourceLabel": "6th Sunday of Easter"
+    },
+    "easter:week6:monday": {
+      "refs": [
+        "1 Jn 2:1-11"
+      ],
+      "sourceLabel": "6th Week of Easter, Monday"
+    },
+    "easter:week6:tuesday": {
+      "refs": [
+        "1 Jn 2:12-17"
+      ],
+      "sourceLabel": "6th Week of Easter, Tuesday"
+    },
+    "easter:week6:wednesday": {
+      "refs": [
+        "1 Jn 2:18-29"
+      ],
+      "sourceLabel": "6th Week of Easter, Wednesday"
+    },
+    "easter:week6:friday": {
+      "refs": [
+        "1 Jn 3:1-10"
+      ],
+      "sourceLabel": "6th Week of Easter, Friday"
+    },
+    "easter:week6:saturday": {
+      "refs": [
+        "1 Jn 3:11-17"
+      ],
+      "sourceLabel": "6th Week of Easter, Saturday"
+    },
+    "easter:week7:sunday": {
+      "refs": [
+        "1 Jn 3:18-24"
+      ],
+      "sourceLabel": "7th Sunday of Easter"
+    },
+    "easter:week7:monday": {
+      "refs": [
+        "1 Jn 4:1-10"
+      ],
+      "sourceLabel": "7th Week of Easter, Monday"
+    },
+    "easter:week7:tuesday": {
+      "refs": [
+        "1 Jn 4:11-21"
+      ],
+      "sourceLabel": "7th Week of Easter, Tuesday"
+    },
+    "easter:week7:wednesday": {
+      "refs": [
+        "1 Jn 5:1-12"
+      ],
+      "sourceLabel": "7th Week of Easter, Wednesday"
+    },
+    "easter:week7:thursday": {
+      "refs": [
+        "1 Jn 5:13-21"
+      ],
+      "sourceLabel": "7th Week of Easter, Thursday"
+    },
+    "easter:week7:friday": {
+      "refs": [
+        "2 Jn 1"
+      ],
+      "sourceLabel": "7th Week of Easter, Friday"
+    },
+    "easter:week7:saturday": {
+      "refs": [
+        "3 Jn 1"
+      ],
+      "sourceLabel": "7th Week of Easter, Saturday"
+    },
+    "ordinaryTime:week1:monday": {
+      "refs": [
+        "Sir 1:1-18"
+      ],
+      "sourceLabel": "1st Week in Ord. Time, Monday"
+    },
+    "ordinaryTime:week1:tuesday": {
+      "refs": [
+        "Sir 11:12-28"
+      ],
+      "sourceLabel": "1st Week in Ord. Time, Tuesday"
+    },
+    "ordinaryTime:week1:wednesday": {
+      "refs": [
+        "Sir 24:1-22"
+      ],
+      "sourceLabel": "1st Week in Ord. Time, Wednesday"
+    },
+    "ordinaryTime:week1:thursday": {
+      "refs": [
+        "Sir 42:15-43:12"
+      ],
+      "sourceLabel": "1st Week in Ord. Time, Thursday"
+    },
+    "ordinaryTime:week1:friday": {
+      "refs": [
+        "Sir 43:13-35"
+      ],
+      "sourceLabel": "1st Week in Ord. Time, Friday"
+    },
+    "ordinaryTime:week1:saturday": {
+      "refs": [
+        "Sir 44:1-2, 16-45:5"
+      ],
+      "sourceLabel": "1st Week in Ord. Time, Saturday"
+    },
+    "ordinaryTime:week2:sunday": {
+      "refs": [
+        "Dt 1:1, 6-18"
+      ],
+      "sourceLabel": "2nd Sunday in Ord. Time"
+    },
+    "ordinaryTime:week2:monday": {
+      "refs": [
+        "Dt 4:1-8, 32-40"
+      ],
+      "sourceLabel": "2nd Week in Ord. Time, Monday"
+    },
+    "ordinaryTime:week2:tuesday": {
+      "refs": [
+        "Dt 6:4-25"
+      ],
+      "sourceLabel": "2nd Week in Ord. Time, Tuesday"
+    },
+    "ordinaryTime:week2:wednesday": {
+      "refs": [
+        "Dt 7:6-14, 8:1-6"
+      ],
+      "sourceLabel": "2nd Week in Ord. Time, Wednesday"
+    },
+    "ordinaryTime:week2:thursday": {
+      "refs": [
+        "Dt 9:7-21, 25-29"
+      ],
+      "sourceLabel": "2nd Week in Ord. Time, Thursday"
+    },
+    "ordinaryTime:week2:friday": {
+      "refs": [
+        "Dt 10:12-11:9, 26-28"
+      ],
+      "sourceLabel": "2nd Week in Ord. Time, Friday",
+      "renderable": false
+    },
+    "ordinaryTime:week2:saturday": {
+      "refs": [
+        "Dt 16:1-17"
+      ],
+      "sourceLabel": "2nd Week in Ord. Time, Saturday"
+    },
+    "ordinaryTime:week3:sunday": {
+      "refs": [
+        "Dt 18:1-22"
+      ],
+      "sourceLabel": "3rd Sunday in Ord. Time"
+    },
+    "ordinaryTime:week3:monday": {
+      "refs": [
+        "Dt 24:1-25:4"
+      ],
+      "sourceLabel": "3rd Week in Ord. Time, Monday"
+    },
+    "ordinaryTime:week3:tuesday": {
+      "refs": [
+        "Dt 26:1-19"
+      ],
+      "sourceLabel": "3rd Week in Ord. Time, Tuesday"
+    },
+    "ordinaryTime:week3:wednesday": {
+      "refs": [
+        "Dt 29:1-5, 9-28"
+      ],
+      "sourceLabel": "3rd Week in Ord. Time, Wednesday"
+    },
+    "ordinaryTime:week3:thursday": {
+      "refs": [
+        "Dt 30:1-20"
+      ],
+      "sourceLabel": "3rd Week in Ord. Time, Thursday"
+    },
+    "ordinaryTime:week3:friday": {
+      "refs": [
+        "Dt 31:1-15, 23"
+      ],
+      "sourceLabel": "3rd Week in Ord. Time, Friday"
+    },
+    "ordinaryTime:week3:saturday": {
+      "refs": [
+        "Dt 32:48-52, 34:1-12"
+      ],
+      "sourceLabel": "3rd Week in Ord. Time, Saturday"
+    },
+    "ordinaryTime:week4:sunday": {
+      "refs": [
+        "1 Thes 1:1-2:12"
+      ],
+      "sourceLabel": "4th Sunday in Ord. Time"
+    },
+    "ordinaryTime:week4:monday": {
+      "refs": [
+        "1 Thes 2:13-3:13"
+      ],
+      "sourceLabel": "4th Week in Ord. Time, Monday"
+    },
+    "ordinaryTime:week4:tuesday": {
+      "refs": [
+        "1 Thes 4:1-18"
+      ],
+      "sourceLabel": "4th Week in Ord. Time, Tuesday"
+    },
+    "ordinaryTime:week4:wednesday": {
+      "refs": [
+        "1 Thes 5:1-28"
+      ],
+      "sourceLabel": "4th Week in Ord. Time, Wednesday"
+    },
+    "ordinaryTime:week4:thursday": {
+      "refs": [
+        "2 Thes 1:1-12"
+      ],
+      "sourceLabel": "4th Week in Ord. Time, Thursday"
+    },
+    "ordinaryTime:week4:friday": {
+      "refs": [
+        "2 Thes 2:1-17"
+      ],
+      "sourceLabel": "4th Week in Ord. Time, Friday"
+    },
+    "ordinaryTime:week4:saturday": {
+      "refs": [
+        "2 Thes 3:1-18"
+      ],
+      "sourceLabel": "4th Week in Ord. Time, Saturday"
+    },
+    "ordinaryTime:week5:sunday": {
+      "refs": [
+        "Gal 1:1-12"
+      ],
+      "sourceLabel": "5th Sunday in Ord. Time"
+    },
+    "ordinaryTime:week5:monday": {
+      "refs": [
+        "Gal 1:13-2:10"
+      ],
+      "sourceLabel": "5th Week in Ord. Time, Monday"
+    },
+    "ordinaryTime:week5:tuesday": {
+      "refs": [
+        "Gal 2:11-3:14"
+      ],
+      "sourceLabel": "5th Week in Ord. Time, Tuesday"
+    },
+    "ordinaryTime:week5:wednesday": {
+      "refs": [
+        "Gal 3:15-4:17"
+      ],
+      "sourceLabel": "5th Week in Ord. Time, Wednesday"
+    },
+    "ordinaryTime:week5:thursday": {
+      "refs": [
+        "Gal 4:8-31"
+      ],
+      "sourceLabel": "5th Week in Ord. Time, Thursday"
+    },
+    "ordinaryTime:week5:friday": {
+      "refs": [
+        "Gal 5:1-25"
+      ],
+      "sourceLabel": "5th Week in Ord. Time, Friday"
+    },
+    "ordinaryTime:week5:saturday": {
+      "refs": [
+        "Gal 5:25-6:18"
+      ],
+      "sourceLabel": "5th Week in Ord. Time, Saturday"
+    },
+    "ordinaryTime:week6:sunday": {
+      "refs": [
+        "Prv 1:1-7, 20-33"
+      ],
+      "sourceLabel": "6th Sunday in Ord. Time"
+    },
+    "ordinaryTime:week6:monday": {
+      "refs": [
+        "Prv 3:1-20"
+      ],
+      "sourceLabel": "6th Week in Ord. Time, Monday"
+    },
+    "ordinaryTime:week6:tuesday": {
+      "refs": [
+        "Prv 8:1-5, 12-36"
+      ],
+      "sourceLabel": "6th Week in Ord. Time, Tuesday"
+    },
+    "ordinaryTime:week6:wednesday": {
+      "refs": [
+        "Prv 9:1-18"
+      ],
+      "sourceLabel": "6th Week in Ord. Time, Wednesday"
+    },
+    "ordinaryTime:week6:thursday": {
+      "refs": [
+        "Prv 10:6-32"
+      ],
+      "sourceLabel": "6th Week in Ord. Time, Thursday"
+    },
+    "ordinaryTime:week6:friday": {
+      "refs": [
+        "Prv 15:8-9, 16-17, 25-26, 29, 33, 16:1-9, 17:5"
+      ],
+      "sourceLabel": "6th Week in Ord. Time, Friday"
+    },
+    "ordinaryTime:week6:saturday": {
+      "refs": [
+        "Prv 31:10-31"
+      ],
+      "sourceLabel": "6th Week in Ord. Time, Saturday"
+    },
+    "ordinaryTime:week7:sunday": {
+      "refs": [
+        "Eccl 1:1-18"
+      ],
+      "sourceLabel": "7th Sunday in Ord. Time"
+    },
+    "ordinaryTime:week7:monday": {
+      "refs": [
+        "Eccl 2:1-3, 12-26"
+      ],
+      "sourceLabel": "7th Week in Ord. Time, Monday"
+    },
+    "ordinaryTime:week7:tuesday": {
+      "refs": [
+        "Eccl 3:1-22"
+      ],
+      "sourceLabel": "7th Week in Ord. Time, Tuesday"
+    },
+    "ordinaryTime:week7:wednesday": {
+      "refs": [
+        "Eccl 5:9-6:8"
+      ],
+      "sourceLabel": "7th Week in Ord. Time, Wednesday"
+    },
+    "ordinaryTime:week7:thursday": {
+      "refs": [
+        "Eccl 6:12-7:28"
+      ],
+      "sourceLabel": "7th Week in Ord. Time, Thursday"
+    },
+    "ordinaryTime:week7:friday": {
+      "refs": [
+        "Eccl 8:5-9:10"
+      ],
+      "sourceLabel": "7th Week in Ord. Time, Friday"
+    },
+    "ordinaryTime:week7:saturday": {
+      "refs": [
+        "Eccl 11:7-12:4"
+      ],
+      "sourceLabel": "7th Week in Ord. Time, Saturday"
+    },
+    "ordinaryTime:week8:sunday": {
+      "refs": [
+        "Jb 1:1-22"
+      ],
+      "sourceLabel": "8th Sunday in Ord. Time"
+    },
+    "ordinaryTime:week8:monday": {
+      "refs": [
+        "Jb 2:1-13"
+      ],
+      "sourceLabel": "8th Week in Ord. Time, Monday"
+    },
+    "ordinaryTime:week8:tuesday": {
+      "refs": [
+        "Jb 3:1-26"
+      ],
+      "sourceLabel": "8th Week in Ord. Time, Tuesday"
+    },
+    "ordinaryTime:week8:wednesday": {
+      "refs": [
+        "Jb 7:1-21"
+      ],
+      "sourceLabel": "8th Week in Ord. Time, Wednesday"
+    },
+    "ordinaryTime:week8:thursday": {
+      "refs": [
+        "Jb 11:1-20"
+      ],
+      "sourceLabel": "8th Week in Ord. Time, Thursday"
+    },
+    "ordinaryTime:week8:friday": {
+      "refs": [
+        "Jb 12:1-25"
+      ],
+      "sourceLabel": "8th Week in Ord. Time, Friday"
+    },
+    "ordinaryTime:week8:saturday": {
+      "refs": [
+        "Jb 13:13-14:6"
+      ],
+      "sourceLabel": "8th Week in Ord. Time, Saturday"
+    },
+    "ordinaryTime:week9:sunday": {
+      "refs": [
+        "Jb 28:1-28"
+      ],
+      "sourceLabel": "9th Sunday in Ord. Time"
+    },
+    "ordinaryTime:week9:monday": {
+      "refs": [
+        "Jb 29:1-10, 30:1, 9-23"
+      ],
+      "sourceLabel": "9th Week in Ord. Time, Monday"
+    },
+    "ordinaryTime:week9:tuesday": {
+      "refs": [
+        "Jb 31:1-8, 13-23, 35-37"
+      ],
+      "sourceLabel": "9th Week in Ord. Time, Tuesday"
+    },
+    "ordinaryTime:week9:wednesday": {
+      "refs": [
+        "Jb 32:1-6, 33:1-22"
+      ],
+      "sourceLabel": "9th Week in Ord. Time, Wednesday"
+    },
+    "ordinaryTime:week9:thursday": {
+      "refs": [
+        "Jb 38:1-30"
+      ],
+      "sourceLabel": "9th Week in Ord. Time, Thursday"
+    },
+    "ordinaryTime:week9:friday": {
+      "refs": [
+        "Jb 40:1-14, 42:1-6"
+      ],
+      "sourceLabel": "9th Week in Ord. Time, Friday"
+    },
+    "ordinaryTime:week9:saturday": {
+      "refs": [
+        "Jb 42:7-17"
+      ],
+      "sourceLabel": "9th Week in Ord. Time, Saturday",
+      "renderable": false
+    },
+    "ordinaryTime:week10:sunday": {
+      "refs": [
+        "Sir 46:1-10"
+      ],
+      "sourceLabel": "10th Sunday in Ord. Time"
+    },
+    "ordinaryTime:week10:monday": {
+      "refs": [
+        "Jos 1:1-18"
+      ],
+      "sourceLabel": "10th Week in Ord. Time, Monday"
+    },
+    "ordinaryTime:week10:tuesday": {
+      "refs": [
+        "Jos 2:1-24"
+      ],
+      "sourceLabel": "10th Week in Ord. Time, Tuesday"
+    },
+    "ordinaryTime:week10:wednesday": {
+      "refs": [
+        "Jos 3:1-17, 4:14-19, 5:10-12"
+      ],
+      "sourceLabel": "10th Week in Ord. Time, Wednesday"
+    },
+    "ordinaryTime:week10:thursday": {
+      "refs": [
+        "Jos 5:13-6:21"
+      ],
+      "sourceLabel": "10th Week in Ord. Time, Thursday"
+    },
+    "ordinaryTime:week10:friday": {
+      "refs": [
+        "Jos 10:1-4, 11:15-17"
+      ],
+      "sourceLabel": "10th Week in Ord. Time, Friday"
+    },
+    "ordinaryTime:week10:saturday": {
+      "refs": [
+        "Jos 24:1-7, 13-28"
+      ],
+      "sourceLabel": "10th Week in Ord. Time, Saturday"
+    },
+    "ordinaryTime:week11:sunday": {
+      "refs": [
+        "Jgs 2:6-3:4"
+      ],
+      "sourceLabel": "11th Sunday in Ord. Time"
+    },
+    "ordinaryTime:week11:monday": {
+      "refs": [
+        "Jgs 4:1-24"
+      ],
+      "sourceLabel": "11th Week in Ord. Time, Monday"
+    },
+    "ordinaryTime:week11:tuesday": {
+      "refs": [
+        "Jgs 6:1-6, 11-24"
+      ],
+      "sourceLabel": "11th Week in Ord. Time, Tuesday"
+    },
+    "ordinaryTime:week11:wednesday": {
+      "refs": [
+        "Jgs 6:33-40, 7:1-8, 16-22"
+      ],
+      "sourceLabel": "11th Week in Ord. Time, Wednesday"
+    },
+    "ordinaryTime:week11:thursday": {
+      "refs": [
+        "Jgs 8:22-23, 30-32, 9:1-15, 19-20"
+      ],
+      "sourceLabel": "11th Week in Ord. Time, Thursday"
+    },
+    "ordinaryTime:week11:friday": {
+      "refs": [
+        "Jgs 13:1-25"
+      ],
+      "sourceLabel": "11th Week in Ord. Time, Friday"
+    },
+    "ordinaryTime:week11:saturday": {
+      "refs": [
+        "Jgs 16:4-6, 16-31"
+      ],
+      "sourceLabel": "11th Week in Ord. Time, Saturday"
+    },
+    "ordinaryTime:week12:sunday": {
+      "refs": [
+        "1 Sm 16:1-13"
+      ],
+      "sourceLabel": "12th Sunday in Ord. Time"
+    },
+    "ordinaryTime:week12:monday": {
+      "refs": [
+        "1 Sm 17:1-10, 32, 38-51"
+      ],
+      "sourceLabel": "12th Week in Ord. Time, Monday"
+    },
+    "ordinaryTime:week12:tuesday": {
+      "refs": [
+        "1 Sm 17:57-18:9, 20-30"
+      ],
+      "sourceLabel": "12th Week in Ord. Time, Tuesday"
+    },
+    "ordinaryTime:week12:wednesday": {
+      "refs": [
+        "1 Sm 19:8-10, 20:1-17"
+      ],
+      "sourceLabel": "12th Week in Ord. Time, Wednesday"
+    },
+    "ordinaryTime:week12:thursday": {
+      "refs": [
+        "1 Sm 21:2-10, 22:1-5"
+      ],
+      "sourceLabel": "12th Week in Ord. Time, Thursday"
+    },
+    "ordinaryTime:week12:friday": {
+      "refs": [
+        "2 Sm 15:7-14, 24-30, 16:5-13"
+      ],
+      "sourceLabel": "12th Week in Ord. Time, Friday"
+    },
+    "ordinaryTime:week12:saturday": {
+      "refs": [
+        "1 Sm 25:14-24, 28-39"
+      ],
+      "sourceLabel": "12th Week in Ord. Time, Saturday"
+    },
+    "ordinaryTime:week13:sunday": {
+      "refs": [
+        "1 Sm 26:5-25"
+      ],
+      "sourceLabel": "13th Sunday in Ord. Time"
+    },
+    "ordinaryTime:week13:monday": {
+      "refs": [
+        "1 Sm 28:3-25"
+      ],
+      "sourceLabel": "13th Week in Ord. Time, Monday"
+    },
+    "ordinaryTime:week13:tuesday": {
+      "refs": [
+        "1 Sm 31:1-4",
+        "2 Sm 1:1-16"
+      ],
+      "sourceLabel": "13th Week in Ord. Time, Tuesday"
+    },
+    "ordinaryTime:week13:wednesday": {
+      "refs": [
+        "2 Sm 2:1-11, 3:1-5"
+      ],
+      "sourceLabel": "13th Week in Ord. Time, Wednesday"
+    },
+    "ordinaryTime:week13:thursday": {
+      "refs": [
+        "2 Sm 4:2-5:7"
+      ],
+      "sourceLabel": "13th Week in Ord. Time, Thursday"
+    },
+    "ordinaryTime:week13:friday": {
+      "refs": [
+        "2 Sm 6:1-23"
+      ],
+      "sourceLabel": "13th Week in Ord. Time, Friday"
+    },
+    "ordinaryTime:week13:saturday": {
+      "refs": [
+        "2 Sm 7:1-25"
+      ],
+      "sourceLabel": "13th Week in Ord. Time, Saturday"
+    },
+    "ordinaryTime:week14:sunday": {
+      "refs": [
+        "2 Sm 11:1-17, 26-27"
+      ],
+      "sourceLabel": "14th Sunday in Ord. Time"
+    },
+    "ordinaryTime:week14:monday": {
+      "refs": [
+        "2 Sm 12:1-25"
+      ],
+      "sourceLabel": "14th Week in Ord. Time, Monday"
+    },
+    "ordinaryTime:week14:tuesday": {
+      "refs": [
+        "2 Sm 18:6-17, 24-19:5"
+      ],
+      "sourceLabel": "14th Week in Ord. Time, Tuesday"
+    },
+    "ordinaryTime:week14:wednesday": {
+      "refs": [
+        "2 Sm 24:1-4, 10-18, 24-25"
+      ],
+      "sourceLabel": "14th Week in Ord. Time, Wednesday"
+    },
+    "ordinaryTime:week14:thursday": {
+      "refs": [
+        "1 Chr 22:5-19"
+      ],
+      "sourceLabel": "14th Week in Ord. Time, Thursday"
+    },
+    "ordinaryTime:week14:friday": {
+      "refs": [
+        "1 Kgs 1:11-35, 2:10-12"
+      ],
+      "sourceLabel": "14th Week in Ord. Time, Friday"
+    },
+    "ordinaryTime:week14:saturday": {
+      "refs": [
+        "Sir 47:12-25"
+      ],
+      "sourceLabel": "14th Week in Ord. Time, Saturday"
+    },
+    "ordinaryTime:week15:sunday": {
+      "refs": [
+        "1 Kgs 16:29-17:16"
+      ],
+      "sourceLabel": "15th Sunday in Ord. Time"
+    },
+    "ordinaryTime:week15:monday": {
+      "refs": [
+        "1 Kgs 18:16-40"
+      ],
+      "sourceLabel": "15th Week in Ord. Time, Monday"
+    },
+    "ordinaryTime:week15:tuesday": {
+      "refs": [
+        "1 Kgs 19:1-9, 11-21"
+      ],
+      "sourceLabel": "15th Week in Ord. Time, Tuesday"
+    },
+    "ordinaryTime:week15:wednesday": {
+      "refs": [
+        "1 Kgs 21:1-21, 27-29"
+      ],
+      "sourceLabel": "15th Week in Ord. Time, Wednesday"
+    },
+    "ordinaryTime:week15:thursday": {
+      "refs": [
+        "1 Kgs 22:1-9, 15-23, 29, 34-38"
+      ],
+      "sourceLabel": "15th Week in Ord. Time, Thursday"
+    },
+    "ordinaryTime:week15:friday": {
+      "refs": [
+        "2 Chr 20:1-9, 13-24"
+      ],
+      "sourceLabel": "15th Week in Ord. Time, Friday"
+    },
+    "ordinaryTime:week15:saturday": {
+      "refs": [
+        "2 Kgs 2:1-15"
+      ],
+      "sourceLabel": "15th Week in Ord. Time, Saturday"
+    },
+    "ordinaryTime:week16:sunday": {
+      "refs": [
+        "2 Cor 1:1-14"
+      ],
+      "sourceLabel": "16th Sunday in Ord. Time"
+    },
+    "ordinaryTime:week16:monday": {
+      "refs": [
+        "2 Cor 1:15-2:11"
+      ],
+      "sourceLabel": "16th Week in Ord. Time, Monday"
+    },
+    "ordinaryTime:week16:tuesday": {
+      "refs": [
+        "2 Cor 2:12-3:16"
+      ],
+      "sourceLabel": "16th Week in Ord. Time, Tuesday"
+    },
+    "ordinaryTime:week16:wednesday": {
+      "refs": [
+        "2 Cor 3:7-4:4"
+      ],
+      "sourceLabel": "16th Week in Ord. Time, Wednesday"
+    },
+    "ordinaryTime:week16:thursday": {
+      "refs": [
+        "2 Cor 4:5-18"
+      ],
+      "sourceLabel": "16th Week in Ord. Time, Thursday"
+    },
+    "ordinaryTime:week16:friday": {
+      "refs": [
+        "2 Cor 5:1-21"
+      ],
+      "sourceLabel": "16th Week in Ord. Time, Friday"
+    },
+    "ordinaryTime:week16:saturday": {
+      "refs": [
+        "2 Cor 6:1-7:1"
+      ],
+      "sourceLabel": "16th Week in Ord. Time, Saturday"
+    },
+    "ordinaryTime:week17:sunday": {
+      "refs": [
+        "2 Cor 7:2-16"
+      ],
+      "sourceLabel": "17th Sunday in Ord. Time"
+    },
+    "ordinaryTime:week17:monday": {
+      "refs": [
+        "2 Cor 8:1-24"
+      ],
+      "sourceLabel": "17th Week in Ord. Time, Monday"
+    },
+    "ordinaryTime:week17:tuesday": {
+      "refs": [
+        "2 Cor 9:1-15"
+      ],
+      "sourceLabel": "17th Week in Ord. Time, Tuesday"
+    },
+    "ordinaryTime:week17:wednesday": {
+      "refs": [
+        "2 Cor 10:1-11:6"
+      ],
+      "sourceLabel": "17th Week in Ord. Time, Wednesday"
+    },
+    "ordinaryTime:week17:thursday": {
+      "refs": [
+        "2 Cor 11:7-29"
+      ],
+      "sourceLabel": "17th Week in Ord. Time, Thursday"
+    },
+    "ordinaryTime:week17:friday": {
+      "refs": [
+        "2 Cor 11:30-12:12"
+      ],
+      "sourceLabel": "17th Week in Ord. Time, Friday"
+    },
+    "ordinaryTime:week17:saturday": {
+      "refs": [
+        "2 Cor 12:14-13:13"
+      ],
+      "sourceLabel": "17th Week in Ord. Time, Saturday"
+    },
+    "ordinaryTime:week18:sunday": {
+      "refs": [
+        "Am 1:1-2:3"
+      ],
+      "sourceLabel": "18th Sunday in Ord. Time"
+    },
+    "ordinaryTime:week18:monday": {
+      "refs": [
+        "Am 2:4-16"
+      ],
+      "sourceLabel": "18th Week in Ord. Time, Monday"
+    },
+    "ordinaryTime:week18:tuesday": {
+      "refs": [
+        "Am 7:1-17"
+      ],
+      "sourceLabel": "18th Week in Ord. Time, Tuesday"
+    },
+    "ordinaryTime:week18:wednesday": {
+      "refs": [
+        "Am 9:1-15"
+      ],
+      "sourceLabel": "18th Week in Ord. Time, Wednesday"
+    },
+    "ordinaryTime:week18:thursday": {
+      "refs": [
+        "Hos 1:1-9, 3:1-5"
+      ],
+      "sourceLabel": "18th Week in Ord. Time, Thursday"
+    },
+    "ordinaryTime:week18:friday": {
+      "refs": [
+        "Hos 2:4, 10-25"
+      ],
+      "sourceLabel": "18th Week in Ord. Time, Friday",
+      "renderable": false
+    },
+    "ordinaryTime:week18:saturday": {
+      "refs": [
+        "Hos 6:1-7:2"
+      ],
+      "sourceLabel": "18th Week in Ord. Time, Saturday"
+    },
+    "ordinaryTime:week19:sunday": {
+      "refs": [
+        "Hos 11:1-11"
+      ],
+      "sourceLabel": "19th Sunday in Ord. Time"
+    },
+    "ordinaryTime:week19:monday": {
+      "refs": [
+        "Hos 14:2-10"
+      ],
+      "sourceLabel": "19th Week in Ord. Time, Monday"
+    },
+    "ordinaryTime:week19:tuesday": {
+      "refs": [
+        "Mi 3:1-12"
+      ],
+      "sourceLabel": "19th Week in Ord. Time, Tuesday"
+    },
+    "ordinaryTime:week19:wednesday": {
+      "refs": [
+        "Mi 4:1-7"
+      ],
+      "sourceLabel": "19th Week in Ord. Time, Wednesday"
+    },
+    "ordinaryTime:week19:thursday": {
+      "refs": [
+        "Mi 4:14-5:7"
+      ],
+      "sourceLabel": "19th Week in Ord. Time, Thursday"
+    },
+    "ordinaryTime:week19:friday": {
+      "refs": [
+        "Mi 6:1-15"
+      ],
+      "sourceLabel": "19th Week in Ord. Time, Friday"
+    },
+    "ordinaryTime:week19:saturday": {
+      "refs": [
+        "Mi 7:7-20"
+      ],
+      "sourceLabel": "19th Week in Ord. Time, Saturday"
+    },
+    "ordinaryTime:week20:sunday": {
+      "refs": [
+        "Is 6:1-13"
+      ],
+      "sourceLabel": "20th Sunday in Ord. Time"
+    },
+    "ordinaryTime:week20:monday": {
+      "refs": [
+        "Is 3:1-15"
+      ],
+      "sourceLabel": "20th Week in Ord. Time, Monday"
+    },
+    "ordinaryTime:week20:tuesday": {
+      "refs": [
+        "Is 7:1-17"
+      ],
+      "sourceLabel": "20th Week in Ord. Time, Tuesday"
+    },
+    "ordinaryTime:week20:wednesday": {
+      "refs": [
+        "Is 9:7-10:4"
+      ],
+      "sourceLabel": "20th Week in Ord. Time, Wednesday"
+    },
+    "ordinaryTime:week20:thursday": {
+      "refs": [
+        "Is 11:1-16"
+      ],
+      "sourceLabel": "20th Week in Ord. Time, Thursday"
+    },
+    "ordinaryTime:week20:friday": {
+      "refs": [
+        "Is 30:1-18"
+      ],
+      "sourceLabel": "20th Week in Ord. Time, Friday"
+    },
+    "ordinaryTime:week20:saturday": {
+      "refs": [
+        "Is 37:21-35"
+      ],
+      "sourceLabel": "20th Week in Ord. Time, Saturday"
+    },
+    "ordinaryTime:week21:sunday": {
+      "refs": [
+        "Zep 1:1-7, 14-2:3"
+      ],
+      "sourceLabel": "21st Sunday in Ord. Time"
+    },
+    "ordinaryTime:week21:monday": {
+      "refs": [
+        "Zep 3:8-20"
+      ],
+      "sourceLabel": "21st Week in Ord. Time, Monday"
+    },
+    "ordinaryTime:week21:tuesday": {
+      "refs": [
+        "Jer 1:1-19"
+      ],
+      "sourceLabel": "21st Week in Ord. Time, Tuesday"
+    },
+    "ordinaryTime:week21:wednesday": {
+      "refs": [
+        "Jer 2:1-13, 20-25"
+      ],
+      "sourceLabel": "21st Week in Ord. Time, Wednesday"
+    },
+    "ordinaryTime:week21:thursday": {
+      "refs": [
+        "Jer 3:1-5, 19-4:4"
+      ],
+      "sourceLabel": "21st Week in Ord. Time, Thursday"
+    },
+    "ordinaryTime:week21:friday": {
+      "refs": [
+        "Jer 4:5-8, 13-28"
+      ],
+      "sourceLabel": "21st Week in Ord. Time, Friday"
+    },
+    "ordinaryTime:week21:saturday": {
+      "refs": [
+        "Jer 7:1-20"
+      ],
+      "sourceLabel": "21st Week in Ord. Time, Saturday"
+    },
+    "ordinaryTime:week22:sunday": {
+      "refs": [
+        "Jer 11:18-20, 12:1-13"
+      ],
+      "sourceLabel": "22nd Sunday in Ord. Time"
+    },
+    "ordinaryTime:week22:monday": {
+      "refs": [
+        "Jer 19:1-5, 10-20:6"
+      ],
+      "sourceLabel": "22nd Week in Ord. Time, Monday"
+    },
+    "ordinaryTime:week22:tuesday": {
+      "refs": [
+        "Jer 20:7-18"
+      ],
+      "sourceLabel": "22nd Week in Ord. Time, Tuesday"
+    },
+    "ordinaryTime:week22:wednesday": {
+      "refs": [
+        "Jer 26:1-15"
+      ],
+      "sourceLabel": "22nd Week in Ord. Time, Wednesday"
+    },
+    "ordinaryTime:week22:thursday": {
+      "refs": [
+        "Jer 29:1-14"
+      ],
+      "sourceLabel": "22nd Week in Ord. Time, Thursday"
+    },
+    "ordinaryTime:week22:friday": {
+      "refs": [
+        "Jer 30:18-31:19"
+      ],
+      "sourceLabel": "22nd Week in Ord. Time, Friday"
+    },
+    "ordinaryTime:week22:saturday": {
+      "refs": [
+        "Jer 31:15-22, 27-34"
+      ],
+      "sourceLabel": "22nd Week in Ord. Time, Saturday"
+    },
+    "ordinaryTime:week23:sunday": {
+      "refs": [
+        "Jer 37:21, 38:14-28"
+      ],
+      "sourceLabel": "23rd Sunday in Ord. Time",
+      "renderable": false
+    },
+    "ordinaryTime:week23:monday": {
+      "refs": [
+        "Jer 42:1-46, 43:4-7"
+      ],
+      "sourceLabel": "23rd Week in Ord. Time, Monday",
+      "renderable": false
+    },
+    "ordinaryTime:week23:tuesday": {
+      "refs": [
+        "Hb 1:1-2:4"
+      ],
+      "sourceLabel": "23rd Week in Ord. Time, Tuesday"
+    },
+    "ordinaryTime:week23:wednesday": {
+      "refs": [
+        "Hb 2:5-20"
+      ],
+      "sourceLabel": "23rd Week in Ord. Time, Wednesday"
+    },
+    "ordinaryTime:week23:thursday": {
+      "refs": [
+        "Lam 1:1-12, 18-20"
+      ],
+      "sourceLabel": "23rd Week in Ord. Time, Thursday"
+    },
+    "ordinaryTime:week23:friday": {
+      "refs": [
+        "Lam 3:1-33"
+      ],
+      "sourceLabel": "23rd Week in Ord. Time, Friday"
+    },
+    "ordinaryTime:week23:saturday": {
+      "refs": [
+        "Lam 5:1-22"
+      ],
+      "sourceLabel": "23rd Week in Ord. Time, Saturday"
+    },
+    "ordinaryTime:week24:sunday": {
+      "refs": [
+        "Ez 1:3-13, 22-28"
+      ],
+      "sourceLabel": "24th Sunday in Ord. Time"
+    },
+    "ordinaryTime:week24:monday": {
+      "refs": [
+        "Ez 2:8-3:11, 17-21"
+      ],
+      "sourceLabel": "24th Week in Ord. Time, Monday",
+      "renderable": false
+    },
+    "ordinaryTime:week24:tuesday": {
+      "refs": [
+        "Ez 8:1-6, 16-9:11"
+      ],
+      "sourceLabel": "24th Week in Ord. Time, Tuesday"
+    },
+    "ordinaryTime:week24:wednesday": {
+      "refs": [
+        "Ez 10:18-22, 11:14-25"
+      ],
+      "sourceLabel": "24th Week in Ord. Time, Wednesday"
+    },
+    "ordinaryTime:week24:thursday": {
+      "refs": [
+        "Ez 12:1-6"
+      ],
+      "sourceLabel": "24th Week in Ord. Time, Thursday"
+    },
+    "ordinaryTime:week24:friday": {
+      "refs": [
+        "Ez 16:3, 5-7, 8-15, 35, 37, 40-43, 59-63"
+      ],
+      "sourceLabel": "24th Week in Ord. Time, Friday"
+    },
+    "ordinaryTime:week24:saturday": {
+      "refs": [
+        "Ez 18:1-13, 20-32"
+      ],
+      "sourceLabel": "24th Week in Ord. Time, Saturday"
+    },
+    "ordinaryTime:week25:sunday": {
+      "refs": [
+        "Ez 24:15-27"
+      ],
+      "sourceLabel": "25th Sunday in Ord. Time"
+    },
+    "ordinaryTime:week25:monday": {
+      "refs": [
+        "Ez 34:1-6, 11-16, 23-31"
+      ],
+      "sourceLabel": "25th Week in Ord. Time, Monday"
+    },
+    "ordinaryTime:week25:tuesday": {
+      "refs": [
+        "Ez 36:16-36"
+      ],
+      "sourceLabel": "25th Week in Ord. Time, Tuesday"
+    },
+    "ordinaryTime:week25:wednesday": {
+      "refs": [
+        "Ez 37:1-14"
+      ],
+      "sourceLabel": "25th Week in Ord. Time, Wednesday"
+    },
+    "ordinaryTime:week25:thursday": {
+      "refs": [
+        "Ez 37:15-28"
+      ],
+      "sourceLabel": "25th Week in Ord. Time, Thursday"
+    },
+    "ordinaryTime:week25:friday": {
+      "refs": [
+        "Ez 40:1-4, 43:1-12, 44:6-9"
+      ],
+      "sourceLabel": "25th Week in Ord. Time, Friday"
+    },
+    "ordinaryTime:week25:saturday": {
+      "refs": [
+        "Ez 47:1-12"
+      ],
+      "sourceLabel": "25th Week in Ord. Time, Saturday"
+    },
+    "ordinaryTime:week26:sunday": {
+      "refs": [
+        "Phil 1:1-11"
+      ],
+      "sourceLabel": "26th Sunday in Ord. Time"
+    },
+    "ordinaryTime:week26:monday": {
+      "refs": [
+        "Phil 1:12-26"
+      ],
+      "sourceLabel": "26th Week in Ord. Time, Monday"
+    },
+    "ordinaryTime:week26:tuesday": {
+      "refs": [
+        "Phil 1:27-2:11"
+      ],
+      "sourceLabel": "26th Week in Ord. Time, Tuesday"
+    },
+    "ordinaryTime:week26:wednesday": {
+      "refs": [
+        "Phil 2:12-30"
+      ],
+      "sourceLabel": "26th Week in Ord. Time, Wednesday"
+    },
+    "ordinaryTime:week26:thursday": {
+      "refs": [
+        "Phil 3:1-16"
+      ],
+      "sourceLabel": "26th Week in Ord. Time, Thursday"
+    },
+    "ordinaryTime:week26:friday": {
+      "refs": [
+        "Phil 3:17-4:9"
+      ],
+      "sourceLabel": "26th Week in Ord. Time, Friday"
+    },
+    "ordinaryTime:week26:saturday": {
+      "refs": [
+        "Phil 4:10-23"
+      ],
+      "sourceLabel": "26th Week in Ord. Time, Saturday"
+    },
+    "ordinaryTime:week27:sunday": {
+      "refs": [
+        "1 Tm 1:1-20"
+      ],
+      "sourceLabel": "27th Sunday in Ord. Time"
+    },
+    "ordinaryTime:week27:monday": {
+      "refs": [
+        "1 Tm 2:1-15"
+      ],
+      "sourceLabel": "27th Week in Ord. Time, Monday"
+    },
+    "ordinaryTime:week27:tuesday": {
+      "refs": [
+        "1 Tm 3:1-16"
+      ],
+      "sourceLabel": "27th Week in Ord. Time, Tuesday"
+    },
+    "ordinaryTime:week27:wednesday": {
+      "refs": [
+        "1 Tm 4:1-5:2"
+      ],
+      "sourceLabel": "27th Week in Ord. Time, Wednesday"
+    },
+    "ordinaryTime:week27:thursday": {
+      "refs": [
+        "1 Tm 5:3-25"
+      ],
+      "sourceLabel": "27th Week in Ord. Time, Thursday"
+    },
+    "ordinaryTime:week27:friday": {
+      "refs": [
+        "1 Tm 6:1-10"
+      ],
+      "sourceLabel": "27th Week in Ord. Time, Friday"
+    },
+    "ordinaryTime:week27:saturday": {
+      "refs": [
+        "1 Tm 6:11-21"
+      ],
+      "sourceLabel": "27th Week in Ord. Time, Saturday"
+    },
+    "ordinaryTime:week28:sunday": {
+      "refs": [
+        "Hg 1:1-2:10"
+      ],
+      "sourceLabel": "28th Sunday in Ord. Time"
+    },
+    "ordinaryTime:week28:monday": {
+      "refs": [
+        "Hg 2:11-24"
+      ],
+      "sourceLabel": "28th Week in Ord. Time, Monday"
+    },
+    "ordinaryTime:week28:tuesday": {
+      "refs": [
+        "Zec 1:1-2:4"
+      ],
+      "sourceLabel": "28th Week in Ord. Time, Tuesday"
+    },
+    "ordinaryTime:week28:wednesday": {
+      "refs": [
+        "Zec 3:1-4:14"
+      ],
+      "sourceLabel": "28th Week in Ord. Time, Wednesday"
+    },
+    "ordinaryTime:week28:thursday": {
+      "refs": [
+        "Zec 8:1-17, 20-23"
+      ],
+      "sourceLabel": "28th Week in Ord. Time, Thursday"
+    },
+    "ordinaryTime:week28:friday": {
+      "refs": [
+        "Mal 1:1-14, 2:13-16"
+      ],
+      "sourceLabel": "28th Week in Ord. Time, Friday"
+    },
+    "ordinaryTime:week28:saturday": {
+      "refs": [
+        "Mal 3:1-24"
+      ],
+      "sourceLabel": "28th Week in Ord. Time, Saturday",
+      "renderable": false
+    },
+    "ordinaryTime:week29:sunday": {
+      "refs": [
+        "Est 1:1-3, 9:13, 15-16, 19, 2:5-10, 16-17"
+      ],
+      "sourceLabel": "29th Sunday in Ord. Time"
+    },
+    "ordinaryTime:week29:monday": {
+      "refs": [
+        "Est 3:1-15"
+      ],
+      "sourceLabel": "29th Week in Ord. Time, Monday"
+    },
+    "ordinaryTime:week29:tuesday": {
+      "refs": [
+        "Est 4:1-16"
+      ],
+      "sourceLabel": "29th Week in Ord. Time, Tuesday"
+    },
+    "ordinaryTime:week29:wednesday": {
+      "refs": [
+        "Est 14:1-19"
+      ],
+      "sourceLabel": "29th Week in Ord. Time, Wednesday"
+    },
+    "ordinaryTime:week29:thursday": {
+      "refs": [
+        "Est 5:1-5, 7:1-10"
+      ],
+      "sourceLabel": "29th Week in Ord. Time, Thursday"
+    },
+    "ordinaryTime:week29:friday": {
+      "refs": [
+        "Bar 1:14-2:5, 3:1-8"
+      ],
+      "sourceLabel": "29th Week in Ord. Time, Friday"
+    },
+    "ordinaryTime:week29:saturday": {
+      "refs": [
+        "Bar 3:9-15, 24-4:4"
+      ],
+      "sourceLabel": "29th Week in Ord. Time, Saturday"
+    },
+    "ordinaryTime:week30:sunday": {
+      "refs": [
+        "Wis 1:1-15"
+      ],
+      "sourceLabel": "30th Sunday in Ord. Time"
+    },
+    "ordinaryTime:week30:monday": {
+      "refs": [
+        "Wis 1:16-2:1, 10-24"
+      ],
+      "sourceLabel": "30th Week in Ord. Time, Monday",
+      "renderable": false
+    },
+    "ordinaryTime:week30:tuesday": {
+      "refs": [
+        "Wis 3:1-19"
+      ],
+      "sourceLabel": "30th Week in Ord. Time, Tuesday"
+    },
+    "ordinaryTime:week30:wednesday": {
+      "refs": [
+        "Wis 6:1-25"
+      ],
+      "sourceLabel": "30th Week in Ord. Time, Wednesday"
+    },
+    "ordinaryTime:week30:thursday": {
+      "refs": [
+        "Wis 7:15-30"
+      ],
+      "sourceLabel": "30th Week in Ord. Time, Thursday"
+    },
+    "ordinaryTime:week30:friday": {
+      "refs": [
+        "Wis 8:1-21"
+      ],
+      "sourceLabel": "30th Week in Ord. Time, Friday"
+    },
+    "ordinaryTime:week30:saturday": {
+      "refs": [
+        "Wis 11:20-12:2, 11-19"
+      ],
+      "sourceLabel": "30th Week in Ord. Time, Saturday"
+    },
+    "ordinaryTime:week31:sunday": {
+      "refs": [
+        "1 Mc 1:1-24"
+      ],
+      "sourceLabel": "31st Sunday in Ord. Time"
+    },
+    "ordinaryTime:week31:monday": {
+      "refs": [
+        "1 Mc 1:43-63"
+      ],
+      "sourceLabel": "31st Week in Ord. Time, Monday"
+    },
+    "ordinaryTime:week31:tuesday": {
+      "refs": [
+        "1 Mc 2:1, 15-28, 42-50, 65-70"
+      ],
+      "sourceLabel": "31st Week in Ord. Time, Tuesday"
+    },
+    "ordinaryTime:week31:wednesday": {
+      "refs": [
+        "1 Mc 3:1-26"
+      ],
+      "sourceLabel": "31st Week in Ord. Time, Wednesday"
+    },
+    "ordinaryTime:week31:thursday": {
+      "refs": [
+        "1 Mc 4:36-59"
+      ],
+      "sourceLabel": "31st Week in Ord. Time, Thursday"
+    },
+    "ordinaryTime:week31:friday": {
+      "refs": [
+        "2 Mc 12:32-46"
+      ],
+      "sourceLabel": "31st Week in Ord. Time, Friday"
+    },
+    "ordinaryTime:week31:saturday": {
+      "refs": [
+        "1 Mc 9:1-22"
+      ],
+      "sourceLabel": "31st Week in Ord. Time, Saturday"
+    },
+    "ordinaryTime:week32:sunday": {
+      "refs": [
+        "Dn 1:1-21"
+      ],
+      "sourceLabel": "32nd Sunday in Ord. Time"
+    },
+    "ordinaryTime:week32:monday": {
+      "refs": [
+        "Dn 2:26-47"
+      ],
+      "sourceLabel": "32nd Week in Ord. Time, Monday"
+    },
+    "ordinaryTime:week32:tuesday": {
+      "refs": [
+        "Dn 3:8-12, 19-24, 91-97"
+      ],
+      "sourceLabel": "32nd Week in Ord. Time, Tuesday"
+    },
+    "ordinaryTime:week32:wednesday": {
+      "refs": [
+        "Dn 5:1-2, 5-9, 13-17, 25-6:1"
+      ],
+      "sourceLabel": "32nd Week in Ord. Time, Wednesday"
+    },
+    "ordinaryTime:week32:thursday": {
+      "refs": [
+        "Dn 9:1-4, 18-27"
+      ],
+      "sourceLabel": "32nd Week in Ord. Time, Thursday"
+    },
+    "ordinaryTime:week32:friday": {
+      "refs": [
+        "Dn 10:1-21"
+      ],
+      "sourceLabel": "32nd Week in Ord. Time, Friday"
+    },
+    "ordinaryTime:week32:saturday": {
+      "refs": [
+        "Dn 12:1-13"
+      ],
+      "sourceLabel": "32nd Week in Ord. Time, Saturday"
+    },
+    "ordinaryTime:week33:sunday": {
+      "refs": [
+        "Jl 2:21-3:5"
+      ],
+      "sourceLabel": "33rd Sunday in Ord. Time"
+    },
+    "ordinaryTime:week33:monday": {
+      "refs": [
+        "Jl 3:1-3, 9-21"
+      ],
+      "sourceLabel": "33rd Week in Ord. Time, Monday"
+    },
+    "ordinaryTime:week33:tuesday": {
+      "refs": [
+        "Zec 9:1-10:2"
+      ],
+      "sourceLabel": "33rd Week in Ord. Time, Tuesday"
+    },
+    "ordinaryTime:week33:wednesday": {
+      "refs": [
+        "Zec 10:3-11:3"
+      ],
+      "sourceLabel": "33rd Week in Ord. Time, Wednesday"
+    },
+    "ordinaryTime:week33:thursday": {
+      "refs": [
+        "Zec 11:4-12:8"
+      ],
+      "sourceLabel": "33rd Week in Ord. Time, Thursday"
+    },
+    "ordinaryTime:week33:friday": {
+      "refs": [
+        "Zec 12:9-12, 13:1-9"
+      ],
+      "sourceLabel": "33rd Week in Ord. Time, Friday"
+    },
+    "ordinaryTime:week33:saturday": {
+      "refs": [
+        "Zec 14:1-21"
+      ],
+      "sourceLabel": "33rd Week in Ord. Time, Saturday"
+    },
+    "ordinaryTime:week34:monday": {
+      "refs": [
+        "2 Pt 1:1-11"
+      ],
+      "sourceLabel": "34th Week in Ord. Time, Monday"
+    },
+    "ordinaryTime:week34:tuesday": {
+      "refs": [
+        "2 Pt 1:12-21"
+      ],
+      "sourceLabel": "34th Week in Ord. Time, Tuesday"
+    },
+    "ordinaryTime:week34:wednesday": {
+      "refs": [
+        "2 Pt 2:1-9"
+      ],
+      "sourceLabel": "34th Week in Ord. Time, Wednesday"
+    },
+    "ordinaryTime:week34:thursday": {
+      "refs": [
+        "2 Pt 2:9-22"
+      ],
+      "sourceLabel": "34th Week in Ord. Time, Thursday"
+    },
+    "ordinaryTime:week34:friday": {
+      "refs": [
+        "2 Pt 3:1-18"
+      ],
+      "sourceLabel": "34th Week in Ord. Time, Friday"
+    },
+    "ordinaryTime:week34:saturday": {
+      "refs": [
+        "Jude 1:1-8, 12-13, 17-25"
+      ],
+      "sourceLabel": "34th Week in Ord. Time, Saturday"
+    }
+  }
+}

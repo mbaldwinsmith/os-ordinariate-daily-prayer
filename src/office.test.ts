@@ -139,7 +139,7 @@ describe('resolveDay', () => {
     expect(officeDay.officeYear).toBe('I');
     const day = resolveDayOrThrow(new Date(2025, 0, 19));
     expect(day.readings).not.toBeNull();
-    expect(day.readings?.scriptureReading.ref).toMatch(/^[A-Za-z0-9 ]+ \d+$/);
+    expect(day.readings?.scriptureReading.ref).toBe('Dt 1:1, 6-18');
     expect(Object.values(day.readings!.scriptureReading.verses).length).toBeGreaterThan(0);
     expect(day.readings?.patristicReading).toBeNull();
   });

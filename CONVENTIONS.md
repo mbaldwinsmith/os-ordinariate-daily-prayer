@@ -123,7 +123,11 @@ live under `schema/` and are enforced by `npm run validate:data` (wired into CI)
   see `src/calendar.ts`), so their Office of Readings content lives under
   `proper-of-seasons/` instead, like the Triduum always did. See
   `schema/office-of-readings-day.schema.json`; `src/officeOfReadings.ts` dispatches between
-  the two sources.
+  the two sources. The two year directories are compatibility paths and intentionally
+  contain the same canonical one-year cycle printed in the current Liturgy of the Hours;
+  they must not be made different without an authoritative optional two-year supplement.
+  A `scriptureReading.refs` array represents the rare appointed pericope that crosses a
+  biblical-book boundary.
 - `data/proper-of-seasons/<key>.json` and `data/proper-of-saints/<key>.json`: one file per
   overridden celebration/date, filename matching the `key` field inside the file. For the
   Triduum (`holyThursday`/`goodFriday`/`holySaturday`) and Christmas season days, `key`

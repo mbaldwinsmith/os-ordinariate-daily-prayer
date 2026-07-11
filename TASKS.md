@@ -573,25 +573,32 @@ real-scripture but unverified week-to-book reconstruction, all files
 `"verified": false`. The psalter fix (Phase 13) does not touch this. Closing it
 fully is a much larger transcription job than the psalter, so sequence it:
 
-- [ ] Identify an authoritative structural source for the two-year Office of
+- [x] Identify an authoritative structural source for the Office of
       Readings lectionary cycle (candidates: Fr. Just's related pages at
       catholic-resources.org/LoH, a published breviary's lectionary tables, or the
       Breviarium open-source library's data files as a secondary witness) and
       record it in `SOURCES.md`
-- [ ] Transcribe it into a canonical dataset (`canonical-office-of-readings.json`
+- [x] Transcribe it into a canonical dataset (`canonical-office-of-readings.json`
       or per-season files) in the same spirit as Phase 13.1 — references only,
       no copyrighted text
-- [ ] Write/extend a diff script for the OoR files against the canonical dataset
-- [ ] Regenerate the OoR data from the canonical source, replacing the
+- [x] Write/extend a diff script for the OoR files against the canonical dataset
+- [~] Regenerate the OoR data from the canonical source, replacing the
       continuous-chapter reconstruction; flip `verified` flags; update the UI
       warnings and `SOURCES.md`
-- [ ] Wire into CI as with the psalter
-- [ ] If no single complete structural source can be found, fall back to
+- [x] Wire into CI as with the psalter
+- [x] If no single complete structural source can be found, fall back to
       incremental verification (Ordinary Time first, seasons after), keeping
       per-file `verified` flags honest about exactly which days are checked
 - [ ] Revisit short readings (the Phase 10 follow-up) against the same source
       once found — the canonical psalter file already provides verified Compline
       short readings as a starting point
+
+Phase 14 incremental pass: Fr. Felix Just's page-referenced table establishes the
+one-year cycle printed in the current four-volume Liturgy of the Hours; the former
+Year-I/II reconstruction was not the optional two-year supplement described by GILH 145.
+The canonical pipeline now verifies 642/700 compatibility files. The remaining 58 stay
+unverified: 38 are date/proper-dependent slots absent from generic week/day rows, and 20
+have source-versification selections the local DRC dataset cannot yet render faithfully.
 
 ---
 

@@ -94,6 +94,17 @@ function resolveHourContent(psalmody: PsalmodyItem[], hourName: HourName, effect
   };
 }
 
+function resolveLongReading(reading: { ref?: string; refs?: string[]; title?: string }): ReadingsView['scriptureReading'] {
+  const refs = reading.refs ?? [reading.ref!];
+  const resolved = refs.map(resolveScriptureRef);
+  const multiple = resolved.length > 1;
+  return {
+    ref: refs.join('; '),
+    title: reading.title,
+    verses: Object.fromEntries(resolved.flatMap((part) => Object.entries(part.verses).map(([verse, value]) => [multiple ? `${part.ref.split(' ')[0]} ${verse}` : verse, value]))),
+  };
+}
+
 function nextCivilDay(day: OfficeDay): OfficeDay {
   const [year, month, date] = day.date.split('-').map(Number);
   return getOfficeDay(new Date(year, month - 1, date + 1));
@@ -153,10 +164,7 @@ export function resolveDay(day: OfficeDay): DayView | null {
     ...hourViews,
     readings: readingsDay && {
       verified: readingsDay.verified,
-      scriptureReading: {
-        ...readingsDay.scriptureReading,
-        ...resolveScriptureRef(readingsDay.scriptureReading.ref),
-      },
+      scriptureReading: resolveLongReading(readingsDay.scriptureReading),
       patristicReading: readingsDay.patristicReading,
     },
     invitatory: resolveInvitatoryAntiphon(day),

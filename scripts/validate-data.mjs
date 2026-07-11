@@ -183,7 +183,8 @@ if (existsSync(bookAbbreviationsPath) && existsSync(drcPath)) {
 
   for (const path of findJsonFiles(join(dataDir, 'office-of-readings'))) {
     const { scriptureReading } = JSON.parse(readFileSync(path, 'utf8'));
-    checkScriptureRef(path, 'scriptureReading.ref', scriptureReading?.ref);
+    const refs = scriptureReading?.refs ?? [scriptureReading?.ref];
+    refs.forEach((ref, index) => checkScriptureRef(path, scriptureReading?.refs ? `scriptureReading.refs[${index}]` : 'scriptureReading.ref', ref));
   }
 
   for (const path of findJsonFiles(join(dataDir, 'psalter'))) {

@@ -1,7 +1,10 @@
 {
-  "verified": false,
+  "verified": true,
   "scriptureReading": {
-    "ref": "Neh 12"
+    "refs": [
+      "1 Sm 31:1-4",
+      "2 Sm 1:1-16"
+    ]
   },
   "patristicReading": null
 }

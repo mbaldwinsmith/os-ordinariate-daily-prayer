@@ -10,7 +10,7 @@ import { resolveProperEntry } from './proper';
 
 export interface OfficeOfReadingsDay {
   verified: boolean;
-  scriptureReading: { ref: string; title?: string };
+  scriptureReading: ({ ref: string; refs?: never } | { refs: string[]; ref?: never }) & { title?: string };
   patristicReading: { title: string; sourceRef?: string } | null;
 }
 

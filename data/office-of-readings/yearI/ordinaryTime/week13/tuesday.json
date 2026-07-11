@@ -1,7 +1,10 @@
 {
-  "verified": false,
+  "verified": true,
   "scriptureReading": {
-    "ref": "Ex 37"
+    "refs": [
+      "1 Sm 31:1-4",
+      "2 Sm 1:1-16"
+    ]
   },
   "patristicReading": null
 }
