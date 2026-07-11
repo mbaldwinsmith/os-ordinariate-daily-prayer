@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { getOfficeDay } from './calendar';
-import { resolveDay } from './office';
+import { resolveDay, resolveHour } from './office';
 
 function resolveDayOrThrow(date: Date) {
   const day = resolveDay(getOfficeDay(date));
@@ -77,6 +77,32 @@ describe('resolveDay', () => {
   it('uses the following Sunday\'s First Vespers on Saturday evening', () => {
     const saturday = resolveDayOrThrow(new Date(2024, 0, 20));
     expect(saturday.vespers.psalmody.slice(0, 2).map((item) => item.ref)).toEqual(['Ps 113', 'Ps 116:10-19']);
+    expect(saturday.vespers.vespersKind).toBe('first');
+    expect(saturday.vespers.effectiveDay.date).toBe('2024-01-21');
+    expect(saturday.vespers.shortReading?.ref).toBe('Heb 13:20-21');
+    expect(saturday.lauds.effectiveDay.date).toBe('2024-01-20');
+    expect(saturday.compline.effectiveDay.date).toBe('2024-01-20');
+  });
+
+  it('exposes hour-specific resolution and marks Sunday evening as Second Vespers', () => {
+    const officeDay = getOfficeDay(new Date(2024, 0, 21));
+    const vespers = resolveHour(officeDay, 'vespers');
+    expect(vespers?.effectiveDay.date).toBe('2024-01-21');
+    expect(vespers?.vespersKind).toBe('second');
+  });
+
+  it('keeps a Saturday solemnity and its Compline on the civil day', () => {
+    const assumption = resolveDayOrThrow(new Date(2026, 7, 15));
+    expect(assumption.vespers.effectiveDay.date).toBe('2026-08-15');
+    expect(assumption.vespers.vespersKind).toBe('second');
+    expect(assumption.compline.effectiveDay.date).toBe('2026-08-15');
+  });
+
+  it('lets a strong-season Sunday take First Vespers after a Saturday solemnity', () => {
+    const saturday = resolveDayOrThrow(new Date(2026, 10, 28));
+    expect(saturday.vespers.effectiveDay.date).toBe('2026-11-29');
+    expect(saturday.vespers.vespersKind).toBe('first');
+    expect(saturday.vespers.effectiveDay.season).toBe('advent');
   });
 
   it('selects strong-season Office psalmody and the Lenten Sunday canticle', () => {

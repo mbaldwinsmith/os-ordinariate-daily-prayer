@@ -80,6 +80,9 @@ function renderPrayerBook(hour: HourKey, dayOfWeek: DayOfWeek): string {
 }
 
 function renderHour(label: string, hour: HourView, day: DayView, dayOfWeek: DayOfWeek): string {
+  const hourLabel = hour.vespersKind === 'first'
+    ? `First Vespers of ${hour.effectiveDay.celebrationName}`
+    : hour.vespersKind === 'second' ? `Second ${label}` : label;
   const invitatory =
     selectedHour === 'officeOfReadings'
       ? `<section class="text-section antiphon"><p class="eyebrow">Invitatory antiphon</p><p>${day.invitatory.firstLine}<br/>${day.invitatory.secondLine}</p></section>`
@@ -98,7 +101,7 @@ function renderHour(label: string, hour: HourView, day: DayView, dayOfWeek: DayO
     selectedHour === 'compline'
       ? `<section class="text-section antiphon"><p class="eyebrow">Marian antiphon</p><h3>${day.complineAntiphon.name}</h3><p class="verification-note">Awaiting a source with clearer licensing - see SOURCES.md.</p><p>${day.complineAntiphon.english}</p></section>`
       : '';
-  return `<article class="office"><header class="office-heading"><p class="eyebrow">The Daily Office</p><h2>${label}</h2></header>
+  return `<article class="office"><header class="office-heading"><p class="eyebrow">The Daily Office</p><h2>${hourLabel}</h2></header>
     ${invitatory}${hour.psalmody.map(renderPsalmodyItem).join('')}
     ${selectedHour === 'officeOfReadings' ? renderReadings(day.readings) : shortReading}${oAntiphon}${gospelCanticle}${complineAntiphon}${renderPrayerBook(selectedHour, dayOfWeek)}
   </article>`;

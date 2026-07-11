@@ -350,6 +350,10 @@ text as though it were part of the official Liturgy of the Hours.
 - **Daytime Prayer reference assignments**: factual `READING` citations from the 28
   published `ord-w0N-<day>-dp2-current` Midday Prayer pages at `divineoffice.org`, one for
   every day of the four-week psalter. Only citations were retained.
+- **Sunday First Vespers reference assignments**: factual `READING` citations from the
+  published Divine Office Evening Prayer I pages: `Dt 6:4-7`, `Col 1:2-6`,
+  `Heb 13:20-21`, and `2 Pt 1:19-21` for Weeks I-IV. Clause-level endpoints were expanded
+  to whole Douay-Rheims-Challoner verses under the project convention below.
 - **Representative proper overrides**: Christmas and the Easter octave use the same
   page-referenced seasonal dataset. The Assumption uses the factual citations from the
   published Divine Office pages for Morning Prayer, Midday Prayer, and Evening Prayer II

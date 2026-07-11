@@ -90,6 +90,10 @@
         "type": "canticle",
         "scriptureRef": "Phil 2:6-11"
       }
-    ]
+    ],
+    "shortReading": {
+      "ref": "Dt 6:4-7",
+      "verified": false
+    }
   }
 }

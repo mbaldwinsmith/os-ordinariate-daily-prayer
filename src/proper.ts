@@ -7,6 +7,7 @@ import type { DayOfWeek, OfficeDay } from './calendar';
 import type { PsalmodyItem, ShortReadingRef } from './psalter';
 
 export type HourName = 'officeOfReadings' | 'lauds' | 'daytimePrayer' | 'vespers' | 'compline';
+export type ProperHourName = HourName | 'firstVespers';
 
 export interface ProperEntry {
   key: string;
@@ -14,7 +15,7 @@ export interface ProperEntry {
   name?: string;
   firstReading?: { ref: string; title?: string };
   secondReading?: { title: string; sourceRef?: string } | null;
-  hours?: Partial<Record<HourName, { psalmody?: PsalmodyItem[]; shortReading?: ShortReadingRef }>>;
+  hours?: Partial<Record<ProperHourName, { psalmody?: PsalmodyItem[]; shortReading?: ShortReadingRef }>>;
 }
 
 const seasonFiles = import.meta.glob<ProperEntry>('../data/proper-of-seasons/*.json', {

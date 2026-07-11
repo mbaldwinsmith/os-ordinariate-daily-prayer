@@ -90,6 +90,10 @@
         "type": "canticle",
         "scriptureRef": "Phil 2:6-11"
       }
-    ]
+    ],
+    "shortReading": {
+      "ref": "Col 1:2-6",
+      "verified": false
+    }
   }
 }

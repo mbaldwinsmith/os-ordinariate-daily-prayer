@@ -10,7 +10,7 @@
 // no skeleton entry at all (psalterWeek 'easter'), so it relies entirely
 // on a full proper override instead - see TASKS.md Phase 8.
 import fixedCanticles from '../data/texts/fixedCanticles.json';
-import type { OfficeDay } from './calendar';
+import { getOfficeDay, type OfficeDay } from './calendar';
 import { resolveCompline, resolvePsalterDay, selectOfficeOfReadings, type PsalmodyItem, type PsalterHour } from './psalter';
 import { resolvePsalmRef } from './psalms';
 import { resolveOfficeOfReadings } from './officeOfReadings';
@@ -32,6 +32,9 @@ export interface HourView {
   psalmody: ResolvedPsalmodyItem[];
   shortReading: ({ ref: string; verified: boolean; verses: Record<string, string> }) | null;
   gospelCanticle: (typeof fixedCanticles)[GospelCanticleId] | null;
+  /** The celebration this Hour belongs to; Vespers can differ from the selected civil day. */
+  effectiveDay: OfficeDay;
+  vespersKind: 'first' | 'second' | null;
 }
 
 export interface ReadingsView {
@@ -80,13 +83,26 @@ function resolvePsalmody(psalmody: PsalmodyItem[]): ResolvedPsalmodyItem[] {
   });
 }
 
-function resolveHour(psalmody: PsalmodyItem[], hourName: HourName, reading?: { ref: string; verified: boolean }): HourView {
+function resolveHourContent(psalmody: PsalmodyItem[], hourName: HourName, effectiveDay: OfficeDay, vespersKind: HourView['vespersKind'], reading?: { ref: string; verified: boolean }): HourView {
   const gospelId = GOSPEL_CANTICLE_BY_HOUR[hourName];
   return {
     psalmody: resolvePsalmody(psalmody),
     shortReading: reading ? { ...reading, ...resolveScriptureRef(reading.ref) } : null,
     gospelCanticle: gospelId ? fixedCanticles[gospelId] : null,
+    effectiveDay,
+    vespersKind,
   };
+}
+
+function nextCivilDay(day: OfficeDay): OfficeDay {
+  const [year, month, date] = day.date.split('-').map(Number);
+  return getOfficeDay(new Date(year, month - 1, date + 1));
+}
+
+function saturdayBeginsSunday(day: OfficeDay, sunday: OfficeDay): boolean {
+  if (day.dayOfWeek !== 'saturday') return false;
+  if (day.rank !== 'solemnity') return true;
+  return ['advent', 'lent', 'easter'].includes(sunday.season);
 }
 
 /**
@@ -97,17 +113,24 @@ function resolveHour(psalmody: PsalmodyItem[], hourName: HourName, reading?: { r
 export function resolveDay(day: OfficeDay): DayView | null {
   const proper = resolveProperEntry(day);
   const skeleton = resolvePsalterDay(day.psalterWeek, day.dayOfWeek);
+  const tomorrow = day.dayOfWeek === 'saturday' ? nextCivilDay(day) : null;
+  const firstVespers = tomorrow ? saturdayBeginsSunday(day, tomorrow) : false;
+  const vespersDay = firstVespers ? tomorrow! : day;
+  const vespersProper = firstVespers ? resolveProperEntry(vespersDay) : proper;
+  // Saturday has no ferial Vespers row. A Saturday solemnity can supply its
+  // proper reading while retaining the following Sunday's First-Vespers
+  // psalmody as the existing best-effort structural fallback.
+  const saturdaySundaySkeleton = tomorrow ? resolvePsalterDay(tomorrow.psalterWeek, 'sunday') : null;
+  const vespersSkeleton = firstVespers ? saturdaySundaySkeleton : skeleton;
 
   if (!skeleton && !HOUR_NAMES.every((hourName) => proper?.hours?.[hourName])) return null;
 
   const readingsDay = resolveOfficeOfReadings(day);
-  const nextWeek = day.psalterWeek === 'easter' ? 'easter' : ((day.psalterWeek % 4) + 1) as 1 | 2 | 3 | 4;
-  const nextSunday = day.dayOfWeek === 'saturday' ? resolvePsalterDay(nextWeek, 'sunday') : null;
   const ferialHours: Partial<Record<HourName, PsalterHour>> = skeleton ? {
     officeOfReadings: selectOfficeOfReadings(skeleton, day.season),
     lauds: skeleton.lauds,
     daytimePrayer: skeleton.daytimePrayer,
-    vespers: day.dayOfWeek === 'saturday' ? nextSunday?.firstVespers : skeleton.vespers,
+    vespers: day.dayOfWeek === 'saturday' ? saturdaySundaySkeleton?.firstVespers : vespersSkeleton?.vespers,
     compline: resolveCompline(day.dayOfWeek),
   } : {};
   if (day.season === 'lent' && day.dayOfWeek === 'sunday' && ferialHours.vespers) {
@@ -116,9 +139,12 @@ export function resolveDay(day: OfficeDay): DayView | null {
 
   const hourViews = Object.fromEntries(
     HOUR_NAMES.map((hourName) => {
-      const psalmody = proper?.hours?.[hourName]?.psalmody ?? ferialHours[hourName]?.psalmody;
-      const shortReading = proper?.hours?.[hourName]?.shortReading ?? ferialHours[hourName]?.shortReading;
-      return [hourName, resolveHour(psalmody!, hourName, shortReading)];
+      const hourProper = hourName === 'vespers' && firstVespers ? vespersProper?.hours?.firstVespers : proper?.hours?.[hourName];
+      const psalmody = hourProper?.psalmody ?? ferialHours[hourName]?.psalmody;
+      const shortReading = hourProper?.shortReading ?? ferialHours[hourName]?.shortReading;
+      const effectiveDay = hourName === 'vespers' ? vespersDay : day;
+      const vespersKind = hourName === 'vespers' ? (firstVespers ? 'first' : day.dayOfWeek === 'sunday' || day.rank === 'solemnity' ? 'second' : null) : null;
+      return [hourName, resolveHourContent(psalmody!, hourName, effectiveDay, vespersKind, shortReading)];
     }),
   ) as Record<HourName, HourView>;
 
@@ -137,4 +163,9 @@ export function resolveDay(day: OfficeDay): DayView | null {
     oAntiphon: resolveOAntiphon(day),
     complineAntiphon: resolveMarianAntiphon(day),
   };
+}
+
+/** Resolve one Hour without requiring callers to understand its effective liturgical day. */
+export function resolveHour(day: OfficeDay, hourName: HourName): HourView | null {
+  return resolveDay(day)?.[hourName] ?? null;
 }

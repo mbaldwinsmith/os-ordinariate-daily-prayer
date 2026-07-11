@@ -344,6 +344,40 @@ Dimittis remain the Hours' Gospel canticles.
 - [x] Extend the production-browser smoke test across representative ferial, seasonal,
       solemnity, and saint dates, checking all four applicable Hours and zero runtime errors
 
+### Phase 10 follow-up — First Vespers and hour-specific day resolution
+
+The current `resolveDay(date)` model assumes that every Hour belongs to the same civil
+date. That is not sufficient for Vespers: Saturday evening ordinarily celebrates First
+Vespers of Sunday, and solemnities may also begin with First Vespers on the preceding
+evening. Until this is implemented, Saturday Vespers can show the ferial Saturday office
+instead of the coming Sunday's office even when its short reading is present.
+
+- [x] Introduce an hour-specific resolution entry point such as
+      `resolveHour(date, hourName)`, while retaining `resolveDay` as a convenient aggregate
+      for UI callers and tests
+- [x] Model the effective liturgical celebration separately for each Hour so that Vespers
+      may belong to the following Sunday or solemnity without incorrectly moving Lauds,
+      Daytime Prayer, or the rest of the selected civil date
+- [x] Represent First and Second Vespers explicitly in resolved data and proper schemas,
+      allowing distinct psalmody, short readings, and future Gospel-canticle antiphons
+- [x] Resolve ordinary Saturday Vespers from the following Sunday's celebration, season,
+      psalter week, and proper data
+- [~] Add First Vespers for solemnities that possess them, sourced and verified under the
+      same no-fabrication rules as the rest of the project
+- [~] Define and document precedence when celebrations collide, including Saturday
+      solemnity versus Sunday First Vespers, competing solemnities, transferred
+      celebrations, and local-calendar differences; prefer romcal's precedence data where
+      it is sufficient rather than maintaining a second independent ranking system
+- [x] Decide Compline ownership after First Vespers and document whether Saturday/solemnity
+      Compline follows the preceding civil day or the newly begun liturgical celebration
+- [x] Display the transition explicitly in the UI, for example “First Vespers of the
+      Fifteenth Sunday in Ordinary Time,” rather than silently substituting tomorrow's data
+- [~] Add unit tests for ordinary Saturdays, Sunday and solemnity First Vespers, transferred
+      celebrations, precedence collisions, Advent/Christmas/Lent/Easter boundaries, and
+      the year-cycle boundary
+- [x] Extend the production-browser smoke test to exercise First Vespers navigation and
+      confirm that switching between Hours does not change the selected civil date
+
 ---
 
 ## Phase 11 — PWA & Offline
