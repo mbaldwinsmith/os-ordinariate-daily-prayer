@@ -35,13 +35,28 @@ describe('short readings', () => {
       for (const hourName of ['lauds', 'daytimePrayer'] as const) {
         const reading = file[hourName].shortReading;
         expect(reading, `${hourName} short reading`).toBeDefined();
-        expect(reading?.verified).toBe(false);
+        expect(typeof reading?.verified).toBe('boolean');
         expect(() => resolveScriptureRef(reading!.ref)).not.toThrow();
         expect(Object.keys(resolveScriptureRef(reading!.ref).verses).length).toBeGreaterThan(0);
       }
       if (file.vespers) expect(file.vespers.shortReading).toBeDefined();
     }
     for (const hour of Object.values(compline.days)) expect(hour.shortReading.verified).toBe(true);
+  });
+
+  it('cross-checks ferial Lauds/Daytime Prayer/Vespers short readings against the independent Breviarium source (Phase 14)', () => {
+    // Pinned count, not a lower bound: catches an accidental edit silently un-verifying
+    // (or over-verifying) an entry just as easily as a regression in the cross-check
+    // itself. Re-run `npm run generate:short-readings-verification` if
+    // canonical-short-readings.json is intentionally refreshed. See
+    // scripts/diff-short-readings.mjs for the reconciliation this doesn't yet cover.
+    let verifiedCount = 0;
+    for (const file of Object.values(files)) {
+      for (const hourName of ['lauds', 'daytimePrayer', 'vespers'] as const) {
+        if (file[hourName]?.shortReading?.verified) verifiedCount++;
+      }
+    }
+    expect(verifiedCount).toBe(41);
   });
 
   it('uses the same fixed Compline reading for a weekday in every psalter week', () => {

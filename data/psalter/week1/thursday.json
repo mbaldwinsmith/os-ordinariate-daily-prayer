@@ -33,7 +33,7 @@
     ],
     "shortReading": {
       "ref": "Is 66:1-2",
-      "verified": false
+      "verified": true
     }
   },
   "daytimePrayer": {
@@ -73,7 +73,7 @@
     ],
     "shortReading": {
       "ref": "1 Pt 1:6-9",
-      "verified": false
+      "verified": true
     }
   }
 }

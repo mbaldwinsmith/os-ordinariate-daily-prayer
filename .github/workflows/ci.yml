@@ -18,5 +18,6 @@ jobs:
       - run: npm run validate:data
       - run: npm run diff:psalter
       - run: npm run diff:office-of-readings
+      - run: npm run diff:short-readings
       - run: npm test
       - run: npm run build

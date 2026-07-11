@@ -347,11 +347,62 @@ text as though it were part of the official Liturgy of the Hours.
 - **Displayed text**: every citation resolves locally into the public-domain
   Douay-Rheims-Challoner dataset already documented in this file; no source translation
   from either assignment index is redistributed.
-- **Verification status**: every assignment is `"verified": false`. The GitHub dataset is
-  page-referenced and the Divine Office pages agree with known breviary placements, but
-  the underlying approved printed edition was not independently reachable for a
-  line-by-line check. Clause-level `a`/`b` references are expanded to whole DRC verses as
-  documented in `CONVENTIONS.md`.
+- **Verification status**: every assignment started as `"verified": false`. The GitHub
+  dataset is page-referenced and the Divine Office pages agree with known breviary
+  placements, but the underlying approved printed edition was not independently reachable
+  for a line-by-line check. Clause-level `a`/`b` references are expanded to whole DRC
+  verses as documented in `CONVENTIONS.md`.
+
+### Phase 14 cross-check: Breviarium
+
+Fr. Just's site (the structural source for the psalter skeleton and Office of Readings,
+Phases 13-14) has no equivalent table for these four short readings, so a second
+independent structural source was used instead: the **Breviarium** open-source Liturgy of
+the Hours library, `https://github.com/Breviarium-app/breviarium--core` at commit
+`9772041f194e6f0c1368042dc21aa8ed7ecc461c` (Apache-2.0; attribution: "Based on 'Breviarium'
+by Miguel Martínez (miguelms.es)"). Only its Spanish-language citation identifiers were
+extracted (`scripts/fetch-canonical-short-readings.mjs` → `canonical-short-readings.json`,
+diffed by `scripts/diff-short-readings.mjs`) - no reading text, Spanish or otherwise, is
+retained or displayed.
+
+- **Which Breviarium hour matches this app's Daytime Prayer**: this app models Daytime
+  Prayer as one combined midday hour rather than separate Terce/Sext/None
+  (`CONVENTIONS.md`). Cross-checking against all three of Breviarium's minor hours showed
+  its **Sext** (`all_sexta.json`) is the one this app's existing Daytime Prayer citations
+  already followed (25 of 26 comparable days matched exactly before any correction), so
+  Sext is the one used.
+- **Result**: 41 of the 78 comparable ferial citations (Lauds + Daytime Prayer + Vespers
+  across the four weeks, Saturday excepted since it has no `vespers` entry - see
+  `CONVENTIONS.md`) matched exactly and were flipped to `"verified": true` by
+  `scripts/generate-short-readings-verification.mjs`. No `ref` values were changed by this
+  pass - only citations Breviarium independently confirmed letter-for-letter were touched.
+- **The other 33 (mostly Lauds and Vespers) disagree** with Breviarium on the exact verse
+  boundary, almost always because this app's existing citation is the *wider* of the two
+  (e.g. this app has `Rom 12:13-21`, Breviarium has `Rom 12:14-16`). The pattern is
+  systematic rather than random, which could mean either source is right: this app's
+  existing citations may carry padding from an imprecise original transcription, or
+  Breviarium's edition may trim to a tighter selection than the US four-volume *Liturgy of
+  the Hours*/*Christian Prayer* uses. Two of Tobit's/Judith's disagreements (`Tb 4:15-16,
+  18-19` vs. `Tb 4:16-17, 19-20`; `Jdt 8:25-27` vs. `Jdt 8:21-23`) look like the deuterocanonical
+  versification differences already documented elsewhere in this file, not a citation
+  error either way. These 33 are left exactly as they were (`ref` unchanged,
+  `"verified": false`) rather than silently adopting either source - a genuine open
+  question for the still-outstanding human verification pass (see Phase 13.6/14 in
+  `TASKS.md`), not a transcription failure.
+- **Known gap in the cross-check source itself**: Breviarium's dataset omits a ferial
+  Sunday entry for two of the four psalter weeks under the generic
+  `ordinary_time_<N>_sunday` id (`N` = 1 and 3) - most likely because, in whatever specific
+  calendar year that dataset was generated against, an actual solemnity displaced those
+  particular Sundays and the generic ferial content was never populated for them. This
+  affects 6 of the 84 possible day/hour slots (2 Sundays × 3 hours); those 6 remain
+  unverified with no second source to check against yet.
+- **Not used for First Vespers**: Breviarium does carry a `vespers` entry for
+  `ordinary_time_<N>_saturday`, but its four weeks' values do not line up with this app's
+  existing First-Vespers-of-Sunday citations at any consistent week offset, so it's
+  unclear whether it represents the same liturgical unit (First Vespers of the following
+  Sunday) or something else (e.g. a generic "Saturday's own Vespers" that doesn't survive
+  in actual practice). Left uninvestigated rather than guessed at; `firstVespers` citations
+  are untouched by this pass.
 
 ## Prayer Book prayers and intercessions
 

@@ -33,7 +33,7 @@
     ],
     "shortReading": {
       "ref": "Dt 4:39-40",
-      "verified": false
+      "verified": true
     }
   },
   "daytimePrayer": {
@@ -53,7 +53,7 @@
     ],
     "shortReading": {
       "ref": "Col 3:17",
-      "verified": false
+      "verified": true
     }
   },
   "vespers": {
@@ -73,7 +73,7 @@
     ],
     "shortReading": {
       "ref": "1 Jn 2:3-6",
-      "verified": false
+      "verified": true
     }
   }
 }

@@ -589,9 +589,14 @@ fully is a much larger transcription job than the psalter, so sequence it:
 - [x] If no single complete structural source can be found, fall back to
       incremental verification (Ordinary Time first, seasons after), keeping
       per-file `verified` flags honest about exactly which days are checked
-- [ ] Revisit short readings (the Phase 10 follow-up) against the same source
-      once found — the canonical psalter file already provides verified Compline
-      short readings as a starting point
+- [~] Revisit short readings (the Phase 10 follow-up) against the same source
+      once found — Fr. Just's site has no equivalent short-reading table, so a
+      second independent structural source (the Breviarium open-source library)
+      was used instead. 41 of 78 comparable ferial Lauds/Daytime Prayer/Vespers
+      citations matched exactly and are now `"verified": true`; the other 33
+      disagree on exact verse boundaries and are left unchanged pending a future
+      human check against the printed edition (same category of open task as
+      Phase 13.6). See `SOURCES.md` for the full breakdown.
 
 Phase 14 incremental pass: Fr. Felix Just's page-referenced table establishes the
 one-year cycle printed in the current four-volume Liturgy of the Hours; the former
@@ -599,6 +604,16 @@ Year-I/II reconstruction was not the optional two-year supplement described by G
 The canonical pipeline now verifies 642/700 compatibility files. The remaining 58 stay
 unverified: 38 are date/proper-dependent slots absent from generic week/day rows, and 20
 have source-versification selections the local DRC dataset cannot yet render faithfully.
+
+Phase 14 short-readings pass: cross-checked the existing Lauds/Daytime Prayer/Vespers
+short-reading citations against the Breviarium open-source library's Spanish-language
+databases (citations only, no text) via `scripts/fetch-canonical-short-readings.mjs` /
+`scripts/diff-short-readings.mjs`, wired into CI. 41/78 comparable slots matched exactly
+and were flipped to verified; the remaining 33 show a systematic pattern (this app's
+existing citation is almost always the wider of the two) that isn't resolvable without
+the printed edition, so they're left as an honest open disagreement rather than a guess
+in either direction. See `SOURCES.md` for the complete breakdown, including the 6 slots
+where the cross-check source itself has a gap.
 
 ---
 

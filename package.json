@@ -14,7 +14,10 @@
     "diff:psalter": "node scripts/diff-psalter.mjs",
     "fetch:office-of-readings": "node scripts/fetch-canonical-office-of-readings.mjs",
     "diff:office-of-readings": "node scripts/diff-office-of-readings.mjs",
-    "generate:office-of-readings": "node scripts/generate-office-of-readings.mjs && node scripts/generate-office-of-readings-proper.mjs"
+    "generate:office-of-readings": "node scripts/generate-office-of-readings.mjs && node scripts/generate-office-of-readings-proper.mjs",
+    "fetch:short-readings": "node scripts/fetch-canonical-short-readings.mjs",
+    "diff:short-readings": "node scripts/diff-short-readings.mjs",
+    "generate:short-readings-verification": "node scripts/generate-short-readings-verification.mjs"
   },
   "dependencies": {
     "romcal": "^1.3.0"
