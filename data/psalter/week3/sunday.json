@@ -90,6 +90,10 @@
         "type": "canticle",
         "scriptureRef": "Phil 2:6-11"
       }
-    ]
+    ],
+    "shortReading": {
+      "ref": "Heb 13:20-21",
+      "verified": false
+    }
   }
 }

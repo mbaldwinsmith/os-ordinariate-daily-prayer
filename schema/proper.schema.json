@@ -36,6 +36,7 @@
         "officeOfReadings": { "$ref": "#/$defs/hour" },
         "lauds": { "$ref": "#/$defs/hour" },
         "daytimePrayer": { "$ref": "#/$defs/hour" },
+        "firstVespers": { "$ref": "#/$defs/hour" },
         "vespers": { "$ref": "#/$defs/hour" },
         "compline": { "$ref": "#/$defs/hour" }
       }

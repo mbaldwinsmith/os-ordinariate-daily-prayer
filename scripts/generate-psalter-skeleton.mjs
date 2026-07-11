@@ -9,6 +9,7 @@ const DAYS = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 
 
 const psalm = (ref) => ({ type: 'psalm', ref: normalizePsalmRef(ref) });
 const reading = (ref, verified = false) => ({ ref: normalizeScriptureRef(ref), verified });
+const FIRST_VESPERS_READINGS = { 1: 'Dt 6:4-7', 2: 'Col 1:2-6', 3: 'Heb 13:20-21', 4: '2 Pt 1:19-21' };
 
 function canticle(ref) {
   const normalized = normalizeScriptureRef(ref);
@@ -45,7 +46,7 @@ for (let week = 1; week <= 4; week++) {
       lauds: { psalmody: [psalm(source.morningPrayer.psalm1), canticle(source.morningPrayer.otCanticle), psalm(source.morningPrayer.psalm2)], ...(old.lauds && { shortReading: old.lauds }) },
       daytimePrayer: { psalmody: source.daytimePrayer.map(psalm), ...(old.daytimePrayer && { shortReading: old.daytimePrayer }) },
       vespers: day === 'sunday' ? eveningPrayer(source.eveningPrayer2) : day === 'saturday' ? { psalmody: [] } : eveningPrayer(source.eveningPrayer),
-      ...(day === 'sunday' && { firstVespers: eveningPrayer(source.eveningPrayer1) }),
+      ...(day === 'sunday' && { firstVespers: { ...eveningPrayer(source.eveningPrayer1), shortReading: reading(FIRST_VESPERS_READINGS[week]) } }),
     };
     if (day !== 'saturday' && old.vespers) result.vespers.shortReading = old.vespers;
     if (day === 'saturday') delete result.vespers;

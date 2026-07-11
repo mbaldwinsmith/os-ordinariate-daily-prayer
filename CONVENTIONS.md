@@ -212,7 +212,13 @@ those generated assignments are rejected by `npm run diff:psalter`.
 
 Psalmody arrays are ordered liturgical slots: Lauds is psalm, Old Testament canticle,
 psalm; Vespers is psalm, psalm, New Testament canticle. Sunday stores both First and
-Second Vespers. Saturday Vespers resolves to the following Sunday's First Vespers.
+Second Vespers. Ordinary Saturday Vespers resolves to the following Sunday's First
+Vespers, including that Sunday's season, psalter week, proper, and short reading. A
+solemnity falling on Saturday retains its Second Vespers unless the following Sunday is
+in Advent, Lent, or Easter; this conservative collision rule is explicit pending fuller
+local-calendar and transfer support. The selected civil date does not change. Compline
+after First Vespers remains the Saturday entry in the seven-day cycle, following the
+traditional Night Prayer I pattern rather than inheriting Sunday's civil-day entry.
 Compline is stored once as a seven-day cycle in `data/psalter/compline.json`, together
 with the default invitatory Psalm 95 and its permitted alternatives (100, 67, and 24).
 The four canonical seasonal Office-of-Readings forks select their strong-season branch

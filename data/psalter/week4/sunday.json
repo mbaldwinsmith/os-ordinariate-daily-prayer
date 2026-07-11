@@ -90,6 +90,10 @@
         "type": "canticle",
         "scriptureRef": "Phil 2:6-11"
       }
-    ]
+    ],
+    "shortReading": {
+      "ref": "2 Pt 1:19-21",
+      "verified": false
+    }
   }
 }
