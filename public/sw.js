@@ -1,7 +1,7 @@
 // Cache-first service worker. All content is static/bundled at build time,
 // so once an asset is cached it is served from cache and only re-fetched
 // on a cache-name bump (see CACHE_NAME below).
-const CACHE_NAME = 'ordinariate-daily-prayer-v2';
+const CACHE_NAME = 'ordinariate-daily-prayer-v3';
 
 const APP_SHELL = [
   './',
@@ -11,6 +11,15 @@ const APP_SHELL = [
   './icons/icon-192.png',
   './icons/icon-512.png',
   './icons/icon-maskable-512.png',
+  // Referenced only via CSS @font-face url(), so discoverBuildAssets()
+  // below (which scans index.html's src/href attributes) can't find them.
+  './fonts/cormorant-garamond-500.woff2',
+  './fonts/cormorant-garamond-600.woff2',
+  './fonts/cormorant-garamond-500-italic.woff2',
+  './fonts/eb-garamond-400.woff2',
+  './fonts/eb-garamond-500.woff2',
+  './fonts/eb-garamond-600.woff2',
+  './fonts/eb-garamond-400-italic.woff2',
 ];
 
 // The built JS/CSS bundle filenames are content-hashed by Vite, so they

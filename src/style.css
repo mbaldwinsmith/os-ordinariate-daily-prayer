@@ -1,115 +1,259 @@
+/* ===========================================================================
+   Personal Daily Prayer — refined stylesheet
+   Drop-in replacement for src/style.css. Uses the same class/selector names
+   the app already renders, so no markup changes are required for the visual
+   refresh. Two small behaviours need main.ts hooks (see INTEGRATION.md):
+     1. data-hour="<hour>" on <html>  -> per-Hour colour mood
+     2. data-focus on <html>          -> calm focus/reading mode
+   Both degrade gracefully: without the hooks you still get the full type and
+   colour refresh, just with the wine accent on every Hour and no focus mode.
+   =========================================================================== */
+
+/* ---- Fonts -----------------------------------------------------------------
+   Self-hosted to keep the app's zero-runtime-network / offline policy. Download
+   the woff2 files (e.g. from https://fontsource.org — packages @fontsource/
+   cormorant-garamond and @fontsource/eb-garamond) into public/fonts/ with the
+   names below. If the files are absent the fallback serif stack is used. */
+@font-face { font-family: 'Cormorant Garamond'; font-style: normal; font-weight: 500; font-display: swap; src: local('Cormorant Garamond Medium'), url('../fonts/cormorant-garamond-500.woff2') format('woff2'); }
+@font-face { font-family: 'Cormorant Garamond'; font-style: normal; font-weight: 600; font-display: swap; src: local('Cormorant Garamond SemiBold'), url('../fonts/cormorant-garamond-600.woff2') format('woff2'); }
+@font-face { font-family: 'Cormorant Garamond'; font-style: italic; font-weight: 500; font-display: swap; src: url('../fonts/cormorant-garamond-500-italic.woff2') format('woff2'); }
+@font-face { font-family: 'EB Garamond'; font-style: normal; font-weight: 400; font-display: swap; src: local('EB Garamond'), url('../fonts/eb-garamond-400.woff2') format('woff2'); }
+@font-face { font-family: 'EB Garamond'; font-style: normal; font-weight: 500; font-display: swap; src: url('../fonts/eb-garamond-500.woff2') format('woff2'); }
+@font-face { font-family: 'EB Garamond'; font-style: normal; font-weight: 600; font-display: swap; src: url('../fonts/eb-garamond-600.woff2') format('woff2'); }
+@font-face { font-family: 'EB Garamond'; font-style: italic; font-weight: 400; font-display: swap; src: url('../fonts/eb-garamond-400-italic.woff2') format('woff2'); }
+
+/* ---- Type families --------------------------------------------------------- */
+:root {
+  --serif-body: 'EB Garamond', Garamond, 'Palatino Linotype', Palatino, Georgia, serif;
+  --serif-display: 'Cormorant Garamond', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+}
+
+/* ---- Light theme (default) ------------------------------------------------- */
 :root {
   color-scheme: light;
-  --ink: #29211f; --muted: #756b67; --paper: #f7f2e9; --paper-top: #efe5d7; --surface: #fffdf8;
-  --rule: #ddd2c3; --accent: #7b1e2b; --accent-text: #7b1e2b; --accent-soft: #eee0df;
-  --header-rule: rgba(123, 30, 43, .22); --hover-shadow: rgba(123, 30, 43, .12); --card-shadow: rgba(67, 44, 35, .06);
-  --tabs-bg: rgba(255, 253, 248, .94); --tint-a: #f4eee4; --tint-b: #fbf5eb;
-  --warn-border: #b38a43; --warn-bg: #f3ead6; --warn-text: #66532f;
-  font-family: Garamond, Baskerville, 'Times New Roman', Georgia, serif; font-size: 18px; color: var(--ink); background: var(--paper);
+  --ink: oklch(0.28 0.018 45);
+  --muted: oklch(0.52 0.02 55);
+  --paper: oklch(0.965 0.012 78);
+  --paper-top: oklch(0.945 0.018 70);
+  --surface: oklch(0.99 0.006 85);
+  --rule: oklch(0.88 0.014 72);
+  --tint-a: oklch(0.955 0.016 68);
+  --tint-b: oklch(0.972 0.011 82);
+
+  /* Constant "brand" identity used on chrome (header, week strip, controls). */
+  --brand: oklch(0.46 0.12 24);
+  --brand-soft: oklch(0.93 0.04 24);
+
+  /* Per-Hour accent — overridden by :root[data-hour=…] below. Defaults to brand. */
+  --accent: var(--brand);
+  --accent-text: var(--brand);
+  --accent-soft: var(--brand-soft);
+  --accent-band: oklch(0.968 0.026 24);
+
+  --header-rule: color-mix(in oklch, var(--brand) 22%, transparent);
+  --hover-shadow: color-mix(in oklch, var(--brand) 12%, transparent);
+  --card-shadow: oklch(0.4 0.03 40 / 0.16);
+  --tabs-bg: oklch(0.99 0.006 85 / 0.9);
+
+  --warn-border: oklch(0.6 0.09 75);
+  --warn-bg: oklch(0.94 0.04 80);
+  --warn-text: oklch(0.5 0.05 70);
+
+  --read-size: 1.06rem;
+
+  font-family: var(--serif-body);
+  font-size: 18px;
+  color: var(--ink);
+  background: var(--paper);
   font-synthesis: none;
 }
+
+/* ---- Dark theme ------------------------------------------------------------ */
 :root[data-theme='dark'] {
   color-scheme: dark;
-  --ink: #ece4d8; --muted: #a89c8f; --paper: #17120f; --paper-top: #1d1712; --surface: #241d19;
-  --rule: #3a2f29; --accent-text: #e2929c; --accent-soft: #3a2226;
-  --header-rule: rgba(226, 146, 156, .22); --hover-shadow: rgba(226, 146, 156, .14); --card-shadow: rgba(0, 0, 0, .45);
-  --tabs-bg: rgba(24, 19, 16, .88); --tint-a: #2a221e; --tint-b: #2c231e;
-  --warn-border: #caa156; --warn-bg: #35291a; --warn-text: #e3c793;
+  --ink: oklch(0.92 0.014 72);
+  --muted: oklch(0.68 0.016 62);
+  --paper: oklch(0.185 0.012 50);
+  --paper-top: oklch(0.225 0.014 48);
+  --surface: oklch(0.245 0.012 50);
+  --rule: oklch(0.35 0.012 50);
+  --tint-a: oklch(0.265 0.012 50);
+  --tint-b: oklch(0.278 0.013 55);
+
+  --brand: oklch(0.78 0.1 26);
+  --brand-soft: oklch(0.32 0.05 26);
+  --accent: var(--brand);
+  --accent-text: var(--brand);
+  --accent-soft: var(--brand-soft);
+  --accent-band: oklch(0.278 0.034 26);
+
+  --card-shadow: oklch(0 0 0 / 0.55);
+  --tabs-bg: oklch(0.225 0.012 50 / 0.85);
+
+  --warn-border: oklch(0.7 0.09 80);
+  --warn-bg: oklch(0.3 0.04 75);
+  --warn-text: oklch(0.82 0.07 80);
 }
+
+/* ---- Per-Hour colour moods ------------------------------------------------- */
+/* Light */
+:root[data-hour='officeOfReadings'] { --accent: oklch(0.47 0.1 292); --accent-text: var(--accent); --accent-soft: oklch(0.93 0.038 292); --accent-band: oklch(0.968 0.02 292); }
+:root[data-hour='lauds']            { --accent: oklch(0.55 0.11 72);  --accent-text: var(--accent); --accent-soft: oklch(0.93 0.055 78); --accent-band: oklch(0.968 0.032 78); }
+:root[data-hour='daytimePrayer']    { --accent: oklch(0.5 0.085 150); --accent-text: var(--accent); --accent-soft: oklch(0.93 0.042 150); --accent-band: oklch(0.968 0.024 150); }
+:root[data-hour='vespers']          { --accent: oklch(0.46 0.125 24); --accent-text: var(--accent); --accent-soft: oklch(0.925 0.045 24); --accent-band: oklch(0.968 0.026 24); }
+:root[data-hour='compline']         { --accent: oklch(0.46 0.095 268);--accent-text: var(--accent); --accent-soft: oklch(0.925 0.04 268); --accent-band: oklch(0.965 0.024 268); }
+/* Dark */
+:root[data-theme='dark'][data-hour='officeOfReadings'] { --accent: oklch(0.8 0.09 292);  --accent-soft: oklch(0.31 0.048 292); --accent-band: oklch(0.27 0.032 292); }
+:root[data-theme='dark'][data-hour='lauds']            { --accent: oklch(0.85 0.1 82);   --accent-soft: oklch(0.32 0.05 82);  --accent-band: oklch(0.278 0.034 82); }
+:root[data-theme='dark'][data-hour='daytimePrayer']    { --accent: oklch(0.81 0.08 150); --accent-soft: oklch(0.31 0.042 150);--accent-band: oklch(0.272 0.028 150); }
+:root[data-theme='dark'][data-hour='vespers']          { --accent: oklch(0.78 0.11 26);  --accent-soft: oklch(0.32 0.052 26); --accent-band: oklch(0.278 0.034 26); }
+:root[data-theme='dark'][data-hour='compline']         { --accent: oklch(0.79 0.09 268); --accent-soft: oklch(0.31 0.045 268);--accent-band: oklch(0.272 0.03 268); }
+
+/* ---- Base ------------------------------------------------------------------ */
 * { box-sizing: border-box; }
-body { margin: 0; min-width: 320px; background: linear-gradient(180deg, var(--paper-top) 0, var(--paper) 16rem); transition: background-color .2s ease; }
+body { margin: 0; min-width: 320px; background: linear-gradient(180deg, var(--paper-top) 0, var(--paper) 20rem); transition: background-color .25s ease; }
 button, input { font: inherit; }
 button { cursor: pointer; }
-#app { width: min(100% - 2rem, 48rem); margin: 0 auto; }
-.site-header { min-height: 8rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; border-bottom: 1px solid var(--header-rule); }
-.header-actions { display: flex; align-items: center; gap: .5rem; }
-.prayer-book-toggle { display: flex; align-items: center; gap: .35rem; color: var(--muted); font: 600 .68rem system-ui, sans-serif; }
-.prayer-book-toggle input { accent-color: var(--accent); }
-.site-kicker, .eyebrow, .date-controls label span { margin: 0 0 .25rem; color: var(--accent-text); font: 600 .68rem/1.2 system-ui, sans-serif; letter-spacing: .12em; text-transform: uppercase; }
-h1, h2, h3, p { margin-top: 0; }
-/* A lighter, more classical hand than the body's Georgia - Palatino (after the
-   Renaissance calligrapher Giambattista Palatino) with system fallbacks, no
-   web-font download needed to keep the app's zero-runtime-network policy. */
-h1, h2, h3 { font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif; font-weight: 500; }
-h1 { margin-bottom: 0; color: var(--accent-text); font-size: clamp(1.5rem, 4vw, 2rem); }
-main { padding: 1.4rem 0 4rem; }
-.quiet-button, .arrow-button { border: 1px solid var(--rule); border-radius: 99px; background: var(--surface); color: var(--accent-text); padding: .55rem .9rem; font: 600 .75rem system-ui, sans-serif; }
-.icon-button { width: 2.6rem; height: 2.6rem; padding: 0; font-size: 1.15rem; display: inline-flex; align-items: center; justify-content: center; }
-.date-controls { display: grid; grid-template-columns: auto minmax(10rem, 14rem) auto; justify-content: center; align-items: end; gap: .7rem; }
-.date-controls label span { display: block; color: var(--muted); text-align: center; }
-input[type=date] { width: 100%; border: 1px solid var(--rule); border-radius: .45rem; padding: .5rem .7rem; color: var(--ink); background: var(--surface); }
-.arrow-button { width: 2.45rem; height: 2.45rem; padding: 0; font-size: 1rem; }
-.week-nav { display: grid; grid-template-columns: repeat(7, 1fr); gap: .35rem; margin: 1.2rem 0 2rem; }
-.day-button { display: grid; gap: .15rem; justify-items: center; border: 0; border-radius: .5rem; padding: .55rem .2rem; color: var(--muted); background: transparent; font: 500 .68rem system-ui, sans-serif; }
-.day-button strong { color: var(--ink); font-size: .9rem; }
-.day-button[aria-current=date] { color: white; background: var(--accent); }
-.day-button[aria-current=date] strong { color: white; }
-.day-heading { text-align: center; margin: 0 auto 1.5rem; }
-.day-heading > p { margin-bottom: .25rem; color: var(--muted); font-style: italic; }
-.day-heading h2 { margin-bottom: .7rem; color: var(--accent-text); font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1.05; }
+#app { width: min(100% - 2rem, 44rem); margin: 0 auto; }
+h1, h2, h3, h4, p { margin-top: 0; }
+h1, h2, h3, h4 { font-family: var(--serif-display); font-weight: 600; }
+a { color: var(--brand); text-underline-offset: 2px; text-decoration-thickness: 1px; }
+a:hover { color: var(--accent-text); }
+::selection { background: var(--accent-soft); }
+
+/* ---- Header ---------------------------------------------------------------- */
+.site-header { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; padding: 1.7rem 0 1.1rem; border-bottom: 1px solid var(--header-rule); }
+.header-actions { display: flex; align-items: center; gap: .45rem; }
+.prayer-book-toggle { display: flex; align-items: center; justify-content: flex-end; gap: .45rem; padding: .7rem 0 0; color: var(--muted); font: 600 .7rem var(--serif-body); letter-spacing: .12em; text-transform: uppercase; }
+.prayer-book-toggle input { accent-color: var(--brand); width: 1rem; height: 1rem; }
+.site-kicker { margin: 0 0 .2rem; color: var(--brand); font: 600 .66rem/1.2 var(--serif-body); letter-spacing: .2em; text-transform: uppercase; opacity: .85; }
+.eyebrow { margin: 0 0 .15rem; color: var(--accent-text); font: 600 .7rem/1.2 var(--serif-body); letter-spacing: .2em; text-transform: uppercase; }
+h1 { margin: 0; color: var(--brand); font-size: clamp(1.7rem, 6vw, 2.2rem); line-height: 1; letter-spacing: .005em; }
+
+main { padding: 1.3rem 0 4rem; }
+
+/* ---- Buttons --------------------------------------------------------------- */
+.quiet-button, .arrow-button { border: 1px solid var(--rule); border-radius: 99px; background: var(--surface); color: var(--brand); padding: .5rem .95rem; font: 600 .68rem var(--serif-body); letter-spacing: .14em; text-transform: uppercase; }
+.icon-button { width: 2.55rem; height: 2.55rem; padding: 0; font-size: 1.05rem; display: inline-flex; align-items: center; justify-content: center; }
+.arrow-button { width: 2.5rem; height: 2.5rem; padding: 0; font-size: 1.05rem; letter-spacing: 0; }
+
+/* ---- Date controls --------------------------------------------------------- */
+.date-controls { display: grid; grid-template-columns: auto minmax(9rem, 13rem) auto; justify-content: center; align-items: center; gap: .7rem; margin-top: 1.3rem; }
+.date-controls label span { display: block; margin: 0 0 .25rem; color: var(--muted); text-align: center; font: 600 .66rem var(--serif-body); letter-spacing: .12em; text-transform: uppercase; }
+input[type=date] { width: 100%; border: 1px solid var(--rule); border-radius: .55rem; padding: .55rem .7rem; color: var(--ink); background: var(--surface); text-align: center; font-size: .95rem; }
+input[type=date]::-webkit-calendar-picker-indicator { opacity: .55; cursor: pointer; }
+
+/* ---- Week strip ------------------------------------------------------------ */
+.week-nav { display: grid; grid-template-columns: repeat(7, 1fr); gap: .3rem; margin: 1.1rem 0 1.9rem; }
+.day-button { display: grid; gap: .12rem; justify-items: center; border: 0; border-radius: .6rem; padding: .5rem .1rem; color: var(--muted); background: transparent; font: 600 .62rem var(--serif-body); letter-spacing: .08em; text-transform: uppercase; }
+.day-button strong { color: var(--ink); font-family: var(--serif-display); font-size: 1.2rem; font-weight: 600; line-height: 1; }
+.day-button[aria-current=date] { background: var(--brand); color: #fff; }
+.day-button[aria-current=date] strong { color: #fff; }
+
+/* ---- Day heading ----------------------------------------------------------- */
+.day-heading { text-align: center; margin: 0 auto 1.6rem; max-width: 32rem; }
+.day-heading > p { margin-bottom: .35rem; color: var(--muted); font-style: italic; font-size: .95rem; }
+.day-heading h2 { margin-bottom: .8rem; color: var(--brand); font-size: clamp(1.9rem, 6vw, 2.7rem); line-height: 1.04; }
 .metadata { display: flex; flex-wrap: wrap; justify-content: center; gap: .35rem; }
-.metadata span { border: 1px solid var(--rule); border-radius: 99px; padding: .2rem .55rem; color: var(--muted); font: 500 .62rem system-ui, sans-serif; text-transform: capitalize; }
-.hour-tabs { position: sticky; top: .5rem; z-index: 2; display: grid; grid-template-columns: repeat(5, 1fr); gap: .25rem; margin: 0 0 1.5rem; padding: .3rem; border: 1px solid var(--rule); border-radius: .65rem; background: var(--tabs-bg); backdrop-filter: blur(10px); }
-.hour-tabs button { border: 0; border-radius: .4rem; padding: .65rem .2rem; color: var(--muted); background: transparent; font: 600 .65rem system-ui, sans-serif; }
-.hour-tabs button[aria-selected=true] { color: white; background: var(--accent); }
-.source-warning, .notice { border-left: 3px solid var(--warn-border); margin: 0 0 1.5rem; padding: .65rem .8rem; color: var(--warn-text); background: var(--warn-bg); font-size: .9rem; }
-.office { overflow: hidden; border: 1px solid var(--rule); border-radius: .8rem; background: var(--surface); box-shadow: 0 .8rem 2.5rem var(--card-shadow); }
-.office-heading { padding: 1.6rem 1.6rem 1.2rem; color: white; background: var(--accent); }
-.office-heading .eyebrow { color: #eacdd1; }
-.office-heading h2 { margin: 0; font-size: 2rem; }
-.text-section { padding: 1.6rem; border-top: 1px solid var(--rule); }
-.text-section:first-of-type { border-top: 0; }
-.text-section h3 { margin-bottom: .1rem; color: var(--accent-text); font-size: 1.35rem; }
-.reference { margin-bottom: 1rem; color: var(--muted); font-style: italic; }
-.verification-note { margin: .35rem 0 1rem; color: var(--warn-text); font-size: .8rem; font-style: italic; }
+.metadata span { border: 1px solid var(--rule); border-radius: 99px; padding: .22rem .6rem; color: var(--muted); font: 600 .64rem var(--serif-body); letter-spacing: .1em; text-transform: uppercase; }
+
+/* ---- Hour tabs ------------------------------------------------------------- */
+.hour-tabs { position: sticky; top: .5rem; z-index: 3; display: grid; grid-template-columns: repeat(5, 1fr); gap: .25rem; margin: 0 0 1.5rem; padding: .3rem; border: 1px solid var(--rule); border-radius: .8rem; background: var(--tabs-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: 0 .4rem 1.2rem -.6rem var(--card-shadow); }
+.hour-tabs button { border: 0; border-radius: .55rem; padding: .62rem .2rem; color: var(--muted); background: transparent; font: 600 .72rem var(--serif-body); letter-spacing: .09em; text-transform: uppercase; }
+.hour-tabs button[aria-selected=true] { color: #fff; background: var(--accent); box-shadow: 0 .2rem .5rem -.15rem var(--accent); }
+
+/* ---- Notices --------------------------------------------------------------- */
+.source-warning, .notice { border-left: 3px solid var(--warn-border); margin: 0 0 1.5rem; padding: .65rem .8rem; color: var(--warn-text); background: var(--warn-bg); font-size: .9rem; border-radius: 0 .4rem .4rem 0; }
+
+/* ---- Office card ----------------------------------------------------------- */
+.office { overflow: hidden; border: 1px solid var(--rule); border-radius: 1rem; background: var(--surface); box-shadow: 0 1.4rem 3.2rem -1.4rem var(--card-shadow); }
+.office-heading { padding: 1.7rem 1.6rem 1.4rem; text-align: center; color: var(--accent-text); background: var(--accent-band); border-bottom: 1px solid var(--rule); }
+.office-heading .eyebrow { color: var(--accent-text); }
+.office-heading h2 { margin: 0; color: var(--accent-text); font-size: clamp(2rem, 7vw, 2.6rem); line-height: 1.02; }
+/* Fleuron divider beneath the office heading */
+.office-heading::after { content: '\25C6'; display: block; margin: .9rem auto 0; width: 100%; max-width: 22rem; color: var(--accent); font-size: .55rem; line-height: 1; text-align: center; background: linear-gradient(var(--rule), var(--rule)) left center/40% 1px no-repeat, linear-gradient(var(--rule), var(--rule)) right center/40% 1px no-repeat; }
+
+.text-section { padding: 1.7rem 1.6rem; border-top: 1px solid var(--rule); }
+.text-section h3 { margin-bottom: .1rem; color: var(--ink); font-size: 1.55rem; line-height: 1.12; }
+.reference { margin-bottom: .5rem; color: var(--muted); font-style: italic; font-size: .95rem; }
+.verification-note { margin: .35rem 0 .7rem; color: var(--muted); font-size: .8rem; font-style: italic; border-left: 2px solid var(--accent); padding-left: .65rem; }
+
 .short-reading { background: var(--tint-a); }
-.antiphon { background: var(--tint-b); font-style: italic; }
-.antiphon .eyebrow { font-style: normal; }
-.verses p { position: relative; margin-bottom: .7rem; padding-left: 1.6rem; line-height: 1.55; }
-.verse-number { position: absolute; left: 0; top: .2em; color: var(--accent-text); font: 600 .62rem system-ui, sans-serif; }
+.antiphon { background: var(--tint-b); }
+.antiphon p { font-family: var(--serif-display); font-style: italic; font-size: 1.35rem; line-height: 1.55; text-align: center; }
+.antiphon .eyebrow { font-style: normal; font-family: var(--serif-body); }
 .gospel-canticle { background: var(--tint-b); }
 .prayer-book { background: var(--accent-soft); }
+
+/* ---- Verses ---------------------------------------------------------------- */
+.verses { display: flex; flex-direction: column; gap: .72rem; margin-top: .55rem; }
+.verses p { position: relative; margin: 0; padding-left: 1.9rem; line-height: 1.78; font-size: var(--read-size); text-wrap: pretty; }
+.verse-number { position: absolute; left: 0; top: .4em; color: var(--accent-text); font: 600 .62rem var(--serif-body); letter-spacing: .04em; }
+
+/* ---- Prayer Book ----------------------------------------------------------- */
 .supplement-note { color: var(--muted); font-size: .8rem; font-style: italic; }
-.prayer-book-item + .prayer-book-item { margin-top: 1.4rem; padding-top: 1.2rem; border-top: 1px solid var(--rule); }
-.prayer-book-item h4 { margin: 0 0 .6rem; color: var(--accent-text); font: 600 1rem 'Palatino Linotype', Palatino, serif; }
-.prayer-book-item p { line-height: 1.5; }
-.responses p { position: relative; margin-bottom: .45rem; padding-left: 1.8rem; }
-.speaker { position: absolute; left: 0; color: var(--accent-text); font: 700 .68rem system-ui, sans-serif; }
-footer { border-top: 1px solid var(--rule); padding: 1.5rem 0 2.5rem; color: var(--muted); text-align: center; font-size: .8rem; }
-button:focus-visible, input:focus-visible { outline: 3px solid #c99954; outline-offset: 2px; }
+.prayer-book-item + .prayer-book-item { margin-top: 1.35rem; padding-top: 1.2rem; border-top: 1px solid var(--rule); }
+.prayer-book-item h4 { margin: 0 0 .5rem; color: var(--accent-text); font-size: 1.15rem; }
+.prayer-book-item p { line-height: 1.72; font-size: var(--read-size); text-wrap: pretty; }
+.responses p { position: relative; margin-bottom: .4rem; padding-left: 1.7rem; line-height: 1.6; text-wrap: pretty; }
+.responses p:nth-child(even) { font-style: italic; }
+.speaker { position: absolute; left: 0; color: var(--accent-text); font-weight: 700; }
+
+footer { border-top: 1px solid var(--rule); margin-top: 2rem; padding: 1.6rem 0 2.5rem; color: var(--muted); text-align: center; font-size: .82rem; line-height: 1.6; }
+footer strong { color: var(--ink); }
+
+button:focus-visible, input:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+/* ===========================================================================
+   Focus / reading mode — activated by data-focus on <html> (see main.ts).
+   Hides all chrome, widens breathing room, enlarges the reading measure.
+   =========================================================================== */
+:root[data-focus] { --read-size: 1.22rem; }
+:root[data-focus] .site-header,
+:root[data-focus] .prayer-book-toggle,
+:root[data-focus] .date-controls,
+:root[data-focus] .week-nav,
+:root[data-focus] .day-heading,
+:root[data-focus] .hour-tabs,
+:root[data-focus] footer { display: none; }
+:root[data-focus] #app { width: min(100% - 1.5rem, 40rem); }
+:root[data-focus] .office { border: 0; border-radius: 0; background: transparent; box-shadow: none; }
+:root[data-focus] main { padding-top: 0; }
+
+/* Slim focus bar (rendered by main.ts only while in focus mode) */
+.focus-bar { position: sticky; top: 0; z-index: 4; display: flex; align-items: center; justify-content: space-between; gap: .6rem; margin: .8rem 0 1.6rem; padding: .7rem .9rem; border: 1px solid var(--rule); border-radius: 99px; background: var(--tabs-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+.focus-bar .focus-title { text-align: center; line-height: 1.1; }
+.focus-bar .focus-title .eyebrow { color: var(--accent-text); font-size: .6rem; }
+.focus-bar .focus-title strong { display: block; margin-top: .1rem; font-family: var(--serif-display); font-size: 1.25rem; font-weight: 600; color: var(--ink); }
+.focus-bar .arrow-button { border-color: var(--rule); background: transparent; color: var(--accent-text); }
+.focus-bar .focus-exit { border: 1px solid var(--accent); background: var(--accent-soft); color: var(--accent-text); border-radius: 99px; padding: .45rem .85rem; font: 600 .64rem var(--serif-body); letter-spacing: .14em; text-transform: uppercase; }
+.focus-bar-actions { display: flex; align-items: center; gap: .4rem; }
+
+/* ---- Responsive ------------------------------------------------------------ */
 @media (max-width: 540px) {
   :root { font-size: 17px; }
-  #app { width: min(100% - 1rem, 48rem); }
-  .site-header { min-height: 6.5rem; }
+  #app { width: min(100% - 1rem, 44rem); }
+  .site-header { align-items: flex-start; }
   .site-kicker { display: none; }
-  .site-header { align-items: flex-start; padding: 1rem 0; }
-  .header-actions { flex-wrap: wrap; justify-content: flex-end; }
-  .prayer-book-toggle { width: 100%; justify-content: flex-end; }
   .hour-tabs { overflow-x: auto; grid-template-columns: repeat(5, minmax(4.1rem, 1fr)); }
-  .hour-tabs button { font-size: .58rem; }
-  .text-section, .office-heading { padding: 1.25rem; }
+  .hour-tabs button { font-size: .62rem; }
+  .text-section, .office-heading { padding: 1.3rem; }
 }
 
-/* Micro-interactions: hover/press feedback on every interactive control.
-   Purely presentational, independent of the render-driven view transitions
-   below (these fire on live DOM, not on a re-render). */
-.quiet-button, .arrow-button, .day-button, .hour-tabs button {
-  transition: background-color .15s ease, color .15s ease, box-shadow .15s ease, transform .1s ease;
+/* ---- Micro-interactions ---------------------------------------------------- */
+.quiet-button, .arrow-button, .day-button, .hour-tabs button, .focus-exit {
+  transition: background-color .15s ease, color .15s ease, box-shadow .15s ease, transform .1s ease, border-color .15s ease;
 }
-.quiet-button:hover, .arrow-button:hover { background: var(--accent-soft); box-shadow: 0 .15rem .4rem var(--hover-shadow); }
-.day-button:hover:not([aria-current=date]) { background: var(--accent-soft); color: var(--accent-text); }
+.quiet-button:hover, .arrow-button:hover { background: var(--brand-soft); border-color: var(--accent); box-shadow: 0 .15rem .4rem var(--hover-shadow); }
+.day-button:hover:not([aria-current=date]) { background: var(--brand-soft); color: var(--accent-text); }
 .hour-tabs button:hover:not([aria-selected=true]) { color: var(--ink); }
-.quiet-button:active, .arrow-button:active, .day-button:active, .hour-tabs button:active { transform: scale(.95); }
-input[type=date] { transition: border-color .15s ease, box-shadow .15s ease; }
+input[type=date] { transition: border-color .15s ease; }
 input[type=date]:hover { border-color: var(--accent); }
+.quiet-button:active, .arrow-button:active, .day-button:active, .hour-tabs button:active { transform: scale(.96); }
 
 @media (prefers-reduced-motion: no-preference) {
-  .office, .day-heading, .source-warning { animation: reveal .28s ease-out; }
-  @keyframes reveal { from { opacity: .4; transform: translateY(4px); } }
-
-  /* Cross-fade day/hour navigation via the View Transitions API (see
-     src/main.ts). Slightly quicker and flatter than the browser default so
-     it reads as a calm settle rather than a slideshow dissolve. */
+  .office, .day-heading, .source-warning { animation: reveal .3s ease-out; }
+  @keyframes reveal { from { opacity: 0; transform: translateY(6px); } }
   ::view-transition-old(root), ::view-transition-new(root) { animation-duration: .22s; animation-timing-function: ease-out; }
 }
 @media (prefers-reduced-motion: reduce) {

@@ -21,6 +21,7 @@ type HourKey = (typeof HOURS)[number][0];
 
 let selectedHour: HourKey = 'lauds';
 let currentDate = new Date();
+let focusMode = false;
 
 function toDateKey(date: Date): string {
   const year = date.getFullYear();
@@ -121,6 +122,8 @@ function renderWeekNav(selected: Date): string {
 
 function renderImpl(date: Date): void {
   currentDate = date;
+  document.documentElement.setAttribute('data-hour', selectedHour);
+  document.documentElement.toggleAttribute('data-focus', focusMode);
   const officeDay = getOfficeDay(date);
   const day = resolveDay(officeDay);
   const activeLabel = HOURS.find(([key]) => key === selectedHour)![1];
@@ -133,6 +136,7 @@ function renderImpl(date: Date): void {
   document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <header class="site-header"><div><p class="site-kicker">Unofficial personal prayer rule</p><h1>Personal Daily Prayer</h1></div>
       <div class="header-actions">
+        <button id="focus-toggle" class="quiet-button" type="button">Focus</button>
         <label class="prayer-book-toggle"><input id="prayer-book-toggle" type="checkbox" ${getPrayerBookPreference() ? 'checked' : ''}/><span>Prayer Book prayers</span></label>
         <button id="theme-toggle" class="quiet-button icon-button" type="button" aria-label="Switch to ${getTheme() === 'dark' ? 'light' : 'dark'} theme" aria-pressed="${getTheme() === 'dark'}">${getTheme() === 'dark' ? '🌛' : '🌞'}</button>
         <button id="today-button" class="quiet-button">Today</button>
@@ -149,6 +153,14 @@ function renderImpl(date: Date): void {
         <div class="metadata"><span>${officeDay.season}${officeDay.weekOfSeason ? ` · Week ${officeDay.weekOfSeason}` : ''}</span><span>${officeDay.rank}</span><span>Psalter ${officeDay.psalterWeek}</span><span>Year ${officeDay.officeYear}</span></div>
       </header>
       <nav class="hour-tabs" role="tablist" aria-label="Hours of prayer">${hourTabs}</nav>
+      ${focusMode ? `<div class="focus-bar">
+        <button id="focus-prev" class="arrow-button" aria-label="Previous hour">←</button>
+        <div class="focus-title"><p class="eyebrow">The Daily Office</p><strong>${activeLabel}</strong></div>
+        <div class="focus-bar-actions">
+          <button id="focus-next" class="arrow-button" aria-label="Next hour">→</button>
+          <button id="focus-exit" class="focus-exit" type="button">Done</button>
+        </div>
+      </div>` : ''}
       ${dayContent}
     </main>
     <footer><strong>For personal devotion.</strong> This is not an authorised liturgical book.<br/>Texts: Coverdale Psalter and Douay-Rheims-Challoner Bible.</footer>`;
@@ -170,6 +182,18 @@ function renderImpl(date: Date): void {
     selectedHour = button.dataset.hour as HourKey;
     render(date);
   }));
+
+  const HOUR_KEYS = HOURS.map(([key]) => key);
+  const stepHour = (delta: number) => {
+    const i = HOUR_KEYS.indexOf(selectedHour);
+    selectedHour = HOUR_KEYS[(i + delta + HOUR_KEYS.length) % HOUR_KEYS.length];
+    render(date);
+  };
+
+  document.querySelector('#focus-toggle')?.addEventListener('click', () => { focusMode = true; render(date); });
+  document.querySelector('#focus-exit')?.addEventListener('click', () => { focusMode = false; render(date); });
+  document.querySelector('#focus-prev')?.addEventListener('click', () => stepHour(-1));
+  document.querySelector('#focus-next')?.addEventListener('click', () => stepHour(1));
 }
 
 // Cross-fades the previous view into the next one (day/hour navigation) using
