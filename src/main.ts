@@ -178,7 +178,7 @@ function renderImpl(date: Date): void {
   document.querySelector('#previous-day')!.addEventListener('click', () => render(shiftDate(date, -1)));
   document.querySelector('#next-day')!.addEventListener('click', () => render(shiftDate(date, 1)));
   document.querySelectorAll<HTMLButtonElement>('[data-date]').forEach((button) => button.addEventListener('click', () => render(parseDateKey(button.dataset.date!))));
-  document.querySelectorAll<HTMLButtonElement>('[data-hour]').forEach((button) => button.addEventListener('click', () => {
+  document.querySelectorAll<HTMLButtonElement>('.hour-tabs [data-hour]').forEach((button) => button.addEventListener('click', () => {
     selectedHour = button.dataset.hour as HourKey;
     render(date);
   }));
