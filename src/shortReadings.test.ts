@@ -56,7 +56,7 @@ describe('short readings', () => {
         if (file[hourName]?.shortReading?.verified) verifiedCount++;
       }
     }
-    expect(verifiedCount).toBe(41);
+    expect(verifiedCount).toBe(45);
   });
 
   it('uses the same fixed Compline reading for a weekday in every psalter week', () => {
