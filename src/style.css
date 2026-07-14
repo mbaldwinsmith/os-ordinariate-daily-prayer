@@ -158,7 +158,7 @@ input[type=date]::-webkit-calendar-picker-indicator { opacity: .55; cursor: poin
 .metadata span { border: 1px solid var(--rule); border-radius: 99px; padding: .22rem .6rem; color: var(--muted); font: 600 .64rem var(--serif-body); letter-spacing: .1em; text-transform: uppercase; }
 
 /* ---- Hour tabs ------------------------------------------------------------- */
-.hour-tabs { position: sticky; top: .5rem; z-index: 3; display: grid; grid-template-columns: repeat(5, 1fr); gap: .25rem; margin: 0 0 1.5rem; padding: .3rem; border: 1px solid var(--rule); border-radius: .8rem; background: var(--tabs-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: 0 .4rem 1.2rem -.6rem var(--card-shadow); }
+.hour-tabs { position: sticky; top: .5rem; z-index: 3; display: grid; grid-template-columns: repeat(6, 1fr); gap: .25rem; margin: 0 0 1.5rem; padding: .3rem; border: 1px solid var(--rule); border-radius: .8rem; background: var(--tabs-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: 0 .4rem 1.2rem -.6rem var(--card-shadow); }
 .hour-tabs button { border: 0; border-radius: .55rem; padding: .62rem .2rem; color: var(--muted); background: transparent; font: 600 .72rem var(--serif-body); letter-spacing: .09em; text-transform: uppercase; }
 .hour-tabs button[aria-selected=true] { color: #fff; background: var(--accent); box-shadow: 0 .2rem .5rem -.15rem var(--accent); }
 
@@ -190,14 +190,21 @@ input[type=date]::-webkit-calendar-picker-indicator { opacity: .55; cursor: poin
 .verses p { position: relative; margin: 0; padding-left: 1.9rem; line-height: 1.78; font-size: var(--read-size); text-wrap: pretty; }
 .verse-number { position: absolute; left: 0; top: .4em; color: var(--accent-text); font: 600 .62rem var(--serif-body); letter-spacing: .04em; }
 
-/* ---- Prayer Book ----------------------------------------------------------- */
+/* ---- Prayer Book & Litanies (shared devotional-item rendering) ------------- */
 .supplement-note { color: var(--muted); font-size: .8rem; font-style: italic; }
-.prayer-book-item + .prayer-book-item { margin-top: 1.35rem; padding-top: 1.2rem; border-top: 1px solid var(--rule); }
-.prayer-book-item h4 { margin: 0 0 .5rem; color: var(--accent-text); font-size: 1.15rem; }
-.prayer-book-item p { line-height: 1.72; font-size: var(--read-size); text-wrap: pretty; }
+.devotional-item + .devotional-item { margin-top: 1.35rem; padding-top: 1.2rem; border-top: 1px solid var(--rule); }
+.devotional-item h4 { margin: 0 0 .5rem; color: var(--accent-text); font-size: 1.15rem; }
+.devotional-item p { line-height: 1.72; font-size: var(--read-size); text-wrap: pretty; }
 .responses p { position: relative; margin-bottom: .4rem; padding-left: 1.7rem; line-height: 1.6; text-wrap: pretty; }
 .responses p:nth-child(even) { font-style: italic; }
 .speaker { position: absolute; left: 0; color: var(--accent-text); font-weight: 700; }
+
+/* ---- Litanies tab ------------------------------------------------------- */
+.litany-layout { display: block; }
+.litany-list { display: flex; flex-wrap: wrap; gap: .35rem; margin: 0 0 1.5rem; }
+.litany-list-item { border: 1px solid var(--rule); border-radius: 99px; padding: .45rem .9rem; color: var(--muted); background: var(--surface); font: 600 .68rem var(--serif-body); letter-spacing: .06em; text-transform: uppercase; text-align: left; }
+.litany-list-item[aria-current=true] { color: #fff; background: var(--accent); border-color: var(--accent); box-shadow: 0 .2rem .5rem -.15rem var(--accent); }
+.litany-layout .devotional-item { padding: 1.7rem 1.6rem; border: 1px solid var(--rule); border-radius: 1rem; background: var(--surface); box-shadow: 0 1.4rem 3.2rem -1.4rem var(--card-shadow); }
 
 footer { border-top: 1px solid var(--rule); margin-top: 2rem; padding: 1.6rem 0 2.5rem; color: var(--muted); text-align: center; font-size: .82rem; line-height: 1.6; }
 footer strong { color: var(--ink); }
@@ -235,21 +242,22 @@ button:focus-visible, input:focus-visible { outline: 3px solid var(--accent); ou
   #app { width: min(100% - 1rem, 44rem); }
   .site-header { align-items: flex-start; }
   .site-kicker { display: none; }
-  .hour-tabs { overflow-x: auto; grid-template-columns: repeat(5, minmax(4.1rem, 1fr)); }
+  .hour-tabs { overflow-x: auto; grid-template-columns: repeat(6, minmax(3.6rem, 1fr)); }
   .hour-tabs button { font-size: .62rem; }
   .text-section, .office-heading { padding: 1.3rem; }
 }
 
 /* ---- Micro-interactions ---------------------------------------------------- */
-.quiet-button, .arrow-button, .day-button, .hour-tabs button, .focus-exit {
+.quiet-button, .arrow-button, .day-button, .hour-tabs button, .litany-list-item, .focus-exit {
   transition: background-color .15s ease, color .15s ease, box-shadow .15s ease, transform .1s ease, border-color .15s ease;
 }
 .quiet-button:hover, .arrow-button:hover { background: var(--brand-soft); border-color: var(--accent); box-shadow: 0 .15rem .4rem var(--hover-shadow); }
 .day-button:hover:not([aria-current=date]) { background: var(--brand-soft); color: var(--accent-text); }
 .hour-tabs button:hover:not([aria-selected=true]) { color: var(--ink); }
+.litany-list-item:hover:not([aria-current=true]) { background: var(--brand-soft); color: var(--accent-text); border-color: var(--accent); }
 input[type=date] { transition: border-color .15s ease; }
 input[type=date]:hover { border-color: var(--accent); }
-.quiet-button:active, .arrow-button:active, .day-button:active, .hour-tabs button:active { transform: scale(.96); }
+.quiet-button:active, .arrow-button:active, .day-button:active, .hour-tabs button:active, .litany-list-item:active { transform: scale(.96); }
 
 @media (prefers-reduced-motion: no-preference) {
   .office, .day-heading, .source-warning { animation: reveal .3s ease-out; }

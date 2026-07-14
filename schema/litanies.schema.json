@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://personal-daily-prayer/schema/litanies.schema.json",
+  "type": "object",
+  "required": ["items", "order"],
+  "additionalProperties": false,
+  "properties": {
+    "items": { "type": "object", "minProperties": 1, "additionalProperties": { "$ref": "#/$defs/item" } },
+    "order": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "minLength": 1 } }
+  },
+  "$defs": {
+    "item": { "type": "object", "required": ["title", "kind", "verified", "sourceRef"], "additionalProperties": false, "properties": { "title": { "type": "string" }, "kind": { "enum": ["prayer", "versicles", "litany"] }, "verified": { "const": true }, "sourceRef": { "type": "string" }, "text": { "oneOf": [{ "type": "string" }, { "type": "array", "minItems": 1, "items": { "type": "string" } }] }, "responses": { "type": "array", "minItems": 1, "items": { "type": "object", "required": ["leader", "people"], "additionalProperties": false, "properties": { "leader": { "type": "string" }, "people": { "type": "string" } } } } } }
+  }
+}

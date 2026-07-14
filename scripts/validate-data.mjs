@@ -35,6 +35,7 @@ const validators = {
   oAntiphons: loadSchema('o-antiphons.schema.json'),
   marianAntiphons: loadSchema('marian-antiphons.schema.json'),
   prayerBookPrayers: loadSchema('prayer-book-prayers.schema.json'),
+  litanies: loadSchema('litanies.schema.json'),
 };
 
 /** Recursively finds .json files under a directory (empty array if the directory is absent). */
@@ -105,6 +106,7 @@ const singleFileTargets = [
   [join(dataDir, 'texts', 'oAntiphons.json'), validators.oAntiphons, {}],
   [join(dataDir, 'texts', 'marianAntiphons.json'), validators.marianAntiphons, {}],
   [join(dataDir, 'texts', 'prayerBookPrayers.json'), validators.prayerBookPrayers, {}],
+  [join(dataDir, 'texts', 'litanies.json'), validators.litanies, {}],
 ];
 
 const prayerBookPath = join(dataDir, 'texts', 'prayerBookPrayers.json');
@@ -124,6 +126,25 @@ if (existsSync(prayerBookPath)) {
         failures += 1;
         console.error(`\nINVALID: ${prayerBookPath}\n  assignments.${hour} refers to unknown prayer id "${id}"`);
       }
+    }
+  }
+}
+
+const litaniesPath = join(dataDir, 'texts', 'litanies.json');
+if (existsSync(litaniesPath)) {
+  const litanies = JSON.parse(readFileSync(litaniesPath, 'utf8'));
+  for (const [id, item] of Object.entries(litanies.items)) {
+    checked += 1;
+    if (!item.text && !item.responses) {
+      failures += 1;
+      console.error(`\nINVALID: ${litaniesPath}\n  items.${id} must contain text or responses`);
+    }
+  }
+  for (const id of litanies.order) {
+    checked += 1;
+    if (!litanies.items[id]) {
+      failures += 1;
+      console.error(`\nINVALID: ${litaniesPath}\n  order refers to unknown litany id "${id}"`);
     }
   }
 }

@@ -760,6 +760,36 @@ settings.
 
 ---
 
+## Phase 16 — Litanies & Personal Devotions
+
+Add a sixth, Hour-independent tab for personal-favourite litanies and devotions (Marian
+antiphons, several traditional Catholic litanies, and a couple of standalone prayers),
+curated in `LITANIES.md`. This is not a claim of liturgical authority or appointed
+status — it's closest in spirit to the Prayer Book supplement (Phase 15) except it isn't
+tied to a specific Hour or day.
+
+- [x] Annotate `LITANIES.md` with `V.`/`R.` markup for every call-and-response litany,
+      resolving (or explicitly flagging) ambiguity in the opening Kyrie eleison block and
+      the Litany of Humility's "etc." shorthand
+- [x] Add `schema/litanies.schema.json`, widening `text` to `string | string[]` relative
+      to the Prayer Book schema so multi-stanza works get proper paragraph breaks
+- [x] Transcribe `LITANIES.md` into `data/texts/litanies.json` (`items` map + a flat
+      `order` array), modelling versicle/response material structurally
+- [x] Add `src/litanies.ts` mirroring `src/prayerBook.ts`, exposing `listLitanies()`
+- [x] Extend `scripts/validate-data.mjs` with the litanies schema and a cross-check that
+      every `order` id resolves in `items`
+- [x] Add the "Litanies" tab to `src/main.ts`: a titles list (table of contents) plus the
+      selected item's content, reusing a generalized `renderDevotionalItem` shared with
+      the Prayer Book supplement; hide Office-specific/date-bound chrome while the tab is
+      active
+- [x] Update `src/style.css` for the sixth tab (both the desktop and mobile `.hour-tabs`
+      grid) and the new `.litany-list`/`.devotional-item` styles
+- [x] Document the feature in `CONVENTIONS.md`
+- [x] Add `src/litanies.test.ts` covering `order` resolution, `listLitanies()` ordering,
+      and every item having `text` or `responses`
+- [x] Run `npm run validate:data`, `npx vitest run`, and `npm run build`; manually verify
+      the tab in a dev server, including on a narrow mobile width
+
 ## Notes / Open Questions to Resolve Early
 
 - Confirm exactly how the 4-week psalter cycle behaves across Lent/Easter/Advent — worth

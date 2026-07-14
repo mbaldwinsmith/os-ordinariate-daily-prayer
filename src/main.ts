@@ -2,8 +2,9 @@ import './style.css';
 import { getOfficeDay, type DayOfWeek } from './calendar';
 import { resolveDay, type DayView, type HourView, type ReadingsView } from './office';
 import { getTheme, setTheme, watchSystemTheme } from './theme';
-import { resolvePrayerBook, type PrayerBookItem } from './prayerBook';
+import { resolvePrayerBook } from './prayerBook';
 import { getPrayerBookPreference, setPrayerBookPreference } from './prayerBookPreference';
+import { listLitanies } from './litanies';
 
 const DAY_LABELS: Record<DayOfWeek, string> = {
   sunday: 'Sun', monday: 'Mon', tuesday: 'Tue', wednesday: 'Wed',
@@ -22,6 +23,8 @@ type HourKey = (typeof HOURS)[number][0];
 let selectedHour: HourKey = 'lauds';
 let currentDate = new Date();
 let focusMode = false;
+let view: 'office' | 'litanies' = 'office';
+let selectedLitanyId: string | null = null;
 
 function toDateKey(date: Date): string {
   const year = date.getFullYear();
@@ -68,16 +71,38 @@ function renderReadings(readings: ReadingsView | null): string {
     </section>${patristic}`;
 }
 
-function renderPrayerBookItem(item: PrayerBookItem): string {
-  const content = item.responses
+interface DevotionalItem {
+  title: string;
+  kind: 'prayer' | 'versicles' | 'litany';
+  verified: true;
+  sourceRef: string;
+  text?: string | string[];
+  responses?: { leader: string; people: string }[];
+}
+
+function renderDevotionalItem(item: DevotionalItem): string {
+  const responses = item.responses
     ? `<div class="responses">${item.responses.map(({ leader, people }) => `<p><span class="speaker">V.</span>${leader}</p><p><span class="speaker">R.</span>${people}</p>`).join('')}</div>`
-    : `<p>${item.text}</p>`;
-  return `<section class="prayer-book-item"><h4>${item.title}</h4>${content}</section>`;
+    : '';
+  const text = item.text ? (Array.isArray(item.text) ? item.text : [item.text]).map((paragraph) => `<p>${paragraph}</p>`).join('') : '';
+  return `<section class="devotional-item"><h4>${item.title}</h4>${responses}${text}</section>`;
 }
 
 function renderPrayerBook(hour: HourKey, dayOfWeek: DayOfWeek): string {
   if (!getPrayerBookPreference()) return '';
-  return `<section class="text-section prayer-book"><p class="eyebrow">Prayer Book prayers</p><p class="supplement-note">Anglican-patrimony supplement; not the appointed Roman intercessions.</p>${resolvePrayerBook(hour, dayOfWeek).map(renderPrayerBookItem).join('')}</section>`;
+  return `<section class="text-section prayer-book"><p class="eyebrow">Prayer Book prayers</p><p class="supplement-note">Anglican-patrimony supplement; not the appointed Roman intercessions.</p>${resolvePrayerBook(hour, dayOfWeek).map(renderDevotionalItem).join('')}</section>`;
+}
+
+function renderLitanies(): string {
+  const litanies = listLitanies();
+  const selected = litanies.find((item) => item.title === selectedLitanyId) ?? litanies[0];
+  const list = litanies
+    .map((item) => `<button class="litany-list-item" data-litany="${item.title}" aria-current="${item === selected}">${item.title}</button>`)
+    .join('');
+  return `<div class="litany-layout" id="litanies-panel" role="tabpanel">
+    <nav class="litany-list" aria-label="Litanies and devotions">${list}</nav>
+    ${renderDevotionalItem(selected)}
+  </div>`;
 }
 
 function renderHour(label: string, hour: HourView, day: DayView, dayOfWeek: DayOfWeek): string {
@@ -127,22 +152,14 @@ function renderImpl(date: Date): void {
   const officeDay = getOfficeDay(date);
   const day = resolveDay(officeDay);
   const activeLabel = HOURS.find(([key]) => key === selectedHour)![1];
-  const hourTabs = HOURS.map(([key, label]) => `<button role="tab" data-hour="${key}" aria-selected="${key === selectedHour}" aria-controls="office-panel">${label}</button>`).join('');
+  const hourTabs = HOURS.map(([key, label]) => `<button role="tab" data-hour="${key}" aria-selected="${view === 'office' && key === selectedHour}" aria-controls="office-panel">${label}</button>`).join('');
+  const litaniesTab = `<button role="tab" data-view="litanies" aria-selected="${view === 'litanies'}" aria-controls="litanies-panel">Litanies</button>`;
   const dayContent = day
     ? `${day.verified ? '' : '<aside class="source-warning">This psalter assignment is an unverified best-effort reconstruction. See SOURCES.md.</aside>'}
        <div id="office-panel" role="tabpanel">${renderHour(activeLabel, day[selectedHour], day, officeDay.dayOfWeek)}</div>`
     : '<p role="alert" class="notice">This day is not populated yet.</p>';
-
-  document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-    <header class="site-header"><div><p class="site-kicker">Unofficial personal prayer rule</p><h1>Personal Daily Prayer</h1></div>
-      <div class="header-actions">
-        <button id="focus-toggle" class="quiet-button" type="button">Focus</button>
-        <label class="prayer-book-toggle"><input id="prayer-book-toggle" type="checkbox" ${getPrayerBookPreference() ? 'checked' : ''}/><span>Prayer Book prayers</span></label>
-        <button id="theme-toggle" class="quiet-button icon-button" type="button" aria-label="Switch to ${getTheme() === 'dark' ? 'light' : 'dark'} theme" aria-pressed="${getTheme() === 'dark'}">${getTheme() === 'dark' ? '🌛' : '🌞'}</button>
-        <button id="today-button" class="quiet-button">Today</button>
-      </div></header>
-    <main>
-      <section class="date-controls" aria-label="Date navigation">
+  const officeControls = view === 'office'
+    ? `<section class="date-controls" aria-label="Date navigation">
         <button id="previous-day" class="arrow-button" aria-label="Previous day">←</button>
         <label><span>Choose date</span><input type="date" id="date-picker" value="${toDateKey(date)}" /></label>
         <button id="next-day" class="arrow-button" aria-label="Next day">→</button>
@@ -151,9 +168,21 @@ function renderImpl(date: Date): void {
       <header class="day-heading"><p>${new Intl.DateTimeFormat('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }).format(date)}</p>
         <h2>${officeDay.celebrationName}</h2>
         <div class="metadata"><span>${officeDay.season}${officeDay.weekOfSeason ? ` · Week ${officeDay.weekOfSeason}` : ''}</span><span>${officeDay.rank}</span><span>Psalter ${officeDay.psalterWeek}</span><span>Year ${officeDay.officeYear}</span></div>
-      </header>
-      <nav class="hour-tabs" role="tablist" aria-label="Hours of prayer">${hourTabs}</nav>
-      ${focusMode ? `<div class="focus-bar">
+      </header>`
+    : '';
+
+  document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
+    <header class="site-header"><div><p class="site-kicker">Unofficial personal prayer rule</p><h1>Personal Daily Prayer</h1></div>
+      <div class="header-actions">
+        ${view === 'office' ? `<button id="focus-toggle" class="quiet-button" type="button">Focus</button>
+        <label class="prayer-book-toggle"><input id="prayer-book-toggle" type="checkbox" ${getPrayerBookPreference() ? 'checked' : ''}/><span>Prayer Book prayers</span></label>` : ''}
+        <button id="theme-toggle" class="quiet-button icon-button" type="button" aria-label="Switch to ${getTheme() === 'dark' ? 'light' : 'dark'} theme" aria-pressed="${getTheme() === 'dark'}">${getTheme() === 'dark' ? '🌛' : '🌞'}</button>
+        <button id="today-button" class="quiet-button">Today</button>
+      </div></header>
+    <main>
+      ${officeControls}
+      <nav class="hour-tabs" role="tablist" aria-label="Hours of prayer and litanies">${hourTabs}${litaniesTab}</nav>
+      ${view === 'office' && focusMode ? `<div class="focus-bar">
         <button id="focus-prev" class="arrow-button" aria-label="Previous hour">←</button>
         <div class="focus-title"><p class="eyebrow">The Daily Office</p><strong>${activeLabel}</strong></div>
         <div class="focus-bar-actions">
@@ -161,25 +190,34 @@ function renderImpl(date: Date): void {
           <button id="focus-exit" class="focus-exit" type="button">Done</button>
         </div>
       </div>` : ''}
-      ${dayContent}
+      ${view === 'office' ? dayContent : renderLitanies()}
     </main>
     <footer><strong>For personal devotion.</strong> This is not an authorised liturgical book.<br/>Texts: Coverdale Psalter and Douay-Rheims-Challoner Bible.</footer>`;
 
-  document.querySelector<HTMLInputElement>('#date-picker')!.addEventListener('change', (event) => render(parseDateKey((event.target as HTMLInputElement).value)));
+  document.querySelector<HTMLInputElement>('#date-picker')?.addEventListener('change', (event) => render(parseDateKey((event.target as HTMLInputElement).value)));
   document.querySelector('#theme-toggle')!.addEventListener('click', () => {
     setTheme(getTheme() === 'dark' ? 'light' : 'dark');
     render(date);
   });
-  document.querySelector<HTMLInputElement>('#prayer-book-toggle')!.addEventListener('change', (event) => {
+  document.querySelector<HTMLInputElement>('#prayer-book-toggle')?.addEventListener('change', (event) => {
     setPrayerBookPreference((event.target as HTMLInputElement).checked);
     render(date);
   });
   document.querySelector('#today-button')!.addEventListener('click', () => render(new Date()));
-  document.querySelector('#previous-day')!.addEventListener('click', () => render(shiftDate(date, -1)));
-  document.querySelector('#next-day')!.addEventListener('click', () => render(shiftDate(date, 1)));
+  document.querySelector('#previous-day')?.addEventListener('click', () => render(shiftDate(date, -1)));
+  document.querySelector('#next-day')?.addEventListener('click', () => render(shiftDate(date, 1)));
   document.querySelectorAll<HTMLButtonElement>('[data-date]').forEach((button) => button.addEventListener('click', () => render(parseDateKey(button.dataset.date!))));
   document.querySelectorAll<HTMLButtonElement>('.hour-tabs [data-hour]').forEach((button) => button.addEventListener('click', () => {
     selectedHour = button.dataset.hour as HourKey;
+    view = 'office';
+    render(date);
+  }));
+  document.querySelector<HTMLButtonElement>('.hour-tabs [data-view=litanies]')?.addEventListener('click', () => {
+    view = 'litanies';
+    render(date);
+  });
+  document.querySelectorAll<HTMLButtonElement>('.litany-list [data-litany]').forEach((button) => button.addEventListener('click', () => {
+    selectedLitanyId = button.dataset.litany!;
     render(date);
   }));
 

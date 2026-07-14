@@ -95,6 +95,10 @@ the existing `prayerBookPath` block) verifying every `order` id resolves in `ite
 
 ## Status
 
-Plan only — no app code or data written yet. Next step is the `V./R.` annotation pass
-on `LITANIES.md` for review, then conversion into `data/texts/litanies.json` per the
-rules above.
+Implemented: `LITANIES.md` annotated with `V./R.` markup, converted into
+`data/texts/litanies.json` (13 items) against `schema/litanies.schema.json`, resolved via
+`src/litanies.ts`, wired into `src/main.ts`/`src/style.css` as a sixth "Litanies" tab, and
+documented in `CONVENTIONS.md`/`TASKS.md` (Phase 16). Verified via `npm run validate:data`,
+`npx tsc --noEmit`, `npx vitest run`, `npm run build`, and a scripted Playwright pass
+against the dev server (tab switching, default selection, V./R. rendering, Office chrome
+hidden while on the tab, mobile tab-bar scrollability, zero console errors).

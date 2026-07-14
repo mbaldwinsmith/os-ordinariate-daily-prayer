@@ -207,6 +207,23 @@ are deliberately omitted because the application is not bound to one civil juris
 No Collect of the Day is supplied: mapping the BCP temporal calendar onto the modern
 Roman calendar would risk presenting the wrong collect as appointed.
 
+## Litanies & personal devotions
+
+The Litanies tab (`LITANIES.md` as the human-reviewed source, `data/texts/litanies.json`
+as the schema-validated data, `src/litanies.ts` as the resolver) is a standalone,
+Hour-independent collection of personal-favourite litanies and devotions: Marian
+antiphons, several traditional litanies, and a couple of standalone prayers. It is not
+tied to a specific Hour or day of the psalter, does not claim liturgical authority or
+appointed status, and is always visible as its own tab rather than being injected into
+the Office rendering. Items are shown in a flat list, in `LITANIES.md`'s own order, with
+no categorisation.
+
+Versicle/response material is modelled the same way as the Prayer Book supplement's
+(`leader`/`people` pairs), including litanies whose source text repeats the same words
+for both the leader and the people (the threefold Kyrie eleison found at the head of
+several of these litanies). Multi-stanza works (for example St Patrick's Breastplate)
+use an array of paragraph/stanza strings rather than a single flattened block of text.
+
 ## Canonical psalter structure
 
 `canonical-psalter-skeleton.json` is the single structural source for the four-week

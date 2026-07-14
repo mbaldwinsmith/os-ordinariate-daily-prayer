@@ -1,0 +1,1757 @@
+{
+  "items": {
+    "almaRedemptorisMater": {
+      "title": "Alma Redemptoris Mater",
+      "kind": "prayer",
+      "verified": true,
+      "sourceRef": "Marian antiphon",
+      "text": [
+        "Alma Redemptoris Mater, quae pervia caeli porta manes et stella maris, succurre cadenti, surgere qui curat, populo: tu quae genuisti, natura mirante, tuum sanctum genitorem, Virgo prius, ac posterius, Gabrielis ab ore sumens illud ave, peccatorum miserere.",
+        "Holy mother of our Redeemer, thou gate leading to heaven and star of the sea; help the falling people who seek to rise, thou who, all nature wondering, didst give birth to thy holy Creator. Virgin always, hearing the greeting from Gabriel’s lips, take pity on sinners."
+      ]
+    },
+    "aveReginaCaelorum": {
+      "title": "Ave Regina Caelorum (Hail Queen of Heaven)",
+      "kind": "prayer",
+      "verified": true,
+      "sourceRef": "Marian antiphon",
+      "text": [
+        "Ave regina caelorum, ave domina angelorum: salve radix, salve porta, ex qua mundo lux est orta: Gaude Virgo, gloriosa, super omnes speciosa, vale o valde decora, et pro nobis Christum exora.",
+        "Hail, queen of heaven, hail lady of the angels. Hail, root, hail the door through which the Light of the world is risen. Rejoice, glorious Virgin, beautiful above all. Hail, O very fair one, and plead for us to Christ."
+      ]
+    },
+    "litanyBvm": {
+      "title": "Litany of the Blessed Virgin Mary",
+      "kind": "litany",
+      "verified": true,
+      "sourceRef": "Approved by Pope Sixtus V in 1587",
+      "responses": [
+        {
+          "leader": "Lord, have mercy on us.",
+          "people": "Lord, have mercy on us."
+        },
+        {
+          "leader": "Christ, have mercy on us.",
+          "people": "Christ, have mercy on us."
+        },
+        {
+          "leader": "Lord, have mercy on us.",
+          "people": "Lord, have mercy on us."
+        },
+        {
+          "leader": "Christ, hear us.",
+          "people": "Christ, graciously hear us."
+        },
+        {
+          "leader": "God the Father of Heaven,",
+          "people": "Have mercy on us."
+        },
+        {
+          "leader": "God the Son, Redeemer of the world,",
+          "people": "Have mercy on us."
+        },
+        {
+          "leader": "God the Holy Ghost,",
+          "people": "Have mercy on us."
+        },
+        {
+          "leader": "Holy Trinity, one God,",
+          "people": "Have mercy on us."
+        },
+        {
+          "leader": "Holy Mary,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Holy Mother of God,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Holy Virgin of virgins,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Mother of Christ,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Mother of divine grace,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Mother most pure,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Mother most chaste,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Mother inviolate,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Mother undefiled,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Mother most amiable,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Mother most admirable,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Mother of good counsel,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Mother of our Creator,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Mother of our Savior,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Virgin most prudent,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Virgin most venerable,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Virgin most renowned,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Virgin most powerful,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Virgin most merciful,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Virgin most faithful,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Mirror of justice,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Seat of wisdom,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Cause of our joy,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Spiritual vessel,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Vessel of honor,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Singular vessel of devotion,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Mystical rose,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Tower of David,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Tower of ivory,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "House of gold,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Ark of the Covenant,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Gate of Heaven,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Morning star,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Health of the sick,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Refuge of sinners,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Comforter of the afflicted,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Help of Christians,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Queen of angels,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Queen of patriarchs,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Queen of prophets,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Queen of apostles,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Queen of martyrs,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Queen of confessors,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Queen of virgins,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Queen of all saints,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Queen conceived without Original Sin,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Queen assumed into Heaven,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Queen of the most holy Rosary,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Queen of peace,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Lamb of God, who takes away the sins of the world,",
+          "people": "Spare us, O Lord."
+        },
+        {
+          "leader": "Lamb of God, who takes away the sins of the world,",
+          "people": "Graciously hear us, O Lord."
+        },
+        {
+          "leader": "Lamb of God, who takes away the sins of the world,",
+          "people": "Have mercy on us."
+        },
+        {
+          "leader": "Pray for us, O Holy Mother of God,",
+          "people": "That we may be made worthy of the promises of Christ."
+        }
+      ],
+      "text": "Grant, we beseech Thee, O Lord God, that we Thy Servants may enjoy perpetual health of mind and body and by the glorious intercession of the Blessed Mary, ever Virgin, be delivered from present sorrow and enjoy eternal happiness. Through Christ Our Lord. Amen."
+    },
+    "litanyHumility": {
+      "title": "Litany of Humility",
+      "kind": "litany",
+      "verified": true,
+      "sourceRef": "For private use only",
+      "responses": [
+        {
+          "leader": "O Jesus, meek and humble of heart,",
+          "people": "Hear me."
+        },
+        {
+          "leader": "From the desire of being esteemed,",
+          "people": "Deliver me, O Jesus."
+        },
+        {
+          "leader": "From the desire of being loved,",
+          "people": "Deliver me, O Jesus."
+        },
+        {
+          "leader": "From the desire of being extolled,",
+          "people": "Deliver me, O Jesus."
+        },
+        {
+          "leader": "From the desire of being honored,",
+          "people": "Deliver me, O Jesus."
+        },
+        {
+          "leader": "From the desire of being praised,",
+          "people": "Deliver me, O Jesus."
+        },
+        {
+          "leader": "From the desire of being preferred to others,",
+          "people": "Deliver me, O Jesus."
+        },
+        {
+          "leader": "From the desire of being consulted,",
+          "people": "Deliver me, O Jesus."
+        },
+        {
+          "leader": "From the desire of being approved,",
+          "people": "Deliver me, O Jesus."
+        },
+        {
+          "leader": "From the fear of being humiliated,",
+          "people": "Deliver me, O Jesus."
+        },
+        {
+          "leader": "From the fear of being despised,",
+          "people": "Deliver me, O Jesus."
+        },
+        {
+          "leader": "From the fear of suffering rebukes,",
+          "people": "Deliver me, O Jesus."
+        },
+        {
+          "leader": "From the fear of being calumniated,",
+          "people": "Deliver me, O Jesus."
+        },
+        {
+          "leader": "From the fear of being forgotten,",
+          "people": "Deliver me, O Jesus."
+        },
+        {
+          "leader": "From the fear of being ridiculed,",
+          "people": "Deliver me, O Jesus."
+        },
+        {
+          "leader": "From the fear of being wronged,",
+          "people": "Deliver me, O Jesus."
+        },
+        {
+          "leader": "From the fear of being suspected,",
+          "people": "Deliver me, O Jesus."
+        },
+        {
+          "leader": "That others may be loved more than I,",
+          "people": "Jesus, grant me the grace to desire it."
+        },
+        {
+          "leader": "That others may be esteemed more than I,",
+          "people": "Jesus, grant me the grace to desire it."
+        },
+        {
+          "leader": "That, in the opinion of the world, others may increase and I may decrease,",
+          "people": "Jesus, grant me the grace to desire it."
+        },
+        {
+          "leader": "That others may be chosen and I set aside,",
+          "people": "Jesus, grant me the grace to desire it."
+        },
+        {
+          "leader": "That others may be praised and I go unnoticed,",
+          "people": "Jesus, grant me the grace to desire it."
+        },
+        {
+          "leader": "That others may be preferred to me in everything,",
+          "people": "Jesus, grant me the grace to desire it."
+        },
+        {
+          "leader": "That others may become holier than I,",
+          "people": "Jesus, grant me the grace to desire it."
+        },
+        {
+          "leader": "provided that I may become as holy as I should,",
+          "people": "Jesus, grant me the grace to desire it."
+        }
+      ]
+    },
+    "litanyHolyName": {
+      "title": "Litany of the Most Holy Name of Jesus",
+      "kind": "litany",
+      "verified": true,
+      "sourceRef": "Traditional Catholic litany",
+      "responses": [
+        {
+          "leader": "Lord, have mercy on us.",
+          "people": "Lord, have mercy on us."
+        },
+        {
+          "leader": "Christ, have mercy on us.",
+          "people": "Christ, have mercy on us."
+        },
+        {
+          "leader": "Lord, have mercy on us.",
+          "people": "Lord, have mercy on us."
+        },
+        {
+          "leader": "Christ, hear us,",
+          "people": "Christ, graciously hear us."
+        },
+        {
+          "leader": "God the Father of heaven,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "God the Son, Redeemer of the World,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "God the Holy Spirit,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Holy Trinity, one God,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Jesus, Son of the living God,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Jesus, Splendor of the Father,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Jesus, Brightness of eternal Light,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Jesus, King of Glory,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Jesus, Sun of Justice,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Jesus, Son of the Virgin Mary,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Jesus, most amiable,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Jesus, most admirable,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Jesus, the mighty God,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Jesus, Father of the world to come,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Jesus, angel of great counsel,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Jesus, most powerful,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Jesus, most patient,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Jesus, most obedient,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Jesus, meek and humble of heart,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Jesus, Lover of Chastity,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Jesus, our Lover,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Jesus, God of Peace,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Jesus, Author of Life,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Jesus, Model of Virtues,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Jesus, zealous for souls,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Jesus, our God,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Jesus, our Refuge,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Jesus, Father of the Poor,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Jesus, Treasure of the Faithful,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Jesus, good Shepherd,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Jesus, true Light,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Jesus, eternal Wisdom,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Jesus, infinite Goodness,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Jesus, our Way and our Life,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Jesus, joy of the Angels,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Jesus, King of the Patriarchs,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Jesus, Master of the Apostles,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Jesus, Teacher of the Evangelists,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Jesus, Strength of Martyrs,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Jesus, Light of Confessors,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Jesus, Purity of Virgins,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Jesus, Crown of all Saints,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Be merciful,",
+          "people": "spare us, O Jesus."
+        },
+        {
+          "leader": "Be merciful,",
+          "people": "graciously spare us, O Jesus."
+        },
+        {
+          "leader": "From all evil,",
+          "people": "deliver us, O Jesus."
+        },
+        {
+          "leader": "From all sin,",
+          "people": "deliver us, O Jesus."
+        },
+        {
+          "leader": "From Your wrath,",
+          "people": "deliver us, O Jesus."
+        },
+        {
+          "leader": "From the snares of the devil,",
+          "people": "deliver us, O Jesus."
+        },
+        {
+          "leader": "From the spirit of fornication,",
+          "people": "deliver us, O Jesus."
+        },
+        {
+          "leader": "From everlasting death,",
+          "people": "deliver us, O Jesus."
+        },
+        {
+          "leader": "From the neglect of Your inspirations,",
+          "people": "deliver us, O Jesus."
+        },
+        {
+          "leader": "Through the mystery of Your Holy Incarnation,",
+          "people": "deliver us, O Jesus."
+        },
+        {
+          "leader": "Through Your Nativity,",
+          "people": "deliver us, O Jesus."
+        },
+        {
+          "leader": "Through Your Infancy,",
+          "people": "deliver us, O Jesus."
+        },
+        {
+          "leader": "Through Your most divine Life,",
+          "people": "deliver us, O Jesus."
+        },
+        {
+          "leader": "Through Your Labors,",
+          "people": "deliver us, O Jesus."
+        },
+        {
+          "leader": "Through Your Agony and Passion,",
+          "people": "deliver us, O Jesus."
+        },
+        {
+          "leader": "Through Your cross and Dereliction,",
+          "people": "deliver us, O Jesus."
+        },
+        {
+          "leader": "Through your Sufferings,",
+          "people": "deliver us, O Jesus."
+        },
+        {
+          "leader": "Through Your Death and Burial,",
+          "people": "deliver us, O Jesus."
+        },
+        {
+          "leader": "Through Your Resurrection,",
+          "people": "deliver us, O Jesus."
+        },
+        {
+          "leader": "Through Your Ascension,",
+          "people": "deliver us, O Jesus."
+        },
+        {
+          "leader": "Through Your Institution of the Most Holy Eucharist,",
+          "people": "deliver us, O Jesus."
+        },
+        {
+          "leader": "Through Your Joys,",
+          "people": "deliver us, O Jesus."
+        },
+        {
+          "leader": "Through Your Glory,",
+          "people": "deliver us, O Jesus."
+        },
+        {
+          "leader": "Lamb of God, who takes away the sins of the world,",
+          "people": "spare us, O Jesus."
+        },
+        {
+          "leader": "Lamb of God, who takes away the sins of the world,",
+          "people": "graciously hear us, O Jesus."
+        },
+        {
+          "leader": "Lamb of God, who takes away the sins of the world,",
+          "people": "have mercy on us, O Jesus."
+        },
+        {
+          "leader": "Jesus, hear us.",
+          "people": "Jesus, graciously hear us."
+        }
+      ],
+      "text": [
+        "Let us pray: Lord Jesus Christ, You have said, 'Ask and you shall receive; seek and you shall find; knock and it shall be opened to you'; mercifully attend to our supplications, and grant us the grace of Your most divine love, that we have loved You with all our hearts, and in all our words and actions, and never cease to praise You.",
+        "Make us, O Lord, to have a perpetual fear and love of Your Holy Name, for You never fail to govern those whom You establish in Your love. You, Who live and reign forever and ever. Amen"
+      ]
+    },
+    "litanyPreciousBlood": {
+      "title": "Litany of the Most Precious Blood of Jesus",
+      "kind": "litany",
+      "verified": true,
+      "sourceRef": "Traditional Catholic litany",
+      "responses": [
+        {
+          "leader": "Lord, have mercy.",
+          "people": "Lord, have mercy."
+        },
+        {
+          "leader": "Christ, have mercy.",
+          "people": "Christ, have mercy on us."
+        },
+        {
+          "leader": "Lord, have mercy.",
+          "people": "Lord, have mercy."
+        },
+        {
+          "leader": "Jesus, hear us.",
+          "people": "Jesus, graciously hear us."
+        },
+        {
+          "leader": "God, the Father of Heaven,",
+          "people": "Have mercy on us."
+        },
+        {
+          "leader": "God, the Son, Redeemer of the world,",
+          "people": "Have mercy on us."
+        },
+        {
+          "leader": "God, the Holy Spirit,",
+          "people": "Have mercy on us."
+        },
+        {
+          "leader": "Holy Trinity, One God,",
+          "people": "Have mercy on us."
+        },
+        {
+          "leader": "Blood of Christ, only-begotten Son of the Eternal Father,",
+          "people": "Save us."
+        },
+        {
+          "leader": "Blood of Christ, Incarnate Word of God,",
+          "people": "Save us."
+        },
+        {
+          "leader": "Blood of Christ, of the New and Eternal Testament,",
+          "people": "Save us."
+        },
+        {
+          "leader": "Blood of Christ, falling upon the earth in the Agony,",
+          "people": "Save us."
+        },
+        {
+          "leader": "Blood of Christ, shed profusely in the Scourging,",
+          "people": "Save us."
+        },
+        {
+          "leader": "Blood of Christ, flowing forth in the Crowning with Thorns,",
+          "people": "Save us."
+        },
+        {
+          "leader": "Blood of Christ, poured out on the Cross,",
+          "people": "Save us."
+        },
+        {
+          "leader": "Blood of Christ, price of our salvation,",
+          "people": "Save us."
+        },
+        {
+          "leader": "Blood of Christ, without which there is no forgiveness.",
+          "people": "Save us."
+        },
+        {
+          "leader": "Blood of Christ, Eucharistic drink and refreshment of souls,",
+          "people": "Save us."
+        },
+        {
+          "leader": "Blood of Christ, stream of mercy,",
+          "people": "Save us."
+        },
+        {
+          "leader": "Blood of Christ, victor over demons,",
+          "people": "Save us."
+        },
+        {
+          "leader": "Blood of Christ, courage of Martyrs,",
+          "people": "Save us."
+        },
+        {
+          "leader": "Blood of Christ, strength of Confessors,",
+          "people": "Save us."
+        },
+        {
+          "leader": "Blood of Christ, bringing forth Virgins,",
+          "people": "Save us."
+        },
+        {
+          "leader": "Blood of Christ, help of those in peril,",
+          "people": "Save us."
+        },
+        {
+          "leader": "Blood of Christ, relief of the burdened,",
+          "people": "Save us."
+        },
+        {
+          "leader": "Blood of Christ, solace in sorrow,",
+          "people": "Save us."
+        },
+        {
+          "leader": "Blood of Christ, hope of the penitent,",
+          "people": "Save us."
+        },
+        {
+          "leader": "Blood of Christ, consolation of the dying,",
+          "people": "Save us."
+        },
+        {
+          "leader": "Blood of Christ, peace and tenderness of hearts,",
+          "people": "Save us."
+        },
+        {
+          "leader": "Blood of Christ, pledge of eternal life,",
+          "people": "Save us."
+        },
+        {
+          "leader": "Blood of Christ, freeing souls from purgatory,",
+          "people": "Save us."
+        },
+        {
+          "leader": "Blood of Christ, most worthy of all glory and honor,",
+          "people": "Save us."
+        },
+        {
+          "leader": "Lamb of God, who takes away the sins of the world,",
+          "people": "Spare us, O Lord."
+        },
+        {
+          "leader": "Lamb of God, who takes away the sins of the world,",
+          "people": "Graciously hear us, O Lord."
+        },
+        {
+          "leader": "Lamb of God, who takes away the sins of the world,",
+          "people": "Have mercy on us, O Lord."
+        },
+        {
+          "leader": "You have redeemed us, O Lord, in your Blood.",
+          "people": "And made us, for our God, a kingdom."
+        }
+      ],
+      "text": "Let us pray, - Almighty and eternal God, you have appointed your only-begotten Son the Redeemer of the world, and willed to be appeased by his Blood. Grant we beg of you, that we may worthily adore this price of our salvation, and through its power be safeguarded from the evils of the present life, so that we may rejoice in its fruits forever in heaven. Through the same Christ our Lord. Amen."
+    },
+    "reginaCaeli": {
+      "title": "Regina Caeli",
+      "kind": "prayer",
+      "verified": true,
+      "sourceRef": "Marian antiphon",
+      "text": [
+        "Regina caeli, laetare, alleluia; quia quem meruisti portare, alleluia; resurrexit sicut dixit, alleluia; ora pro nobis Deum, alleluia.",
+        "Queen of heaven, rejoice, alleluia; for He whom thou was chosen to bear, alleluia; has risen as He said, alleluia; pray for us to God, alleluia."
+      ]
+    },
+    "salveRegina": {
+      "title": "Salve Regina (Hail Holy Queen)",
+      "kind": "prayer",
+      "verified": true,
+      "sourceRef": "Marian antiphon",
+      "text": [
+        "Salve Regina, mater misericordiae, vita, dulcedo, et spes nostra salve. Ad te clamamus, exules filii Evae. Ad te suspiramus, gementes et flentes, in hac lacrimarum valle. Eia ergo, advocate nostra, illos tuos misericordes oculos, ad nos converte. Et Jesum, benedictum fructum ventris tui, nobis post hoc exsilium ostende. O Clemens, o pia, o dulcis virgo Maria.",
+        "Hail holy queen, mother of mercy, hail our life, our sweetness, and our hope. To thee do we cry, poor banished children of Eve. To thee do we send up our sighs, mourning and weeping in this vale of tears. Turn then most gracious advocate, thine eyes of mercy towards us. And after this, our exile, show unto us the blessed fruit of thy womb, Jesus. O clement, o loving, o sweet Virgin Mary."
+      ]
+    },
+    "litanyStJoseph": {
+      "title": "Litany of St. Joseph",
+      "kind": "litany",
+      "verified": true,
+      "sourceRef": "Traditional Catholic litany",
+      "responses": [
+        {
+          "leader": "Lord, have mercy on us.",
+          "people": "Lord, have mercy on us."
+        },
+        {
+          "leader": "Christ, have mercy on us.",
+          "people": "Christ, have mercy on us."
+        },
+        {
+          "leader": "Lord, have mercy on us.",
+          "people": "Lord, have mercy on us."
+        },
+        {
+          "leader": "Christ, hear us.",
+          "people": "Christ, graciously hear us."
+        },
+        {
+          "leader": "God the Father of heaven,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "God the Son, Redeemer of the World,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "God the Holy Spirit,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Holy Trinity, one God,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Holy Mary,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "St. Joseph,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Renowned offspring of David,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Light of Patriarchs,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Spouse of the Mother of God,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Guardian of the Redeemer",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Chaste guardian of the Virgin,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Foster father of the Son of God,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Diligent protector of Christ,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Servant of Christ",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Minister of salvation",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Head of the Holy Family,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Joseph most just,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Joseph most chaste,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Joseph most prudent,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Joseph most strong,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Joseph most obedient,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Joseph most faithful,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Mirror of patience,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Lover of poverty,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Model of workers,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Glory of family life,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Guardian of virgins,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Pillar of families,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Support in difficulties,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Solace of the wretched,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Hope of the sick,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Patron of exiles,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Patron of the afflicted,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Patron of the poor,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Patron of the dying,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Terror of demons,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Protector of Holy Church,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Lamb of God, who takes away the sins of the world,",
+          "people": "spare us, O Jesus."
+        },
+        {
+          "leader": "Lamb of God, who takes away the sins of the world,",
+          "people": "graciously hear us, O Jesus."
+        },
+        {
+          "leader": "Lamb of God, who takes away the sins of the world,",
+          "people": "have mercy on us, O Jesus."
+        },
+        {
+          "leader": "He made him the lord of his household",
+          "people": "And prince over all his possessions."
+        }
+      ],
+      "text": [
+        "Let us pray: O God, in your ineffable providence you were pleased to choose Blessed Joseph to be the spouse of your most holy Mother; grant, we beg you, that we may be worthy to have him for our intercessor in heaven whom on earth we venerate as our Protector: You who live and reign forever and ever.",
+        "Saint Joseph, pray for us."
+      ]
+    },
+    "stMichaelPrayer": {
+      "title": "St. Michael the Archangel's Prayer",
+      "kind": "prayer",
+      "verified": true,
+      "sourceRef": "Traditional Catholic prayer",
+      "text": [
+        "St. Michael the Archangel, defend us in battle.",
+        "Be our protection against the wickedness and snares of the devil.",
+        "May God rebuke him, we humbly pray, and do thou, O Prince of the heavenly hosts, by the power of God, cast into hell Satan, and all the evil spirits, who prowl about the world seeking the ruin of souls."
+      ]
+    },
+    "stPatricksBreastplate": {
+      "title": "St. Patrick's Breastplate",
+      "kind": "prayer",
+      "verified": true,
+      "sourceRef": "Traditional Catholic prayer, attributed to St. Patrick",
+      "text": [
+        "I arise today Through a mighty strength, the invocation of the Trinity, Through belief in the Threeness, Through confession of the Oneness of the Creator of creation.",
+        "I arise today Through the strength of Christ's birth with His baptism, Through the strength of His crucifixion with His burial, Through the strength of His resurrection with His ascension, Through the strength of His descent for the judgment of doom.",
+        "I arise today Through the strength of the love of cherubim, In the obedience of angels, In the service of archangels, In the hope of resurrection to meet with reward, In the prayers of patriarchs, In the predictions of prophets, In the preaching of apostles, In the faith of confessors, In the innocence of holy virgins, In the deeds of righteous men.",
+        "I arise today, through The strength of heaven, The light of the sun, The radiance of the moon, The splendor of fire, The speed of lightning, The swiftness of wind, The depth of the sea, The stability of the earth, The firmness of rock.",
+        "I arise today, through God's strength to pilot me, God's might to uphold me, God's wisdom to guide me, God's eye to look before me, God's ear to hear me, God's word to speak for me, God's hand to guard me, God's shield to protect me, God's host to save me From snares of devils, From temptation of vices, From everyone who shall wish me ill, afar and near.",
+        "I summon today All these powers between me and those evils, Against every cruel and merciless power that may oppose my body and soul, Against incantations of false prophets, Against black laws of pagandom, Against false laws of heretics, Against craft of idolatry, Against spells of witches and smiths and wizards, Against every knowledge that corrupts man's body and soul; Christ to shield me today Against poison, against burning, Against drowning, against wounding, So that there may come to me an abundance of reward.",
+        "Christ with me, Christ before me, Christ behind me, Christ in me, Christ beneath me, Christ above me, Christ on my right, Christ on my left, Christ when I lie down, Christ when I sit down, Christ when I arise, Christ in the heart of every man who thinks of me, Christ in the mouth of everyone who speaks of me, Christ in every eye that sees me, Christ in every ear that hears me.",
+        "I arise today Through a mighty strength, the invocation of the Trinity, Through belief in the Threeness, Through confession of the Oneness of the Creator of creation."
+      ]
+    },
+    "litanySacredHeart": {
+      "title": "Litany of the Sacred Heart of Jesus",
+      "kind": "litany",
+      "verified": true,
+      "sourceRef": "Traditional Catholic litany",
+      "responses": [
+        {
+          "leader": "Lord, have mercy on us.",
+          "people": "Lord, have mercy on us."
+        },
+        {
+          "leader": "Christ, have mercy on us.",
+          "people": "Christ, have mercy on us."
+        },
+        {
+          "leader": "Lord, have mercy on us.",
+          "people": "Lord, have mercy on us."
+        },
+        {
+          "leader": "Christ, hear us.",
+          "people": "Christ graciously hear us"
+        },
+        {
+          "leader": "God the Father of Heaven,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "God the Son, Redeemer of the world,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "God the Holy Spirit,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Holy Trinity, One God,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Heart of Jesus, Son of the Eternal Father,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Heart of Jesus, formed in the womb of the Virgin Mother by the Holy Spirit",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Heart of Jesus, united substantially with the word of God,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Heart of Jesus, of infinite majesty,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Heart of Jesus, holy temple of God,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Heart of Jesus, tabernacle of the Most High,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Heart of Jesus, house of God and gate of heaven,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Heart of Jesus, glowing furnace of charity,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Heart of Jesus, vessel of justice and love,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Heart of Jesus, full of goodness and love,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Heart of Jesus, abyss of all virtues,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Heart of Jesus, most worthy of all praise,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Heart of Jesus, king and center of all hearts.",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Heart of Jesus, in whom are all the treasures of wisdom and knowledge,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Heart of Jesus, in whom dwelleth all the fullness of the Divinity,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Heart of Jesus, in whom the Father is well pleased,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Heart of Jesus, of whose fullness we have all received,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Heart of Jesus, desire of the everlasting hills,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Heart of Jesus, patient and rich in mercy,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Heart of Jesus, rich to all who invoke Thee,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Heart of Jesus, fount of life and holiness,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Heart of Jesus, propitiation for our sins,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Heart of Jesus, saturated with revilings,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Heart of Jesus, crushed for our iniquities,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Heart of Jesus, made obedient unto death,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Heart of Jesus, pierced with a lance,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Heart of Jesus, source of all consolation,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Heart of Jesus, our life and resurrection,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Heart of Jesus, our peace and reconciliation,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Heart of Jesus, victim for our sins,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Heart of Jesus, salvation of those who hope in Thee,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Heart of Jesus, hope of those who die in Thee,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Heart of Jesus, delight of all saints,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Lamb of God, who takest away the sins of the world,",
+          "people": "Spare us, O Lord."
+        },
+        {
+          "leader": "Lamb of God, who takest away the sins of the world,",
+          "people": "Christ, graciously spare us."
+        },
+        {
+          "leader": "Lamb of God, who takest away the sins of the world,",
+          "people": "Have mercy on us."
+        },
+        {
+          "leader": "Jesus, meek and humble of heart,",
+          "people": "Make our hearts like unto Thine."
+        }
+      ],
+      "text": "Let us pray, Almighty and Everlasting God, look upon the Heart of Thy well-beloved Son and upon the acts of praise and satisfaction which He renders unto Thee in the name of sinners; and do Thou, in Thy great goodness, grant pardon to them who seek Thy mercy, in the name of Thy same Son, Jesus Christ, who liveth and reigneth with Thee, world without end. Amen."
+    },
+    "litanyOfSaints": {
+      "title": "Litany of the Saints",
+      "kind": "litany",
+      "verified": true,
+      "sourceRef": "Traditional Catholic litany",
+      "responses": [
+        {
+          "leader": "Lord, have mercy on us.",
+          "people": "Lord, have mercy on us."
+        },
+        {
+          "leader": "Christ, have mercy on us.",
+          "people": "Christ, have mercy on us."
+        },
+        {
+          "leader": "Lord, have mercy on us.",
+          "people": "Lord, have mercy on us."
+        },
+        {
+          "leader": "Christ, hear us.",
+          "people": "Christ, graciously hear us."
+        },
+        {
+          "leader": "God, the Father of Heaven,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "God the Son, Redeemer of the world,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "God the Holy Spirit,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Holy Trinity, one God,",
+          "people": "have mercy on us."
+        },
+        {
+          "leader": "Holy Mary,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Holy Mother of God,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Holy Virgin of Virgins,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "St. Michael,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "St. Gabriel,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "St. Raphael,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "All you Holy Angels and Archangels",
+          "people": "pray for us."
+        },
+        {
+          "leader": "St. John the Baptist,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "St. Joseph,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "All you Holy Patriarchs and Prophets,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "St. Peter,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "St. Paul,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "St. Andrew,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "St. James,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "St. John,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "St. Thomas,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "St. James,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "St. Philip,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "St. Bartholomew,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "St. Matthew,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "St. Simon,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "St. Jude,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "St. Matthias,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "St. Barnabas,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "St. Luke,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "St. Mark,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "All you Holy Apostles and Evangelists,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "All you Holy Disciples of the Lord,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "All you Holy Innocents,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "St. Stephen,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "St. Lawrence,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "St. Vincent,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "St. Fabian and Sebastian,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "St. John and Paul,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "St. Cosmas and Damian,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "All you Holy Martyrs,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "St. Sylvester,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "St. Gregory,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "St. Ambrose,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "St. Augustine,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "St. Jerome,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "St. Martin,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "St. Nicholas,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "All you Holy Bishops and Confessors,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "All you Holy Doctors,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "St. Anthony,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "St. Benedict,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "St. Bernard,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "St. Dominic,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "St. Francis,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "All you Holy Priests and Levites,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "All you Holy Monks and Hermits,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "St. Mary Magdalene,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "St. Agatha,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "St. Lucy,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "St. Agnes,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "St. Cecilia,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "St. Anastasia,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "St. Catherine,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "St. Clare,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "All you Holy Virgins and Widows,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "All you Holy Saints of God,",
+          "people": "pray for us."
+        },
+        {
+          "leader": "Lord, be merciful,",
+          "people": "Lord, save your people."
+        },
+        {
+          "leader": "From all evil,",
+          "people": "Lord, save your people."
+        },
+        {
+          "leader": "From all sin,",
+          "people": "Lord, save your people."
+        },
+        {
+          "leader": "From your wrath,",
+          "people": "Lord, save your people."
+        },
+        {
+          "leader": "From a sudden and unprovided death,",
+          "people": "Lord, save your people."
+        },
+        {
+          "leader": "From the snares of the devil,",
+          "people": "Lord, save your people."
+        },
+        {
+          "leader": "From anger, hatred and all ill-will,",
+          "people": "Lord, save your people."
+        },
+        {
+          "leader": "From the spirit of uncleanness,",
+          "people": "Lord, save your people."
+        },
+        {
+          "leader": "From lightning and tempest,",
+          "people": "Lord, save your people."
+        },
+        {
+          "leader": "From the scourge of earthquake,",
+          "people": "Lord, save your people."
+        },
+        {
+          "leader": "From plague, famine and war,",
+          "people": "Lord, save your people."
+        },
+        {
+          "leader": "From everlasting death,",
+          "people": "Lord, save your people."
+        },
+        {
+          "leader": "By the mystery of your Holy Incarnation,",
+          "people": "Lord, save your people."
+        },
+        {
+          "leader": "By Your Coming,",
+          "people": "Lord, save your people."
+        },
+        {
+          "leader": "By Your Birth,",
+          "people": "Lord, save your people."
+        },
+        {
+          "leader": "By Your Baptism and Holy Fasting,",
+          "people": "Lord, save your people."
+        },
+        {
+          "leader": "By Your Cross and Passion,",
+          "people": "Lord, save your people."
+        },
+        {
+          "leader": "By Your Death and Burial,",
+          "people": "Lord, save your people."
+        },
+        {
+          "leader": "By Your Holy Resurrection,",
+          "people": "Lord, save your people."
+        },
+        {
+          "leader": "By Your wonderful Ascension,",
+          "people": "Lord, save your people."
+        },
+        {
+          "leader": "By the coming of the Holy Spirit,",
+          "people": "Lord, save your people."
+        },
+        {
+          "leader": "On the Day of Judgment,",
+          "people": "Lord, save your people."
+        },
+        {
+          "leader": "Be merciful to us sinners,",
+          "people": "Lord, hear our prayer."
+        },
+        {
+          "leader": "That you will spare us,",
+          "people": "Lord, hear our prayer."
+        },
+        {
+          "leader": "That you will pardon us,",
+          "people": "Lord, hear our prayer."
+        },
+        {
+          "leader": "That it may please you to bring us to true penance,",
+          "people": "Lord, hear our prayer."
+        },
+        {
+          "leader": "Guide and protect your holy Church,",
+          "people": "Lord, hear our prayer."
+        },
+        {
+          "leader": "Preserve in holy religion the Pope, and all those in holy Orders,",
+          "people": "Lord, hear our prayer."
+        },
+        {
+          "leader": "Humble the enemies of holy Church,",
+          "people": "Lord, hear our prayer."
+        },
+        {
+          "leader": "Give peace and unity to the whole Christian people,",
+          "people": "Lord, hear our prayer."
+        },
+        {
+          "leader": "Bring back to the unity of the Church all those who are straying, and bring all unbelievers to the light of the Gospel,",
+          "people": "Lord, hear our prayer."
+        },
+        {
+          "leader": "Strengthen and preserve us in your holy service,",
+          "people": "Lord, hear our prayer."
+        },
+        {
+          "leader": "Raise our minds to desire the things of heaven,",
+          "people": "Lord, hear our prayer."
+        },
+        {
+          "leader": "Reward all our benefactors with eternal blessings,",
+          "people": "Lord, hear our prayer."
+        },
+        {
+          "leader": "Deliver our souls from eternal damnation, and the souls of our brethren, relatives, and benefactors,",
+          "people": "Lord, hear our prayer."
+        },
+        {
+          "leader": "Give and preserve the fruits of the earth,",
+          "people": "Lord, hear our prayer."
+        },
+        {
+          "leader": "Grant eternal rest to all the faithful departed,",
+          "people": "Lord, hear our prayer."
+        },
+        {
+          "leader": "That it may please You to hear and heed us, Jesus, Son of the Living God,",
+          "people": "Lord, hear our prayer."
+        },
+        {
+          "leader": "Lamb of God, who takes away the sins of the world,",
+          "people": "spare us, O Lord!"
+        },
+        {
+          "leader": "Lamb of God, who takes away the sins of the world,",
+          "people": "graciously hear us, O Lord!"
+        },
+        {
+          "leader": "Lamb of God, who takes away the sins of the world,",
+          "people": "Have mercy on us."
+        },
+        {
+          "leader": "Christ, hear us,",
+          "people": "Christ, graciously hear us"
+        },
+        {
+          "leader": "Lord Jesus, hear our prayer",
+          "people": "Lord Jesus, hear our prayer."
+        },
+        {
+          "leader": "Lord, have mercy on us",
+          "people": "Lord, have mercy on us."
+        },
+        {
+          "leader": "Christ, have mercy on us",
+          "people": "Christ, have mercy on us."
+        },
+        {
+          "leader": "Lord, have mercy on us",
+          "people": "Lord, have mercy on us"
+        }
+      ]
+    }
+  },
+  "order": [
+    "almaRedemptorisMater",
+    "aveReginaCaelorum",
+    "litanyBvm",
+    "litanyHumility",
+    "litanyHolyName",
+    "litanyPreciousBlood",
+    "reginaCaeli",
+    "salveRegina",
+    "litanyStJoseph",
+    "stMichaelPrayer",
+    "stPatricksBreastplate",
+    "litanySacredHeart",
+    "litanyOfSaints"
+  ]
+}
