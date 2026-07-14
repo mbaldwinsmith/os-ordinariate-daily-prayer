@@ -12,127 +12,127 @@ Hail, queen of heaven, hail lady of the angels. Hail, root, hail the door throug
 
 # Litany of the Blessed Virgin Mary
 
-Lord, have mercy on us.
-Christ, have mercy on us.
-Lord, have mercy on us.
-Christ, hear us.
-Christ, graciously hear us.
-God the Father of Heaven,
-Have mercy on us.
-God the Son, Redeemer of the world,
-Have mercy on us.
-God the Holy Ghost,
-Have mercy on us.
-Holy Trinity, one God,
-Have mercy on us.
-Holy Mary,
-pray for us.
-Holy Mother of God,
-pray for us.
-Holy Virgin of virgins,
-pray for us.
-Mother of Christ,
-pray for us.
-Mother of divine grace,
-pray for us.
-Mother most pure,
-pray for us.
-Mother most chaste,
-pray for us.
-Mother inviolate,
-pray for us.
-Mother undefiled,
-pray for us.
-Mother most amiable,
-pray for us.
-Mother most admirable,
-pray for us.
-Mother of good counsel,
-pray for us.
-Mother of our Creator,
-pray for us.
-Mother of our Savior,
-pray for us.
-Virgin most prudent,
-pray for us.
-Virgin most venerable,
-pray for us.
-Virgin most renowned,
-pray for us.
-Virgin most powerful,
-pray for us.
-Virgin most merciful,
-pray for us.
-Virgin most faithful,
-pray for us.
-Mirror of justice,
-pray for us.
-Seat of wisdom,
-pray for us.
-Cause of our joy,
-pray for us.
-Spiritual vessel,
-pray for us.
-Vessel of honor,
-pray for us.
-Singular vessel of devotion,
-pray for us.
-Mystical rose,
-pray for us.
-Tower of David,
-pray for us.
-Tower of ivory,
-pray for us.
-House of gold,
-pray for us.
-Ark of the Covenant,
-pray for us.
-Gate of Heaven,
-pray for us.
-Morning star,
-pray for us.
-Health of the sick,
-pray for us.
-Refuge of sinners,
-pray for us.
-Comforter of the afflicted,
-pray for us.
-Help of Christians,
-pray for us.
-Queen of angels,
-pray for us.
-Queen of patriarchs,
-pray for us.
-Queen of prophets,
-pray for us.
-Queen of apostles,
-pray for us.
-Queen of martyrs,
-pray for us.
-Queen of confessors,
-pray for us.
-Queen of virgins,
-pray for us.
-Queen of all saints,
-pray for us.
-Queen conceived without Original Sin,
-pray for us.
-Queen assumed into Heaven,
-pray for us.
-Queen of the most holy Rosary,
-pray for us.
-Queen of peace,
-pray for us.
+V./R. Lord, have mercy on us.
+V./R. Christ, have mercy on us.
+V./R. Lord, have mercy on us.
+V. Christ, hear us.
+R. Christ, graciously hear us.
+V. God the Father of Heaven,
+R. Have mercy on us.
+V. God the Son, Redeemer of the world,
+R. Have mercy on us.
+V. God the Holy Ghost,
+R. Have mercy on us.
+V. Holy Trinity, one God,
+R. Have mercy on us.
+V. Holy Mary,
+R. pray for us.
+V. Holy Mother of God,
+R. pray for us.
+V. Holy Virgin of virgins,
+R. pray for us.
+V. Mother of Christ,
+R. pray for us.
+V. Mother of divine grace,
+R. pray for us.
+V. Mother most pure,
+R. pray for us.
+V. Mother most chaste,
+R. pray for us.
+V. Mother inviolate,
+R. pray for us.
+V. Mother undefiled,
+R. pray for us.
+V. Mother most amiable,
+R. pray for us.
+V. Mother most admirable,
+R. pray for us.
+V. Mother of good counsel,
+R. pray for us.
+V. Mother of our Creator,
+R. pray for us.
+V. Mother of our Savior,
+R. pray for us.
+V. Virgin most prudent,
+R. pray for us.
+V. Virgin most venerable,
+R. pray for us.
+V. Virgin most renowned,
+R. pray for us.
+V. Virgin most powerful,
+R. pray for us.
+V. Virgin most merciful,
+R. pray for us.
+V. Virgin most faithful,
+R. pray for us.
+V. Mirror of justice,
+R. pray for us.
+V. Seat of wisdom,
+R. pray for us.
+V. Cause of our joy,
+R. pray for us.
+V. Spiritual vessel,
+R. pray for us.
+V. Vessel of honor,
+R. pray for us.
+V. Singular vessel of devotion,
+R. pray for us.
+V. Mystical rose,
+R. pray for us.
+V. Tower of David,
+R. pray for us.
+V. Tower of ivory,
+R. pray for us.
+V. House of gold,
+R. pray for us.
+V. Ark of the Covenant,
+R. pray for us.
+V. Gate of Heaven,
+R. pray for us.
+V. Morning star,
+R. pray for us.
+V. Health of the sick,
+R. pray for us.
+V. Refuge of sinners,
+R. pray for us.
+V. Comforter of the afflicted,
+R. pray for us.
+V. Help of Christians,
+R. pray for us.
+V. Queen of angels,
+R. pray for us.
+V. Queen of patriarchs,
+R. pray for us.
+V. Queen of prophets,
+R. pray for us.
+V. Queen of apostles,
+R. pray for us.
+V. Queen of martyrs,
+R. pray for us.
+V. Queen of confessors,
+R. pray for us.
+V. Queen of virgins,
+R. pray for us.
+V. Queen of all saints,
+R. pray for us.
+V. Queen conceived without Original Sin,
+R. pray for us.
+V. Queen assumed into Heaven,
+R. pray for us.
+V. Queen of the most holy Rosary,
+R. pray for us.
+V. Queen of peace,
+R. pray for us.
 
-Lamb of God, who takes away the sins of the world,
-Spare us, O Lord.
-Lamb of God, who takes away the sins of the world,
-Graciously hear us, O Lord.
-Lamb of God, who takes away the sins of the world,
-Have mercy on us.
+V. Lamb of God, who takes away the sins of the world,
+R. Spare us, O Lord.
+V. Lamb of God, who takes away the sins of the world,
+R. Graciously hear us, O Lord.
+V. Lamb of God, who takes away the sins of the world,
+R. Have mercy on us.
 
-Pray for us, O Holy Mother of God,
-That we may be made worthy of the promises of Christ.
+V. Pray for us, O Holy Mother of God,
+R. That we may be made worthy of the promises of Christ.
 Grant, we beseech Thee, O Lord God, that we Thy Servants may enjoy perpetual health of mind and body and by the glorious intercession of the Blessed Mary, ever Virgin, be delivered from present sorrow and enjoy eternal happiness. Through Christ Our Lord. Amen.
 
 Approved by Pope Sixtus V in 1587
@@ -142,113 +142,190 @@ Approved by Pope Sixtus V in 1587
 
 For Private Use Only.
 
-O Jesus, meek and humble of heart,
-Hear me.
-From the desire of being esteemed,
-Deliver me, O Jesus.
-From the desire of being loved,
-Deliver me, O Jesus.
-From the desire of being extolled, etc.
-From the desire of being honored,
-From the desire of being praised,
-From the desire of being preferred to others,
-From the desire of being consulted,
-From the desire of being approved,
-From the fear of being humiliated,
-From the fear of being despised,
-From the fear of suffering rebukes,
-From the fear of being calumniated,
-From the fear of being forgotten,
-From the fear of being ridiculed,
-From the fear of being wronged,
-From the fear of being suspected,
+V. O Jesus, meek and humble of heart,
+R. Hear me.
+V. From the desire of being esteemed,
+R. Deliver me, O Jesus.
+V. From the desire of being loved,
+R. Deliver me, O Jesus.
+V. From the desire of being extolled, etc.
+*(R. Deliver me, O Jesus. — implied for this and each item below; not spelled out per-line in the source)*
+V. From the desire of being honored,
+V. From the desire of being praised,
+V. From the desire of being preferred to others,
+V. From the desire of being consulted,
+V. From the desire of being approved,
+V. From the fear of being humiliated,
+V. From the fear of being despised,
+V. From the fear of suffering rebukes,
+V. From the fear of being calumniated,
+V. From the fear of being forgotten,
+V. From the fear of being ridiculed,
+V. From the fear of being wronged,
+V. From the fear of being suspected,
 
-That others may be loved more than I,
-Jesus, grant me the grace to desire it.
-That others may be esteemed more than I,
-Jesus, grant me the grace to desire it.
-That, in the opinion of the world, others may increase
+V. That others may be loved more than I,
+R. Jesus, grant me the grace to desire it.
+V. That others may be esteemed more than I,
+R. Jesus, grant me the grace to desire it.
+V. That, in the opinion of the world, others may increase
 and I may decrease, etc.
-That others may be chosen and I set aside,
-That others may be praised and I go unnoticed,
-That others may be preferred to me in everything,
-That others may become holier than I,
-provided that I may become as holy as I should,
+*(R. Jesus, grant me the grace to desire it. — implied for this and each item below)*
+V. That others may be chosen and I set aside,
+V. That others may be praised and I go unnoticed,
+V. That others may be preferred to me in everything,
+V. That others may become holier than I,
+V. provided that I may become as holy as I should,
 
 
 # Litany of the Most Holy Name of Jesus
 
-Lord, have mercy on us	Christ, have mercy on us.
-Lord, have mercy on us. Christ, hear us,	Christ, graciously hear us.
-God the Father of heaven,	have mercy on us.
-God the Son, Redeemer of the World,	have mercy on us.
-God the Holy Spirit,	have mercy on us.
-Holy Trinity, one God,	have mercy on us.
-Jesus, Son of the living God,	have mercy on us.
-Jesus, Splendor of the Father,	have mercy on us.
-Jesus, Brightness of eternal Light,	have mercy on us.
-Jesus, King of Glory,	have mercy on us.
-Jesus, Sun of Justice,	have mercy on us.
-Jesus, Son of the Virgin Mary,	have mercy on us.
-Jesus, most amiable,	have mercy on us.
-Jesus, most admirable,	have mercy on us.
-Jesus, the mighty God,	have mercy on us.
-Jesus, Father of the world to come,	have mercy on us.
-Jesus, angel of great counsel,	have mercy on us.
-Jesus, most powerful,	have mercy on us.
-Jesus, most patient,	have mercy on us.
-Jesus, most obedient,	have mercy on us.
-Jesus, meek and humble of heart,	have mercy on us.
-Jesus, Lover of Chastity,	have mercy on us.
-Jesus, our Lover,	have mercy on us.
-Jesus, God of Peace,	have mercy on us.
-Jesus, Author of Life,	have mercy on us.
-Jesus, Model of Virtues,	have mercy on us.
-Jesus, zealous for souls,	have mercy on us.
-Jesus, our God,	have mercy on us.
-Jesus, our Refuge,	have mercy on us.
-Jesus, Father of the Poor,	have mercy on us.
-Jesus, Treasure of the Faithful,	have mercy on us.
-Jesus, good Shepherd,	have mercy on us.
-Jesus, true Light,	have mercy on us.
-Jesus, eternal Wisdom,	have mercy on us.
-Jesus, infinite Goodness,	have mercy on us.
-Jesus, our Way and our Life,	have mercy on us.
-Jesus, joy of the Angels,	have mercy on us.
-Jesus, King of the Patriarchs,	have mercy on us.
-Jesus, Master of the Apostles,	have mercy on us.
-Jesus, Teacher of the Evangelists,	have mercy on us.
-Jesus, Strength of Martyrs,	have mercy on us.
-Jesus, Light of Confessors,	have mercy on us.
-Jesus, Purity of Virgins,	have mercy on us.
-Jesus, Crown of all Saints,	have mercy on us.
-Be merciful, 	spare us, O Jesus.
-Be merciful,	graciously spare us, O Jesus.
-From all evil,	deliver us, O Jesus.
-From all sin,	deliver us, O Jesus.
-From Your wrath,	deliver us, O Jesus.
-From the snares of the devil,	deliver us, O Jesus.
-From the spirit of fornication,	deliver us, O Jesus.
-From everlasting death,	deliver us, O Jesus.
-From the neglect of Your inspirations,	deliver us, O Jesus.
-Through the mystery of Your Holy Incarnation,	deliver us, O Jesus.
-Through Your Nativity,	deliver us, O Jesus.
-Through Your Infancy,	deliver us, O Jesus.
-Through Your most divine Life,	deliver us, O Jesus.
-Through Your Labors,	deliver us, O Jesus.
-Through Your Agony and Passion,	deliver us, O Jesus.
-Through Your cross and Dereliction,	deliver us, O Jesus.
-Through your Sufferings,	deliver us, O Jesus.
-Through Your Death and Burial,	deliver us, O Jesus.
-Through Your Resurrection,	deliver us, O Jesus.
-Through Your Ascension,	deliver us, O Jesus.
-Through Your Institution of the Most Holy Eucharist,	deliver us, O Jesus.
-Through Your Joys,	deliver us, O Jesus.
-Through Your Glory,	deliver us, O Jesus.
-Lamb of God, who takes away the sins of the world,	spare us, O Jesus.
-Lamb of God, who takes away the sins of the world,	graciously hear us, O Jesus.
-Lamb of God, who takes away the sins of the world,	have mercy on us, O Jesus.
-Jesus, hear us	Jesus, graciously hear us.
+V./R. Lord, have mercy on us.
+V./R. Christ, have mercy on us.
+V./R. Lord, have mercy on us.
+V. Christ, hear us,
+R. Christ, graciously hear us.
+V. God the Father of heaven,
+R. have mercy on us.
+V. God the Son, Redeemer of the World,
+R. have mercy on us.
+V. God the Holy Spirit,
+R. have mercy on us.
+V. Holy Trinity, one God,
+R. have mercy on us.
+V. Jesus, Son of the living God,
+R. have mercy on us.
+V. Jesus, Splendor of the Father,
+R. have mercy on us.
+V. Jesus, Brightness of eternal Light,
+R. have mercy on us.
+V. Jesus, King of Glory,
+R. have mercy on us.
+V. Jesus, Sun of Justice,
+R. have mercy on us.
+V. Jesus, Son of the Virgin Mary,
+R. have mercy on us.
+V. Jesus, most amiable,
+R. have mercy on us.
+V. Jesus, most admirable,
+R. have mercy on us.
+V. Jesus, the mighty God,
+R. have mercy on us.
+V. Jesus, Father of the world to come,
+R. have mercy on us.
+V. Jesus, angel of great counsel,
+R. have mercy on us.
+V. Jesus, most powerful,
+R. have mercy on us.
+V. Jesus, most patient,
+R. have mercy on us.
+V. Jesus, most obedient,
+R. have mercy on us.
+V. Jesus, meek and humble of heart,
+R. have mercy on us.
+V. Jesus, Lover of Chastity,
+R. have mercy on us.
+V. Jesus, our Lover,
+R. have mercy on us.
+V. Jesus, God of Peace,
+R. have mercy on us.
+V. Jesus, Author of Life,
+R. have mercy on us.
+V. Jesus, Model of Virtues,
+R. have mercy on us.
+V. Jesus, zealous for souls,
+R. have mercy on us.
+V. Jesus, our God,
+R. have mercy on us.
+V. Jesus, our Refuge,
+R. have mercy on us.
+V. Jesus, Father of the Poor,
+R. have mercy on us.
+V. Jesus, Treasure of the Faithful,
+R. have mercy on us.
+V. Jesus, good Shepherd,
+R. have mercy on us.
+V. Jesus, true Light,
+R. have mercy on us.
+V. Jesus, eternal Wisdom,
+R. have mercy on us.
+V. Jesus, infinite Goodness,
+R. have mercy on us.
+V. Jesus, our Way and our Life,
+R. have mercy on us.
+V. Jesus, joy of the Angels,
+R. have mercy on us.
+V. Jesus, King of the Patriarchs,
+R. have mercy on us.
+V. Jesus, Master of the Apostles,
+R. have mercy on us.
+V. Jesus, Teacher of the Evangelists,
+R. have mercy on us.
+V. Jesus, Strength of Martyrs,
+R. have mercy on us.
+V. Jesus, Light of Confessors,
+R. have mercy on us.
+V. Jesus, Purity of Virgins,
+R. have mercy on us.
+V. Jesus, Crown of all Saints,
+R. have mercy on us.
+V. Be merciful,
+R. spare us, O Jesus.
+V. Be merciful,
+R. graciously spare us, O Jesus.
+V. From all evil,
+R. deliver us, O Jesus.
+V. From all sin,
+R. deliver us, O Jesus.
+V. From Your wrath,
+R. deliver us, O Jesus.
+V. From the snares of the devil,
+R. deliver us, O Jesus.
+V. From the spirit of fornication,
+R. deliver us, O Jesus.
+V. From everlasting death,
+R. deliver us, O Jesus.
+V. From the neglect of Your inspirations,
+R. deliver us, O Jesus.
+V. Through the mystery of Your Holy Incarnation,
+R. deliver us, O Jesus.
+V. Through Your Nativity,
+R. deliver us, O Jesus.
+V. Through Your Infancy,
+R. deliver us, O Jesus.
+V. Through Your most divine Life,
+R. deliver us, O Jesus.
+V. Through Your Labors,
+R. deliver us, O Jesus.
+V. Through Your Agony and Passion,
+R. deliver us, O Jesus.
+V. Through Your cross and Dereliction,
+R. deliver us, O Jesus.
+V. Through your Sufferings,
+R. deliver us, O Jesus.
+V. Through Your Death and Burial,
+R. deliver us, O Jesus.
+V. Through Your Resurrection,
+R. deliver us, O Jesus.
+V. Through Your Ascension,
+R. deliver us, O Jesus.
+V. Through Your Institution of the Most Holy Eucharist,
+R. deliver us, O Jesus.
+V. Through Your Joys,
+R. deliver us, O Jesus.
+V. Through Your Glory,
+R. deliver us, O Jesus.
+
+V. Lamb of God, who takes away the sins of the world,
+R. spare us, O Jesus.
+V. Lamb of God, who takes away the sins of the world,
+R. graciously hear us, O Jesus.
+V. Lamb of God, who takes away the sins of the world,
+R. have mercy on us, O Jesus.
+
+V. Jesus, hear us.
+R. Jesus, graciously hear us.
+
 Let us pray:
 Lord Jesus Christ, You have said, 'Ask and you shall receive; seek and you shall find; knock and it shall be opened to you'; mercifully attend to our supplications, and grant us the grace of Your most divine love, that we have loved You with all our hearts, and in all our words and actions, and never cease to praise You.
 
@@ -256,94 +333,86 @@ Make us, O Lord, to have a perpetual fear and love of Your Holy Name, for You ne
 
 # Litany of the Most Precious Blood of Jesus
 
-Lord, have mercy.
-Lord, have mercy.
-Christ, have mercy.
-Christ, have mercy on us.
-Lord, have mercy.
-Lord, have mercy.
- 
- 
-Jesus, hear us.
-Jesus, graciously hear us.
- 
- 
-God, the Father of Heaven,
-Have mercy on us.
-God, the Son, Redeemer of the world,
-Have mercy on us.
-God, the Holy Spirit,
-Have mercy on us.
-Holy Trinity, One God, 
-Have mercy on us.
- 
- 
-Blood of Christ, only-begotten Son of the Eternal Father,
-Save us.
-Blood of Christ, Incarnate Word of God,
-Save us.
-Blood of Christ, of the New and Eternal Testament,
-Save us.
-Blood of Christ, falling upon the earth in the Agony,
-Save us.
-Blood of Christ, shed profusely in the Scourging,
-Save us.
-Blood of Christ, flowing forth in the Crowning with Thorns,
-Save us.
-Blood of Christ, poured out on the Cross,
-Save us.
-Blood of Christ, price of our salvation,
-Save us.
-Blood of Christ, without which there is no forgiveness.
-Save us.
-Blood of Christ, Eucharistic drink and refreshment of souls,
-Save us.
-Blood of Christ, stream of mercy,
-Save us.
-Blood of Christ, victor over demons,
-Save us.
-Blood of Christ, courage of Martyrs,
-Save us.
-Blood of Christ, strength of Confessors,
-Save us.
-Blood of Christ, bringing forth Virgins,
-Save us.
-Blood of Christ, help of those in peril,
-Save us.
-Blood of Christ, relief of the burdened,
-Save us.
-Blood of Christ, solace in sorrow,
-Save us.
-Blood of Christ, hope of the penitent,
-Save us.
-Blood of Christ, consolation of the dying,
-Save us.
-Blood of Christ, peace and tenderness of hearts,
-Save us.
-Blood of Christ, pledge of eternal life,
-Save us.
-Blood of Christ, freeing souls from purgatory,
-Save us.
-Blood of Christ, most worthy of all glory and honor,
-Save us.
- 
- 
-Lamb of God, who takes away the sins of the world,
-Spare us, O Lord.
- 
- 
-Lamb of God, who takes away the sins of the world,
-Graciously hear us, O Lord.
- 
- 
-Lamb of God, who takes away the sins of the world,
-Have mercy on us, O Lord.
- 
- 
-You have redeemed us, O Lord, in your Blood.
-And made us, for our God, a kingdom.
- 
- 
+V. Lord, have mercy.
+R. Lord, have mercy.
+V. Christ, have mercy.
+R. Christ, have mercy on us.
+V. Lord, have mercy.
+R. Lord, have mercy.
+
+V. Jesus, hear us.
+R. Jesus, graciously hear us.
+
+V. God, the Father of Heaven,
+R. Have mercy on us.
+V. God, the Son, Redeemer of the world,
+R. Have mercy on us.
+V. God, the Holy Spirit,
+R. Have mercy on us.
+V. Holy Trinity, One God,
+R. Have mercy on us.
+
+V. Blood of Christ, only-begotten Son of the Eternal Father,
+R. Save us.
+V. Blood of Christ, Incarnate Word of God,
+R. Save us.
+V. Blood of Christ, of the New and Eternal Testament,
+R. Save us.
+V. Blood of Christ, falling upon the earth in the Agony,
+R. Save us.
+V. Blood of Christ, shed profusely in the Scourging,
+R. Save us.
+V. Blood of Christ, flowing forth in the Crowning with Thorns,
+R. Save us.
+V. Blood of Christ, poured out on the Cross,
+R. Save us.
+V. Blood of Christ, price of our salvation,
+R. Save us.
+V. Blood of Christ, without which there is no forgiveness.
+R. Save us.
+V. Blood of Christ, Eucharistic drink and refreshment of souls,
+R. Save us.
+V. Blood of Christ, stream of mercy,
+R. Save us.
+V. Blood of Christ, victor over demons,
+R. Save us.
+V. Blood of Christ, courage of Martyrs,
+R. Save us.
+V. Blood of Christ, strength of Confessors,
+R. Save us.
+V. Blood of Christ, bringing forth Virgins,
+R. Save us.
+V. Blood of Christ, help of those in peril,
+R. Save us.
+V. Blood of Christ, relief of the burdened,
+R. Save us.
+V. Blood of Christ, solace in sorrow,
+R. Save us.
+V. Blood of Christ, hope of the penitent,
+R. Save us.
+V. Blood of Christ, consolation of the dying,
+R. Save us.
+V. Blood of Christ, peace and tenderness of hearts,
+R. Save us.
+V. Blood of Christ, pledge of eternal life,
+R. Save us.
+V. Blood of Christ, freeing souls from purgatory,
+R. Save us.
+V. Blood of Christ, most worthy of all glory and honor,
+R. Save us.
+
+V. Lamb of God, who takes away the sins of the world,
+R. Spare us, O Lord.
+
+V. Lamb of God, who takes away the sins of the world,
+R. Graciously hear us, O Lord.
+
+V. Lamb of God, who takes away the sins of the world,
+R. Have mercy on us, O Lord.
+
+V. You have redeemed us, O Lord, in your Blood.
+R. And made us, for our God, a kingdom.
+
 Let us pray, - Almighty and eternal God, you have appointed your only-begotten Son the Redeemer of the world, and willed to be appeased by his Blood. Grant we beg of you, that we may worthily adore this price of our salvation, and through its power be safeguarded from the evils of the present life, so that we may rejoice in its fruits forever in heaven. Through the same Christ our Lord. Amen.
 
 
@@ -362,103 +431,99 @@ Hail holy queen, mother of mercy, hail our life, our sweetness, and our hope. To
 
 # Litany of St. Joseph
 
-Lord, have mercy on us.
-Lord, have mercy on us.
-Christ, have mercy on us.
-Christ, have mercy on us.
-Lord, have mercy on us. 
-Lord, have mercy on us. 
-Christ, hear us.
-Christ, graciously hear us.
- 
-God the Father of heaven,
-have mercy on us.
-God the Son, Redeemer of the World,
-have mercy on us.
-God the Holy Spirit,
-have mercy on us.
-Holy Trinity, one God,
-have mercy on us.
- 
- 
-Holy Mary,
-pray for us.
-St. Joseph,
-pray for us.
-Renowned offspring of David,
-pray for us.
-Light of Patriarchs,
-pray for us.
-Spouse of the Mother of God,
-pray for us.
-Guardian of the Redeemer
-pray for us.
-Chaste guardian of the Virgin,
-pray for us.
-Foster father of the Son of God,
-pray for us.
-Diligent protector of Christ,
-pray for us.
-Servant of Christ
-pray for us.
-Minister of salvation
-pray for us.
-Head of the Holy Family,
-pray for us.
-Joseph most just,
-pray for us.
-Joseph most chaste,
-pray for us.
-Joseph most prudent,
-pray for us.
-Joseph most strong,
-pray for us.
-Joseph most obedient,
-pray for us.
-Joseph most faithful,
-pray for us.
-Mirror of patience,
-pray for us.
-Lover of poverty,
-pray for us.
-Model of workers,
-pray for us.
-Glory of family life,
-pray for us.
-Guardian of virgins,
-pray for us.
-Pillar of families,
-pray for us.
-Support in difficulties,
-pray for us.
-Solace of the wretched,
-pray for us.
-Hope of the sick,
-pray for us.
-Patron of exiles,
-pray for us.
-Patron of the afflicted,
-pray for us.
-Patron of the poor,
-pray for us.
-Patron of the dying,
-pray for us.
-Terror of demons,
-pray for us.
-Protector of Holy Church,
-pray for us.
- 
- 
-Lamb of God, who takes away the sins of the world,
-spare us, O Jesus.
-Lamb of God, who takes away the sins of the world,
-graciously hear us, O Jesus.
-Lamb of God, who takes away the sins of the world,
-have mercy on us, O Jesus.
- 
- 
-He made him the lord of his household
-And prince over all his possessions.
+V. Lord, have mercy on us.
+R. Lord, have mercy on us.
+V. Christ, have mercy on us.
+R. Christ, have mercy on us.
+V. Lord, have mercy on us.
+R. Lord, have mercy on us.
+V. Christ, hear us.
+R. Christ, graciously hear us.
+
+V. God the Father of heaven,
+R. have mercy on us.
+V. God the Son, Redeemer of the World,
+R. have mercy on us.
+V. God the Holy Spirit,
+R. have mercy on us.
+V. Holy Trinity, one God,
+R. have mercy on us.
+
+V. Holy Mary,
+R. pray for us.
+V. St. Joseph,
+R. pray for us.
+V. Renowned offspring of David,
+R. pray for us.
+V. Light of Patriarchs,
+R. pray for us.
+V. Spouse of the Mother of God,
+R. pray for us.
+V. Guardian of the Redeemer
+R. pray for us.
+V. Chaste guardian of the Virgin,
+R. pray for us.
+V. Foster father of the Son of God,
+R. pray for us.
+V. Diligent protector of Christ,
+R. pray for us.
+V. Servant of Christ
+R. pray for us.
+V. Minister of salvation
+R. pray for us.
+V. Head of the Holy Family,
+R. pray for us.
+V. Joseph most just,
+R. pray for us.
+V. Joseph most chaste,
+R. pray for us.
+V. Joseph most prudent,
+R. pray for us.
+V. Joseph most strong,
+R. pray for us.
+V. Joseph most obedient,
+R. pray for us.
+V. Joseph most faithful,
+R. pray for us.
+V. Mirror of patience,
+R. pray for us.
+V. Lover of poverty,
+R. pray for us.
+V. Model of workers,
+R. pray for us.
+V. Glory of family life,
+R. pray for us.
+V. Guardian of virgins,
+R. pray for us.
+V. Pillar of families,
+R. pray for us.
+V. Support in difficulties,
+R. pray for us.
+V. Solace of the wretched,
+R. pray for us.
+V. Hope of the sick,
+R. pray for us.
+V. Patron of exiles,
+R. pray for us.
+V. Patron of the afflicted,
+R. pray for us.
+V. Patron of the poor,
+R. pray for us.
+V. Patron of the dying,
+R. pray for us.
+V. Terror of demons,
+R. pray for us.
+V. Protector of Holy Church,
+R. pray for us.
+V. Lamb of God, who takes away the sins of the world,
+R. spare us, O Jesus.
+V. Lamb of God, who takes away the sins of the world,
+R. graciously hear us, O Jesus.
+V. Lamb of God, who takes away the sins of the world,
+R. have mercy on us, O Jesus.
+
+V. He made him the lord of his household
+R. And prince over all his possessions.
 Let us pray:
 O God, in your ineffable providence you were pleased to choose Blessed Joseph to be the spouse of your most holy Mother; grant, we beg you, that we may be worthy to have him for our intercessor in heaven whom on earth we venerate as our Protector: You who live and reign forever and ever.
 
@@ -556,458 +621,445 @@ of the Creator of creation.
 
 # Litany of the Sacred Heart of Jesus
 
-Lord, have mercy on us. 
-Christ, have mercy on us.
-Lord, have mercy on us. Christ, hear us.
-Christ graciously hear us
-God the Father of Heaven,
-have mercy on us.
-God the Son, Redeemer of the world,
-have mercy on us.
-God the Holy Spirit,
-have mercy on us.
-Holy Trinity, One God,
-have mercy on us.
-Heart of Jesus, Son of the Eternal Father,
-have mercy on us.
-Heart of Jesus, formed in the womb of the Virgin Mother by the Holy Spirit
-have mercy on us.
-Heart of Jesus, united substantially with the word of God,
-have mercy on us.
-Heart of Jesus, of infinite majesty,
-have mercy on us.
-Heart of Jesus, holy temple of God,
-have mercy on us.
-Heart of Jesus, tabernacle of the Most High,
-have mercy on us.
-Heart of Jesus, house of God and gate of heaven,
-have mercy on us.
-Heart of Jesus, glowing furnace of charity,
-have mercy on us.
-Heart of Jesus, vessel of justice and love,
-have mercy on us.
-Heart of Jesus, full of goodness and love,
-have mercy on us.
-Heart of Jesus, abyss of all virtues,
-have mercy on us.
-Heart of Jesus, most worthy of all praise,
-have mercy on us.
-Heart of Jesus, king and center of all hearts.
-have mercy on us.
-Heart of Jesus, in whom are all the treasures of wisdom and knowledge,
-have mercy on us.
-Heart of Jesus, in whom dwelleth all the fullness of the Divinity,
-have mercy on us.
-Heart of Jesus, in whom the Father is well pleased,
-have mercy on us.
-Heart of Jesus, of whose fullness we have all received,
-have mercy on us.
-Heart of Jesus, desire of the everlasting hills, 
-have mercy on us.
-Heart of Jesus, patient and rich in mercy,
-have mercy on us.
-Heart of Jesus, rich to all who invoke Thee,
-have mercy on us.
-Heart of Jesus, fount of life and holiness,
-have mercy on us.
-Heart of Jesus, propitiation for our sins,
-have mercy on us.
-Heart of Jesus, saturated with revilings,
-have mercy on us.
-Heart of Jesus, crushed for our iniquities,
-have mercy on us.
-Heart of Jesus, made obedient unto death,
-have mercy on us.
-Heart of Jesus, pierced with a lance, 
-have mercy on us.
-Heart of Jesus, source of all consolation,
-have mercy on us.
-Heart of Jesus, our life and resurrection,
-have mercy on us.
-Heart of Jesus, our peace and reconciliation,
-have mercy on us.
-Heart of Jesus, victim for our sins,
-have mercy on us.
-Heart of Jesus, salvation of those who hope in Thee,
-have mercy on us.
-Heart of Jesus, hope of those who die in Thee,
-have mercy on us.
-Heart of Jesus, delight of all saints,
-have mercy on us.
- 
- 
-Lamb of God, who takest away the sins of the world,
-Spare us, O Lord.
-Lamb of God, who takest away the sins of the world,
-Christ, graciously spare us.
-Lamb of God, who takest away the sins of the world,
-Have mercy on us.
- 
- 
-Jesus, meek and humble of heart,
- Make our hearts like unto Thine.
- 
+V./R. Lord, have mercy on us.
+V./R. Christ, have mercy on us.
+V./R. Lord, have mercy on us.
+V. Christ, hear us.
+R. Christ graciously hear us
+V. God the Father of Heaven,
+R. have mercy on us.
+V. God the Son, Redeemer of the world,
+R. have mercy on us.
+V. God the Holy Spirit,
+R. have mercy on us.
+V. Holy Trinity, One God,
+R. have mercy on us.
+V. Heart of Jesus, Son of the Eternal Father,
+R. have mercy on us.
+V. Heart of Jesus, formed in the womb of the Virgin Mother by the Holy Spirit
+R. have mercy on us.
+V. Heart of Jesus, united substantially with the word of God,
+R. have mercy on us.
+V. Heart of Jesus, of infinite majesty,
+R. have mercy on us.
+V. Heart of Jesus, holy temple of God,
+R. have mercy on us.
+V. Heart of Jesus, tabernacle of the Most High,
+R. have mercy on us.
+V. Heart of Jesus, house of God and gate of heaven,
+R. have mercy on us.
+V. Heart of Jesus, glowing furnace of charity,
+R. have mercy on us.
+V. Heart of Jesus, vessel of justice and love,
+R. have mercy on us.
+V. Heart of Jesus, full of goodness and love,
+R. have mercy on us.
+V. Heart of Jesus, abyss of all virtues,
+R. have mercy on us.
+V. Heart of Jesus, most worthy of all praise,
+R. have mercy on us.
+V. Heart of Jesus, king and center of all hearts.
+R. have mercy on us.
+V. Heart of Jesus, in whom are all the treasures of wisdom and knowledge,
+R. have mercy on us.
+V. Heart of Jesus, in whom dwelleth all the fullness of the Divinity,
+R. have mercy on us.
+V. Heart of Jesus, in whom the Father is well pleased,
+R. have mercy on us.
+V. Heart of Jesus, of whose fullness we have all received,
+R. have mercy on us.
+V. Heart of Jesus, desire of the everlasting hills,
+R. have mercy on us.
+V. Heart of Jesus, patient and rich in mercy,
+R. have mercy on us.
+V. Heart of Jesus, rich to all who invoke Thee,
+R. have mercy on us.
+V. Heart of Jesus, fount of life and holiness,
+R. have mercy on us.
+V. Heart of Jesus, propitiation for our sins,
+R. have mercy on us.
+V. Heart of Jesus, saturated with revilings,
+R. have mercy on us.
+V. Heart of Jesus, crushed for our iniquities,
+R. have mercy on us.
+V. Heart of Jesus, made obedient unto death,
+R. have mercy on us.
+V. Heart of Jesus, pierced with a lance,
+R. have mercy on us.
+V. Heart of Jesus, source of all consolation,
+R. have mercy on us.
+V. Heart of Jesus, our life and resurrection,
+R. have mercy on us.
+V. Heart of Jesus, our peace and reconciliation,
+R. have mercy on us.
+V. Heart of Jesus, victim for our sins,
+R. have mercy on us.
+V. Heart of Jesus, salvation of those who hope in Thee,
+R. have mercy on us.
+V. Heart of Jesus, hope of those who die in Thee,
+R. have mercy on us.
+V. Heart of Jesus, delight of all saints,
+R. have mercy on us.
+
+V. Lamb of God, who takest away the sins of the world,
+R. Spare us, O Lord.
+V. Lamb of God, who takest away the sins of the world,
+R. Christ, graciously spare us.
+V. Lamb of God, who takest away the sins of the world,
+R. Have mercy on us.
+
+V. Jesus, meek and humble of heart,
+R. Make our hearts like unto Thine.
 
 Let us pray, Almighty and Everlasting God, look upon the Heart of Thy well-beloved Son and upon the acts of praise and satisfaction which He renders unto Thee in the name of sinners; and do Thou, in Thy great goodness, grant pardon to them who seek Thy mercy, in the name of Thy same Son, Jesus Christ, who liveth and reigneth with Thee, world without end. Amen.
 
 
 # Litany of the Saints
 
-Lord, have mercy on us.
-Lord, have mercy on us.
-                          
-Christ, have mercy on us.
-Christ, have mercy on us.
- 
-Lord, have mercy on us.
-Lord, have mercy on us.
- 
-Christ, hear us.
-Christ, graciously hear us.
- 
- 
-God, the Father of Heaven,
-have mercy on us.
- 
-God the Son, Redeemer of the world,
-have mercy on us.
- 
-God the Holy Spirit,
-have mercy on us.
- 
-Holy Trinity, one God,
-have mercy on us.
- 
- 
-Holy Mary,
-pray for us.
- 
-Holy Mother of God,
-pray for us.
- 
-Holy Virgin of Virgins,
-pray for us.
- 
-St. Michael,
-pray for us.
- 
-St. Gabriel,
-pray for us.
- 
-St. Raphael,
-pray for us.
- 
-All you Holy Angels and Archangels
-pray for us.
- 
-St. John the Baptist,
-pray for us.
- 
-St. Joseph,
-pray for us.
- 
-All you Holy Patriarchs and Prophets,
-pray for us.
- 
- 
-St. Peter,
-pray for us.
- 
-St. Paul,
-pray for us.
- 
-St. Andrew,
-pray for us.
- 
-St. James,
-pray for us.
- 
-St. John,
-pray for us.
- 
-St. Thomas,
-pray for us.
- 
-St. James,
-pray for us.
- 
-St. Philip,
-pray for us.
- 
-St. Bartholomew,
-pray for us.
- 
-St. Matthew,
-pray for us.
- 
-St. Simon,
-pray for us.
- 
-St. Jude,
-pray for us.
- 
-St. Matthias,
-pray for us.
- 
-St. Barnabas,
-pray for us.
- 
-St. Luke,
-pray for us.
- 
-St. Mark,
-pray for us.
- 
-All you Holy Apostles and Evangelists,
-pray for us.
- 
-All you Holy Disciples of the Lord,
-pray for us.
- 
-All you Holy Innocents,
-pray for us.
- 
- 
-St. Stephen,
-pray for us.
- 
-St. Lawrence,
-pray for us.
- 
-St. Vincent,
-pray for us.
- 
-St. Fabian and Sebastian,
-pray for us.
- 
-St. John and Paul,
-pray for us.
- 
-St. Cosmas and Damian,
-pray for us.
- 
-All you Holy Martyrs,
-pray for us.
- 
- 
-St. Sylvester,
-pray for us.
- 
-St. Gregory,
-pray for us.
- 
-St. Ambrose,
-pray for us.
- 
-St. Augustine,
-pray for us.
- 
-St. Jerome,
-pray for us.
- 
-St. Martin,
-pray for us.
- 
-St. Nicholas,
-pray for us.
- 
-All you Holy Bishops and Confessors,
-pray for us.
- 
-All you Holy Doctors,
-pray for us.
- 
- 
-St. Anthony,
-pray for us.
- 
-St. Benedict,
-pray for us.
- 
-St. Bernard,
-pray for us.
- 
-St. Dominic,
-pray for us.
- 
-St. Francis,
-pray for us.
- 
-All you Holy Priests and Levites,
-pray for us.
- 
-All you Holy Monks and Hermits,
-pray for us.
- 
- 
-St. Mary Magdalene,
-pray for us.
- 
-St. Agatha,
-pray for us.
- 
-St. Lucy,
-pray for us.
- 
-St. Agnes,
-pray for us.
- 
-St. Cecilia,
-pray for us.
- 
-St. Anastasia,
-pray for us.
- 
-St. Catherine,
-pray for us.
- 
-St. Clare,
-pray for us.
- 
-All you Holy Virgins and Widows,
-pray for us.
- 
-All you Holy Saints of God,
-pray for us.
- 
- 
-Lord, be merciful,
-Lord, save your people.
- 
-From all evil,
-Lord, save your people.
- 
-From all sin,
-Lord, save your people.
- 
-From your wrath,
-Lord, save your people.
- 
-From a sudden and unprovided death,
-Lord, save your people.
- 
-From the snares of the devil,
-Lord, save your people.
- 
-From anger, hatred and all ill-will,
-Lord, save your people.
- 
-From the spirit of uncleanness,
-Lord, save your people.
- 
-From lightning and tempest,
-Lord, save your people.
- 
-From the scourge of earthquake,
-Lord, save your people.
- 
-From plague, famine and war,
-Lord, save your people.
- 
-From everlasting death,
-Lord, save your people.
- 
-By the mystery of your Holy Incarnation,
-Lord, save your people.
- 
-By Your Coming,
-Lord, save your people.
- 
-By Your Birth,
-Lord, save your people.
- 
-By Your Baptism and Holy Fasting,
-Lord, save your people.
- 
-By Your Cross and Passion,
-Lord, save your people.
- 
-By Your Death and Burial,
-Lord, save your people.
- 
-By Your Holy Resurrection,
-Lord, save your people.
- 
-By Your wonderful Ascension,
-Lord, save your people.
- 
-By the coming of the Holy Spirit,
-Lord, save your people.
- 
-On the Day of Judgment,
-Lord, save your people.
- 
- 
-Be merciful to us sinners,
-Lord, hear our prayer.
- 
-That you will spare us,
-Lord, hear our prayer.
- 
-That you will pardon us,
-Lord, hear our prayer.
- 
-That it may please you to bring us to true penance,
-Lord, hear our prayer.
- 
-Guide and protect your holy Church,
-Lord, hear our prayer.
- 
-Preserve in holy religion the Pope, and all those in holy Orders,
-Lord, hear our prayer.
- 
-Humble the enemies of holy Church,
-Lord, hear our prayer.
- 
-Give peace and unity to the whole Christian people,
-Lord, hear our prayer.
- 
-Bring back to the unity of the Church all those who are straying, and bring all unbelievers to the light of the Gospel,
-Lord, hear our prayer.
- 
-Strengthen and preserve us in your holy service,
-Lord, hear our prayer.
- 
-Raise our minds to desire the things of heaven,
-Lord, hear our prayer.
- 
-Reward all our benefactors with eternal blessings,
-Lord, hear our prayer.
- 
-Deliver our souls from eternal damnation, and the souls of our brethren, relatives, and benefactors,
-Lord, hear our prayer.
- 
-Give and preserve the fruits of the earth,
-Lord, hear our prayer.
- 
-Grant eternal rest to all the faithful departed,
-Lord, hear our prayer.
- 
-That it may please You to hear and heed us, Jesus, Son of the Living God,
-Lord, hear our prayer.
- 
- 
-Lamb of God, who takes away the sins of the world,
-spare us, O Lord!
- 
-Lamb of God, who takes away the sins of the world,
-graciously hear us, O Lord!
- 
-Lamb of God, who takes away the sins of the world,
-Have mercy on us.
- 
- 
-Christ, hear us,
-Christ, graciously hear us
- 
-Lord Jesus, hear our prayer
-Lord Jesus, hear our prayer.
- 
-Lord, have mercy on us
-Lord, have mercy on us.
- 
-Christ, have mercy on us             
-Christ, have mercy on us.
- 
-Lord, have mercy on us
-Lord, have mercy on us
+V. Lord, have mercy on us.
+R. Lord, have mercy on us.
+
+V. Christ, have mercy on us.
+R. Christ, have mercy on us.
+
+V. Lord, have mercy on us.
+R. Lord, have mercy on us.
+
+V. Christ, hear us.
+R. Christ, graciously hear us.
+
+V. God, the Father of Heaven,
+R. have mercy on us.
+
+V. God the Son, Redeemer of the world,
+R. have mercy on us.
+
+V. God the Holy Spirit,
+R. have mercy on us.
+
+V. Holy Trinity, one God,
+R. have mercy on us.
+
+V. Holy Mary,
+R. pray for us.
+
+V. Holy Mother of God,
+R. pray for us.
+
+V. Holy Virgin of Virgins,
+R. pray for us.
+
+V. St. Michael,
+R. pray for us.
+
+V. St. Gabriel,
+R. pray for us.
+
+V. St. Raphael,
+R. pray for us.
+
+V. All you Holy Angels and Archangels
+R. pray for us.
+
+V. St. John the Baptist,
+R. pray for us.
+
+V. St. Joseph,
+R. pray for us.
+
+V. All you Holy Patriarchs and Prophets,
+R. pray for us.
+
+V. St. Peter,
+R. pray for us.
+
+V. St. Paul,
+R. pray for us.
+
+V. St. Andrew,
+R. pray for us.
+
+V. St. James,
+R. pray for us.
+
+V. St. John,
+R. pray for us.
+
+V. St. Thomas,
+R. pray for us.
+
+V. St. James,
+R. pray for us.
+
+V. St. Philip,
+R. pray for us.
+
+V. St. Bartholomew,
+R. pray for us.
+
+V. St. Matthew,
+R. pray for us.
+
+V. St. Simon,
+R. pray for us.
+
+V. St. Jude,
+R. pray for us.
+
+V. St. Matthias,
+R. pray for us.
+
+V. St. Barnabas,
+R. pray for us.
+
+V. St. Luke,
+R. pray for us.
+
+V. St. Mark,
+R. pray for us.
+
+V. All you Holy Apostles and Evangelists,
+R. pray for us.
+
+V. All you Holy Disciples of the Lord,
+R. pray for us.
+
+V. All you Holy Innocents,
+R. pray for us.
+
+V. St. Stephen,
+R. pray for us.
+
+V. St. Lawrence,
+R. pray for us.
+
+V. St. Vincent,
+R. pray for us.
+
+V. St. Fabian and Sebastian,
+R. pray for us.
+
+V. St. John and Paul,
+R. pray for us.
+
+V. St. Cosmas and Damian,
+R. pray for us.
+
+V. All you Holy Martyrs,
+R. pray for us.
+
+V. St. Sylvester,
+R. pray for us.
+
+V. St. Gregory,
+R. pray for us.
+
+V. St. Ambrose,
+R. pray for us.
+
+V. St. Augustine,
+R. pray for us.
+
+V. St. Jerome,
+R. pray for us.
+
+V. St. Martin,
+R. pray for us.
+
+V. St. Nicholas,
+R. pray for us.
+
+V. All you Holy Bishops and Confessors,
+R. pray for us.
+
+V. All you Holy Doctors,
+R. pray for us.
+
+V. St. Anthony,
+R. pray for us.
+
+V. St. Benedict,
+R. pray for us.
+
+V. St. Bernard,
+R. pray for us.
+
+V. St. Dominic,
+R. pray for us.
+
+V. St. Francis,
+R. pray for us.
+
+V. All you Holy Priests and Levites,
+R. pray for us.
+
+V. All you Holy Monks and Hermits,
+R. pray for us.
+
+V. St. Mary Magdalene,
+R. pray for us.
+
+V. St. Agatha,
+R. pray for us.
+
+V. St. Lucy,
+R. pray for us.
+
+V. St. Agnes,
+R. pray for us.
+
+V. St. Cecilia,
+R. pray for us.
+
+V. St. Anastasia,
+R. pray for us.
+
+V. St. Catherine,
+R. pray for us.
+
+V. St. Clare,
+R. pray for us.
+
+V. All you Holy Virgins and Widows,
+R. pray for us.
+
+V. All you Holy Saints of God,
+R. pray for us.
+
+V. Lord, be merciful,
+R. Lord, save your people.
+
+V. From all evil,
+R. Lord, save your people.
+
+V. From all sin,
+R. Lord, save your people.
+
+V. From your wrath,
+R. Lord, save your people.
+
+V. From a sudden and unprovided death,
+R. Lord, save your people.
+
+V. From the snares of the devil,
+R. Lord, save your people.
+
+V. From anger, hatred and all ill-will,
+R. Lord, save your people.
+
+V. From the spirit of uncleanness,
+R. Lord, save your people.
+
+V. From lightning and tempest,
+R. Lord, save your people.
+
+V. From the scourge of earthquake,
+R. Lord, save your people.
+
+V. From plague, famine and war,
+R. Lord, save your people.
+
+V. From everlasting death,
+R. Lord, save your people.
+
+V. By the mystery of your Holy Incarnation,
+R. Lord, save your people.
+
+V. By Your Coming,
+R. Lord, save your people.
+
+V. By Your Birth,
+R. Lord, save your people.
+
+V. By Your Baptism and Holy Fasting,
+R. Lord, save your people.
+
+V. By Your Cross and Passion,
+R. Lord, save your people.
+
+V. By Your Death and Burial,
+R. Lord, save your people.
+
+V. By Your Holy Resurrection,
+R. Lord, save your people.
+
+V. By Your wonderful Ascension,
+R. Lord, save your people.
+
+V. By the coming of the Holy Spirit,
+R. Lord, save your people.
+
+V. On the Day of Judgment,
+R. Lord, save your people.
+
+V. Be merciful to us sinners,
+R. Lord, hear our prayer.
+
+V. That you will spare us,
+R. Lord, hear our prayer.
+
+V. That you will pardon us,
+R. Lord, hear our prayer.
+
+V. That it may please you to bring us to true penance,
+R. Lord, hear our prayer.
+
+V. Guide and protect your holy Church,
+R. Lord, hear our prayer.
+
+V. Preserve in holy religion the Pope, and all those in holy Orders,
+R. Lord, hear our prayer.
+
+V. Humble the enemies of holy Church,
+R. Lord, hear our prayer.
+
+V. Give peace and unity to the whole Christian people,
+R. Lord, hear our prayer.
+
+V. Bring back to the unity of the Church all those who are straying, and bring all unbelievers to the light of the Gospel,
+R. Lord, hear our prayer.
+
+V. Strengthen and preserve us in your holy service,
+R. Lord, hear our prayer.
+
+V. Raise our minds to desire the things of heaven,
+R. Lord, hear our prayer.
+
+V. Reward all our benefactors with eternal blessings,
+R. Lord, hear our prayer.
+
+V. Deliver our souls from eternal damnation, and the souls of our brethren, relatives, and benefactors,
+R. Lord, hear our prayer.
+
+V. Give and preserve the fruits of the earth,
+R. Lord, hear our prayer.
+
+V. Grant eternal rest to all the faithful departed,
+R. Lord, hear our prayer.
+
+V. That it may please You to hear and heed us, Jesus, Son of the Living God,
+R. Lord, hear our prayer.
+
+V. Lamb of God, who takes away the sins of the world,
+R. spare us, O Lord!
+
+V. Lamb of God, who takes away the sins of the world,
+R. graciously hear us, O Lord!
+
+V. Lamb of God, who takes away the sins of the world,
+R. Have mercy on us.
+
+V. Christ, hear us,
+R. Christ, graciously hear us
+
+V. Lord Jesus, hear our prayer
+R. Lord Jesus, hear our prayer.
+
+V. Lord, have mercy on us
+R. Lord, have mercy on us.
+
+V. Christ, have mercy on us
+R. Christ, have mercy on us.
+
+V. Lord, have mercy on us
+R. Lord, have mercy on us
