@@ -38,7 +38,7 @@ function stripClause(verse) {
 function normalizeVerseList(verseList) {
   return verseList.split('.').map((token) => {
     const trimmed = token.trim();
-    const range = trimmed.match(/^(\d+)([abc]?)-(\d+)([abc]?)$/i);
+    const range = trimmed.match(/^(\d+)([abc]?)\s*-\s*(\d+)([abc]?)$/i);
     if (range) return `${range[1]}-${stripClause(range[3] + (range[4] || ''))}`;
     return stripClause(trimmed);
   }).join(', ');
