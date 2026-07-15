@@ -790,6 +790,31 @@ tied to a specific Hour or day.
 - [x] Run `npm run validate:data`, `npx vitest run`, and `npm run build`; manually verify
       the tab in a dev server, including on a narrow mobile width
 
+---
+
+## Phase 17 — Remove the Prayer Book toggle from the UI
+
+This is a private, single-user app, and the Prayer Book supplement (Phase 15) is not
+wanted in practice. Rather than delete the feature outright, disconnect it from the UI
+and leave the underlying code dormant in case it's wanted again later.
+
+- [x] Remove the "Prayer Book prayers" checkbox from `src/main.ts`'s header and its
+      `#prayer-book-toggle` change listener
+- [x] Remove the `renderPrayerBook` render call from `renderHour` so the supplement no
+      longer appears in any Hour regardless of stored preference
+- [x] Drop the now-unused `resolvePrayerBook`/`prayerBookPreference` imports and the
+      now-unused `dayOfWeek` parameter of `renderHour`
+- [x] Remove the now-dead `.prayer-book-toggle`, `.prayer-book`, and `.supplement-note`
+      rules from `src/style.css`
+- [x] Update `CONVENTIONS.md`, `README.md`, and `INTEGRATION.md` to reflect that the
+      toggle is gone and the layer is dormant, not deleted
+- [x] Leave `src/prayerBook.ts`, `src/prayerBookPreference.ts`,
+      `data/texts/prayerBookPrayers.json`, `schema/prayer-book-prayers.schema.json`, and
+      their tests untouched and still passing
+- [x] Run `npx tsc --noEmit`, `npx vitest run`, `npm run validate:data`, and
+      `npm run build`; manually verify no toggle appears and no Prayer Book content
+      renders on any Hour
+
 ## Notes / Open Questions to Resolve Early
 
 - Confirm exactly how the 4-week psalter cycle behaves across Lent/Easter/Advent — worth

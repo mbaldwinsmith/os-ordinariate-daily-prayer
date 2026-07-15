@@ -16,8 +16,6 @@ the Divine Office.
 - Calendar, season, and psalter-week logic via [romcal](https://github.com/romcal/romcal).
 - No runtime API calls — all texts and calendar logic are bundled at build time so the
   app works fully offline once installed.
-- Optional Prayer Book prayers provide an explicitly devotional Anglican-patrimony layer;
-  they are not presented as the Roman Liturgy of the Hours' appointed intercessions.
 
 ## Status and authority
 

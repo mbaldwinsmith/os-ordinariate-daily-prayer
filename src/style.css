@@ -124,8 +124,6 @@ a:hover { color: var(--accent-text); }
 /* ---- Header ---------------------------------------------------------------- */
 .site-header { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; padding: 1.7rem 0 1.1rem; border-bottom: 1px solid var(--header-rule); }
 .header-actions { display: flex; align-items: center; gap: .45rem; }
-.prayer-book-toggle { display: flex; align-items: center; justify-content: flex-end; gap: .45rem; padding: .7rem 0 0; color: var(--muted); font: 600 .7rem var(--serif-body); letter-spacing: .12em; text-transform: uppercase; }
-.prayer-book-toggle input { accent-color: var(--brand); width: 1rem; height: 1rem; }
 .site-kicker { margin: 0 0 .2rem; color: var(--brand); font: 600 .66rem/1.2 var(--serif-body); letter-spacing: .2em; text-transform: uppercase; opacity: .85; }
 .eyebrow { margin: 0 0 .15rem; color: var(--accent-text); font: 600 .7rem/1.2 var(--serif-body); letter-spacing: .2em; text-transform: uppercase; }
 h1 { margin: 0; color: var(--brand); font-size: clamp(1.7rem, 6vw, 2.2rem); line-height: 1; letter-spacing: .005em; }
@@ -158,9 +156,11 @@ input[type=date]::-webkit-calendar-picker-indicator { opacity: .55; cursor: poin
 .metadata span { border: 1px solid var(--rule); border-radius: 99px; padding: .22rem .6rem; color: var(--muted); font: 600 .64rem var(--serif-body); letter-spacing: .1em; text-transform: uppercase; }
 
 /* ---- Hour tabs ------------------------------------------------------------- */
-.hour-tabs { position: sticky; top: .5rem; z-index: 3; display: grid; grid-template-columns: repeat(6, 1fr); gap: .25rem; margin: 0 0 1.5rem; padding: .3rem; border: 1px solid var(--rule); border-radius: .8rem; background: var(--tabs-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: 0 .4rem 1.2rem -.6rem var(--card-shadow); }
+.hour-tabs { position: sticky; top: .5rem; z-index: 3; display: flex; align-items: stretch; gap: .3rem; margin: 0 0 1.5rem; padding: .3rem; border: 1px solid var(--rule); border-radius: .8rem; background: var(--tabs-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: 0 .4rem 1.2rem -.6rem var(--card-shadow); }
+.hour-tabs-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: .25rem; flex: 1 1 auto; min-width: 0; }
 .hour-tabs button { border: 0; border-radius: .55rem; padding: .62rem .2rem; color: var(--muted); background: transparent; font: 600 .72rem var(--serif-body); letter-spacing: .09em; text-transform: uppercase; }
 .hour-tabs button[aria-selected=true] { color: #fff; background: var(--accent); box-shadow: 0 .2rem .5rem -.15rem var(--accent); }
+.litanies-tab { flex: 0 0 auto; width: 2.6rem; font-size: 1.15rem; line-height: 1; }
 
 /* ---- Notices --------------------------------------------------------------- */
 .source-warning, .notice { border-left: 3px solid var(--warn-border); margin: 0 0 1.5rem; padding: .65rem .8rem; color: var(--warn-text); background: var(--warn-bg); font-size: .9rem; border-radius: 0 .4rem .4rem 0; }
@@ -183,15 +183,13 @@ input[type=date]::-webkit-calendar-picker-indicator { opacity: .55; cursor: poin
 .antiphon p { font-family: var(--serif-display); font-style: italic; font-size: 1.35rem; line-height: 1.55; text-align: center; }
 .antiphon .eyebrow { font-style: normal; font-family: var(--serif-body); }
 .gospel-canticle { background: var(--tint-b); }
-.prayer-book { background: var(--accent-soft); }
 
 /* ---- Verses ---------------------------------------------------------------- */
 .verses { display: flex; flex-direction: column; gap: .72rem; margin-top: .55rem; }
 .verses p { position: relative; margin: 0; padding-left: 1.9rem; line-height: 1.78; font-size: var(--read-size); text-wrap: pretty; }
 .verse-number { position: absolute; left: 0; top: .4em; color: var(--accent-text); font: 600 .62rem var(--serif-body); letter-spacing: .04em; }
 
-/* ---- Prayer Book & Litanies (shared devotional-item rendering) ------------- */
-.supplement-note { color: var(--muted); font-size: .8rem; font-style: italic; }
+/* ---- Litanies (shared devotional-item rendering) ---------------------------- */
 .devotional-item + .devotional-item { margin-top: 1.35rem; padding-top: 1.2rem; border-top: 1px solid var(--rule); }
 .devotional-item h4 { margin: 0 0 .5rem; color: var(--accent-text); font-size: 1.15rem; }
 .devotional-item p { line-height: 1.72; font-size: var(--read-size); text-wrap: pretty; }
@@ -217,7 +215,6 @@ button:focus-visible, input:focus-visible { outline: 3px solid var(--accent); ou
    =========================================================================== */
 :root[data-focus] { --read-size: 1.22rem; }
 :root[data-focus] .site-header,
-:root[data-focus] .prayer-book-toggle,
 :root[data-focus] .date-controls,
 :root[data-focus] .week-nav,
 :root[data-focus] .day-heading,
@@ -242,8 +239,9 @@ button:focus-visible, input:focus-visible { outline: 3px solid var(--accent); ou
   #app { width: min(100% - 1rem, 44rem); }
   .site-header { align-items: flex-start; }
   .site-kicker { display: none; }
-  .hour-tabs { overflow-x: auto; grid-template-columns: repeat(6, minmax(3.6rem, 1fr)); }
-  .hour-tabs button { font-size: .62rem; }
+  .hour-tabs-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .hour-tabs-grid button { padding-inline: .1rem; font-size: .58rem; letter-spacing: .04em; }
+  .litanies-tab { width: 2.3rem; font-size: 1rem; }
   .text-section, .office-heading { padding: 1.3rem; }
 }
 

@@ -192,11 +192,13 @@ documented above.
 
 ## Prayer Book prayer supplement
 
-The optional Prayer Book layer is an Anglican-patrimony devotional supplement, not the
-appointed Roman `preces`. It is enabled when no explicit user preference exists and can
-be disabled persistently with the `includePrayerBookPrayers` local-storage preference.
-Prayer texts and assignments live in `data/texts/prayerBookPrayers.json` and resolve
-separately from the underlying Office.
+The Prayer Book layer is an Anglican-patrimony devotional supplement, not the appointed
+Roman `preces`. Its data, resolver (`src/prayerBook.ts`), and `includePrayerBookPrayers`
+local-storage preference (`src/prayerBookPreference.ts`) remain in the codebase and under
+test, but the UI toggle and its render call in `src/main.ts` were removed — this is a
+private, single-user app and the layer isn't wanted, so it's currently dormant rather than
+deleted outright. Prayer texts and assignments live in `data/texts/prayerBookPrayers.json`
+and resolve separately from the underlying Office.
 
 Lauds uses the BCP Suffrages, morning Collect for Peace, and Collect for Grace; Vespers
 uses the Suffrages, evening Collect for Peace, and Collect for Aid against All Perils.

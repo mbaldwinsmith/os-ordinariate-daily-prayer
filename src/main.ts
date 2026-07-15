@@ -2,8 +2,6 @@ import './style.css';
 import { getOfficeDay, type DayOfWeek } from './calendar';
 import { resolveDay, type DayView, type HourView, type ReadingsView } from './office';
 import { getTheme, setTheme, watchSystemTheme } from './theme';
-import { resolvePrayerBook } from './prayerBook';
-import { getPrayerBookPreference, setPrayerBookPreference } from './prayerBookPreference';
 import { listLitanies } from './litanies';
 
 const DAY_LABELS: Record<DayOfWeek, string> = {
@@ -88,11 +86,6 @@ function renderDevotionalItem(item: DevotionalItem): string {
   return `<section class="devotional-item"><h4>${item.title}</h4>${responses}${text}</section>`;
 }
 
-function renderPrayerBook(hour: HourKey, dayOfWeek: DayOfWeek): string {
-  if (!getPrayerBookPreference()) return '';
-  return `<section class="text-section prayer-book"><p class="eyebrow">Prayer Book prayers</p><p class="supplement-note">Anglican-patrimony supplement; not the appointed Roman intercessions.</p>${resolvePrayerBook(hour, dayOfWeek).map(renderDevotionalItem).join('')}</section>`;
-}
-
 function renderLitanies(): string {
   const litanies = listLitanies();
   const selected = litanies.find((item) => item.title === selectedLitanyId) ?? litanies[0];
@@ -105,7 +98,7 @@ function renderLitanies(): string {
   </div>`;
 }
 
-function renderHour(label: string, hour: HourView, day: DayView, dayOfWeek: DayOfWeek): string {
+function renderHour(label: string, hour: HourView, day: DayView): string {
   const hourLabel = hour.vespersKind === 'first'
     ? `First Vespers of ${hour.effectiveDay.celebrationName}`
     : hour.vespersKind === 'second' ? `Second ${label}` : label;
@@ -129,7 +122,7 @@ function renderHour(label: string, hour: HourView, day: DayView, dayOfWeek: DayO
       : '';
   return `<article class="office"><header class="office-heading"><p class="eyebrow">The Daily Office</p><h2>${hourLabel}</h2></header>
     ${invitatory}${hour.psalmody.map(renderPsalmodyItem).join('')}
-    ${selectedHour === 'officeOfReadings' ? renderReadings(day.readings) : shortReading}${oAntiphon}${gospelCanticle}${complineAntiphon}${renderPrayerBook(selectedHour, dayOfWeek)}
+    ${selectedHour === 'officeOfReadings' ? renderReadings(day.readings) : shortReading}${oAntiphon}${gospelCanticle}${complineAntiphon}
   </article>`;
 }
 
@@ -153,10 +146,10 @@ function renderImpl(date: Date): void {
   const day = resolveDay(officeDay);
   const activeLabel = HOURS.find(([key]) => key === selectedHour)![1];
   const hourTabs = HOURS.map(([key, label]) => `<button role="tab" data-hour="${key}" aria-selected="${view === 'office' && key === selectedHour}" aria-controls="office-panel">${label}</button>`).join('');
-  const litaniesTab = `<button role="tab" data-view="litanies" aria-selected="${view === 'litanies'}" aria-controls="litanies-panel">Litanies</button>`;
+  const litaniesTab = `<button role="tab" class="litanies-tab" data-view="litanies" aria-selected="${view === 'litanies'}" aria-controls="litanies-panel" aria-label="Litanies and devotions" title="Litanies and devotions">🙏</button>`;
   const dayContent = day
     ? `${day.verified ? '' : '<aside class="source-warning">This psalter assignment is an unverified best-effort reconstruction. See SOURCES.md.</aside>'}
-       <div id="office-panel" role="tabpanel">${renderHour(activeLabel, day[selectedHour], day, officeDay.dayOfWeek)}</div>`
+       <div id="office-panel" role="tabpanel">${renderHour(activeLabel, day[selectedHour], day)}</div>`
     : '<p role="alert" class="notice">This day is not populated yet.</p>';
   const officeControls = view === 'office'
     ? `<section class="date-controls" aria-label="Date navigation">
@@ -174,14 +167,13 @@ function renderImpl(date: Date): void {
   document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <header class="site-header"><div><p class="site-kicker">Unofficial personal prayer rule</p><h1>Personal Daily Prayer</h1></div>
       <div class="header-actions">
-        ${view === 'office' ? `<button id="focus-toggle" class="quiet-button" type="button">Focus</button>
-        <label class="prayer-book-toggle"><input id="prayer-book-toggle" type="checkbox" ${getPrayerBookPreference() ? 'checked' : ''}/><span>Prayer Book prayers</span></label>` : ''}
+        ${view === 'office' ? `<button id="focus-toggle" class="quiet-button" type="button">Focus</button>` : ''}
         <button id="theme-toggle" class="quiet-button icon-button" type="button" aria-label="Switch to ${getTheme() === 'dark' ? 'light' : 'dark'} theme" aria-pressed="${getTheme() === 'dark'}">${getTheme() === 'dark' ? '🌛' : '🌞'}</button>
         <button id="today-button" class="quiet-button">Today</button>
       </div></header>
     <main>
       ${officeControls}
-      <nav class="hour-tabs" role="tablist" aria-label="Hours of prayer and litanies">${hourTabs}${litaniesTab}</nav>
+      <nav class="hour-tabs" role="tablist" aria-label="Hours of prayer and litanies"><div class="hour-tabs-grid">${hourTabs}</div>${litaniesTab}</nav>
       ${view === 'office' && focusMode ? `<div class="focus-bar">
         <button id="focus-prev" class="arrow-button" aria-label="Previous hour">←</button>
         <div class="focus-title"><p class="eyebrow">The Daily Office</p><strong>${activeLabel}</strong></div>
@@ -197,10 +189,6 @@ function renderImpl(date: Date): void {
   document.querySelector<HTMLInputElement>('#date-picker')?.addEventListener('change', (event) => render(parseDateKey((event.target as HTMLInputElement).value)));
   document.querySelector('#theme-toggle')!.addEventListener('click', () => {
     setTheme(getTheme() === 'dark' ? 'light' : 'dark');
-    render(date);
-  });
-  document.querySelector<HTMLInputElement>('#prayer-book-toggle')?.addEventListener('change', (event) => {
-    setPrayerBookPreference((event.target as HTMLInputElement).checked);
     render(date);
   });
   document.querySelector('#today-button')!.addEventListener('click', () => render(new Date()));
