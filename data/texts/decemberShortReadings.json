@@ -1,0 +1,106 @@
+{
+  "17": {
+    "lauds": {
+      "ref": "Is 11:1-3",
+      "verified": false
+    },
+    "daytimePrayer": {
+      "ref": "Is 4:3",
+      "verified": false
+    },
+    "vespers": {
+      "ref": "1 Thes 5:23-24",
+      "verified": false
+    }
+  },
+  "18": {
+    "lauds": {
+      "ref": "Rom 13:11-12",
+      "verified": false
+    },
+    "daytimePrayer": {
+      "ref": "1 Thes 3:12-13",
+      "verified": false
+    },
+    "vespers": {
+      "ref": "Phil 4:4-5",
+      "verified": false
+    }
+  },
+  "19": {
+    "lauds": {
+      "ref": "Is 2:3",
+      "verified": false
+    },
+    "vespers": {
+      "ref": "Phil 3:20-21",
+      "verified": false
+    }
+  },
+  "20": {
+    "lauds": {
+      "ref": "Gn 49:10",
+      "verified": false
+    },
+    "daytimePrayer": {
+      "ref": "Jer 23:6",
+      "verified": false
+    }
+  },
+  "21": {
+    "lauds": {
+      "ref": "Is 7:14-15",
+      "verified": false
+    },
+    "daytimePrayer": {
+      "ref": "Is 12:2",
+      "verified": false
+    },
+    "vespers": {
+      "ref": "1 Thes 5:23-24",
+      "verified": false
+    }
+  },
+  "22": {
+    "lauds": {
+      "ref": "Is 45:8",
+      "verified": false
+    },
+    "daytimePrayer": {
+      "ref": "Hg 2:6, 9",
+      "verified": false
+    },
+    "vespers": {
+      "ref": "Jas 5:7-8, 9",
+      "verified": false
+    }
+  },
+  "23": {
+    "lauds": {
+      "ref": "Jer 30:21-22",
+      "verified": false
+    },
+    "daytimePrayer": {
+      "ref": "Jer 30:18",
+      "verified": false
+    },
+    "vespers": {
+      "ref": "2 Pt 3:8-9",
+      "verified": false
+    }
+  },
+  "24": {
+    "lauds": {
+      "ref": "Is 11:1-3",
+      "verified": false
+    },
+    "daytimePrayer": {
+      "ref": "Is 4:3",
+      "verified": false
+    },
+    "vespers": {
+      "ref": "Col 3:16",
+      "verified": false
+    }
+  }
+}

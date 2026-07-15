@@ -98,6 +98,30 @@ describe('short readings', () => {
     expect(lent.vespers.shortReading?.ref).toBe('Rom 12:1-2');
   });
 
+  it('resolves Dec 17-24 short readings by date, ahead of the ferial fallback (Phase 14 follow-up)', () => {
+    // 2024-12-18 is Wednesday of the 4th week of Advent under romcal's (unstable) week-based
+    // key - see SOURCES.md, "Advent/Lent proper short readings".
+    const weekday = resolveDate(new Date(2024, 11, 18));
+    expect(weekday.lauds.shortReading?.ref).toBe('Rom 13:11-12');
+    expect(weekday.vespers.shortReading?.ref).toBe('Phil 4:4-5');
+    expect(weekday.lauds.shortReading?.verified).toBe(false);
+
+    // 2033-12-17 is a Saturday whose date falls in the range; its Lauds/Daytime Prayer pick up
+    // the date override, but its own Vespers is superseded by First Vespers of the following
+    // Sunday (the existing Advent Saturday convention - see src/office.ts's
+    // saturdayBeginsSunday), so the override does not apply there.
+    const saturday = resolveDate(new Date(2033, 11, 17));
+    expect(saturday.lauds.effectiveDay.dayOfWeek).toBe('saturday');
+    expect(saturday.lauds.shortReading?.ref).toBe('Is 11:1-3');
+    expect(saturday.vespers.shortReading?.ref).not.toBe('1 Thes 5:23-24');
+
+    // 2028-12-17 is the 3rd Sunday of Advent - it keeps its own proper-of-seasons citation
+    // rather than the date override.
+    const sunday = resolveDate(new Date(2028, 11, 17));
+    expect(sunday.lauds.effectiveDay.dayOfWeek).toBe('sunday');
+    expect(sunday.lauds.shortReading?.ref).not.toBe('Is 11:1-3');
+  });
+
   it('uses sourced Easter proper readings and leaves an unavailable proper visible as missing', () => {
     const day = resolveDate(new Date(2024, 2, 31));
     expect(day.lauds.shortReading?.ref).toBe('Acts 10:40-43');

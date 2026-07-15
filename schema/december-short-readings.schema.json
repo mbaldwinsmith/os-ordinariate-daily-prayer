@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://personal-daily-prayer/schema/december-short-readings.schema.json",
+  "title": "Dec 17-24 short readings (data/texts/decemberShortReadings.json)",
+  "description": "Short-reading overrides for the 'greater ferias'/O Antiphon stretch, Dec 17-24, keyed by day-of-December (as a string). Distinct from proper-of-seasons because romcal's celebration key for these days isn't stable year to year - see SOURCES.md, 'Advent/Lent proper short readings'. Resolved by calendar date (src/decemberShortReadings.ts), the same way data/texts/oAntiphons.json is resolved by date rather than by key. Only the Hours actually overridden need to be present; a missing Hour falls back to whatever proper-of-seasons/ferial citation would otherwise apply. Sunday is excluded at resolution time in favour of that Sunday's own proper-of-seasons file, not modeled here.",
+  "type": "object",
+  "minProperties": 1,
+  "propertyNames": { "pattern": "^(1[7-9]|2[0-4])$" },
+  "additionalProperties": {
+    "type": "object",
+    "additionalProperties": false,
+    "minProperties": 1,
+    "properties": {
+      "lauds": { "$ref": "#/$defs/shortReading" },
+      "daytimePrayer": { "$ref": "#/$defs/shortReading" },
+      "vespers": { "$ref": "#/$defs/shortReading" }
+    }
+  },
+  "$defs": {
+    "shortReading": {
+      "type": "object",
+      "required": ["ref", "verified"],
+      "additionalProperties": false,
+      "properties": {
+        "ref": { "type": "string", "minLength": 1 },
+        "verified": { "type": "boolean" }
+      }
+    }
+  }
+}

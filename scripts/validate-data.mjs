@@ -33,6 +33,7 @@ const validators = {
   proper: loadSchema('proper.schema.json'),
   invitatoryAntiphons: loadSchema('invitatory-antiphons.schema.json'),
   oAntiphons: loadSchema('o-antiphons.schema.json'),
+  decemberShortReadings: loadSchema('december-short-readings.schema.json'),
   marianAntiphons: loadSchema('marian-antiphons.schema.json'),
   prayerBookPrayers: loadSchema('prayer-book-prayers.schema.json'),
   litanies: loadSchema('litanies.schema.json'),
@@ -104,6 +105,7 @@ const singleFileTargets = [
   [join(dataDir, 'texts', 'book-abbreviations.json'), validators.bookAbbreviations, {}],
   [join(dataDir, 'texts', 'invitatoryAntiphons.json'), validators.invitatoryAntiphons, {}],
   [join(dataDir, 'texts', 'oAntiphons.json'), validators.oAntiphons, {}],
+  [join(dataDir, 'texts', 'decemberShortReadings.json'), validators.decemberShortReadings, {}],
   [join(dataDir, 'texts', 'marianAntiphons.json'), validators.marianAntiphons, {}],
   [join(dataDir, 'texts', 'prayerBookPrayers.json'), validators.prayerBookPrayers, {}],
   [join(dataDir, 'texts', 'litanies.json'), validators.litanies, {}],
@@ -213,6 +215,16 @@ if (existsSync(bookAbbreviationsPath) && existsSync(drcPath)) {
     for (const [hourName, hour] of Object.entries(day)) {
       if (hourName !== 'verified' && hour.shortReading) {
         checkScriptureRef(path, `${hourName}.shortReading.ref`, hour.shortReading.ref);
+      }
+    }
+  }
+
+  const decemberShortReadingsPath = join(dataDir, 'texts', 'decemberShortReadings.json');
+  if (existsSync(decemberShortReadingsPath)) {
+    const decemberShortReadings = JSON.parse(readFileSync(decemberShortReadingsPath, 'utf8'));
+    for (const [day, hours] of Object.entries(decemberShortReadings)) {
+      for (const [hourName, reading] of Object.entries(hours)) {
+        checkScriptureRef(decemberShortReadingsPath, `${day}.${hourName}.ref`, reading.ref);
       }
     }
   }

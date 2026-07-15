@@ -21,10 +21,11 @@
 // "wednesdayOfThe4thWeekOfAdvent") that is NOT stable year to year - which week number Dec
 // 17-24 falls under shifts depending on where Christmas lands - while Breviarium models these
 // eight days as fixed dates independent of week number (its own ids are
-// "advent_december_17".."advent_december_24"). Mapping those onto an unstable romcal key would
-// silently be wrong in some years, so this is left for a future date-based (not
-// celebrationKey-based) resolution mechanism, the same way src/oAntiphon.ts already resolves
-// the O Antiphons themselves by date rather than by key.
+// "advent_december_17".."advent_december_24"). That stretch is instead covered by
+// scripts/generate-december-short-readings.mjs -> data/texts/decemberShortReadings.json,
+// resolved by calendar date via src/decemberShortReadings.ts (the same way src/oAntiphon.ts
+// already resolves the O Antiphons themselves by date rather than by key) rather than by
+// mapping onto this script's unstable-across-years celebrationKey files.
 //
 // Also deliberately omits `vespers` on Saturday files: in this app, Advent/Lent Saturdays
 // always resolve their Vespers as First Vespers of the following Sunday

@@ -484,17 +484,30 @@ retained or displayed.
 - **Coverage**: Advent weeks 1-3 (all 7 days) plus all 4 Advent Sundays; Lent weeks 1-5 (all 7
   days). 56 files total. Confirmed picked up correctly at runtime by `resolveDay` (see
   `src/shortReadings.test.ts`), not just schema-valid in isolation.
-- **Deliberately not covered - Dec 17-24 (the O Antiphon stretch)**: the version of `romcal`
-  this app depends on assigns those 8 days an ordinary week-based celebration key (e.g.
-  `wednesdayOfThe4thWeekOfAdvent`) that is **not stable year to year** - which week number Dec
-  17-24 falls under shifts depending on where Christmas lands in a given year (confirmed by
+- **Dec 17-24 (the O Antiphon stretch) - resolved by date, not celebration key**: the version
+  of `romcal` this app depends on assigns those 8 days an ordinary week-based celebration key
+  (e.g. `wednesdayOfThe4thWeekOfAdvent`) that is **not stable year to year** - which week number
+  Dec 17-24 falls under shifts depending on where Christmas lands in a given year (confirmed by
   diffing 2026 vs. 2027: Dec 22 was `tuesdayOfThe4thWeekOfAdvent` in one year and
   `wednesdayOfThe4thWeekOfAdvent` in the other). Breviarium, by contrast, models these as fixed
-  dates (`advent_december_17`..`advent_december_24`) independent of week number. Mapping
-  Breviarium's date-keyed citations onto romcal's unstable week-based key would silently
-  mis-assign them in some years, so this stretch is left for a future date-based (not
-  celebrationKey-based) resolution mechanism - the same way `src/oAntiphon.ts` already resolves
-  the O Antiphons themselves by date rather than by key.
+  dates (`advent_december_17`..`advent_december_24`) independent of week number, so mapping its
+  citations onto romcal's unstable week-based key would have silently mis-assigned them in some
+  years. Resolved instead with `scripts/generate-december-short-readings.mjs` →
+  `data/texts/decemberShortReadings.json`, a single date-keyed file (day-of-December `"17"`..
+  `"24"` → up to `lauds`/`daytimePrayer`/`vespers`), read by `src/decemberShortReadings.ts`
+  the same way `src/oAntiphon.ts` already resolves the O Antiphons themselves by date rather
+  than by key. `src/office.ts` gives this override priority over both the celebrationKey-based
+  proper and the ferial skeleton for every non-Sunday day in the range. Sunday is deliberately
+  excluded: a Sunday landing in this range is still that Sunday's own celebration (e.g. the 3rd
+  or 4th Sunday of Advent), so it keeps its own proper-of-seasons file rather than being
+  overridden here - romcal's stable Sunday keys were never the problem. Of the 24 possible
+  citations (8 dates x 3 hours), 2 (Dec 19 Daytime Prayer, Dec 20 Vespers) were marked
+  `(cfr.)`/approximate in the source and skipped per the existing parsing rule, leaving 22
+  populated. Every entry is `"verified": false` - single-sourced from Breviarium, same standing
+  as the Advent/Lent proper short readings above. A Saturday's own Vespers in this range still
+  correctly does not receive the override, since it's superseded by First Vespers of the
+  following Sunday (`src/office.ts`'s `saturdayBeginsSunday`) - unaffected by this change, and
+  still an open gap (see "Deliberately omits `vespers` on Saturday files" below).
 - **Deliberately omits `vespers` on Saturday files**: in this app, Advent/Lent Saturdays always
   resolve their Vespers as First Vespers of the following Sunday
   (`src/office.ts`'s `saturdayBeginsSunday`), which reads the Sunday proper's
