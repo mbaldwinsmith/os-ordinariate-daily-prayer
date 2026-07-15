@@ -19,6 +19,7 @@ import { resolveScriptureRef } from './scripture';
 import { resolveInvitatoryAntiphon, type InvitatoryAntiphon } from './invitatory';
 import { resolveOAntiphon, type OAntiphon } from './oAntiphon';
 import { resolveMarianAntiphon, type MarianAntiphon } from './complineAntiphon';
+import { resolveDecemberShortReading } from './decemberShortReadings';
 
 type GospelCanticleId = 'benedictus' | 'magnificat' | 'nuncDimittis';
 
@@ -152,8 +153,10 @@ export function resolveDay(day: OfficeDay): DayView | null {
     HOUR_NAMES.map((hourName) => {
       const hourProper = hourName === 'vespers' && firstVespers ? vespersProper?.hours?.firstVespers : proper?.hours?.[hourName];
       const psalmody = hourProper?.psalmody ?? ferialHours[hourName]?.psalmody;
-      const shortReading = hourProper?.shortReading ?? ferialHours[hourName]?.shortReading;
       const effectiveDay = hourName === 'vespers' ? vespersDay : day;
+      // Dec 17-24 overrides win over both the celebrationKey-based proper and the ferial
+      // skeleton - see src/decemberShortReadings.ts for why celebrationKey isn't safe here.
+      const shortReading = resolveDecemberShortReading(effectiveDay, hourName) ?? hourProper?.shortReading ?? ferialHours[hourName]?.shortReading;
       const vespersKind = hourName === 'vespers' ? (firstVespers ? 'first' : day.dayOfWeek === 'sunday' || day.rank === 'solemnity' ? 'second' : null) : null;
       return [hourName, resolveHourContent(psalmody!, hourName, effectiveDay, vespersKind, shortReading)];
     }),

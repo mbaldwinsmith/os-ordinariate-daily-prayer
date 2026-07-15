@@ -611,12 +611,20 @@ fully is a much larger transcription job than the psalter, so sequence it:
             1-3 + all 4 Sundays; Lent weeks 1-5, all keyed by romcal's stable
             celebration keys, no code changes needed) - see SOURCES.md,
             "Advent/Lent proper short readings"
-            - [ ] Follow-up: the Dec 17-24 O-Antiphon stretch is still
-                  uncovered - romcal's celebration key for those days isn't
-                  stable year to year, so a date-based (not celebrationKey-
-                  based) resolution mechanism is needed first, the same way
-                  `src/oAntiphon.ts` already resolves the O Antiphons
-                  themselves by date
+            - [x] Follow-up: the Dec 17-24 O-Antiphon stretch is now covered
+                  via a date-based (not celebrationKey-based) resolution
+                  mechanism, the same way `src/oAntiphon.ts` already resolves
+                  the O Antiphons themselves by date -
+                  `scripts/generate-december-short-readings.mjs` generates
+                  `data/texts/decemberShortReadings.json` (8 dates x up to 3
+                  Hours) and `src/decemberShortReadings.ts` resolves it by
+                  calendar date, taking priority over both the
+                  celebrationKey-based proper and the ferial skeleton in
+                  `src/office.ts`. Sunday is excluded (that Sunday keeps its
+                  own proper-of-seasons file); 2 of 24 Breviarium citations
+                  were skipped as `(cfr.)` (approximate). Every entry is
+                  `"verified": false`, same single-sourced standing as the
+                  Advent/Lent proper short readings above.
             - [ ] Follow-up: Sunday First Vespers and Saturday's own Vespers
                   for Advent/Lent remain unpopulated - Breviarium's
                   Saturday-keyed Vespers entry isn't verified to be the same

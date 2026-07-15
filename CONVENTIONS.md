@@ -190,6 +190,12 @@ verse and stored without the clause suffix (for example `Am 5:8, 9b` becomes
 `Am 5:8-9`). Discontiguous and cross-chapter references use the comma-separated syntax
 documented above.
 
+Dec 17-24 (the O Antiphon stretch) is the one short-reading override resolved by calendar
+date rather than by proper-of-seasons celebration key, for the same reason as the O
+Antiphons themselves - see "Antiphons" below and SOURCES.md. `src/decemberShortReadings.ts`
+takes priority over both the celebrationKey-based proper and the ferial fallback for every
+non-Sunday day in the range; a Sunday keeps its own proper-of-seasons file instead.
+
 ## Prayer Book prayer supplement
 
 The Prayer Book layer is an Anglican-patrimony devotional supplement, not the appointed
