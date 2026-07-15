@@ -815,6 +815,26 @@ and leave the underlying code dormant in case it's wanted again later.
       `npm run build`; manually verify no toggle appears and no Prayer Book content
       renders on any Hour
 
+---
+
+## Phase 18 — Restore Prayer Book prayers as an always-on layer
+
+Phase 17 went further than intended: removing the toggle shouldn't have meant removing
+the content. Restore the render call so the supplement always appears, without
+reintroducing a toggle or preference.
+
+- [x] Reinstate the `renderPrayerBook` render call in `renderHour` (with the restored
+      `dayOfWeek` parameter) so the supplement renders unconditionally for every Hour
+- [x] Reinstate the `.prayer-book` and `.supplement-note` rules in `src/style.css`
+      (the toggle-specific `.prayer-book-toggle` rule stays removed — there is no toggle)
+- [x] Delete `src/prayerBookPreference.ts` and its dedicated test — an always-on layer
+      has no preference to store
+- [x] Update `CONVENTIONS.md`, `README.md`, and `INTEGRATION.md` to describe the layer
+      as always-on with no toggle, rather than dormant
+- [x] Run `npx tsc --noEmit`, `npx vitest run`, `npm run validate:data`, and
+      `npm run build`; manually verify Prayer Book content renders on every Hour with no
+      toggle in the header
+
 ## Notes / Open Questions to Resolve Early
 
 - Confirm exactly how the 4-week psalter cycle behaves across Lent/Easter/Advent — worth

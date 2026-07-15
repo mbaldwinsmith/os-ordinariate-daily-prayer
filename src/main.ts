@@ -2,6 +2,7 @@ import './style.css';
 import { getOfficeDay, type DayOfWeek } from './calendar';
 import { resolveDay, type DayView, type HourView, type ReadingsView } from './office';
 import { getTheme, setTheme, watchSystemTheme } from './theme';
+import { resolvePrayerBook } from './prayerBook';
 import { listLitanies } from './litanies';
 
 const DAY_LABELS: Record<DayOfWeek, string> = {
@@ -86,6 +87,10 @@ function renderDevotionalItem(item: DevotionalItem): string {
   return `<section class="devotional-item"><h4>${item.title}</h4>${responses}${text}</section>`;
 }
 
+function renderPrayerBook(hour: HourKey, dayOfWeek: DayOfWeek): string {
+  return `<section class="text-section prayer-book"><p class="eyebrow">Prayer Book prayers</p><p class="supplement-note">Anglican-patrimony supplement; not the appointed Roman intercessions.</p>${resolvePrayerBook(hour, dayOfWeek).map(renderDevotionalItem).join('')}</section>`;
+}
+
 function renderLitanies(): string {
   const litanies = listLitanies();
   const selected = litanies.find((item) => item.title === selectedLitanyId) ?? litanies[0];
@@ -98,7 +103,7 @@ function renderLitanies(): string {
   </div>`;
 }
 
-function renderHour(label: string, hour: HourView, day: DayView): string {
+function renderHour(label: string, hour: HourView, day: DayView, dayOfWeek: DayOfWeek): string {
   const hourLabel = hour.vespersKind === 'first'
     ? `First Vespers of ${hour.effectiveDay.celebrationName}`
     : hour.vespersKind === 'second' ? `Second ${label}` : label;
@@ -122,7 +127,7 @@ function renderHour(label: string, hour: HourView, day: DayView): string {
       : '';
   return `<article class="office"><header class="office-heading"><p class="eyebrow">The Daily Office</p><h2>${hourLabel}</h2></header>
     ${invitatory}${hour.psalmody.map(renderPsalmodyItem).join('')}
-    ${selectedHour === 'officeOfReadings' ? renderReadings(day.readings) : shortReading}${oAntiphon}${gospelCanticle}${complineAntiphon}
+    ${selectedHour === 'officeOfReadings' ? renderReadings(day.readings) : shortReading}${oAntiphon}${gospelCanticle}${complineAntiphon}${renderPrayerBook(selectedHour, dayOfWeek)}
   </article>`;
 }
 
@@ -149,7 +154,7 @@ function renderImpl(date: Date): void {
   const litaniesTab = `<button role="tab" class="litanies-tab" data-view="litanies" aria-selected="${view === 'litanies'}" aria-controls="litanies-panel" aria-label="Litanies and devotions" title="Litanies and devotions">🙏</button>`;
   const dayContent = day
     ? `${day.verified ? '' : '<aside class="source-warning">This psalter assignment is an unverified best-effort reconstruction. See SOURCES.md.</aside>'}
-       <div id="office-panel" role="tabpanel">${renderHour(activeLabel, day[selectedHour], day)}</div>`
+       <div id="office-panel" role="tabpanel">${renderHour(activeLabel, day[selectedHour], day, officeDay.dayOfWeek)}</div>`
     : '<p role="alert" class="notice">This day is not populated yet.</p>';
   const officeControls = view === 'office'
     ? `<section class="date-controls" aria-label="Date navigation">

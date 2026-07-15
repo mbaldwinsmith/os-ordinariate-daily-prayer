@@ -103,8 +103,8 @@ document.querySelector('#focus-prev')?.addEventListener('click', () => stepHour(
 document.querySelector('#focus-next')?.addEventListener('click', () => stepHour(1));
 ```
 
-That’s all. Day/date navigation, theme toggle, and the liturgical data flow are
-unchanged.
+That’s all. Day/date navigation, theme toggle, Prayer Book prayers and the
+liturgical data flow are unchanged.
 
 ---
 
