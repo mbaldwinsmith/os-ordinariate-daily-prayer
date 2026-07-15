@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { getOfficeDay } from './calendar';
-import { resolveDay, resolveHour } from './office';
+import { precedenceAllowsWeekdayFirstVespers, resolveDay, resolveHour } from './office';
 
 function resolveDayOrThrow(date: Date) {
   const day = resolveDay(getOfficeDay(date));
@@ -187,5 +187,58 @@ describe('resolveDay', () => {
   it('resolves a fixed-date proper-of-saints first reading', () => {
     const day = resolveDayOrThrow(new Date(2024, 7, 15)); // The Assumption.
     expect(day.readings?.scriptureReading.ref).toBe('Rv 12');
+  });
+
+  it('gives Holy Saturday an honestly empty Vespers rather than crashing or fabricating a "First Vespers of Easter"', () => {
+    // Holy Saturday is the one Saturday whose "tomorrow" (Easter Sunday) has
+    // neither a skeleton entry (psalterWeek 'easter' has none) nor a proper
+    // firstVespers override - so it must not defer to Sunday like an
+    // ordinary Saturday would, and there is no ferial Vespers row of its
+    // own to fall back to either (see saturdayBeginsSunday's doc comment).
+    const holySaturday = resolveDayOrThrow(new Date(2024, 2, 30));
+    expect(holySaturday.vespers.psalmody).toEqual([]);
+    expect(holySaturday.vespers.effectiveDay.date).toBe('2024-03-30');
+    // The rest of the day is unaffected - only Vespers has no source.
+    expect(holySaturday.officeOfReadings.psalmody.length).toBeGreaterThan(0);
+    expect(holySaturday.lauds.psalmody.length).toBeGreaterThan(0);
+    expect(holySaturday.daytimePrayer.psalmody.length).toBeGreaterThan(0);
+    expect(holySaturday.compline.psalmody.length).toBeGreaterThan(0);
+  });
+
+  it('does not switch Vespers to a weekday solemnity that has no sourced firstVespers content', () => {
+    // 2022-08-15 (the Assumption) fell on a Monday, preceded by an Ordinary
+    // Time Sunday - precedence would allow First Vespers here, but no
+    // proper-of-saints file has a `firstVespers` entry yet, so this must
+    // stay dormant rather than fabricate a Sunday-evening transition.
+    const sunday = resolveDayOrThrow(new Date(2022, 7, 14));
+    expect(sunday.vespers.effectiveDay.date).toBe('2022-08-14');
+    expect(sunday.vespers.vespersKind).toBe('second');
+  });
+});
+
+describe('precedenceAllowsWeekdayFirstVespers', () => {
+  it('lets an ordinary weekday defer to the next day\'s solemnity', () => {
+    const tuesday = getOfficeDay(new Date(2024, 0, 16)); // ordinary Tuesday, Week II
+    expect(precedenceAllowsWeekdayFirstVespers(tuesday)).toBe(true);
+  });
+
+  it('lets an Ordinary Time Sunday defer to the next day\'s solemnity', () => {
+    // 2022-08-14: 20th Sunday of Ordinary Time, the day before the Assumption.
+    const sunday = getOfficeDay(new Date(2022, 7, 14));
+    expect(sunday.rank).toBe('solemnity');
+    expect(sunday.season).toBe('ordinaryTime');
+    expect(precedenceAllowsWeekdayFirstVespers(sunday)).toBe(true);
+  });
+
+  it('keeps a privileged-season Sunday\'s own Vespers instead of deferring', () => {
+    const lentSunday = getOfficeDay(new Date(2024, 1, 25)); // 1st Sunday of Lent 2024
+    expect(lentSunday.season).toBe('lent');
+    expect(precedenceAllowsWeekdayFirstVespers(lentSunday)).toBe(false);
+  });
+
+  it('conservatively keeps a solemnity\'s own Vespers when its eve is itself a (non-Sunday) solemnity', () => {
+    const assumption = getOfficeDay(new Date(2026, 7, 15)); // a Saturday, not a Sunday
+    expect(assumption.rank).toBe('solemnity');
+    expect(precedenceAllowsWeekdayFirstVespers(assumption)).toBe(false);
   });
 });

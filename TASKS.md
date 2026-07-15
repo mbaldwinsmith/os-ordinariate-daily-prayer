@@ -363,20 +363,55 @@ instead of the coming Sunday's office even when its short reading is present.
 - [x] Resolve ordinary Saturday Vespers from the following Sunday's celebration, season,
       psalter week, and proper data
 - [~] Add First Vespers for solemnities that possess them, sourced and verified under the
-      same no-fabrication rules as the rest of the project
-- [~] Define and document precedence when celebrations collide, including Saturday
+      same no-fabrication rules as the rest of the project — the general (non-Saturday)
+      mechanism is now implemented and wired into `resolveDay` (`src/office.ts`'s
+      `precedenceAllowsWeekdayFirstVespers`, triggered whenever a following day's proper
+      carries sourced `hours.firstVespers` content), but no `data/proper-of-saints/` file
+      has that content yet - populating actual Vespers-I psalmody per solemnity needs a
+      verifiable source this session couldn't reach (see CONVENTIONS.md), so the mechanism
+      is real but currently dormant, same posture as the Easter octave was pre-Phase-8
+- [x] Define and document precedence when celebrations collide, including Saturday
       solemnity versus Sunday First Vespers, competing solemnities, transferred
       celebrations, and local-calendar differences; prefer romcal's precedence data where
-      it is sufficient rather than maintaining a second independent ranking system
+      it is sufficient rather than maintaining a second independent ranking system — the
+      Saturday/Sunday rule is generalised to any weekday solemnity in
+      `precedenceAllowsWeekdayFirstVespers` (CONVENTIONS.md, "First Vespers of a weekday
+      solemnity"); transferred celebrations need no extra handling since romcal's own
+      transfer logic already relocates the celebration key (verified against romcal's
+      output for the Annunciation across several Holy-Week-collision years); two
+      solemnities/Sundays colliding on adjacent days remains an explicit, documented,
+      conservative fallback rather than a modelled precedence table - genuinely out of
+      scope without richer local-calendar data
 - [x] Decide Compline ownership after First Vespers and document whether Saturday/solemnity
       Compline follows the preceding civil day or the newly begun liturgical celebration
 - [x] Display the transition explicitly in the UI, for example “First Vespers of the
       Fifteenth Sunday in Ordinary Time,” rather than silently substituting tomorrow's data
-- [~] Add unit tests for ordinary Saturdays, Sunday and solemnity First Vespers, transferred
+- [x] Add unit tests for ordinary Saturdays, Sunday and solemnity First Vespers, transferred
       celebrations, precedence collisions, Advent/Christmas/Lent/Easter boundaries, and
-      the year-cycle boundary
+      the year-cycle boundary — `precedenceAllowsWeekdayFirstVespers` is covered directly
+      in `src/office.test.ts` (ordinary weekday, Ordinary Time Sunday, privileged-season
+      Sunday, and a non-Sunday solemnity eve), plus an end-to-end test confirming a real
+      weekday-solemnity date (Assumption 2022, a Monday preceded by an Ordinary Time
+      Sunday) correctly stays dormant with no sourced content yet; a new
+      `src/calendar.test.ts` case confirms romcal transfers the Annunciation off its usual
+      date in a Holy-Week-collision year; the Saturday-specific cases and the year-cycle
+      boundary were already covered by pre-existing tests
 - [x] Extend the production-browser smoke test to exercise First Vespers navigation and
       confirm that switching between Hours does not change the selected civil date
+
+**Bug found and fixed while generalising this mechanism:** Holy Saturday's Vespers threw
+an unhandled `TypeError` at runtime every year. Easter Sunday is the one Sunday with
+neither a skeleton `firstVespers` entry nor a proper one, so the existing (pre-this-pass)
+`saturdayBeginsSunday` rule sent Holy Saturday looking for content that didn't exist
+anywhere. Caught by a new broad regression test (`src/annualSmoke.test.ts`, resolving
+every civil date of a full year) added specifically because this generalisation touched
+the "always compute tomorrow" code path for every day rather than just Saturdays - that
+test also caught a second, unrelated pre-existing bug: a `"1 Sam"` vs `"1 Sm"` book
+abbreviation typo in the Song of Hannah canticle reference, from an incomplete
+book-abbreviation table in `scripts/psalter-reference.mjs` (fixed there and regenerated,
+not hand-edited in the generated file). Both are real production bugs that predate this
+pass, not regressions it introduced - see CONVENTIONS.md for the Holy Saturday fix's
+rationale.
 
 ---
 

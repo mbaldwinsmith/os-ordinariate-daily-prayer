@@ -246,6 +246,44 @@ in Advent, Lent, or Easter; this conservative collision rule is explicit pending
 local-calendar and transfer support. The selected civil date does not change. Compline
 after First Vespers remains the Saturday entry in the seven-day cycle, following the
 traditional Night Prayer I pattern rather than inheriting Sunday's civil-day entry.
+
+### First Vespers of a weekday solemnity
+
+The Saturday/Sunday rule above is one instance of a more general one: a solemnity's
+First Vespers displaces the eve's own Vespers unless the eve already outranks it, per
+GILH's table of liturgical days. `src/office.ts`'s `precedenceAllowsWeekdayFirstVespers`
+implements the mirror-image case for a fixed-date solemnity landing on any day of the
+week, not just Sunday - an ordinary weekday/feast/memorial always defers; a Sunday eve
+defers unless it is itself privileged (Advent/Lent/Easter); two solemnities (or a
+solemnity-eve landing on another solemnity) colliding on adjacent days is a real but rare
+case this app's five-value rank vocabulary can't further order, so it conservatively
+keeps the eve's own Vespers rather than guess - the same posture as the Saturday rule.
+This deliberately reuses romcal's existing rank/season data rather than introducing a
+second precedence system (romcal's own transfer logic already relocates a solemnity like
+the Annunciation when it collides with Holy Week or the Easter octave, so
+`resolveProperEntry`'s celebration-key lookup picks up the transferred date for free,
+with no extra code needed - confirmed against romcal's actual output for several years
+where March 25 falls in Holy Week).
+
+The precedence check only ever fires when the next day's proper actually carries a
+sourced `hours.firstVespers` entry - there is no ferial fallback for a weekday the
+four-week skeleton never anticipates. As of this writing no `data/proper-of-saints/`
+file has that content yet (populating it needs verified Vespers-I psalmody per
+solemnity, not yet sourced - see TASKS.md), so the mechanism is a tested but currently
+dormant structural gap-closer, exactly like the Easter-octave proper override was before
+Phase 8 populated it.
+
+**Holy Saturday is the one real exception to the Saturday rule**, found while
+generalising it: Easter Sunday is the sole Sunday in the whole cycle with neither a
+skeleton `firstVespers` entry (psalterWeek `'easter'` has none) nor a proper one, so
+Holy Saturday must not defer to it the way an ordinary Saturday defers to any other
+Sunday - there would be nothing there to render. `resolveDay` guards the transition on
+that content actually existing, and `resolveHourContent` tolerates a genuinely absent
+psalmody (returning an empty array) rather than crashing, which is what happened before
+this guard existed - Holy Saturday's Vespers threw at runtime on every visit. This
+matches GILH's own rule that Evening Prayer is not separately celebrated by those
+keeping the Easter Vigil, so an honest, explicit absence (surfaced in the UI, not just a
+blank section) is correct here, not merely a workaround.
 Compline is stored once as a seven-day cycle in `data/psalter/compline.json`, together
 with the default invitatory Psalm 95 and its permitted alternatives (100, 67, and 24).
 The four canonical seasonal Office-of-Readings forks select their strong-season branch

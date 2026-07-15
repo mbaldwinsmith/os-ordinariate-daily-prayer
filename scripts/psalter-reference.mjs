@@ -1,4 +1,4 @@
-const BOOKS = { Dan: 'Dn', Exod: 'Ex', Deut: 'Dt', Tobit: 'Tb', Judith: 'Jdt', Isa: 'Is', Hab: 'Hb', Sirach: 'Sir', Ezek: 'Ez', Rev: 'Rv', Peter: 'Pt', Thess: 'Thes' };
+const BOOKS = { Dan: 'Dn', Exod: 'Ex', Deut: 'Dt', Tobit: 'Tb', Judith: 'Jdt', Isa: 'Is', Hab: 'Hb', Sirach: 'Sir', Ezek: 'Ez', Rev: 'Rv', Peter: 'Pt', Thess: 'Thes', Sam: 'Sm' };
 
 export function normalizePsalmRef(ref) {
   return ref.replace(/([0-9])([abc])\b/g, '$1').replace(/Ps (\d+):([^;]+);\s*/g, 'Ps $1:$2, ');

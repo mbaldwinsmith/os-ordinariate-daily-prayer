@@ -84,10 +84,17 @@ function resolvePsalmody(psalmody: PsalmodyItem[]): ResolvedPsalmodyItem[] {
   });
 }
 
-function resolveHourContent(psalmody: PsalmodyItem[], hourName: HourName, effectiveDay: OfficeDay, vespersKind: HourView['vespersKind'], reading?: { ref: string; verified: boolean }): HourView {
+function resolveHourContent(psalmody: PsalmodyItem[] | undefined, hourName: HourName, effectiveDay: OfficeDay, vespersKind: HourView['vespersKind'], reading?: { ref: string; verified: boolean }): HourView {
   const gospelId = GOSPEL_CANTICLE_BY_HOUR[hourName];
   return {
-    psalmody: resolvePsalmody(psalmody),
+    // Empty only for Holy Saturday's Vespers: it has no ferial row of its
+    // own (see saturdayBeginsSunday's doc comment) and, uniquely among
+    // Sundays, Easter Sunday supplies neither a skeleton nor a proper
+    // firstVespers to defer to (see the Easter-octave guard in resolveDay).
+    // GILH itself says Vespers is not separately celebrated by those
+    // keeping the Vigil, so an honest absence here beats a crash or a
+    // fabricated psalm selection.
+    psalmody: psalmody ? resolvePsalmody(psalmody) : [],
     shortReading: reading ? { ...reading, ...resolveScriptureRef(reading.ref) } : null,
     gospelCanticle: gospelId ? fixedCanticles[gospelId] : null,
     effectiveDay,
@@ -111,10 +118,36 @@ function nextCivilDay(day: OfficeDay): OfficeDay {
   return getOfficeDay(new Date(year, month - 1, date + 1));
 }
 
+/**
+ * True when `day`'s own Second Vespers gives way to the following Sunday's
+ * First Vespers: always for an ordinary Saturday, and for a Saturday
+ * solemnity only when the Sunday itself is privileged (Advent/Lent/Easter).
+ * A privileged Sunday outranks any solemnity; an Ordinary Time Sunday does
+ * not (GILH's table of liturgical days) - see CONVENTIONS.md.
+ */
 function saturdayBeginsSunday(day: OfficeDay, sunday: OfficeDay): boolean {
   if (day.dayOfWeek !== 'saturday') return false;
   if (day.rank !== 'solemnity') return true;
   return ['advent', 'lent', 'easter'].includes(sunday.season);
+}
+
+/**
+ * The mirror-image rule for a fixed-date solemnity landing on a day other
+ * than Sunday: its First Vespers displaces the eve's own Vespers unless the
+ * eve already outranks it. An ordinary weekday/feast/memorial never
+ * outranks a solemnity, so it always defers. A Sunday eve defers unless it
+ * is itself privileged (Advent/Lent/Easter). Two solemnities (or a Sunday
+ * and a solemnity's eve landing on another solemnity) colliding on adjacent
+ * days - both ranked 'solemnity' here - is a real but rare case this app's
+ * five-value rank vocabulary can't further order; it conservatively keeps
+ * the eve's own Vespers rather than guess. See CONVENTIONS.md. Callers must
+ * separately confirm the following day's proper actually carries sourced
+ * `firstVespers` content before honouring this - there is no ferial
+ * fallback for a weekday the four-week skeleton never anticipates.
+ */
+export function precedenceAllowsWeekdayFirstVespers(day: OfficeDay): boolean {
+  if (day.rank !== 'solemnity') return true;
+  return day.dayOfWeek === 'sunday' && !['advent', 'lent', 'easter'].includes(day.season);
 }
 
 /**
@@ -125,14 +158,20 @@ function saturdayBeginsSunday(day: OfficeDay, sunday: OfficeDay): boolean {
 export function resolveDay(day: OfficeDay): DayView | null {
   const proper = resolveProperEntry(day);
   const skeleton = resolvePsalterDay(day.psalterWeek, day.dayOfWeek);
-  const tomorrow = day.dayOfWeek === 'saturday' ? nextCivilDay(day) : null;
-  const firstVespers = tomorrow ? saturdayBeginsSunday(day, tomorrow) : false;
-  const vespersDay = firstVespers ? tomorrow! : day;
-  const vespersProper = firstVespers ? resolveProperEntry(vespersDay) : proper;
+  const tomorrow = nextCivilDay(day);
+  const tomorrowProper = resolveProperEntry(tomorrow);
   // Saturday has no ferial Vespers row. A Saturday solemnity can supply its
   // proper reading while retaining the following Sunday's First-Vespers
   // psalmody as the existing best-effort structural fallback.
-  const saturdaySundaySkeleton = tomorrow ? resolvePsalterDay(tomorrow.psalterWeek, 'sunday') : null;
+  const saturdaySundaySkeleton = tomorrow.dayOfWeek === 'sunday' ? resolvePsalterDay(tomorrow.psalterWeek, 'sunday') : null;
+  const firstVespers = tomorrow.dayOfWeek === 'sunday'
+    // Easter Sunday is the one Sunday with neither a skeleton entry
+    // (psalterWeek 'easter' has none) nor a proper firstVespers override,
+    // so Holy Saturday must NOT defer to it - there would be nothing there.
+    ? saturdayBeginsSunday(day, tomorrow) && Boolean(saturdaySundaySkeleton?.firstVespers ?? tomorrowProper?.hours?.firstVespers)
+    : Boolean(tomorrowProper?.hours?.firstVespers) && precedenceAllowsWeekdayFirstVespers(day);
+  const vespersDay = firstVespers ? tomorrow : day;
+  const vespersProper = firstVespers ? tomorrowProper : proper;
   const vespersSkeleton = firstVespers ? saturdaySundaySkeleton : skeleton;
 
   if (!skeleton && !HOUR_NAMES.every((hourName) => proper?.hours?.[hourName])) return null;
@@ -158,7 +197,7 @@ export function resolveDay(day: OfficeDay): DayView | null {
       // skeleton - see src/decemberShortReadings.ts for why celebrationKey isn't safe here.
       const shortReading = resolveDecemberShortReading(effectiveDay, hourName) ?? hourProper?.shortReading ?? ferialHours[hourName]?.shortReading;
       const vespersKind = hourName === 'vespers' ? (firstVespers ? 'first' : day.dayOfWeek === 'sunday' || day.rank === 'solemnity' ? 'second' : null) : null;
-      return [hourName, resolveHourContent(psalmody!, hourName, effectiveDay, vespersKind, shortReading)];
+      return [hourName, resolveHourContent(psalmody, hourName, effectiveDay, vespersKind, shortReading)];
     }),
   ) as Record<HourName, HourView>;
 

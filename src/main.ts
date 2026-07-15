@@ -125,8 +125,14 @@ function renderHour(label: string, hour: HourView, day: DayView, dayOfWeek: DayO
     selectedHour === 'compline'
       ? `<section class="text-section antiphon"><p class="eyebrow">Marian antiphon</p><h3>${day.complineAntiphon.name}</h3><p class="verification-note">Awaiting a source with clearer licensing - see SOURCES.md.</p><p>${day.complineAntiphon.english}</p></section>`
       : '';
+  const psalmody = hour.psalmody.length > 0
+    ? hour.psalmody.map(renderPsalmodyItem).join('')
+    // Holy Saturday's Vespers is the one Hour with no source at all - see
+    // src/office.ts's resolveHourContent - rather than the Prayer of the
+    // Church section going silently blank.
+    : selectedHour === 'vespers' ? '<p class="notice">Evening Prayer is not separately celebrated on Holy Saturday; it is anticipated by the Easter Vigil.</p>' : '';
   return `<article class="office"><header class="office-heading"><p class="eyebrow">The Daily Office</p><h2>${hourLabel}</h2></header>
-    ${invitatory}${hour.psalmody.map(renderPsalmodyItem).join('')}
+    ${invitatory}${psalmody}
     ${selectedHour === 'officeOfReadings' ? renderReadings(day.readings) : shortReading}${oAntiphon}${gospelCanticle}${complineAntiphon}${renderPrayerBook(selectedHour, dayOfWeek)}
   </article>`;
 }
