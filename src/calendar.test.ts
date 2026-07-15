@@ -91,4 +91,16 @@ describe('getOfficeDay', () => {
     expect(day.weekOfSeason).toBe(1);
     expect(day.psalterWeek).toBe(1);
   });
+
+  it('lets romcal transfer the Annunciation off its usual date when it collides with Holy Week/Easter', () => {
+    // In 2024 March 25th itself falls on the Monday of Holy Week, so romcal
+    // relocates the Annunciation to the first available day after the
+    // Easter octave rather than keeping it on its usual date. This matters
+    // because src/proper.ts looks celebrations up by celebrationKey, not by
+    // calendar date - so a transferred solemnity is picked up automatically,
+    // with no extra transfer logic of this app's own needed (see
+    // CONVENTIONS.md, "First Vespers of a weekday solemnity").
+    expect(getOfficeDay(new Date(2024, 2, 25)).celebrationKey).not.toBe('annunciation');
+    expect(getOfficeDay(new Date(2024, 3, 8)).celebrationKey).toBe('annunciation');
+  });
 });
