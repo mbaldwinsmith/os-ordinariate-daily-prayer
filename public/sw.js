@@ -1,7 +1,7 @@
 // Cache-first service worker. All content is static/bundled at build time,
 // so once an asset is cached it is served from cache and only re-fetched
 // on a cache-name bump (see CACHE_NAME below).
-const CACHE_NAME = 'ordinariate-daily-prayer-v5';
+const CACHE_NAME = 'ordinariate-daily-prayer-v6';
 
 const APP_SHELL = [
   './',
